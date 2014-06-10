@@ -1,9 +1,24 @@
+title: piqi学习
+date: 2014-06-09 18:18:30
+updated : 
+permalink: abc
+tags:
+- 模板
+- 日记
+categories:
+- 日志
+- 第一天
+
+---
 #piqi学习   
-*目标一：·piqi是什么  
-*目标二：piqi与FHIR整合的可能性评估  
-*目标三：piqi用在文档内容校验上的可能性 
-*目标四：基于piqi的消息引擎的设计
-*
+*目标一：·piqi是什么   
+
+ *目标二：piqi与FHIR整合的可能性评估    
+     
+*目标三：piqi用在文档内容校验上的可能性  
+  
+*目标四：基于piqi的消息引擎的设计      
+
 ##piqi FAQ
 *1. piq和JSON的区别在哪里  
 Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human interaction, whereas JSON is a standard, portable and reasonably efficient way of representing structured data.  

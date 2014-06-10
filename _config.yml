@@ -80,7 +80,7 @@ loserdeworld.com:
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
-theme: pacman
+theme: jacman
 exclude_generator:
 
 # Markdown
