@@ -1,17 +1,10 @@
-1.在根目录新增文件.gitmodules 再次提交源码到master ,hexo d部署到gh-pages 显示部署成功
-```
-[submodule " themes/jacman"]
-      path = themes/jacman
-      url = https://github.com/wanghaisheng/jacman.git
-```
-2.安装git nodejs hexo  
+1.安装git nodejs hexo  
 
-
-3.执行  
+2.执行  
 ```
 npm install
 ```
-3.安装theme  
+3.安装各种主题theme ，这里我是fork的jacman的版本 对其进行了一些简单的修改而已。   
 
 ```
 git clone https://github.com/wanghaisheng/jacman.git  themes/jacman  
