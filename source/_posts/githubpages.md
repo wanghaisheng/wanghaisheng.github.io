@@ -1,9 +1,8 @@
 title: Github pages 个人主页和项目主页的不同设置
-date: 2014-06-24 21:18:57
+date: 2014-06-25 22:05:57
 tags:
 - Github pages
-- Github
--博客建设
+- 博客
 categories:
 - 日志
 
