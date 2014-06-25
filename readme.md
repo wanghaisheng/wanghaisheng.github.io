@@ -4,3 +4,12 @@
       path = themes/jacman
       url = https://github.com/wanghaisheng/jacman.git
 ```
+2.安装git nodejs hexo
+3.安装theme
+git clone https://github.com/wanghaisheng/jacman.git  themes/jacman
+4.本地测试
+hexo g
+hexo s
+就可以在浏览器上键入localhost:4000
+5 发布到远程分支 
+hexo d
