@@ -19,3 +19,5 @@ hexo s
 
 5 发布到远程分支   
 hexo d 
+
+[demo:海生的世界](http://wanghaisheng.github.io/)
