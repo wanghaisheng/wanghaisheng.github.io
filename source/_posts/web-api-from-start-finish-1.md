@@ -127,7 +127,7 @@ infoQ上另外一篇文章[不同api版本控制策略的成本分析](http://ww
 * 2、每个服务的版本都可以在生产环境中使用，客户端按需来就行![](second-type-version.png)
 * 3、有多个版本存在，所有消费端都使用最新的一个版本，版本是向后兼容的![](third-type-version.png)
 
-[成本分析图](version-type-cost.png)显示向后兼容的版本策略最划算
+![成本分析图](version-type-cost.png)显示向后兼容的版本策略最划算
 
 
 
