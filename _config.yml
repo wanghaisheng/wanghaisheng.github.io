@@ -102,6 +102,6 @@ stylus:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repo: https://github.com/wanghaisheng/wanghaisheng.github.io.git
   branch: master
