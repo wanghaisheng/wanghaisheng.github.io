@@ -1,7 +1,7 @@
 title:	<微服务架构在Netflix的应用>系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训
-date: 2015-03-23 11:17:12
-updated	: 
-permalink: 
+date: 2015-03-23 11:37:12
+updated	:
+permalink:
 tags:
 - 日记
 - 架构
@@ -22,23 +22,18 @@ categories:
 <微服务架构在Netflix的应用>系列博文-共四篇
 
 英文版： [第一部分： The Four-Tier Engagement Platform]((http://blogs.forrester.com/ted_schadler/13-11-20-mobile_needs_a_four_tier_engagement_platform/)
-中文版：
-[第一部分：移动应用所需要的四层架构/](http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture)
+中文版：[第一部分：移动应用所需要的四层架构/](http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture)
 
 
-英文版： [第二部分：http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/](http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/)
-中文版：
-[第二部分：是时候转移到四层架构上来了/](http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture)
+英文版：[第二部分：http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/](http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/)
+中文版：[第二部分：是时候转移到四层架构上来了/](http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture)
 
 
-英文版： [第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://nginx.com/blog/microservices-at-netflix-architectural-best-practices/)
-中文版：
-[第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices)
+英文版：[第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://nginx.com/blog/microservices-at-netflix-architectural-best-practices/)
+中文版：[第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices)
 
-英文版： 
-[第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design ](http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/)
-中文版： 
-[第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训](http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design)
+英文版：[第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design](http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/)
+中文版：[第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训](http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design)
 
 
 
@@ -117,7 +112,7 @@ Source: Adrian Cockcroft
 
 Source: Adrian Cockcroft
 
- 
+
 Adopt Continuous Delivery, Guided by the OODA Loop
 
 A siloed team organization is usually paired with monolithic delivery model, in which an integrated, multi-function application is released as a unit (often version-numbered) on a regular schedule. Most software development teams use this model initially because it is relatively simple and works well enough with a small number of developers (say, 50 or fewer). However, as the team grows it becomes a real issue when you discover a bug in one developer’s code during QA or production testing and the work of 99 other developers is blocked from release until the bug is fixed.

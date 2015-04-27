@@ -1,7 +1,7 @@
 title: xxxxx
 date: 2014-05-20 15:11:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 碎碎念
 - 碎碎念
@@ -10,7 +10,7 @@ categories:
 - 碎碎念
 
 ---
-博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容		
+博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容
 >原文标题：[xxxxx]()
 >原文作者：xxxxx
 >原文来源：[xxxxx]()
@@ -25,6 +25,7 @@ Every interaction is both precious and an opportunity to delight.
 {% endblockquote %}
 
 ## 代码块
+
 {% codeblock .compact http://underscorejs.org/#compact Underscore.js %}
 .compact([0, 1, false, 2, ‘’, 3]);
 => [1, 2, 3]
@@ -33,13 +34,13 @@ Every interaction is both precious and an opportunity to delight.
 ## 链接
 {% link webQQ http://w.qq.com/ true webQQ %}
 
-## 图片 
+## 图片
 {% img /images/th.jpeg 400 600 这是一张图片 %}
 
 
 MarkDown语法
 
-##引用 
+##引用
 > Every interaction is both precious and an opportunity to delight.
 
 

@@ -1,7 +1,7 @@
 title:	读< 从业务角度看API >
 date: 2015-02-09 13:42:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 日记
 - HTTP API
@@ -20,7 +20,7 @@ categories:
 ##  第二篇，读< 从业务角度看API >
 
 [英文](http://www.infoq.com/articles/web-apis-business-perspective)
-[中文]() 
+[中文]()
 作者：Matt McLarty
 
 
@@ -49,10 +49,12 @@ categories:
 API对于开放API之外的机构而言，在业务上帮助作用拥有巨大潜力。对于Amazon，API是从内部缘起的。
 经验教训一：将API定位为产品、解决方案的构建基石。Brad Stone在[](http://brad-stone.com/book/)书中花了一章来阐述API是Amazon整个技术架构的基础，Kin Lane在博文[The Secret to Amazons Success Internal APIs](http://apievangelist.com/2012/01/12/the-secret-to-amazons-success-internal-apis/)中讨论了如何保证程序能够访问这些API接口。
 经验教训二：如何使用基于API的方法来采集、分析、改进和分发数据。Jeff Bezos 讲到["We don’t make money when we sell things. We make money when we help customers make purchase decisions."](http://www.businessinsider.com/bezos-pioneering-requires-being-misunderstood-2013-1).只有恰当的、准确的、可用的数据才能帮助用户进行决策，这对于亚马逊来讲至关重要。
-“Data-Enabled Disruption (DED)”[图示](DED_Cycle.jpg)
+“Data-Enabled Disruption (DED)”图示
+![](../../../../images/DED_Cycle.jpg)
 经验教训三： 战略与战术定位之间的权衡。早期，Jeff Bezos认识到万维网的巨大潜力，随即产生了要创建一个巨大的能够存放任何东西的商店。
 在分析了市场之后，以在线图书零售为突破口来优化整个供应链，企业文化(ensuring timely execution while maintaining religious devotion to the future vision—is now a tenet of Amazon’s culture, where solutions must add value both in what they deliver and what they enable)一方面能够实现功能，一方面能够传递价值。
-见[下图](5Fig2.png)
+见下图
+![](../../../../images/5Fig2.png)
 每种服务都对应着一个API，每个都是基于早期的解决方案所产生的。
 
 观点6：可用的API以及API设计的重要性
@@ -82,9 +84,9 @@ Twilio公司成立于2007年，旨在提供易用的语音和短信服务，所�
 API定义了一种新的数字化的B2B共享的生态圈，各个公司以API的形式将自己的核心资产暴露出去，同时通过API消费其他核心资产。对于管理、业务人员我们要向他们这样解释，将内部资产以web API暴露出去，也就成为了第三方可产品化的资产。这时候，API 就是产品。
 那如何从市场、财务、技术、业务拓展和法律五个角度来解释API呢？
 第一点：平台式思考。就市场而言，开放API意味着公司转型为一个平台，在传统的B2B或SaaS市场上，你与竞争对手在同一个市场上竞争，很难扩展市场份额。
-![](typical-market-share.png)
+![](../../../../images/typical-market-share.png)
 通过Open API，你占领的是垂直方向的市场，与合作方和第三方以及开发人员形成一个全新的生态圈，蓝海市场。
-![](blue-ocean.png)
+![](../../../../images/blue-ocean.png)
 第二点：现有资产的商品化。从财务的角度来看，API是对现有资产ROI做乘法。在亚马逊形成了一个全球性的零售店之后，才发觉他们自己的云数据服务器架构也可以作为服务来卖，通信行业采用了双面的业务模型，一方面卖自己的语音、短消息和连接服务，另一方面卖自己的网络给第三方公司。最近IBM也开始对外卖自己的Watson大数据处理分析技术。
 对于花了重金形成了技术资产的公司，也想通过向第三方开放的形式回收一部分投入。就好像你买了一栋房子，想出租其中一间给外人来用抵房贷一样。
 
@@ -94,7 +96,7 @@ API定义了一种新的数字化的B2B共享的生态圈，各个公司以API�
 
 第四点：自服务Self-service，从业务拓展的角度而言，API就是一个Self-service自服务的门户，能够让你的业务延伸到全球范围内。潜在的用户能够7*24小时的发现你所提供的服务和特性，使用API来完成集成，letting you contact them later in the customer on-boarding funnel. You are then able to transform better leads into customers in a more qualified approach
 
-![](self-service.png)
+![](../../../../images/self-service.png)
 
 越来越多的开发人员代表公司会在查找API，立即进行集成的测试，在评估线上可用的服务之后做出业务上的决策。有人曾说过如果开发人员不能马上开始集成的话，在7分钟内就会转向另一个API服务，作者也听过很多客户讲过如果服务不能在他们所在的时区内启动和运行的话，或者是晚上或是周末，或者说要去解决针对他们自己业务需求的一些问题的话，客户都会直接抛弃这个API。
 

@@ -1,7 +1,7 @@
 title:	<微服务架构在Netflix的应用>系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训
-date: 2015-03-23 11:17:12
-updated	: 
-permalink: 
+date: 2015-03-23 11:27:12
+updated	:
+permalink:
 tags:
 - 日记
 - 架构
@@ -35,9 +35,9 @@ categories:
 中文版：
 [第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices)
 
-英文版： 
+英文版：
 [第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design ](http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/)
-中文版： 
+中文版：
 [第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训](http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design)
 
 
@@ -62,7 +62,7 @@ categories:
 
 ## 什么是微服务架构?
 
-Cockcroft 把微服务架构定义为由松耦合的有相应语境的元素构成的一种面向服务的架构 
+Cockcroft 把微服务架构定义为由松耦合的有相应语境的元素构成的一种面向服务的架构
 
 松耦合意味着你可以独立更新这些服务。更新其中一个服务并不会改变其他的服务。
 如果你的系统里有大量的特殊服务，但是又必须同时更新它们，它们又不是微服务，因为它们不是松耦合的。在向微服务迁移的时候人们常常会把数据库的耦合看的过重，也就是所有服务都连的是同一个数据库，更新其中一个服务就意味着要改变数据库的schema。这种情况你需要对数据库进行拆分
