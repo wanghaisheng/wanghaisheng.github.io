@@ -1,0 +1,660 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>&lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platfor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="<微服务架构在Netflix的应用>系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训">
+<meta property="og:url" content="http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platfor">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="<微服务架构在Netflix的应用>系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训">
+<meta name="twitter:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platfor">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/" title="&lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训" itemprop="url">&lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-23T03:37:12.000Z" itemprop="datePublished"> 发表于 Mar 23 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训"><span class="toc-number">1.</span> <span class="toc-text">第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>版权声明：<br>欢迎转载本站的所有内容，本站的所有文章使用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank" rel="external">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>，唯一的要求就是保留署名权，请在转载时注明出处。</p>
+</blockquote>
+<h2 id="第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训">第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训</h2><p>&lt;微服务架构在Netflix的应用&gt;系列博文-共四篇</p>
+<p>英文版： <a href="(http://blogs.forrester.com/ted_schadler/13-11-20-mobile_needs_a_four_tier_engagement_platform/">第一部分： The Four-Tier Engagement Platform</a><br>中文版：<a href="http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture" target="_blank" rel="external">第一部分：移动应用所需要的四层架构/</a></p>
+<p>英文版：<a href="http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/" target="_blank" rel="external">第二部分：http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/</a><br>中文版：<a href="http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture" target="_blank" rel="external">第二部分：是时候转移到四层架构上来了/</a></p>
+<p>英文版：<a href="http://nginx.com/blog/microservices-at-netflix-architectural-best-practices/" target="_blank" rel="external">第三部分：微服务架构在Netflix的应用：架构设计的经验教训</a><br>中文版：<a href="http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices" target="_blank" rel="external">第三部分：微服务架构在Netflix的应用：架构设计的经验教训</a></p>
+<p>英文版：<a href="http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/" target="_blank" rel="external">第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design</a><br>中文版：<a href="http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design" target="_blank" rel="external">第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训</a></p>
+<p>In a previous blog post, we shared best practices for designing a microservices architecture, based on Adrian Cockcroft’s presentation at nginx.conf2014 about his experience as Director of Web Engineering and then Cloud Architect at Netflix. In this follow-up post, we’ll review his recommendations for retooling your development team and processes for a smooth transition to microservices.<br>Optimize for Speed, not Efficiency</p>
+<p>Source: Xyzproject@Dreamstime.com</p>
+<p>The top lesson that Cockcroft learned at Netflix is that speed wins in the marketplace. If you ask any developer whether a slower development process is better, no one ever says yes. Nor do management or customers ever complain that your development cycle is too fast for them. The need for speed doesn’t just apply to tech companies, either: as software becomes increasingly ubiquitous on the Internet of Things – in cars, appliances, and sensors as well as mobile devices – companies that didn’t used to do software development at all now find that their success depends on being good at it.</p>
+<p>Netflix made an early decision to optimize for speed. This refers specifically to tooling your software development process so that you can react quickly to what your customers want, or even better, can create innovative web experiences that attract customers. Speed means learning about your customers and giving them what they want at a faster pace than your competitors. By the time competitors are ready to challenge you in a specific way, you’ve moved on to the next set of improvements.</p>
+<p>This approach turns the usual paradigm of optimizing for efficiency on its head. Efficiency generally means trying to control the overall flow of the development process to eliminate duplication of effort and avoid mistakes, with an eye to keeping costs down. The common result is that you end up focusing on savings instead of looking for opportunities that increase revenue.</p>
+<p>In Cockcroft’s experience, if you say “I’m doing this because it’s more efficient,” the unintended result is that you’re slowing someone else down. This is not an encouragement to be wasteful, but you should optimize for speed first. Efficiency becomes secondary as you satisfy the constraint that you’re not slowing things down. The way you grow the business to be more efficient is to go faster.<br>Make Sure Your Assumptions are Still True</p>
+<p>Many large companies that have enjoyed success in their market (we can call them incumbents) are finding themselves overtaken by nimbler, usually smaller, organizations (disruptors) that react much more quickly to changing consumer behavior. Their large size isn’t necessarily the root of the problem – Netflix is no longer a small company, for example. As Cockcroft sees it, the main cause of difficulty for industry incumbents is that they’re operating under business assumptions that are no longer true. Or, as Will Rogers put it,</p>
+<pre><code>It’s <span class="keyword">not</span> what we don’t know <span class="keyword">that</span> hurts. It’s what we know <span class="keyword">that</span> ain’t so.”
+</code></pre><p>Of course, you have to make assumptions as you formulate a business model, and then it makes sense to optimize your business practices around them. The danger comes from sticking with assumptions after they’re no longer true, which means you’re optimizing on the wrong thing. That’s when you become vulnerable to industry disruptors who are making the right assumptions and optimizations for the current business climate.</p>
+<p>As examples, consider the following assumptions that hold sway at many incumbents. We’ll examine them further in the indicated sections and describe the approach Netflix adopted.</p>
+<pre><code>Computing power <span class="keyword">is</span> expensive. This was <span class="keyword">true</span> when increasing your computing capacity required capital expenditure <span class="keyword">on</span> computer hardware. See Put Your Infrastructure <span class="keyword">in</span> the Cloud.
+Process prevents problems. At many companies, the standard response <span class="keyword">to</span> something going wrong <span class="keyword">is</span> <span class="keyword">to</span> <span class="keyword">add</span> a preventative <span class="keyword">step</span> <span class="keyword">to</span> the relevant <span class="function"><span class="keyword">procedure</span>. <span class="title">See</span> <span class="title">Create</span> <span class="title">a</span> <span class="title">High</span> <span class="title">Freedom</span>, <span class="title">High</span> <span class="title">Responsibility</span> <span class="title">Culture</span> <span class="title">with</span> <span class="title">Less</span> <span class="title">Process</span>.</span>
+</code></pre><p>Here are some ways to avoid holding onto assumptions that have passed their expiration date:</p>
+<pre><code>As obvious <span class="keyword">as</span> <span class="keyword">it</span> might seem, you need <span class="keyword">to</span> make your assumptions explicit, <span class="keyword">then</span> periodically review them <span class="keyword">to</span> make sure they still hold <span class="constant">true</span>.
+Keep aware <span class="keyword">of</span> technological trends. As an example, <span class="keyword">the</span> cost <span class="keyword">of</span> solid state storage drive (SSDs) storage continues <span class="keyword">to</span> go down. It’s still more expensive than regular disks, <span class="keyword">but</span> <span class="keyword">the</span> cost difference <span class="keyword">is</span> becoming small enough <span class="keyword">that</span> many companies are deciding <span class="keyword">the</span> superior performance <span class="keyword">is</span> worth paying a bit more <span class="keyword">for</span>. [Ed: In this entertaining video, Fastly founder <span class="keyword">and</span> CEO Artur Bergman explains why he believes SSDs are always <span class="keyword">the</span> right choice.]
+Talk <span class="keyword">to</span> people who aren’t your customers. This <span class="keyword">is</span> especially necessary <span class="keyword">for</span> incumbents, who need <span class="keyword">to</span> make sure <span class="keyword">that</span> potential new customers are interested <span class="keyword">in</span> their product. Otherwise, they don’t hear <span class="keyword">about</span> <span class="keyword">the</span> fact <span class="keyword">that</span> they’re <span class="keyword">not</span> being used. As an example, <span class="keyword">some</span> vendors <span class="keyword">in</span> <span class="keyword">the</span> storage <span class="constant">space</span> are building hyper-converged systems even <span class="keyword">as</span> more <span class="keyword">and</span> more companies are storing their data <span class="keyword">in</span> <span class="keyword">the</span> cloud <span class="keyword">and</span> using open source storage management software. Netflix, <span class="keyword">for</span> example, stores data <span class="function_start"><span class="keyword">on</span></span> Amazon Web Services (AWS) servers <span class="keyword">with</span> SSDs <span class="keyword">and</span> manages <span class="keyword">it</span> <span class="keyword">with</span> Apache Cassandra. A single specialist <span class="keyword">in</span> Java distributed systems <span class="keyword">is</span> managing <span class="keyword">the</span> entire configuration <span class="keyword">without</span> any commercial storage tools <span class="keyword">or</span> help <span class="keyword">from</span> engineers specializing <span class="keyword">in</span> storage, SAN, <span class="keyword">or</span> backup.
+Don’t base your future strategy <span class="function_start"><span class="keyword">on</span></span> current IT spending, <span class="keyword">but</span> instead <span class="function_start"><span class="keyword">on</span></span> level <span class="keyword">of</span> adoption <span class="keyword">by</span> developers. Suppose <span class="keyword">that</span> your company accounts <span class="keyword">for</span> nearly all spending <span class="keyword">in</span> <span class="keyword">the</span> market <span class="keyword">for</span> proprietary virtualization software, <span class="keyword">but</span> <span class="keyword">then</span> a competitor starts offering an open source-based product <span class="keyword">at</span> only <span class="number">1</span>% <span class="keyword">the</span> cost <span class="keyword">of</span> yours. If people start choosing <span class="keyword">it</span> <span class="keyword">instead of</span> your product, than <span class="keyword">at</span> <span class="keyword">the</span> point <span class="keyword">that</span> your share <span class="keyword">of</span> total spending <span class="keyword">is</span> still <span class="number">90</span>%, your market share has declined <span class="keyword">to</span> only <span class="number">10</span>%. If you’re only attending <span class="keyword">to</span> your revenue, <span class="keyword">it</span> seems like you’re still <span class="keyword">in</span> good shape, <span class="keyword">but</span> <span class="number">10</span>% <span class="keyword">of</span> market share can collapse really quickly.
+</code></pre><p>Put Your Infrastructure in the Cloud<br>Source: Fbmadeira | Dreamstime.com</p>
+<p>Source: Fbmadeira@Dreamstime.com</p>
+<p>In Make Sure Your Assumptions are Still True, we mentioned that in the past it was valid to base your business plan on the assumption that computing power was expensive, because it was: the only way to increase your computing capacity was to buy computer hardware. You could then make money by using this expensive resource in the right way to solve customer problems.</p>
+<p>The advent of cloud computing has pretty much completely invalidated this assumption. It is now possible to buy the amount of capacity you need when you need it, and to pay for only the time you actually use it. The new assumption you need to make is that (virtual) machines are ephemeral. You can create and destroy them at the touch of a button or a call to an API, without any need to negotiate with other departments in your company.</p>
+<p>One way to think of this change is that the self-service cloud makes formerly impossible things instantaneous. All of Netflix’s engineers are in California, but they manage a worldwide infrastructure. The cloud enables them to experiment and determine whether (for example) adding servers in particular location improves performance. Suppose they notice problems with video delivery in Brazil. They can easily set up 100 cloud server instances in São Paulo within a couple hours. If after a week they determine that the difference in delivery speed and reliability isn’t large enought to justify the cost of the additional server instances, they can shut them down just as quickly and easily as they created them.</p>
+<p>This kind of experiment would be so expensive with a traditional infrastructure that you would never attempt it. You would have to hire an agent in São Paulo to coordinate the project, find a data center, satisfy Brazilian government regulations, ship machines to Brazil, and so on. It would be six months before you could even run the test and find out that increased local capacity didn’t improve your delivery speed.<br>Create a High Freedom, High Responsibility Culture with Less Process</p>
+<p>In Make Sure Your Assumptions are Still True, we observed that many companies create rules and processes to prevent problems. When someone makes a mistake, they add a rule to the HR manual that says “well, don’t do that again.” If you read some HR manuals from this perspective, you can extract a historical record of everything that went wrong at the company. When something goes wrong in the development process, the corresponding reaction is to add a new step to the procedure. The major problem with creating process to prevent problems is that over time you build up complex “scar tissue” processes that slow you down.</p>
+<p>Netflix doesn’t have an HR manual. There is a single guideline: “Act in NetFlix’s best interest.” The idea is that if an employee can’t figure out how to interpret the guideline in a given situation, he or she doesn’t have enough judgment to work there. If you don’t trust the judgment of the people on your team, you have to ask why you’re employing them. It’s true that you’ll have to fire people occasionally for violating the guideline. Overall, the high level of mutual trust among members of a team, and across the company as a whole, becomes a strong binding force.</p>
+<p>The following books outline new ways of thinking about process if you’re looking to transform your organization:</p>
+<pre><code>The Goal: A Process <span class="operator">of</span> Ongoing Improvement <span class="keyword">by</span> Eliyahu M. Goldratt <span class="operator">and</span> Jeff Cox. This book has become <span class="operator">a</span> standard management <span class="keyword">text</span> <span class="keyword">at</span> business schools since its original publication <span class="operator">in</span> <span class="number">1984.</span> Written <span class="keyword">as</span> <span class="operator">a</span> novel about <span class="operator">a</span> manager who has only <span class="number">90</span> days <span class="built_in">to</span> improve performance <span class="keyword">at</span> his factory <span class="operator">or</span> have <span class="keyword">it</span> closed down, <span class="keyword">it</span> embodies Goldratt’s Theory <span class="operator">of</span> Constraints <span class="operator">in</span> <span class="operator">the</span> context <span class="operator">of</span> <span class="built_in">process</span> control <span class="operator">and</span> automation.
+The Phoenix Project: A Novel about IT, DevOps, <span class="operator">and</span> Helping Your Business Win <span class="keyword">by</span> Gene Kim <span class="operator">and</span> Kevin Behr. As <span class="operator">the</span> title indicates, <span class="keyword">it</span>’s also <span class="operator">a</span> novel, about <span class="operator">an</span> IT manager who has <span class="number">90</span> days <span class="built_in">to</span> save <span class="operator">a</span> project that’s late <span class="operator">and</span> over budget, <span class="operator">or</span> his entire department will be outsourced. He discovers DevOps <span class="keyword">as</span> <span class="operator">the</span> solution <span class="built_in">to</span> his problem.
+</code></pre><p>Replace Silos with Microservice Teams</p>
+<p>Most software development groups are separated into silos, with no overlap of personnel between them. The standard process for a software development project starts with the product manager meeting with the user experience and development groups to discuss ideas for new features. After the idea is implemented in code, the code is passed to the quality assurance (QA) and database administration teams and discussed in more meetings. Communication with the system, network, and SAN administrators is often via tickets. The whole process tends to be slow and loaded with overhead.<br>silos-base</p>
+<p>Source: Adrian Cockcroft</p>
+<p>Some companies try to speed up by creating small “start-up”-style teams that handle the development process from end to end, or sometimes such teams are the result of acquisitions where the acquired company continues to run independently as a separate division. But if the small teams are still doing monolithic delivery, there are usually still handoffs between individuals or groups with responsibility for different functions. The process suffers from the same problems as monolithic delivery in larger companies – it’s simply not very efficient or agile.<br>Source: Adrian Cockcroft</p>
+<p>Source: Adrian Cockcroft</p>
+<p>Conway’s law says that the interface structure of a software system will reflect the social structure of the organization that produced it. So if you want to switch to a microservices architecture, you need to organize your staff into product teams and use DevOps methodology. There are no longer distinct product managers, UX managers, development managers, and so on, managing downward in their silos. There is a manager for each product feature (implemented as a microservice), who supervises a team that handles all aspects of software development for the microservice, from conception through deployment. The platform team provides infrastructure support that the product teams access via APIs. At Netflix, the platform team was mostly AWS in Seattle, with some Netflix-managed infrastructure layers built on top. But it doesn’t matter whether your cloud platform is in-house or public; the important thing is that it’s API-driven, self-service, and automatable.<br>Source: Adrian Cockcroft</p>
+<p>Source: Adrian Cockcroft</p>
+<p>Adopt Continuous Delivery, Guided by the OODA Loop</p>
+<p>A siloed team organization is usually paired with monolithic delivery model, in which an integrated, multi-function application is released as a unit (often version-numbered) on a regular schedule. Most software development teams use this model initially because it is relatively simple and works well enough with a small number of developers (say, 50 or fewer). However, as the team grows it becomes a real issue when you discover a bug in one developer’s code during QA or production testing and the work of 99 other developers is blocked from release until the bug is fixed.</p>
+<p>In 2009 Netflix adopted a continuous delivery model, which meshes perfectly with a microservices architecture. Each microservice represents a single product feature that can be updated independently of the other microservices and on its own schedule. Discovering a bug in a microservice has no effect on the release schedule of any other microservice. Continuous delivery relies on packaging microservices in standard containers. Netflix initially used AWS machine images (AMIs) and it was possible to deploy an update into a test or production environment in about 10 minutes. With Docker, that time is reduced even further, to mere seconds in some cases.</p>
+<p>At Netflix, the conceptual framework for continuous development and delivery is an Observe-Orient-Decide-Act (OODA) loop.<br>Source: Adrian Cockcroft (<a href="http://www.slideshare.net/adrianco" target="_blank" rel="external">http://www.slideshare.net/adrianco</a>)</p>
+<p>Source: Adrian Cockcroft (<a href="http://www.slideshare.net/adrianco" target="_blank" rel="external">http://www.slideshare.net/adrianco</a>)</p>
+<p>Observe refers to examining your current status to look for places where you can innovate. You want your company culture to implicitly authorize anyone who notices an opportunity to start a project to exploit it. For example, you might notice what the diagram calls a “customer pain point”: a lot of people abandoning the registration process on your website when they reach a certain step. You can undertake a project to investigate why and fix the problem.</p>
+<p>Orient refers to analyzing metrics to understand the reasons for the phenomena you’ve observed at the Observe point. Often this involves analyzing large amounts of unstructured data, such as log files; this is often referred to as big data analysis. The answers you’re looking for are not already in your business intelligence database. You’re examining data that no one has previously looked at and asking questions that haven’t been asked before.</p>
+<p>Decide refers to developing and executing a project plan. Company culture is a big factor at this point. As previously discussed, in a high-freedom, high-responsibility culture you don’t need to get management approval before starting to make changes. You share your plan, but you don’t have to ask for permission.</p>
+<p>Act refers to testing your solution and putting it into production. You deploy a microservice that includes your incremental feature to a cloud environment, where it’s automatically put into an AB test to compare it to the previous solution, side by side, for as long as it takes to collect the data that shows whether your approach is better. Cooperating microservices aren’t disrupted, and customers don’t see your changes unless they’re selected for the test. If your solution is better, you deploy it into production. It doesn’t have to be a big improvement, either. If the number of clients for your microservice is large enough, then even a fraction of a percent improvement (in response time, say) can be shown to be statistically valid, and the cumulative effect over time of many small changes can be significant.</p>
+<p>Now you’re back at the Observe point. You don’t always have to perform all the steps or do them in strict order, either. The important characteristic of the process is that it enables you quickly to determine what your customers want and to create it for them. Cockcroft says “it’s hard not to win” if you’re basing your moves on enough data points and your competitors are making guesses that take months to be proven or disproven.</p>
+<p>The state of art is to circle the loop every one to two weeks, but every microservice team can do it independently. With microservices you can go much faster because you’re not trying to get entire company going around the loop in lockstep.<br>How NGINX Plus Can Help</p>
+<p>At NGINX we believe it’s crucial to your future success that you adopt a 4-tier application architecture in which applications are developed and deployed as sets of microservices. We hope the information we’ve shared in this post and its predecessor, Adopting Microservices at Netflix: Lessons for Architectural Design, are helpful as you plan your transition to today’s state-of-the-art architecture for application development.</p>
+<p>When it’s time to deliver your apps, NGINX Plus offers an application delivery platform that provides the superior performance, reliability, and scalability your users expect. Fully adopting a microservices-based architecture is easier and more likely to succeed when you move to a single software tool for web serving, load balancing, and content caching. NGINX Plus combines those functions and more in one easy to deploy and manage package. Our approach empowers developers to define and control the flawless delivery of their microservices, while respecting the standards and best practices put into place by a platform team. Click here to learn more about how NGINX Plus can help your applications succeed.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/架构/">架构</a>►<a class="article-category-link" href="/categories/日记/架构/微服务/">微服务</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/微服务/">微服务</a><a href="/tags/日记/">日记</a><a href="/tags/架构/">架构</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/" data-title="&lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/23/service-principles/" title="Yelp公司总结的微服务架构的实践经验">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Yelp公司总结的微服务架构的实践经验</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/23/microservices-at-netflix-architectural-best-practices/"  title="&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训">
+ <strong>下一篇：</strong><br/> 
+ <span>&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训"><span class="toc-number">1.</span> <span class="toc-text">第四篇-微服务架构在Netflix的应用：团队和流程设计相关的经验教训</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

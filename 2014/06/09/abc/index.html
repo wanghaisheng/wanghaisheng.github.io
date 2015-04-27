@@ -1,0 +1,630 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>piqi学习 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="piqi学习*目标一：·piqi是什么   
+ *目标二：piqi与FHIR整合的可能性评估    
+*目标三：piqi用在文档内容校验上的可能性  
+*目标四：基于piqi的消息引擎的设计      
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="piqi学习">
+<meta property="og:url" content="http://wanghaisheng.github.io/2014/06/09/abc/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="piqi学习*目标一：·piqi是什么   
+ *目标二：piqi与FHIR整合的可能性评估    
+*目标三：piqi用在文档内容校验上的可能性  
+*目标四：基于piqi的消息引擎的设计      
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="piqi学习">
+<meta name="twitter:description" content="piqi学习*目标一：·piqi是什么   
+ *目标二：piqi与FHIR整合的可能性评估    
+*目标三：piqi用在文档内容校验上的可能性  
+*目标四：基于piqi的消息引擎的设计      
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/06/09/abc/" title="piqi学习" itemprop="url">piqi学习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2014-06-09T10:18:30.000Z" itemprop="datePublished"> 发表于 Jun 9 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#piqi学习"><span class="toc-number">1.</span> <span class="toc-text">piqi学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#piqi_FAQ"><span class="toc-number">1.1.</span> <span class="toc-text">piqi FAQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#person实例"><span class="toc-number">1.2.</span> <span class="toc-text">person实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#person-piqi（schema定义）"><span class="toc-number">1.2.1.</span> <span class="toc-text">person.piqi（schema定义）</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="piqi学习">piqi学习</h1><p>*目标一：·piqi是什么   </p>
+<p> *目标二：piqi与FHIR整合的可能性评估    </p>
+<p>*目标三：piqi用在文档内容校验上的可能性  </p>
+<p>*目标四：基于piqi的消息引擎的设计      </p>
+<h2 id="piqi_FAQ">piqi FAQ</h2><p>*1. piq和JSON的区别在哪里<br>Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human interaction, whereas JSON is a standard, portable and reasonably efficient way of representing structured data.  </p>
+<p>与JSON不同的是，Piq中有comment批注和逐字文本。字段名称也没有逗号分割和引号。这些特征都使得PIq更适合查看结构化数据或者在文本编辑器中编辑结构化数据.  Unlike JSON, Piq has comments and verbatim text literals. Also, there’s no comma-separators and quotes around field names. These and some other features make Piq a better choice for viewing structured data or editing it in a text editor.   </p>
+<p>Piq是一种强类型语言 JSON则是动态类型的.  Piq is a strongly typed language and JSON is dynamically typed.   </p>
+<p>Piq的使用离不开Piqi数据定义.有了数据定义之后,它就比JSON更强大.比如 在Piq中 字段默认值 甚至说字段本身都可以省略.  Piq can’t be used without Piqi data definitions. With data definitions, though, it is much more powerful than JSON. For example, in Piq, default field values and even field names can be omitted.    </p>
+<p>同时也可以在Piq中嵌入未分配类型的JSON.  And it is possible to embed untyped JSON in Piq!   </p>
+<p>Piq的数据模型更加强大.  Piq has a more powerful data model.   </p>
+<p>除了JSON所支持的所有数据类型,Piq/piqi还支持binary 二进制 enum枚举和variant(如tagged unions)还有一些其他优点 如支持浮点数NaN 正无穷 负无穷.   In addition to all data types supported by JSON, Piq/Piqi supports binaries, enums and variants (i.e. tagged unions). There are some other goodies, such as support for floating point NaN, negative and positive infinities.   </p>
+<p>Piq在持续改进中 而JSON木已成舟.  Piq is evolving, whereas JSON is set in stone.  </p>
+<p>Piq最终将支持半结构化数据.  For example, Piq will eventually get support for semi-structured data.</p>
+<p>需要注意的是 尽管存在差异,Piq格式的数据仍可以转换成JSON、XML、Protoco Buffer格式.这样你就可以使用PIq来对数据进行手动编辑,在其他目的下将其转换成其他格式即可.   Note that despite all the differences, data represented in Piq can be reliably converted to and from JSON, XML and Protocol Buffers binary formats. This way one can use Piq for manual data editing and convert it to other formats for other purposes.   </p>
+<p>*2. Piqi与Protocol Buffer的区别/How Piqi compares to Protocol Buffers?</p>
+<p>作为数据序列化系统,piqi与protocol buffer是类似的,也兼容它.事实上,Piqi主要是受其启发.然而 却存在一些本质上的设计差异.  As a data serialization system, Piqi is very similar and compatible with Protocol Buffers. In fact, Piqi was largely inspired by it. However, there are some fundamental design differences.   </p>
+<p>Piqi是围绕着一个更加强大的数据模型而设计的.  Piqi is designed around a more powerful data model.</p>
+<p>另外 对于protocol buffer中支持的record记录、enum枚举 、user-defined types自定义类型,Piqi中有list、type aliase和variant.  In addition to record and enum user-defined types supported by Protocol Buffer, Piqi has lists, type aliases and variants (aka tagged unions).</p>
+<p>支持丰富的数据类型,这对于高级编程语言如OCaml和Erlang相当重要.比如,没有了list和variant,在处理数据时,就无法充分使用这些语言的功能.  Rich type support really makes a difference for high-level programming languages such as OCaml and Erlang. For example, without lists and variants, one can’t use utilize full potential of these languages when working with data.</p>
+<p>相反的,protocol Bufffer是为Java、Python、C++等面向对象的语言设计的.  In contrast, Protocol Buffers was designed for object-oriented Java, Python and C++ languages.</p>
+<p>Piqi是一种高级的数据定义语言.  Piqi is a high-level data definition language.</p>
+<p>list、variant、record和aliase的组合可以很好地定义任何复杂的数据结构.在这方面protocol Buffer数据定义语言的层次就太低了.  Combination of lists, variants, records and aliases can be used to define any complex data structure in a very expressive way. Protocol Buffers data definition language is too low-level in this respect.</p>
+<p>Portocol Buffer DDL的一些特性 如嵌套定义会给数据定义的表达能力带来负面作用.Piqi中拿掉了这些特性.  Some Protocol Buffers DDL’s features, like nested definitions, can negatively affect expressiveness of data definitions. Piqi avoids such features.  </p>
+<h2 id="person实例">person实例</h2><h3 id="person-piqi（schema定义）">person.piqi（schema定义）</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% this <span class="keyword">is</span> an object <span class="keyword">of</span> type <span class="string">"person"</span> which <span class="keyword">is</span> defined <span class="keyword">in</span> module <span class="string">"person"</span></span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"J. Random Hacker"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    .email <span class="string">"j.r.hacker@example.com"</span></span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(111) 123 45 67"</span></span><br><span class="line">        % NOTE: phone <span class="keyword">is</span> <span class="string">"home"</span> <span class="keyword">by</span> default</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(222) 123 45 67"</span></span><br><span class="line">        .mobile</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(333) 123 45 67"</span></span><br><span class="line">        .work</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">% another object <span class="keyword">of</span> <span class="keyword">the</span> same type</span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"Joe User"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    % Joe User doesn't have an email</span><br><span class="line"></span><br><span class="line">    .phone [ <span class="string">"(444) 123 45 67"</span> ]</span><br><span class="line">    .phone [ <span class="string">"(555) 123 45 67"</span> .work ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/日志/">日志</a>►<a class="article-category-link" href="/categories/日志/第一天/">第一天</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/日记/">日记</a><a href="/tags/模板/">模板</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2014/06/09/abc/" data-title="piqi学习 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/06/25/githubpages/" title="Github pages 个人主页和项目主页的不同设置">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Github pages 个人主页和项目主页的不同设置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/05/20/welcome/"  title="致访客">
+ <strong>下一篇：</strong><br/> 
+ <span>致访客
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#piqi学习"><span class="toc-number">1.</span> <span class="toc-text">piqi学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#piqi_FAQ"><span class="toc-number">1.1.</span> <span class="toc-text">piqi FAQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#person实例"><span class="toc-number">1.2.</span> <span class="toc-text">person实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#person-piqi（schema定义）"><span class="toc-number">1.2.1.</span> <span class="toc-text">person.piqi（schema定义）</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -1,0 +1,626 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>xxxxx | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容
+
+原文标题：xxxxx原文作者：xxxxx原文来源：xxxxx译者： edwin_uestc版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。Swig语法
+
+引用Eve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xxxxx">
+<meta property="og:url" content="http://wanghaisheng.github.io/2014/05/20/blog_template/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容
+
+原文标题：xxxxx原文作者：xxxxx原文来源：xxxxx译者： edwin_uestc版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。Swig语法
+
+引用Eve">
+<meta property="og:image" content="/images/th.jpeg">
+<meta property="og:image" content="/images/th.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xxxxx">
+<meta name="twitter:description" content="博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容
+
+原文标题：xxxxx原文作者：xxxxx原文来源：xxxxx译者： edwin_uestc版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。Swig语法
+
+引用Eve">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/05/20/blog_template/" title="xxxxx" itemprop="url">xxxxx</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2014-05-20T07:11:12.000Z" itemprop="datePublished"> 发表于 May 20 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块"><span class="toc-number">2.</span> <span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接"><span class="toc-number">3.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-number">4.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用-1"><span class="toc-number">5.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块-1"><span class="toc-number">6.</span> <span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接-1"><span class="toc-number">7.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片-1"><span class="toc-number">8.</span> <span class="toc-text">图片</span></a></li></ol>
+		
+		</div>
+		
+		<p>博文撰写可以使用Swig语法或者markDown语法 元数据部分请参考 本文源代码 正文部分请参考如下内容</p>
+<blockquote>
+<p>原文标题：<a href="">xxxxx</a><br>原文作者：xxxxx<br>原文来源：<a href="">xxxxx</a><br>译者： <a href="http://wanghaisheng.github.io/about/" target="_blank" rel="external">edwin_uestc</a><br>版权声明：<br>欢迎转载本站的所有内容，本站的所有文章使用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank" rel="external">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>，唯一的要求就是保留署名权，请在转载时注明出处。<br>Swig语法</p>
+</blockquote>
+<h2 id="引用">引用</h2><blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="external">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h2 id="代码块">代码块</h2><figure class="highlight ruby"><figcaption><span>.compact</span><a href="http://underscorejs.org/#compact" target="_blank" rel="external">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.compact([<span class="number">0</span>, <span class="number">1</span>, <span class="keyword">false</span>, <span class="number">2</span>, ‘’, <span class="number">3</span>]);</span><br><span class="line"><span class="status">=&gt;</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="链接">链接</h2><a href="http://w.qq.com/" title="webQQ" target="_blank">webQQ</a>
+<h2 id="图片">图片</h2><img src="/images/th.jpeg" width="400" height="600" title="这是一张图片">
+<p>MarkDown语法</p>
+<h2 id="引用-1">引用</h2><blockquote>
+<p>Every interaction is both precious and an opportunity to delight.</p>
+</blockquote>
+<h2 id="代码块-1">代码块</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.compact([0, 1, false, 2, &#8216;&#8217;, 3]);&#10;=&#62; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h2 id="链接-1">链接</h2><p><a href="http://w.qq.com/" target="_blank" rel="external">webQQ</a></p>
+<h2 id="图片-1">图片</h2><p><img src="/images/th.jpeg" alt="这是一张图片"></p>
+<p>对于本地图片，需要在source目录下面新建一个目录images，然后把图片放到目录中</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/碎碎念/">碎碎念</a>►<a class="article-category-link" href="/categories/碎碎念/碎碎念/">碎碎念</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/碎碎念/">碎碎念</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2014/05/20/blog_template/" data-title="xxxxx | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/05/20/welcome/" title="致访客">
+  <strong>上一篇：</strong><br/>
+  <span>
+  致访客</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2010/10/22/ubuntu_sqlplus/"  title="ubuntu下sqlplus上下光标键乱码解决方法">
+ <strong>下一篇：</strong><br/> 
+ <span>ubuntu下sqlplus上下光标键乱码解决方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块"><span class="toc-number">2.</span> <span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接"><span class="toc-number">3.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-number">4.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用-1"><span class="toc-number">5.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块-1"><span class="toc-number">6.</span> <span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接-1"><span class="toc-number">7.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片-1"><span class="toc-number">8.</span> <span class="toc-text">图片</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

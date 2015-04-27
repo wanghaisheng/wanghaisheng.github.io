@@ -1,0 +1,666 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bottled Water-PostgreSQL与 Kafka的实时数据整合 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+Bottled Water: PostgreSQL与 Kafka  的实时数据整合 英文版： Bottled Water: Real-time integration of PostgreSQL and Kafka 中文版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bottled Water-PostgreSQL与 Kafka的实时数据整合">
+<meta property="og:url" content="http://wanghaisheng.github.io/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+Bottled Water: PostgreSQL与 Kafka  的实时数据整合 英文版： Bottled Water: Real-time integration of PostgreSQL and Kafka 中文版">
+<meta property="og:image" content="../../../../images/slide-37-4-3.png">
+<meta property="og:image" content="../../../../images/slide-42b-4-3.png">
+<meta property="og:image" content="../../../../images/slide-44-4-3.png">
+<meta property="og:image" content="../../../../images/slide-46-4-3-cropped.png">
+<meta property="og:image" content="../../../../images/slide-47-4-3.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bottled Water-PostgreSQL与 Kafka的实时数据整合">
+<meta name="twitter:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+Bottled Water: PostgreSQL与 Kafka  的实时数据整合 英文版： Bottled Water: Real-time integration of PostgreSQL and Kafka 中文版">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka/" title="Bottled Water-PostgreSQL与 Kafka的实时数据整合" itemprop="url">Bottled Water-PostgreSQL与 Kafka的实时数据整合</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-27T08:34:12.000Z" itemprop="datePublished"> 发表于 Apr 27 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottled_Water:_PostgreSQL与_Kafka_的实时数据整合"><span class="toc-number">1.</span> <span class="toc-text">Bottled Water: PostgreSQL与 Kafka  的实时数据整合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取实时的变更流"><span class="toc-number">2.</span> <span class="toc-text">获取实时的变更流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottled_Water简介"><span class="toc-number">3.</span> <span class="toc-text">Bottled Water简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选择_Kafka?"><span class="toc-number">4.</span> <span class="toc-text">为什么选择 Kafka?</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>版权声明：<br>欢迎转载本站的所有内容，本站的所有文章使用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank" rel="external">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>，唯一的要求就是保留署名权，请在转载时注明出处。</p>
+</blockquote>
+<h2 id="Bottled_Water:_PostgreSQL与_Kafka_的实时数据整合">Bottled Water: PostgreSQL与 Kafka  的实时数据整合</h2><p> 英文版： <a href="http://blog.confluent.io/2015/04/23/bottled-water-real-time-integration-of-postgresql-and-kafka/" target="_blank" rel="external">Bottled Water: Real-time integration of PostgreSQL and Kafka</a><br> 中文版：<br> <a href="http://wanghaisheng.github.io/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka" target="_blank" rel="external">Bottled Water: PostgreSQL与 Kafka  的实时数据整合</a></p>
+<p>写数据库相对容易，读数据库则异常困难。当然，如果你只是查询数据库，拿到一部分值，也还行。但如果你想要将整个数据库中的数据复制到其他系统中去，比如使用Elasticsearch来<br>做索引，做快速的pre-fill缓存，或是将数据导入到一个数据仓库供统计分析，或是迁移到其他类型的数据库中。</p>
+<p>如果数据不会发生变更，实现起来也很简单。只需要一份数据库的快照(通过备份dump整个数据库)，复制然后载入到其他系统即可。但问题是如果数据库是持续变更的，<br>在你载入数据的时候快照中的数据已经不是最新的，即使你采用每日一次快照的方式，在下游系统中你只能拿到滞后一天的数据，对于数据量大的数据库而言，快照和大数据量的加载（bulk load<br>本身成本就很高。</p>
+<p>从一个数据库复制数据到另外的系统中有哪些解决方案呢？</p>
+<ul>
+<li>1、第一种是系统实现双写“dual writes”。每当系统进行数据库的写操作的时候，同时更新/校验缓存条目，对搜索引擎的数据重新索引，将数据发送到用于统计分析的系统等等<br><img src="../../../../images/slide-37-4-3.png" alt=""></li>
+</ul>
+<p>然而之前我就<a href="http://martin.kleppmann.com/2014/10/28/staying-agile-at-span.html" target="_blank" rel="external">谈到</a>,双写的方法其实是有很多问题的，主要是Race Condition(也叫做资源竞争)和可靠性的方面。如果稍有差异的数据写到2个不同的数据库中，数据库的内容会慢慢的相差甚远，随着时间的推移会变得越来越不一致。<br>要想从这样的渐进式的数据损坏中恢复是很困难的。</p>
+<ul>
+<li>2、CDC 变更数据捕获<br>如果是从数据库的快照中重新构建缓存或索引，这样做的好处在于从新的数据库备份中重新构建时会消除任何的不一致性。但对于大型数据库而言，每天要处理整个数据库备份速度太慢，效率太低，怎么样才能提速呢？</li>
+</ul>
+<p>典型的，不同的快照之间数据库只有一小部分会发生变化。如果你只是处理自上次快照之后数据库中发生的那些变更？这样只用处理一小部分数据，也可以频繁的进行比对。比如说每分钟比对一次，每秒比对一次？1秒100次呢？</p>
+<p>当比对频率达到极限的时候，数据库的变更就变成了stream流。每次写数据库时，也就是流中的一条消息。如果你把这些消息严格按照原来数据提交时的顺序应用到数据库上，你就可以得到一份和数据库一模一样的副本，这其中的原理也就是<a href="http://blog.confluent.io/2015/03/04/turning-the-database-inside-out-with-apache-samza/" target="_blank" rel="external">数据库复制的原理</a></p>
+<p>复制的方法来保持数据同步比双写的方法要好一些。首先，你只需要写一个数据库。然后从数据库中拿到2个东西：<br>1、某时刻下满足一致性的快照<br>2、自那个时刻之后的实时的变更流</p>
+<p>你可以将快照导入到其他系统(比如搜索索引或缓存)，然后持续的应用这些实时的变更。如果管道是警告调优的，那么你的延迟可能低于1秒，下游系统也可以保持尽可能最新。由于变更流本身包括了写的顺序，<a href="https://martin.kleppmann.com/2015/04/24/logs-for-data-infrastructure-at-craft.html" target="_blank" rel="external">资源竞争就不再是问题</a></p>
+<p>这种方法常常称为<a href="http://en.wikipedia.org/wiki/Change_data_capture" target="_blank" rel="external">变更数据捕获</a>,目前现有的一些工具都不是很好用。但在一些公司里，CDC已经成为了系统构建的关键模块，比如Linkedin有<a href="http://www.socc2012.org/s18-das.pdf" target="_blank" rel="external">Databus</a>。Facebook有<a href="https://code.facebook.com/posts/188966771280871/wormhole-pub-sub-system-moving-data-through-space-and-time/" target="_blank" rel="external">Wormhole</a></p>
+<p>CDC 变更数据捕获能够让你释放你已有数据中的价值。你可以将数据“喂”给一个<a href="http://blog.confluent.io/2015/02/25/stream-data-platform-1/" target="_blank" rel="external">中心式的数据流</a><br>这样就可以实时与来自其他数据库的数据或时间流整合起来。这种方式使得新的数据分析或新的数据格式试验更加容易，允许你以一种最小化的风险渐进式地从<br>一个系统迁移到另一个系统，也比 data corruption更加健壮，如果出了任何问题，你都可以很快的利用快照和流恢复数据库。</p>
+<p><img src="../../../../images/slide-42b-4-3.png" alt=""></p>
+<h2 id="获取实时的变更流">获取实时的变更流</h2><p>获取数据库的一致性快照是一个通用的特性，因为你需要利用它进行备份。但获取实时的变更流是传统数据库一直忽略的一个功能。<br> Oracle <a href="http://www.oracle.com/us/products/middleware/data-integration/goldengate/overview/index.html" target="_blank" rel="external">GoldenGate</a>, the <a href="https://dev.mysql.com/doc/refman/5.7/en/binary-log.html" target="_blank" rel="external">MySQL binlog</a>, the <a href="http://www.manuel-schoebel.com/blog/meteorjs-and-mongodb-replica-set-for-oplog-tailing" target="_blank" rel="external">MongoDB oplog</a> or the <a href="http://guide.couchdb.org/draft/notifications.html" target="_blank" rel="external">CouchDB changes feed</a> 都是类似的功能，但要想用好都不是那么容易。近来一些数据库如 <a href="http://rethinkdb.com/blog/realtime-web/" target="_blank" rel="external">RethinkDB</a> or <a href="https://www.firebase.com/docs/web/guide/retrieving-data.html" target="_blank" rel="external">Firebase</a> 正在朝着实时变更流的方向努力。</p>
+<p>这里我们主要看看<strong>PostgreSQL</strong>. 它是一个很古老的数据库，但是很好用，很稳定、性能不错，也拥有绝大多数的<a href="https://vimeo.com/61044807" target="_blank" rel="external">功能</a>。</p>
+<p>以前你如果想从Postgres中拿到变更流你必须使用触发器。这样是可以实现，但fiddly，需要变更schema，且性能不大好。但去年12月份发布的Postgresql 9.4引入了一种叫<a href="http://www.postgresql.org/docs/9.4/static/logicaldecoding.html" target="_blank" rel="external"> logical decoding逻辑编码</a>的新特性，</p>
+<p>有了logical decoding之后,Postgres的变更数据捕获突然变得更加吸引人。因此，当发布了这一功能之后，我立即利用这一特性开始为Postgres构建一个变更捕获工具<a href="http://confluent.io/" target="_blank" rel="external">Confluent</a>赞助了我这个项目，目前我们发布了一个alpha的开源版本 <a href="https://github.com/confluentinc/bottledwater-pg" target="_blank" rel="external">Bottled Water</a>.</p>
+<p><img src="../../../../images/slide-44-4-3.png" alt="Bottled Water: Data streams freshly bottled at source"></p>
+<h2 id="Bottled_Water简介"><strong>Bottled Water简介</strong></h2><p>Logical decoding利用了数据库的write-ahead log (WAL),能够让我们访问行级别的变更事件：每次一张表的某一行出现插入、更新删除操作。这类事件是利用事务来分组的，是以它们提交到数据库的顺序出现的。流中并不会记录Aborted/rolled-back事务。因此，如果你以同样的顺序应用这些变更事件，就能得到一个与数据库的事务保持一致的副本。</p>
+<p>Postgres logical decoding 的设计是很精巧的：利用变更流能够构建出一个一致性的快照来。你可以使用快照来做整个数据库某个时间点的备份，无需锁库即可完成备份，然后通过变更流获取所有自快照之后发生的写操作。</p>
+<p>Bottled Water 利用这些特性来复制数据库中的所有数据，将数据编码成 <a href="http://avro.apache.org/" target="_blank" rel="external">Avro format</a>格式.然后把编码后的数据发送给<a href="http://kafka.apache.org/" target="_blank" rel="external">Kafka</a> — 数据库中的每张表作为一个Kafka topic,数据库中的每一行作为Kafka中的一条消息。</p>
+<p>一旦数据导入到Kafka里面,你可以按你所需来编写Kafka consumer that does whatever you need:发送数据给Elasticsearch, 生成一份缓存，在 <a href="http://samza.apache.org/" target="_blank" rel="external">Samza</a> job中进行处理, 利用<a href="http://confluent.io/docs/current/camus/docs/intro.html" target="_blank" rel="external">Camus</a>将数据导入到HDFS with … 等等</p>
+<h2 id="为什么选择_Kafka?"><strong>为什么选择 Kafka?</strong></h2><p>Kafka 是一个消息系统，以大量事件的传输闻名，诸如web服务器日志，用户点击事件。在Kafka里,此类事件通常保留一段时间然后就丢弃掉。 Kafka是否真的适合数据库的变更事件。我们不希望丢掉任何的数据库数据。</p>
+<p>事实上， Kafka 是不二之选—  最关键的是Kafka’s <a href="http://kafka.apache.org/documentation.html#compaction" target="_blank" rel="external">log compaction feature</a>, 简直就是为了这个目的量身定做的. 如果你启动log compaction,就不会存在按照时间对数据进行丢弃。相反，每个消息都有一个key，Kafka会无限保留某个<br>key对应的最新的消息。某个key值之前的消息最终通过garbage-collected来采集。这与key-value键值数据库中使用新的值覆盖旧的值是一样的道理。</p>
+<p>Bottled Water确定了 (or <a href="http://michael.otacoo.com/postgresql-2/postgres-9-4-feature-highlight-replica-identity-logical-replication/" target="_blank" rel="external">replica identity</a>)Postgres中每张表的主键，并将其用作发送给Kafka消息的主键。消息值取决于事件的类型：</p>
+<ul>
+<li>对于插入和更新操作，消息值包含了每行所有字段的值，编码成Avro格式</li>
+<li>对于删除操作，消息值为null。这样 Kafka 就会在 log compaction时移除消息,这样就释放了磁盘空间</li>
+</ul>
+<p>通过log compaction,你不再需要一个系统来存储整个数据库的快照，用另一个系统来处理实时的消息-二者可以在同一个系统中并存。<br>Bottled Water把最开始的快照按照数据库中每行作为一个消息发送给Kafka，主键作为消息的key，发送给所有Kafka brokers.当处理完了快照，插入的、删除的或更新的每行都被转换成一条消息。</p>
+<p>如果某一行频繁更新的话，同一个key就会存在多条消息(每次更新都会产生一条消息)。所幸的是，Kafka’s log compaction会对其进行排序，对以往的值进行garbage-collect处理，这样就不会浪费磁盘空间。另一方面，如果某一行从不更新或删除，在Kafka中也再也不会发生变化，-永远不会进行 garbage-collected.</p>
+<p>整个数据库的备份和实时流位于同一个系统中是很有益处的。如果你想从头开始构建一个下游的系统，你可以从一个空的数据库开始，慢慢consuming Kafka topic，浏览所有的topic, 将每一条消息写入到你的数据库当中。完成之后，你便得到了整个数据的最新副本。另外，你可以通过不断的消费流数据来保持最新。给原有的数据做一些新的视图相当之容易。</p>
+<p>用Kafka的方式来维护数据库的副本给熟悉传统的企业消息和局限性的人带来了诸多惊喜。事实上，这个应用场景也正是为什么Kafka是基于 <a href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying" target="_blank" rel="external">replicated log abstraction</a>所构建的:它使得这样一类大规模的数据data retention and distribution 保持和分发成为了可能。下游系统可以自己的意愿重载和重新处理数据，不会影响要求低延迟查询的上游数据库的性能。</p>
+<p><strong>为什么选择 Avro?</strong></p>
+<p>从Postgres抽取的数据可以编码成JSON, or Protobuf, or Thrift,或其他任意格式. 但是，Avro才是最佳选择。Gwen Shapira 曾经撰文<a href="http://radar.oreilly.com/2014/11/the-problem-of-managing-schemas.html" target="_blank" rel="external">讨论了Avro在schema management中的优点</a>，我也写过一篇 <a href="http://martin.kleppmann.com/2012/12/05/schema-evolution-in-avro-protocol-buffers-thrift.html" target="_blank" rel="external">Avro 与Protobuf and Thrift比较的文章</a> .<a href="http://blog.confluent.io/2015/02/25/stream-data-platform-2/" target="_blank" rel="external">Confluent流数据平台指南 stream data platform guide</a>中给出了为什么Avro 适合于数据集成的若干理由。</p>
+<p>Bottled Water首先检查数据库表的schema，自动为每个表格生成Avro schema，利用<a href="http://confluent.io/docs/current/schema-registry/docs/index.html" target="_blank" rel="external">Confluent’s schema registry</a>对schema进行注册,将schema的版本嵌入到Avro中<br>以消息的形式发送给Kafka。也就是说是于流数据平台<a href="http://confluent.io/docs/current/schema-registry/docs/serializer-formatter.html" target="_blank" rel="external">serializers</a>一起使用:你可以将Postgres中拿到的数据以有价值的业务对象和丰富的数据类型来使用，无需编写大量的解析代码。</p>
+<p>Postgres datatypes 到 Avro的转换已经基本上很全面了，涵盖了所有常见的数据类型，提供了一种lossless and sensibly的类型转换。后续我打算对其进行扩展以支持所有Postgres内置的数据类型-虽然工作量很大，但是是值得的，因为一个好的schema对于数据是相当重要的。</p>
+<p><img src="../../../../images/slide-46-4-3-cropped.png" alt="Inside the bottle factory"></p>
+<p><strong>logical decoding输出插件</strong></p>
+<p> Postgres’ logical decoding feature的一个有趣之处在于说它并没有定义一种wire format来表示在网络中如何传输变更数据。相反，它定义了<a href="http://www.postgresql.org/docs/9.4/static/logicaldecoding-output-plugin.html" target="_blank" rel="external">output plugin API</a>, 其中对于每一次插入、更新或删除都会收到一个函数调用。 Bottled Water使用这个API来读取数据库内在格式的数据，并将其序列化成Avro格式。</p>
+<p>由于 Postgres 扩展机制的原因，输出插件必须用C来编写，并且以共享库的形式导入到数据库服务器中去。这里要求使用超级用户的权限和数据库服务器的文件<br>访问权限，所以并不是很容易就完成的。这里我理解很多数据库管理会被在数据库服务器上运行自定义代码所吓到。不幸的是，这是目前能够使用logical decoding的唯一方式</p>
+<p>所幸的是，你无须在主数据库中安装该插件-你可以使用从属机(replica, hot standby).这样你就能保证该插件不会损坏你的数据，引起主数据库的崩溃或影响其性能。</p>
+<p><img src="../../../../images/slide-47-4-3.png" alt="Bottled Water architecture"></p>
+<p><strong> client daemon</strong></p>
+<p>除了数据库服务器上运行的插件之外, Bottled Water还包含了一个你可以在其他地方运行的客户端程序。它能够连接Postgres 服务器，能够连接 Kafka brokers，接收来自数据库的Avro格式编码的数据，将Avro数据推送给 Kafka。</p>
+<p>客户端是使用C编写的，是因为这样使用Postgres 的客户端库文件的最简单的方式，由于客户端和插件之间一部分代码是复用的，相当轻量级，且无须写到磁盘中。</p>
+<p>如果客户端发送崩溃，与Postgres or Kafka的连接发生中断会有哪些影响?完全没影响。它会跟踪那条消息已经发布过了，那条消息Kafka brokers已经确认过了。<br>当出错之后重启客户端时，它会重新发送哪些没有确认过的消息。因此Kafka 中一些消息可能会出现2次，但不会有数据丢失。</p>
+<p><strong>相关工作</strong></p>
+<p>其他人解决同样问题所做的工作:</p>
+<ul>
+<li><a href="https://github.com/xstevens/decoderbufs" target="_blank" rel="external">Decoderbufs</a>是一个试验性的Postgres plugin by <a href="https://twitter.com/xstevens" target="_blank" rel="external">Xavier Stevens</a>，将变更流转换成Protocol Buffers 格式.它只是提供 logical decoding plugin —并不包括一致性快照或客户端的部分 (Xavier提到他以前写过一个客户端，读取Postgres中的数据写到Kafka,但目前还不是开源的).</li>
+<li><a href="https://github.com/xstevens/pg_kafka" target="_blank" rel="external">pg_kafka</a> (同样是Xavier写的) 是一个Postgres函数形式的Kafka producer client，你可以使用触发器来生成数据给Kafka</li>
+<li><a href="https://wiki.postgresql.org/wiki/PGQ_Tutorial" target="_blank" rel="external">PGQ</a> 是一个基于Postgres的队列实现， <a href="https://wiki.postgresql.org/wiki/SkyTools" target="_blank" rel="external">Skytools Londiste</a> (developed at Skype)使用它来做基于触发器的复制。 <a href="https://bucardo.org/wiki/Bucardo" target="_blank" rel="external">Bucardo</a>是另一款基于触发器的复制器。就我理解基于触发器的复制是有些黑客味道的(相当有技术含量)，<br>要对schema进行变更，需要fiddly的配置，要承担巨额的花销。另外，这些项目似乎都没有得到PostgreSQL core team的认可,而 logical decoding is fully supported.</li>
+<li><a href="http://sqoop.apache.org/" target="_blank" rel="external">Sqoop</a> 最近增加了支持<a href="https://issues.apache.org/jira/browse/SQOOP-1852" target="_blank" rel="external">writing to Kafka</a>. 就我所知，Sqoop只能利用数据库的完整快照，无法捕获持续的流数据，同样也无法保证不同快照之间的事务一致性</li>
+<li>对于MySQL, <a href="https://twitter.com/lorax_james" target="_blank" rel="external">James Cheng</a>整理了从MySQL into Kafka的<a href="https://github.com/wushujames/mysql-cdc-projects/wiki" target="_blank" rel="external">change capture projects</a>的列表，这些项目主要围绕着binlog的解析，并没有做一致性快照的部分、</li>
+</ul>
+<p><strong>Bottled Water目前的状态</strong></p>
+<p>目前, Bottled Water只是一款alpha的软件.充其量也就是个概念验证— 虽然经过了详细的设计和实现—但仍未在现实世界的系统中得到测试。现阶段还不适合在生产系统中使用，但经过一些测试和调整，希望将来能用在生产系统之中。</p>
+<p>我们将其以开源的形式发布出来是希望能够得到社区的反馈。同时，知道我正在完成这个项目的人一直在帮我测bug。</p>
+<p> <a href="https://github.com/confluentinc/bottledwater-pg/blob/master/README.md" target="_blank" rel="external">README</a> 包含了如何入门的更多信息。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/数据仓库/">数据仓库</a>►<a class="article-category-link" href="/categories/日记/数据仓库/KAFKA/">KAFKA</a>►<a class="article-category-link" href="/categories/日记/数据仓库/KAFKA/PostgreSQL/">PostgreSQL</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/KAFKA/">KAFKA</a><a href="/tags/PostgreSQL/">PostgreSQL</a><a href="/tags/数据仓库/">数据仓库</a><a href="/tags/日记/">日记</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka/" data-title="Bottled Water-PostgreSQL与 Kafka的实时数据整合 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/04/26/from-relational-to-Kafka/"  title="关系型数据库向KAFKA迁移 FROM RELATIONAL INTO KAFKA">
+ <strong>下一篇：</strong><br/> 
+ <span>关系型数据库向KAFKA迁移 FROM RELATIONAL INTO KAFKA
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottled_Water:_PostgreSQL与_Kafka_的实时数据整合"><span class="toc-number">1.</span> <span class="toc-text">Bottled Water: PostgreSQL与 Kafka  的实时数据整合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取实时的变更流"><span class="toc-number">2.</span> <span class="toc-text">获取实时的变更流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bottled_Water简介"><span class="toc-number">3.</span> <span class="toc-text">Bottled Water简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选择_Kafka?"><span class="toc-number">4.</span> <span class="toc-text">为什么选择 Kafka?</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

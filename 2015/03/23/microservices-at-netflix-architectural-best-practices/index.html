@@ -1,0 +1,639 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第三篇-微服务架构在Netflix的应用：架构设计的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platform中文版：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="<微服务架构在Netflix的应用>系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训">
+<meta property="og:url" content="http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第三篇-微服务架构在Netflix的应用：架构设计的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platform中文版：">
+<meta property="og:image" content="http://nginx.com/wp-content/uploads/2015/02/Netflix_Logo_Digital-Video-300x169.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="<微服务架构在Netflix的应用>系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训">
+<meta name="twitter:description" content="版权声明：欢迎转载本站的所有内容，本站的所有文章使用知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议，唯一的要求就是保留署名权，请在转载时注明出处。
+
+第三篇-微服务架构在Netflix的应用：架构设计的经验教训&amp;lt;微服务架构在Netflix的应用&amp;gt;系列博文-共四篇
+英文版： 第一部分： The Four-Tier Engagement Platform中文版：">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/23/microservices-at-netflix-architectural-best-practices/" title="&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训" itemprop="url">&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-23T03:27:12.000Z" itemprop="datePublished"> 发表于 Mar 23 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三篇-微服务架构在Netflix的应用：架构设计的经验教训"><span class="toc-number">1.</span> <span class="toc-text">第三篇-微服务架构在Netflix的应用：架构设计的经验教训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是微服务架构?"><span class="toc-number">2.</span> <span class="toc-text">什么是微服务架构?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微服务架构设计的最佳实践"><span class="toc-number">3.</span> <span class="toc-text">微服务架构设计的最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#每个微服务的数据单独存储"><span class="toc-number">3.1.</span> <span class="toc-text">每个微服务的数据单独存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用类似程度的成熟度来维护代码"><span class="toc-number">3.2.</span> <span class="toc-text">使用类似程度的成熟度来维护代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每个微服务都单独进行编译构建"><span class="toc-number">3.3.</span> <span class="toc-text">每个微服务都单独进行编译构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到容器之中"><span class="toc-number">3.4.</span> <span class="toc-text">部署到容器之中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将服务器看做是无状态的"><span class="toc-number">3.5.</span> <span class="toc-text">将服务器看做是无状态的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netflix_Delivery_Architecture_is_Built_on_nginx"><span class="toc-number">4.</span> <span class="toc-text">Netflix Delivery Architecture is Built on nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video_Recordings"><span class="toc-number">5.</span> <span class="toc-text">Video Recordings</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fast_Delivery"><span class="toc-number">5.1.</span> <span class="toc-text">Fast Delivery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Migrating_to_Microservices,_Part_1"><span class="toc-number">5.2.</span> <span class="toc-text">Migrating to Microservices, Part 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Migrating_to_Microservices,_Part_2"><span class="toc-number">5.3.</span> <span class="toc-text">Migrating to Microservices, Part 2</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>版权声明：<br>欢迎转载本站的所有内容，本站的所有文章使用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank" rel="external">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>，唯一的要求就是保留署名权，请在转载时注明出处。</p>
+</blockquote>
+<h2 id="第三篇-微服务架构在Netflix的应用：架构设计的经验教训">第三篇-微服务架构在Netflix的应用：架构设计的经验教训</h2><p>&lt;微服务架构在Netflix的应用&gt;系列博文-共四篇</p>
+<p>英文版： <a href="(http://blogs.forrester.com/ted_schadler/13-11-20-mobile_needs_a_four_tier_engagement_platform/">第一部分： The Four-Tier Engagement Platform</a><br>中文版：<br><a href="http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture" target="_blank" rel="external">第一部分：移动应用所需要的四层架构/</a></p>
+<p>英文版： <a href="http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/" target="_blank" rel="external">第二部分：http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/</a><br>中文版：<br><a href="http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture" target="_blank" rel="external">第二部分：是时候转移到四层架构上来了/</a></p>
+<p>英文版： <a href="http://nginx.com/blog/microservices-at-netflix-architectural-best-practices/" target="_blank" rel="external">第三部分：微服务架构在Netflix的应用：架构设计的经验教训</a><br>中文版：<br><a href="http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices" target="_blank" rel="external">第三部分：微服务架构在Netflix的应用：架构设计的经验教训</a></p>
+<p>英文版：<br><a href="http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/" target="_blank" rel="external">第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design </a><br>中文版：<br><a href="http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design" target="_blank" rel="external">第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训</a></p>
+<p>在最近的一些博客里我们解释了采用<a href="http://nginx.com/blog/time-to-move-to-a-four-tier-application-architecture/" target="_blank" rel="external">四层的架构</a>对于开发和部署<a href="http://nginx.com/blog/building-microservices-free-ebook-oreilly-nginx/" target="_blank" rel="external">微服务</a>的应用程序是很重要的。<br>如果你仍然采用十年前的开发流程和应用架构，你不能很快地获取和满足移动端用户的需求，移动端用户可以从越来越多的APP中进行选择。</p>
+<p>向微服务架构的转换给市场上的公司带来了很多的机会。对于系统架构和开发人员，它在为用户提供新的用户体验的同时又带来了一种前所未有的控制力和速度。但在现在这样紧张的节骨眼上，感觉上是不允许出一点差错的。现实世界中，你不可能革新期间就停止APP的开发和部署的。你深深明白未来的成功取决于能否成功迁移到微服务架构中来，但是你该怎么来做呢？</p>
+<p><a href="http://nginx.com/wp-content/uploads/2015/02/Netflix_Logo_Digital-Video.png" target="_blank" rel="external"><img src="http://nginx.com/wp-content/uploads/2015/02/Netflix_Logo_Digital-Video-300x169.png" alt="Netflix_Logo_Digital+Video"></a></p>
+<p>幸运的是，微服务的早期实践者本着开源的精神慷慨地分享他们的专业知识，不仅有开源代码，也会在会议上做一些演讲，写一些博客。Netflix就是其中之一。Adrian Cockcroft作为web工程和云计算架构师总监负责监督了公司内负责DVD租赁系统的100人的工程师团队从传统开发模式到只需要很少人员负责数百个后台服务的微服务架构来为数百万的Nrtflix客户提供数字娱乐服务。Battery Ventures公司的技术人员Cockcroft是微服务和云架构方面著名的布道者，目前供职于Nginx技术咨询委员会。<br>后续的两篇文章中，我们会给大家将一些从去年Cockcroft做的2场演讲，一场是10月的NGINX大会上，一场是几个月之后的硅谷微服务meetup中的一些启发。</p>
+<ul>
+<li>这篇里面主要是给微服务架构一个定义，阐述了一些设计微服务架构的最佳实践</li>
+<li>后面的一篇讨论了采用软件设计新思路以及绕着这种新思路来重组团队的原因和方式。</li>
+</ul>
+<h2 id="什么是微服务架构?">什么是微服务架构?</h2><p>Cockcroft 把微服务架构定义为由松耦合的有相应语境的元素构成的一种面向服务的架构</p>
+<p>松耦合意味着你可以独立更新这些服务。更新其中一个服务并不会改变其他的服务。<br>如果你的系统里有大量的特殊服务，但是又必须同时更新它们，它们又不是微服务，因为它们不是松耦合的。在向微服务迁移的时候人们常常会把数据库的耦合看的过重，也就是所有服务都连的是同一个数据库，更新其中一个服务就意味着要改变数据库的schema。这种情况你需要对数据库进行拆分</p>
+<p><em>bounded contexts</em>的概念来源于Eric Evans的书 <em>Domain Driven Design</em> 。就软件开发的目的而言，拥有恰当语境的微服务本身是自包含的。由于微服务和其他微服务之间交互是严格通过API来进行的，你不需要共享数据结构、数据库表结构和对象的内部表达形式，在不了解其他服务的内部结构的情况下你也可以理解和更新一个微服务的代码。</p>
+<p>如果你开发的是互联网应用，你已经很熟悉这些概念了，实际上只不过用的不是同样的叫法。大多数移动APP都用到了一些后台服务，这样用户可以在APP里实现Facebook里共享、从Google Map里得到地理位置、在Foursquare找到一家餐馆。假如你的APP与这些服务是紧耦合的，这样你在更新之前必须与开发团队进行协调来确保你的更新不会破坏任何东西。</p>
+<p>在使用微服务架构时，你要把其他的开发团队看作是这些后台服务：也就是那些你的微服务通过API交互的外部服务。微服务之间最通用的协议就是它们的API足够稳定，也是向前兼容的。</p>
+<p>就跟Google Map 的API不可能事先提醒就进行更改是不能所接受的，这样的话，你是API可以演进，但是必须要与之前的版本兼容</p>
+<h2 id="微服务架构设计的最佳实践">微服务架构设计的最佳实践</h2><p>Cockcroft解释他在Netflix的职位是云架构师，他的职责不是管理架构，而是发现和标准化公司工程师所形成的架构。Netflix开发团队提出了几条设计和实现微服务架构的最佳实践</p>
+<h3 id="每个微服务的数据单独存储">每个微服务的数据单独存储</h3><p> 不同微服务不要使用同一个后台数据存储。让开发团队选择适合每个微服务的数据库。或许，不同团队使用同样的数据结构来存储会减少工作量，但当其中某个团队想要更改数据结构的时候，其他服务不得不跟着改变。</p>
+<p> 数据的拆分会使得数据管理异常复杂，是因为单独的存储系统不容易同步，易于出现不一致的情况，外键也会发生意外的改变。你需要一个后台运行的<a href="http://en.wikipedia.org/wiki/Master_data_management" target="_blank" rel="external">主数据管理</a>的工具来发现和修复不一致的情况。比如，你需要检查每个存储订阅者ID的数据库来确保所有的ID都是同一个。这个工具可以自己写或者直接买。很多商用的关系型数据库都提供此类核对，它常常过于耦合，不能支持很好的伸缩性。</p>
+<h3 id="使用类似程度的成熟度来维护代码">使用类似程度的成熟度来维护代码</h3><p>微服务中所有代码都保持同样的类似程度的成熟度和稳定度。也就是说，你想要重写或给一个运行良好的已部署好的微服务添加一些代码的话，最好的方式常常 是对于新的或要改动的代码，新建一个微服务，现有的微服务丢着不管就行。 [编辑注：这种架构常常称之为<a href="http://highops.com/insights/immutable-infrastructure-what-is-it/" target="_blank" rel="external">immutable infrastructure</a> principle.] 这样的话，你可以迭代式的部署和测试新代码，直至没有bug，性能足够好,现有的微服务不会出现故障或性能下降.一旦新的微服务和原始的服务一样稳定，如果确实需要进行功能合并的话，你可以将其合并在一起，或者处于性能的考虑合并它们。然而，就Cockcroft’s的经验来讲，常常是你发现你的服务太大而要进行拆分。</p>
+<h3 id="每个微服务都单独进行编译构建">每个微服务都单独进行编译构建</h3><p>每个微服务都单独进行编译构建，这样你就从代码库里某个版本中抽取单独的组件。这样，你可以拿到多个类似文件的微服务，但却是不同的版本的。这样如果要对codebase进行清理会比较麻烦，但对于在新建微服务时添加新文件时的便利性的话，是值得的。The asymmetry is intentional: 你想要引入新的微服务、文件或者功能，很容易又不会存在风险</p>
+<h3 id="部署到容器之中">部署到容器之中</h3><p>将微服务部署到容器中很重要是因为这意味着你需要一款部署的工具。只要一个微服务是在容器之中，该工具就应该知道如何部署。无论是那种容器都没有关系。也就是说，Docker看起来很快会成为容器的行业标准。</p>
+<h3 id="将服务器看做是无状态的">将服务器看做是无状态的</h3><p>将那些特别是部署了客户端代码的服务器视作是可替换的一组之中的一个。这些服务器的功能都是一样的，你无须关心某一个。只需要关心要实现你的目标是否数量足够，你可以使用自动伸缩来按需调整数目。如果其中一个服务器宕机了，可以由其他一个替换。避免了那些单个服务器完成特殊功能的系统中存在的雪崩现象，</p>
+<p>Cockcroft打了个比方，你把服务器看做奶牛而不是宠物。如果生产系统中某个服务器负责某个特殊的功能，你通过名称认识这个服务器，这个服务器宕机后大家都回很难过，这也就是一个宠物。相反，如果你把服务器看作是一些奶牛。你关心的是你每天能挤多少奶，如果有一天你发现今天挤的奶少了，你知道是哪头牛有问题，你可以换掉它。</p>
+<h2 id="Netflix_Delivery_Architecture_is_Built_on_nginx">Netflix Delivery Architecture is Built on nginx</h2><p>下面是一段软广吧。不过nginx还是很NB的。<br>Netflix is a longtime nginx user and became the first customer of NGINX, Inc. after it incorporated in 2011. Indeed, <a href="http://nginx.com/news/nginx-inc-consulted-netflix-open-connect-initiative/" target="_blank" rel="external">Netflix chose nginx</a> as the heart of their delivery infrastructure, the <a href="https://openconnect.itp.netflix.com/software/index.html" title="Open Connect Appliance Software" target="_blank" rel="external">Netflix Open Connect</a> Content Delivery Network (CDN), one of the largest CDNs in the world. With the ability to serve thousands, and sometimes millions, of requests per second, nginx is an optimal solution for high-performance HTTP delivery and enables companies like Netflix to offer high-quality digital experiences to millions of customers every day.<a name="videos"></a></p>
+<h2 id="Video_Recordings">Video Recordings</h2><h3 id="Fast_Delivery">Fast Delivery</h3><p><a href="https://www.youtube.com/embed/5qJ_BibbMLw" target="_blank" rel="external">Fast Delivery nginx.conf2014, October 2014 </a></p>
+<h3 id="Migrating_to_Microservices,_Part_1">Migrating to Microservices, Part 1</h3><p><a href="https://www.youtube.com/embed/1wiMLkXz26M" target="_blank" rel="external">Migrating to Microservices, Part 1 Silicon Valley Microservices Meetup, August 2014</a></p>
+<h3 id="Migrating_to_Microservices,_Part_2">Migrating to Microservices, Part 2</h3><p>Silicon Valley Microservices Meetup, August 2014</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/架构/">架构</a>►<a class="article-category-link" href="/categories/日记/架构/微服务/">微服务</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/微服务/">微服务</a><a href="/tags/日记/">日记</a><a href="/tags/架构/">架构</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices/" data-title="&lt;微服务架构在Netflix的应用&gt;系列博文-3 微服务架构在Netflix的应用：架构设计的经验教训 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/" title="&lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训">
+  <strong>上一篇：</strong><br/>
+  <span>
+  &lt;微服务架构在Netflix的应用&gt;系列博文-4 微服务架构在Netflix的应用：团队和流程设计相关的经验教训</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/23/time-to-move-to-a-four-tier-application-architecture/"  title="&lt;微服务架构在Netflix的应用&gt;系列博文-2 是时候转移到四层架构上来了">
+ <strong>下一篇：</strong><br/> 
+ <span>&lt;微服务架构在Netflix的应用&gt;系列博文-2 是时候转移到四层架构上来了
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第三篇-微服务架构在Netflix的应用：架构设计的经验教训"><span class="toc-number">1.</span> <span class="toc-text">第三篇-微服务架构在Netflix的应用：架构设计的经验教训</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是微服务架构?"><span class="toc-number">2.</span> <span class="toc-text">什么是微服务架构?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微服务架构设计的最佳实践"><span class="toc-number">3.</span> <span class="toc-text">微服务架构设计的最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#每个微服务的数据单独存储"><span class="toc-number">3.1.</span> <span class="toc-text">每个微服务的数据单独存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用类似程度的成熟度来维护代码"><span class="toc-number">3.2.</span> <span class="toc-text">使用类似程度的成熟度来维护代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每个微服务都单独进行编译构建"><span class="toc-number">3.3.</span> <span class="toc-text">每个微服务都单独进行编译构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到容器之中"><span class="toc-number">3.4.</span> <span class="toc-text">部署到容器之中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将服务器看做是无状态的"><span class="toc-number">3.5.</span> <span class="toc-text">将服务器看做是无状态的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netflix_Delivery_Architecture_is_Built_on_nginx"><span class="toc-number">4.</span> <span class="toc-text">Netflix Delivery Architecture is Built on nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video_Recordings"><span class="toc-number">5.</span> <span class="toc-text">Video Recordings</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fast_Delivery"><span class="toc-number">5.1.</span> <span class="toc-text">Fast Delivery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Migrating_to_Microservices,_Part_1"><span class="toc-number">5.2.</span> <span class="toc-text">Migrating to Microservices, Part 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Migrating_to_Microservices,_Part_2"><span class="toc-number">5.3.</span> <span class="toc-text">Migrating to Microservices, Part 2</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
