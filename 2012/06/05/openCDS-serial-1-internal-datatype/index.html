@@ -1,0 +1,662 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>openCDS系列 I——内部数据结构 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="译自Notes on OpenCDS Internal Data Structure
+目的openCDS的内部数据结构大致上是基于HL7 2011年9月份投票版中VMR(虚拟医疗记录)的逻辑模型。该逻辑模型中严格定义了所有的数据元素，数据元素的定义都有对应的内部数据结构。内部数据结构更多地与schema保持一致，schema是对逻辑模型的说明性补充材料。schema提供了2种方式来定义数据关联。1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openCDS系列 I——内部数据结构">
+<meta property="og:url" content="http://wanghaisheng.github.io/2012/06/05/openCDS-serial-1-internal-datatype/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="译自Notes on OpenCDS Internal Data Structure
+目的openCDS的内部数据结构大致上是基于HL7 2011年9月份投票版中VMR(虚拟医疗记录)的逻辑模型。该逻辑模型中严格定义了所有的数据元素，数据元素的定义都有对应的内部数据结构。内部数据结构更多地与schema保持一致，schema是对逻辑模型的说明性补充材料。schema提供了2种方式来定义数据关联。1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="openCDS系列 I——内部数据结构">
+<meta name="twitter:description" content="译自Notes on OpenCDS Internal Data Structure
+目的openCDS的内部数据结构大致上是基于HL7 2011年9月份投票版中VMR(虚拟医疗记录)的逻辑模型。该逻辑模型中严格定义了所有的数据元素，数据元素的定义都有对应的内部数据结构。内部数据结构更多地与schema保持一致，schema是对逻辑模型的说明性补充材料。schema提供了2种方式来定义数据关联。1">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/06/05/openCDS-serial-1-internal-datatype/" title="openCDS系列 I——内部数据结构" itemprop="url">openCDS系列 I——内部数据结构</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-06-05T05:23:12.000Z" itemprop="datePublished"> 发表于 Jun 5 2012</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>译自Notes on OpenCDS Internal Data Structure</p>
+<p>目的<br>openCDS的内部数据结构大致上是基于HL7 2011年9月份投票版中VMR(虚拟医疗记录)的逻辑模型。该逻辑模型中严格定义了所有的数据元素，数据元素的定义都有对应的内部数据结构。<br>内部数据结构更多地与schema保持一致，schema是对逻辑模型的说明性补充材料。schema<br>提供了2种方式来定义数据关联。<br>1.嵌套式 XML和对象结构中特有的<br>2.列表式 关系型数据库结构中特有的<br>内部数据结构中嵌套式结构位于父类的子节点中，这样临床声明中的嵌套数据出现在闭合式数据元素的末尾。罗列式的数据关系位于一个“已评估个体”所有其他数据的末尾。<br>内部数据结构不是对外部的schema的完完全全的实现，抑或说，因为它试图使用单一的列表数据结构，这样规则编辑人员就可以很容易的使用。这意味着所有的嵌套式数据源是都被映射成列表式的，并且与列表格式的数据整合起来。<br>需要注意的是OpenCDS的使用者是否在嵌套式和列表式结构间复制数据。2种结构都可能用到，但是一个数据元素只能是其中的一种结构。<br>下面是一个VMR的实例，<br>嵌套式 相关的实体entity和临床声明都嵌套在源临床声明中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vmr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">templateId</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">patient</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">demographics</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                                        <span class="tag">&lt;<span class="title">relatedEntityInRole</span>&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">targetRole</span>/&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                                           . . .</span><br><span class="line">                                                 <span class="tag">&lt;/<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;/<span class="title">relatedEntityInRole</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">relatedClinicalStatement</span>&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">targetRelationshipToSource</span>/&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                                           . . .</span><br><span class="line">                                                 <span class="tag">&lt;/<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;/<span class="title">relatedClinicalStatement</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;/<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">patient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/ <span class="attribute">vmr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>罗列式 每个临床声明和实体entity以及他们间的关系都单独罗列出来，没有嵌套<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vmr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">templateId</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">patient</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">demographics</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">observationResults</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"observationId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">observationResults</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatementRelationships</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">clinicalStatementRelationship</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">sourceId</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">targetId</span> <span class="attribute">root</span>=<span class="value">"observationId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">targetRelationshipToSource</span> <span class="attribute">code</span>=<span class="value">"reasonFor"</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">clinicalStatementRelationship</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatementRelationships</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatementEntityInRoleRelationships</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">clinicalStatementEntityInRoleRelationship</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">clinicalStatementId</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">entityId</span> <span class="attribute">root</span>=<span class="value">"substanceId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">role</span> <span class="attribute">code</span>=<span class="value">"allergen"</span>/&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">clinicalStatementEntityInRoleRelationship</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatementEntityInRoleRelationships</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">entityLists</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">administrableSubstances</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"substanceId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">administrableSubstances</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">entityLists</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">patient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vmr</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>内部结构<br>数据类型<br>起初通过复制得到内部数据类型<br>我们一开始通过复制逻辑模型和schema中的数据类型得到内部数据类型的定义。然后对数据类型的不同类做出一些改变将其变为可以在Drools和OpenCDS中可用的java bean<br>移除所有JaxB生成的所有批注，除了类的描述以外以及导入的JaxB类和生成代码中的所有方法。<br>利用Eclipse，我们进行如下操作：<br>1.添加getter setter方法<br>2.添加hash code和equal方法<br>3.添加toString方法<br>4.在类的头部添加Apache许可证的批注<br>修改一些内部数据类型<br>修改或优化一些内部数据类型以便我们使用。特别地，如下需要改变：<br>1.将CD数据类型(概念描述符)中嵌套式的displayName变为CD的一个属性，这是为了方便编辑rule。<br>2.将II数据类型中的root和extension改为一个单独的字符串，成为“root^extension”<br>的形式，这是为了在rule中将其作为唯一标识符来使用。注意II的实例并不包含extension 只包含root<br>3.将TS数据类型更换为java.util.Date数据类型<br>映射工具<br>有一个完成内部和外部数据类型间对应的映射工具类MappingUtility。映射的方法的命名如”DT2InternalDT”或”InternalDT2DT” DT表示数据类型的名称。<br>vMR中的类<br>外部的schema中定义的所有VMR中的类在内部结构中都有，除了以下几个：</p>
+<ul>
+<li>1.RelatedEntity</li>
+<li>2.RelatedClinicalStatement</li>
+<li>3.RelatedEntityInRole<br>如如上三个类中的数据被标准化地分割为2部分。第一部分包含在Realted_class中包含的原始的实体或临床声明，将其移至对应的临床声明或者实体列表中去。第二部分包含了关系的本质，以及源和目标的id，这些关系类从原来的嵌套式结构更改为如下对应的列表式内部类结构：</li>
+<li>EntityRelationship</li>
+<li>ClinicalStatementRelationship</li>
+<li>ClinicalStatementEntityInRoleRelationship<br>需要注意的是对vmr类的处理和数据类型的一样，同时还有一个相关联的Mapper类，其中实现了pullIn和pushOut方法。在alpha版本以后对这些方法进行了修订，从原来的内部java bean中移除，转移到单独的方法中。<br>也有一些原本不属于vmr所定义的内部类，它们旨在简化rule的编辑。<br>从外部结构映射<br>接口org.opencds.vmr.v1_0.mappings.inPayloadUnmarshaller.java<br>PayloadUnmarshaller.java<br>此接口能够从DSS消息中读取base64编码的负载，将其转化为结构化的jaxb元素就可作为CDSInput。然后调用PayloadUnmarshaller接口来产生一个内部的vmr数据结构，这样推理引擎就可以处理了。<br>IBuildFactLists.java<br>该接口接收一个JaxB CDSInput 的元素，将其转化为内部的vmr结构，也就是一些事实的列表，这其中其实就是对提交数据的标准化，以便推理引擎的使用。<br>我们也提供了一种支持Drool 事实列表的实现。用户与不同的推理引擎交互就需要不同的内部结构，但是仍然是基于vmr的，我们也可以按照需要来替换这个模块。<br>向外部结构映射<br>接口org.opencds.vmr.v1_0.mappings.out<br>IBuildResultSet.java<br>该接口接收推理引擎处理过的事实列表，产生一个CDSOutput schema结构<br>的结构化输出，然后该结构进一步被IMappingOutbound接口 处理。<br>IMappingOutbound.java该接口接收IBuildResultSet 产生的 CDSOutput structure，产生一个base64编码的字符串作为DSS 服务的响应。<br>使用OpenCDS vMR<br>下面是对vMR的组织结构的概述，也是你如何使用它大体上的指导。首先，是一个VMR的组织结构概览，后面有一些在OpenCDS中如何使用它的建议，输入和输出都是一样。<br>Abstract Base Classes<br>在VMR中有2大类数据结构：临床声明表示感兴趣的活动/行为，实体就是指人/地，物在这些医疗活动中所拥有的角色。这些抽象类不可能单独实例化，但你可以在rule中涉及到它们。比如，你可以研究基本类中的通用元素来得到大概的结论一个特殊的活动是否发生，没有发生，已计划或者已预订。<br>临床声明<br>我们将医疗活动分为8类，对于每个类都有一个base类。临床声明自身就是如下子类的base类，包含它们所共有的元素。</li>
+<li>AdverseEventBase</li>
+<li>EncounterBase</li>
+<li>GoalBase</li>
+<li>ObservationBase</li>
+<li>ProblemBase</li>
+<li>ProcedureBase</li>
+<li>SubstanceAdministrationBase</li>
+<li>SupplyBase<br>EntityBase<br>它包含了所有人、地点，组织和其他事物的通用元素。它是EvaluatedPerson和其他7类entity的基础。<br>实例化的类<br>如下所列不是抽象类。你可以实例化其中之一来给OpenCDS传递数据，你也可以在rule中实例化它们来返回从OpenCDS中推论出的数据给你的应用程序。<br>EvaluatedPerson<br>它是VMR的根类，所有的ClinicalStatements和相关的entity都与一个EvaluatedPerson关联起来（更通俗的讲就是patient）。在家族病史或者传染病接触或其他类似的场景中，vmr也可能包含与patient 相关的其他的EvaluatedPerson 。这些EvaluatedPerson有2个属性：1）他们与病人有某种医学上的关系2）他们可能有某些和病人一样的医疗活动相关的数据。<br>然而，总是只有一个person 也就是patient，也是vmr中所关注的。OpenCDS中编写的rule旨在辅助patient的医疗服务。<br>当EvaluatedPerson继承自entityBase类时，采取与其他次要的entity不同的处理方法。patient是vmr的客体，而其他实体则参与与病人相关的医疗活动当中。<br>entity类<br>这些就是在医疗活动中扮演某个角色的次要实体。他们可能是用药、医护人员、实验室样本或者是医疗路径。</li>
+<li>AdministrableSubstance</li>
+<li>Entity</li>
+<li>Facility</li>
+<li>Organization</li>
+<li>Person</li>
+<li>Organization</li>
+<li>Specimen<br>Event类<br>这些类用来描述一个已经发生或者正在发生的医疗活动</li>
+<li>AdverseEvent</li>
+<li>EncounterEvent</li>
+<li>Goal</li>
+<li>ObservationResult</li>
+<li>Problem</li>
+<li>ProcedureEvent</li>
+<li>SubstanceAdministrationEvent</li>
+<li>SubstanceDispensationEvent</li>
+<li>SupplyEvent<br>DeniedEvent类 这些类用来描述一个并未发生的医疗活动，比如 血压的UnconductedObservation意味着并没有采集血压值（本来应该已经采集了的）。DeniedProblem表示病人并没有所描述的症状或问题</li>
+<li>DeniedAdverseEvent</li>
+<li>MissedAppointment</li>
+<li>UnconductedObservation</li>
+<li>DeniedProblem</li>
+<li>UndeliveredProcedure</li>
+<li>UndeliveredSubstanceAdministration</li>
+<li>UndeliveredSupply<br>Proposal类<br>这些类大多数openCDS的输出。如病人需要MMR，或者HbA1c检测，但他们也能表示输入。比如，会有一些类如给病人某种药物的提议，openCDS会依据病人目前的用药进行一些药物-药物反应评估。提议/建议没有医嘱或申请权威性强，常常用来给医务人员传递一些需要考虑的信息。</li>
+<li>AppointmentProposal</li>
+<li>GoalProposal</li>
+<li>ObservationProposal</li>
+<li>ProcedureProposal</li>
+<li>SubstanceAdministrationProposal</li>
+<li>SupplyProposal<br>Request and Order类<br>申请和医嘱常常是由医务人员为解决病人的某个问题或症状而提出的，它们比proposal要更正式一些，表示一些必须完成的请求，通常由辅助人员来完成</li>
+<li>AppointmentRequest</li>
+<li>ObservationOrder</li>
+<li>ProcedureOrder</li>
+<li>SubstanceAdministrationOrder</li>
+<li>SupplyOrder<br>Populating Data for submission to OpenCDS<br>Choose your structureVMR是非常灵活的，通常不止一种解决办法。一般而言，根据你的数据选择最接近的结构化方法是不错的思路。<br>如果你的数据是对象结构或者xml格式，嵌套式结构可能更适合你的输入。<br>另一方面，如果你从关系型数据库获取数据，罗列式的可能效果更好。<br>Use a template<br>一个模板就是对特定目的的输入数据的约束和要求的集合。因为不止一种方法来表示事物，最好为特定目的收集模板，这样rule就可以重用和共享。<br>随着时间的推移，OpenCDS会收集和发布模板。如果不存在一个模板能够满足你的特殊需要，在你开发rule的时候把需求记录下来，我们会帮你一起构建一个模板。<br>一旦openCDS中记录了一个模板，我们就会为它分配一个模板标识符templateID，可以在rule中引用这个templateID来确保提交的数据满足规则作者的要求。<br>注意同一个模板可以用在以不同结构提交的数据中 如对象/xml结构或者列表/关系型结构，因为模板解决数据内容的问题 而不是它们的结构。<br>Use Best Practices<br>我们会收集表达各种通用医疗数据结构的最佳实践，以及这些数据结构中的元素。在管理rule时我们也会努力这么做。<br>这些最佳实践会在单独的文档中记录。<br>Populating Data in rules for return from OpenCDS<br>OpenCDS Output StructureOpenCDS的输出结构的一部分是预先定义好的，但仍有不止一种方法来构建输出。只要有2种选择1）单个结果元素2）CDS输出结构包含Vmr的结构化数据<br>单个元素结果<br>如果你选择这种类型的结果，你的输出数据就是一个单一元素，使用任意ISO21090中支持的任意数据类型<br>。比如你可能返回布尔值 true，或者返回23的一个整数值。<br>CDSOutput Result如果你选择这种结果，你的输出会将你发送给OpenCDS的输入进行重组。某些情况下，甚至会很类似。<br>Use a template <write me=""></write></li>
+</ul>
+<p>Use Best Practices <write me=""></write></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/临床决策支持/">临床决策支持</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/OpenCDS/">OpenCDS</a><a href="/tags/临床决策支持/">临床决策支持</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2012/06/05/openCDS-serial-1-internal-datatype/" data-title="openCDS系列 I——内部数据结构 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2012/06/06/openCDS-serial-2-concepts/" title="openCDS系列 II——使用openCDS中的概念">
+  <strong>上一篇：</strong><br/>
+  <span>
+  openCDS系列 II——使用openCDS中的概念</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2012/05/28/poor-kid-attend-college/"  title="穷人的子弟上大学">
+ <strong>下一篇：</strong><br/> 
+ <span>穷人的子弟上大学
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

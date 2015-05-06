@@ -110,7 +110,7 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 		<blockquote>
 <p>版权声明：<br>欢迎转载本站的所有内容，本站的所有文章使用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank" rel="external">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>，唯一的要求就是保留署名权，请在转载时注明出处。</p>
 </blockquote>
-<h2 id="Docker_玩转_RHadoop">Docker 玩转 RHadoop</h2><p>网络上已经有了太多的 RHadoop 的安装使用的教程，鉴于其中的配置配置繁复，对软件版本的要求又极其苛刻，故笔者想用时下热门的 docker 来尝尝鲜，以下是心路历程，供看客参考，希望能给大家一些帮助。    </p>
+<h2 id="Docker_玩转_RHadoop">Docker 玩转 RHadoop</h2><p>网络上已经有了太多的 RHadoop 的安装使用的教程，鉴于其中的配置配置繁复，对软件版本的要求又极其苛刻，故笔者想用时下热门的 docker 来尝尝鲜，以下是心路历程，供看客参考，希望能给大家一些帮助。</p>
 <h3 id="1、软硬件环境">1、软硬件环境</h3><p>操作系统：OXS 10.10.1</p>
 <p>docker安装版本：boot2docker(推荐大家使用<a href="https://github.com/unixorn/docker-helpers.zshplugin该插件可以省去大家不少功夫" target="_blank" rel="external">https://github.com/unixorn/docker-helpers.zshplugin该插件可以省去大家不少功夫</a>)</p>
 <p>Hadoop镜像：sequenceiq/hadoop-ubuntu:2.6.0</p>
@@ -130,7 +130,7 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 <h3 id="5、R的配置">5、R的配置</h3><p>1、需要运行如下命令，让R与系统中安装好得jdk环境关联起来<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~ R <span class="built_ins">CMD</span> javareconf</span><br></pre></td></tr></table></figure></p>
 <p>2、启动启动R程序<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~ <span class="literal">R</span></span><br></pre></td></tr></table></figure></p>
 <p>3、安装RHadoop会使用到的依赖包<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"rJava"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"reshape2"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"Rcpp"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"iterators"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"itertools"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"digest"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"RJSONIO"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"functional"</span>)</span></span></span><br><span class="line">install.<span class="function"><span class="title">packages</span><span class="params">(<span class="string">"caTools"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<h3 id="6、rhdfs和rmr2的安装">6、rhdfs和rmr2的安装</h3><p>1、配置环境变量，网络上大量的例子使用的是hadoop1.0.3，我们使用的是Apache2.6，这里的HADOOP_STREAMING路径可能大不一样，/hadoop-1.0.3/contrib/streaming/hadoop-streaming-1.0.3.jar)，PATH这里要添加hadoop的安装路径的bin目录，否则后续使用hadoop命令会出现not found<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~ vi <span class="regexp">/etc/</span>environment</span><br><span class="line"></span><br><span class="line">    HADOOP_CMD=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>bin/hadoop</span><br><span class="line">    HADOOP_STREAMING=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>share<span class="regexp">/hadoop/</span>tools<span class="regexp">/lib/</span>hadoop-streaming-<span class="number">2.6</span>.0.jar </span><br><span class="line">	PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>bin </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~ source <span class="regexp">/etc/</span>environment</span><br></pre></td></tr></table></figure></p>
+<h3 id="6、rhdfs和rmr2的安装">6、rhdfs和rmr2的安装</h3><p>1、配置环境变量，网络上大量的例子使用的是hadoop1.0.3，我们使用的是Apache2.6，这里的HADOOP_STREAMING路径可能大不一样，/hadoop-1.0.3/contrib/streaming/hadoop-streaming-1.0.3.jar)，PATH这里要添加hadoop的安装路径的bin目录，否则后续使用hadoop命令会出现not found<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~ vi <span class="regexp">/etc/</span>environment</span><br><span class="line"></span><br><span class="line">    HADOOP_CMD=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>bin/hadoop</span><br><span class="line">    HADOOP_STREAMING=<span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>share<span class="regexp">/hadoop/</span>tools<span class="regexp">/lib/</span>hadoop-streaming-<span class="number">2.6</span>.0.jar</span><br><span class="line">	PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>local<span class="regexp">/hadoop/</span>bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~ source <span class="regexp">/etc/</span>environment</span><br></pre></td></tr></table></figure></p>
 <p>2、安装rhdfs<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~ R CMD INSTALL /Users/wanghaisheng/docker/rhdfs_1.<span class="number">0.8</span><span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
 <p>3、安装rmr2<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~  R CMD INSTALL /Users/wanghaisheng/docker/rmr2_3.<span class="number">3.0</span><span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="7、测试rmr2-wordcount">7、测试rmr2-wordcount</h3><p>1、启动R<br>2、载入rmr2包<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(rmr2)</span></span></span><br></pre></td></tr></table></figure></p>
@@ -139,7 +139,7 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 <h3 id="8、测试rmr2-MapReduce的R语言程序">8、测试rmr2-MapReduce的R语言程序</h3><p>1、首先，是基本的hdfs的文件操作。查看hdfs文件目录</p>
 <p>hadoop的命令：hadoop fs -ls /usr<br>R语言函数：hdfs.ls(“/usr/“)</p>
 <p>你会发现什么数据都没有，这时候把事先准备好的测试数据拿进来好了<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir <span class="regexp">/user/</span>hdfs</span><br><span class="line"></span><br><span class="line">hadoop fs -mkdir <span class="regexp">/user/</span>hdfs<span class="regexp">/o_same_school/</span>  </span><br><span class="line">hadoop  fs  -rm <span class="regexp">/user/</span>hdfs<span class="regexp">/o_same_school/</span>part-m-<span class="number">00000</span></span><br><span class="line"></span><br><span class="line">hadoop fs -put  <span class="regexp">/Users/</span>wanghaisheng<span class="regexp">/docker/</span>part-m-<span class="number">00000</span>  <span class="regexp">/user/</span>hdfs<span class="regexp">/o_same_school/</span></span><br><span class="line">hadoop fs -cat <span class="regexp">/user/</span>hdfs<span class="regexp">/o_same_school/</span>part-m-<span class="number">00000</span></span><br><span class="line">看到了一堆数据了把！</span><br></pre></td></tr></table></figure></p>
-<p>2、启动R程序<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">library</span>(<span class="tag">rhdfs</span>)</span><br><span class="line"><span class="tag">Loading</span> <span class="tag">required</span> <span class="rule"><span class="attribute">package</span>:<span class="value"> rJava</span><br><span class="line">HADOOP_CMD=/root/hadoop/hadoop-<span class="number">1.0</span>.<span class="number">3</span>/bin/hadoop</span><br><span class="line">Be sure to run hdfs.<span class="function">init</span>()</span><br><span class="line"></span><br><span class="line">&gt; hdfs.<span class="function">init</span>()</span><br><span class="line">hdfs.<span class="function">ls</span>(<span class="string">"/user/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function">library</span>(rmr2)</span><br><span class="line">&gt; input&lt;- <span class="string">'/user/hdfs/o_same_school/part-m-00000'</span></span><br><span class="line">&gt; wordcount = <span class="function">function</span>(input, output = NULL, pattern = <span class="string">" "</span>)&#123;</span><br><span class="line"></span><br><span class="line">  wc.map = <span class="function">function</span>(., lines) &#123;</span><br><span class="line">            <span class="function">keyval</span>(<span class="function">unlist</span>( <span class="function">strsplit</span>( x = lines,split = pattern)),<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    wc.reduce =<span class="function">function</span>(word, counts ) &#123;</span><br><span class="line">            <span class="function">keyval</span>(word, <span class="function">sum</span>(counts))</span><br><span class="line">    &#125;         </span><br><span class="line"></span><br><span class="line">    <span class="function">mapreduce</span>(input = input ,output = output, input.format = <span class="string">"text"</span>,</span><br><span class="line">        map = wc.map, reduce = wc.reduce,combine = T)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt; <span class="function">wordcount</span>(input)</span><br><span class="line">&gt; from.<span class="function">dfs</span>(<span class="string">"/tmp/file24053f4a0d65"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>2、启动R程序<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">library</span>(<span class="tag">rhdfs</span>)</span><br><span class="line"><span class="tag">Loading</span> <span class="tag">required</span> <span class="rule"><span class="attribute">package</span>:<span class="value"> rJava</span><br><span class="line">HADOOP_CMD=/root/hadoop/hadoop-<span class="number">1.0</span>.<span class="number">3</span>/bin/hadoop</span><br><span class="line">Be sure to run hdfs.<span class="function">init</span>()</span><br><span class="line"></span><br><span class="line">&gt; hdfs.<span class="function">init</span>()</span><br><span class="line">hdfs.<span class="function">ls</span>(<span class="string">"/user/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function">library</span>(rmr2)</span><br><span class="line">&gt; input&lt;- <span class="string">'/user/hdfs/o_same_school/part-m-00000'</span></span><br><span class="line">&gt; wordcount = <span class="function">function</span>(input, output = NULL, pattern = <span class="string">" "</span>)&#123;</span><br><span class="line"></span><br><span class="line">  wc.map = <span class="function">function</span>(., lines) &#123;</span><br><span class="line">            <span class="function">keyval</span>(<span class="function">unlist</span>( <span class="function">strsplit</span>( x = lines,split = pattern)),<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    wc.reduce =<span class="function">function</span>(word, counts ) &#123;</span><br><span class="line">            <span class="function">keyval</span>(word, <span class="function">sum</span>(counts))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">mapreduce</span>(input = input ,output = output, input.format = <span class="string">"text"</span>,</span><br><span class="line">        map = wc.map, reduce = wc.reduce,combine = T)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt; <span class="function">wordcount</span>(input)</span><br><span class="line">&gt; from.<span class="function">dfs</span>(<span class="string">"/tmp/file24053f4a0d65"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
 <p>这里要注意的是 这个临时文件的名字是变化的 请自己根据上一条命令的返回信息进行替换</p>
 <h3 id="参考文献">参考文献</h3><p>1.<a href="http://hijiangtao.github.io/2014/03/23/RHadoopSetupLinux/" target="_blank" rel="external">Linux环境下RHadoop配置笔记</a><br>2.<a href="http://blog.fens.me/series-rhadoop/" target="_blank" rel="external">RHadoop实践系列文章</a></p>
   
@@ -149,7 +149,7 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/rhadoop/">rhadoop</a>►<a class="article-category-link" href="/categories/日记/rhadoop/docker/">docker</a>
+  <a class="article-category-link" href="/categories/rhadoop/">rhadoop</a>►<a class="article-category-link" href="/categories/rhadoop/docker/">docker</a>
 </div>
 
 
@@ -178,18 +178,18 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/02/08/web-api-from-start-finish-1/" title="读&lt; 与Roy Fielding谈论版本化、超媒体以及REST &gt;">
+ <a href="/2014/12/20/twitter-api-restapi/" title="TWITTER REST API研究">
   <strong>上一篇：</strong><br/>
   <span>
-  读&lt; 与Roy Fielding谈论版本化、超媒体以及REST &gt;</span>
+  TWITTER REST API研究</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/12/20/twitter-api-restapi/"  title="TWITTER REST API研究">
+<a href="/2014/11/04/医疗质量改进-表达知识的概念模型/"  title="医疗质量改进-表达知识的概念模型">
  <strong>下一篇：</strong><br/> 
- <span>TWITTER REST API研究
+ <span>医疗质量改进-表达知识的概念模型
 </span>
 </a>
 </div>
@@ -218,71 +218,75 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 		<ul>
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -295,7 +299,31 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
 			
 		
 			
@@ -307,15 +335,23 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 			
 		
 			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
 			
 		
 			
@@ -327,47 +363,19 @@ Docker 玩转 RHadoop网络上已经有了太多的 RHadoop 的安装使用的�
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -1,0 +1,608 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>译《A Perfect Implementation Guide》by Keith Boone | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="Tuesday, February 1, 2011
+A Perfect Implementation Guide英文原文链接在上周HL7/IHE/ONC Consolidation Project的电话会议上，其中两个人同意新增一个独立的工作组来讨论publication format的问题。这篇也是我在这个工作组中的第一份答卷。我代表HL7, IHE, and HITSP参与了CDA Imple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译《A Perfect Implementation Guide》by Keith Boone">
+<meta property="og:url" content="http://wanghaisheng.github.io/2012/02/23/a-perfect-implementation-guide/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="Tuesday, February 1, 2011
+A Perfect Implementation Guide英文原文链接在上周HL7/IHE/ONC Consolidation Project的电话会议上，其中两个人同意新增一个独立的工作组来讨论publication format的问题。这篇也是我在这个工作组中的第一份答卷。我代表HL7, IHE, and HITSP参与了CDA Imple">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="译《A Perfect Implementation Guide》by Keith Boone">
+<meta name="twitter:description" content="Tuesday, February 1, 2011
+A Perfect Implementation Guide英文原文链接在上周HL7/IHE/ONC Consolidation Project的电话会议上，其中两个人同意新增一个独立的工作组来讨论publication format的问题。这篇也是我在这个工作组中的第一份答卷。我代表HL7, IHE, and HITSP参与了CDA Imple">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/02/23/a-perfect-implementation-guide/" title="译《A Perfect Implementation Guide》by Keith Boone" itemprop="url">译《A Perfect Implementation Guide》by Keith Boone</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-02-23T09:40:12.000Z" itemprop="datePublished"> 发表于 Feb 23 2012</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A_Perfect_Implementation_Guide"><span class="toc-number">1.</span> <span class="toc-text">A Perfect Implementation Guide</span></a></li></ol>
+		
+		</div>
+		
+		<p>Tuesday, February 1, 2011</p>
+<h1 id="A_Perfect_Implementation_Guide">A Perfect Implementation Guide</h1><p><a href="http://motorcycleguy.blogspot.com/2011/02/perfect-implementation-guide.html" target="_blank" rel="external">英文原文链接</a><br>在上周HL7/IHE/ONC Consolidation Project的电话会议上，其中两个人同意新增一个独立的工作组来讨论publication format的问题。这篇也是我在这个工作组中的第一份答卷。<br>我代表HL7, IHE, and HITSP参与了CDA Implementation Guides的工作，也看到了很多来自CMS 法国 epSOS 德国和日本的IG。我也正在写一本关于CDA的书，预计年底就完成了。我列出了一些perfect guide的要求：<br>1.为了裁决问题，必须有单一的“normative”publication format，也是正式的规范<br>2.必须要有一种使得实施人员能够快速定位所需信息的丰富的、可搜索的多媒体格式<br>3.包含所有内容，包含一个页码的内容表格的一种可打印的格式，能够让实施人员获取到这种可打印的格式<br>4.必须包括范例文件、一致性数据、schema、shcematron、UML model等的补充材料来进一步支持实现<br>5.补充材料必须是标准化的格式，才能使用现成的工具。比如XSD Schematron或者XMI文件<br>6.表格化数据必须是CSV或者XML的格式，这样易于导入到现成的产品当中。<br>7.使用XML格式表示表格数据时需要良好的文档，更好的标准格式，必须在现成工具中易于使用。MIF不算<br>8.Publication format必须能够完整下载而无需外部的web服务或者网络连接。<br>9.IG必须含有确保一致性的可测试的一致性标准。注意：可测试的并不意味所有的测试都是自动化的。<br>10.一致性标准必须用可计算机化的格式来表示，以数据/模型的形式，使得其他系统能够以创新的方式来使用<br>11.一致性标准必须分为2部分，schema验证和功能性验证<br>12.schema验证标准无需了解输入就能确定交换的文档是否有效。不符合schema的文档就不是一个符合IG的。<br>13.功能性验证标准确定一些特殊的需求或和文档创建人员和接收人员所要求的功能(IHE中称之为content creator和consumer actor)<br>14.一致性标准主要以交换时文档中信息出现的顺序来组织，为的是易于获取。<br>15.一致性规则在于解释要求的目的来帮助实施人员理解规则想要完成的东西。<br>16.一致性规则必须提供一致性结果的例子，应该提供不一致的例子来辅助实现<br>17.IG使用容易理解的术语和方法，或者当使用领域术语或者方法时，解释这些内容以使得不熟悉该领域的实现人员理解它所讲的内容<br>18.IG提供多种形式的必要信息：一致性内容的UML模型，英语表达的一致性声明、可能的话，通过多种学习风格易于获取的表格形式，以及一致性内容的实例<br>19.只有一种格式的表现形式是规范化的，其他的都是提供信息来确保表现形式间的冲突可以解决<br>20.使用自动化的方案来产生多种表现形式以确保IG中信息的一致性。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Keith-Boone/">Keith Boone</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2012/02/23/a-perfect-implementation-guide/" data-title="译《A Perfect Implementation Guide》by Keith Boone | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2012/02/23/Meaningful-Use-Standards/" title="译《A Perfect Implementation Guide》by Keith Boone">
+  <strong>上一篇：</strong><br/>
+  <span>
+  译《A Perfect Implementation Guide》by Keith Boone</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2012/02/21/A-year-in-Review-at-HIMSS12/"  title="译自2011- A Year in Review at HIMSS12 by Keith Boone">
+ <strong>下一篇：</strong><br/> 
+ <span>译自2011- A Year in Review at HIMSS12 by Keith Boone
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A_Perfect_Implementation_Guide"><span class="toc-number">1.</span> <span class="toc-text">A Perfect Implementation Guide</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

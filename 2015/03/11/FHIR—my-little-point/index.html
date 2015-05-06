@@ -1,0 +1,610 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>对FHIR的一些浅显认识 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="FHIR标准
+大多数在HIT这个行业浸淫略久的人都听到过HL7的字眼，HIT 行业的标准不外乎有2个目的，交互共享数据(HL7 V2消息，V3消息，CDA，X12,共享文档规范诸如此类)，表达医疗行业的知识(各类术语字典，数据集数据元标准，Arden syntax，CDSC，GELLO诸如此类)，而FHIR应该归属于第一类，与它的前辈不同的是，它抛弃了既往顺着发展了10多年，乃至于20年的那块田(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对FHIR的一些浅显认识">
+<meta property="og:url" content="http://wanghaisheng.github.io/2015/03/11/FHIR—my-little-point/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="FHIR标准
+大多数在HIT这个行业浸淫略久的人都听到过HL7的字眼，HIT 行业的标准不外乎有2个目的，交互共享数据(HL7 V2消息，V3消息，CDA，X12,共享文档规范诸如此类)，表达医疗行业的知识(各类术语字典，数据集数据元标准，Arden syntax，CDSC，GELLO诸如此类)，而FHIR应该归属于第一类，与它的前辈不同的是，它抛弃了既往顺着发展了10多年，乃至于20年的那块田(">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对FHIR的一些浅显认识">
+<meta name="twitter:description" content="FHIR标准
+大多数在HIT这个行业浸淫略久的人都听到过HL7的字眼，HIT 行业的标准不外乎有2个目的，交互共享数据(HL7 V2消息，V3消息，CDA，X12,共享文档规范诸如此类)，表达医疗行业的知识(各类术语字典，数据集数据元标准，Arden syntax，CDSC，GELLO诸如此类)，而FHIR应该归属于第一类，与它的前辈不同的是，它抛弃了既往顺着发展了10多年，乃至于20年的那块田(">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/11/FHIR—my-little-point/" title="对FHIR的一些浅显认识" itemprop="url">对FHIR的一些浅显认识</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-11T06:31:12.000Z" itemprop="datePublished"> 发表于 Mar 11 2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>FHIR标准</p>
+<p>大多数在HIT这个行业浸淫略久的人都听到过HL7的字眼，HIT 行业的标准不外乎有2个目的，交互共享数据(HL7 V2消息，V3消息，CDA，X12,共享文档规范诸如此类)，表达医疗行业的知识(各类术语字典，数据集数据元标准，Arden syntax，CDSC，GELLO诸如此类)，而FHIR应该归属于第一类，与它的前辈不同的是，它抛弃了既往顺着发展了10多年，乃至于20年的那块田(封闭又自恃过高，怎么说这点呢，所有的标准文件都有自己独特的脱离了整个软件行业的编辑器生成，这些模型也不能为其他通用型软件所读取，最可恨的是没有配套的各种开源库开放给大家试错，降低学习成本，恶心的是居然个破标准还要收费)，也就是在上世纪90年代末XML在整个软件领域刮起一阵风，到处都在说系统集成时应运而生的V3消息，CDA等，毫无疑问它们都是为不同厂家的不同系统之间交换数据而生的，而它们的下场都很惨，用现在的话说，都不够敏捷，学习成本过高，迭代也不够快。</p>
+<p>在FHIR卷土重来的时候就把基调定好了，思想上这次要全面拥抱互联网技术，用通用的互联网技术来做原来没有成功的事情，仍然还是想实现医疗健康领域数据的无缝流动，打通整个数据闭环。 它的诱人之处我认为有如下三点：<br>1、过去的很多年，美国人造了各种各样的标准，国际友人也造了各式各样的轮子来解决上面的问题，最近的2-3年里很多人抛出了这样一个问题，能不能用同一种模型，经过适当的演化就能表达医疗数据(电子病历、健康档案、个人健康记录)，又能表达医学知识(临床指南类决策支持用的知识，质控指标类的知识)，就目前FHIR发展的现状来看，这是一个还不错的选择。有很多这方面的尝试，美国的ONC最近也在这件事上砸了些钱希望能推动的更快一些。<br>2、拥抱互联网技术<br>卫生部这几年在推的区域平台、医院平台的技术点在我看来离现如今的互联网技术太远了，作为已经被抛弃的SOAP流的SOA架构的残留物，着实没听到在BAT等企业有何应用，最近几年在人人学Amazon的同事，新浪、京东等一批国内 企业都在推一个叫open API 或者是restful api或者叫HTTP API的东东，以此来解决各自内部千千万产品间、产品内部的数据流动的问题，简而言之就是以一种方式圈定某个领域的业务对象，每种对象都使用同样的方法来实现一些功能，类比到厨艺的话，就是说约定好如何区分食材，每种食材都有哪些烹饪方法，这样子整个医疗领域就大约有100-200种资源(最小的信息单元，当然这里面的粒度的拿捏很是讲究)，用到的“烹饪方法”就是HTTP协议定义好的(诸如put/post/get等)。数据本身的表达格式也从原来V2 V3单纯的EDI格式、XML格式演化到了目前比较流行的JSON，以后或许还会演化出其他更为适合的方式。这件事情一方面降低了学习认知整个标准的门槛，另一方面即使不使用它所规定的格式，顺着这样的思路，你也能解决一些问题，这里的问题不单单是之前它的老前辈(v2\v3\cda)所更care的产品与产品间的数据交换数据共享，你也可以借此实现产品内部的功能(京东的李大学总裁就介绍过它们在这方面的一些探索和实践)，比如面临的移动端和PC端开发时功能复用的问题。当然也有人会问，这东西能作为数据的存储模型来用么，这个问题是HL7 V3 RIM CDA所没能很好的解决的问题，它们的抽象程度太高了，但时代变了，Nosql数据库现在已经有很多 可供选择，如果你要使用关系型数据库的话，也有一些这方面的探索可供参考。<br>3、尽管国内目前关注度不够，但在著名的代码托管平台Github上已经有大量的各种编程语言(java c# dephi javascipt swift等)、各种平台可用的一些开源代码，有适合PC端的，也有适合移动端的，这是很喜人的。</p>
+<p>欢迎交流，联系方式：<br>webChat：搜索“妞妞她爹”<br>qq：512139097<br>群：<br>奉上一些链接供大家把玩<br>1、汉化版<a href="https://github.com/wanghaisheng/fhir-cn" target="_blank" rel="external">https://github.com/wanghaisheng/fhir-cn</a><br>     英文版<a href="http://hl7.org/implement/standards/fhir/" target="_blank" rel="external">http://hl7.org/implement/standards/fhir/</a><br>2、开源库<br><a href="https://github.com/jamesagnew/hapi-fhir" target="_blank" rel="external">https://github.com/jamesagnew/hapi-fhir</a><br><a href="https://github.com/smart-on-fhir/smart-on-fhir.github.io" target="_blank" rel="external">https://github.com/smart-on-fhir/smart-on-fhir.github.io</a><br><a href="https://github.com/fhirbase" target="_blank" rel="external">https://github.com/fhirbase</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/FHIR/">FHIR</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/FHIR/">FHIR</a><a href="/tags/HIT/">HIT</a><a href="/tags/信息交换/">信息交换</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2015/03/11/FHIR—my-little-point/" data-title="对FHIR的一些浅显认识 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/03/23/mobile_needs_a_four_tier_engagement_platform/" title="&lt;微服务架构在Netflix的应用&gt;系列博文-1 移动应用所需要的四层架构">
+  <strong>上一篇：</strong><br/>
+  <span>
+  &lt;微服务架构在Netflix的应用&gt;系列博文-1 移动应用所需要的四层架构</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/11/partners-e-healthcare/"  title="共同构建互联网医疗大共荣圈-FHIR标准的汉化和产品的开发">
+ <strong>下一篇：</strong><br/> 
+ <span>共同构建互联网医疗大共荣圈-FHIR标准的汉化和产品的开发
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -109,7 +109,7 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST_APIs"><span class="toc-number">1.</span> <span class="toc-text">REST APIs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text"> </span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST_APIs"><span class="toc-number">1.</span> <span class="toc-text">REST APIs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="##"><span class="toc-number">2.</span> <span class="toc-text">#</span></a></li></ol>
 		
 		</div>
 		
@@ -124,18 +124,18 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 <p>在一定的情况下，V1.1版本的接口中默认会返回 entities(实体) 和 retweets(转发)。 entities(实体) 是作为Tweet objects微博对象的一部分返回的，除非你将include_entities变量的值设为false。其中会包含时间流顺序组织的转发信息，除非include_rts参数的值为false</p>
 <p>2、Authentication on all endpoints</p>
 <p>我们使用OAuth1.0a或者Application-only authentication对来自应用程序的所有请求消息进行鉴权。<br>这种透明化的方式避免了滥用行为，也能够让我们对使用API的应用程序更好的分类。<br>这样我们就能对平台持续演进以更好的满足开发者的需求</p>
-<p>3、Rate Limiting </p>
+<p>3、Rate Limiting</p>
 <p>对于每个endpoint，我们将频率限制划分为15分钟一段，在每段当中，单个应用调用的请求的上限为15次。<br>与V1版本的API相比，每个endpoint的调用次数都变多了，有些特殊的节点在一段内甚至可以达到180次，尤其有利于使用了GET statuses / show / :id, GET users / lookup, GET search / tweets 等接口的APP。详细信息请阅读API V1.1Rate Limiting相关文档和每个方法中具体对于调用上限的描述</p>
 <p>4、Twitter client policies</p>
 <p>所有再造了Twitter核心功能的应用斗称之为client客户端，都必须遵循某些约束，包括100，000用户令牌的限制。这点也仅仅适用于小型的客户端，并不适用于生态系统中的大多数应用程序。详情请查看<a href="https://dev.twitter.com/terms/api-terms" target="_blank" rel="external">开发者守则</a></p>
-<h3 id=""> </h3>  
+<h2 id="#">#</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/REST/">REST</a>
+  <a class="article-category-link" href="/categories/HTTP-API/">HTTP API</a>►<a class="article-category-link" href="/categories/HTTP-API/REST/">REST</a>
 </div>
 
 
@@ -164,18 +164,18 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/12/20/run-rhadoop-on-docker-cn/" title="Docker玩转Rhadoop">
+ <a href="/2015/02/04/招妓小伙伴打小怪兽了/" title="招妓小伙伴打小怪兽了">
   <strong>上一篇：</strong><br/>
   <span>
-  Docker玩转Rhadoop</span>
+  招妓小伙伴打小怪兽了</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/10/18/songwriting_note_1/"  title="SongWriting公开课笔记">
+<a href="/2014/12/20/run-rhadoop-on-docker-cn/"  title="Docker玩转Rhadoop">
  <strong>下一篇：</strong><br/> 
- <span>SongWriting公开课笔记
+ <span>Docker玩转Rhadoop
 </span>
 </a>
 </div>
@@ -190,7 +190,7 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST_APIs"><span class="toc-number">1.</span> <span class="toc-text">REST APIs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text"> </span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#REST_APIs"><span class="toc-number">1.</span> <span class="toc-text">REST APIs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-number">1.1.</span> <span class="toc-text">概述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="##"><span class="toc-number">2.</span> <span class="toc-text">#</span></a></li></ol>
  
   </div>
 
@@ -204,71 +204,75 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 		<ul>
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -281,7 +285,31 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
 			
 		
 			
@@ -293,15 +321,23 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 			
 		
 			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
 			
 		
 			
@@ -313,47 +349,19 @@ REST APIs这样就能够以编程的方式读写Twitter数据。发一条推或�
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
 			
 		
 		</ul>

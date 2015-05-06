@@ -2,43 +2,278 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka/</loc>
-    <lastmod>2015-04-27T17:29:02.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/2012/03/16/cda-document-editor/</loc>
+    <lastmod>2015-05-06T04:00:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/16/cda-document-examples/</loc>
+    <lastmod>2015-05-06T04:00:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/16/CDA-quick-start-guide/</loc>
+    <lastmod>2015-05-06T04:00:51.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2011/10/30/encounter-explanation/</loc>
+    <lastmod>2015-05-06T03:59:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2010/12/13/Introducing-NHIN-Direct/</loc>
+    <lastmod>2015-05-06T03:45:08.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2011/08/17/HL7-need-a-fresh-look/</loc>
+    <lastmod>2015-05-06T03:42:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/02/23/Meaningful-Use-Standards/</loc>
+    <lastmod>2015-05-06T03:08:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2010/11/29/open-source-implementation-of-specs/</loc>
+    <lastmod>2015-05-06T03:03:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/06/25/githubpages/</loc>
+    <lastmod>2015-05-06T02:53:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/06/09/abc/</loc>
+    <lastmod>2015-05-06T02:53:12.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/05/20/welcome/</loc>
+    <lastmod>2015-05-06T02:53:01.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://wanghaisheng.github.io/2014/05/20/blog_template/</loc>
-    <lastmod>2015-04-27T14:41:30.000Z</lastmod>
+    <lastmod>2015-05-06T02:48:21.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/02/08/web-api-from-start-finish-1/</loc>
-    <lastmod>2015-04-27T14:07:39.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/2014/12/20/twitter-api-restapi/</loc>
+    <lastmod>2015-05-06T02:47:01.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://wanghaisheng.github.io/2015/02/09/web-api-from-start-finish-2/</loc>
-    <lastmod>2015-04-27T13:44:30.000Z</lastmod>
+    <lastmod>2015-05-06T02:45:53.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/</loc>
-    <lastmod>2015-04-27T13:40:29.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/2015/02/08/web-api-from-start-finish-1/</loc>
+    <lastmod>2015-05-06T02:45:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2010/10/22/ubuntu_sqlplus/</loc>
+    <lastmod>2015-05-06T02:45:45.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture/</loc>
+    <lastmod>2015-05-06T02:45:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/10/18/songwriting_note_1/</loc>
+    <lastmod>2015-05-06T02:45:32.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/23/service-principles/</loc>
+    <lastmod>2015-05-06T02:45:25.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/12/20/run-rhadoop-on-docker-cn/</loc>
+    <lastmod>2015-05-06T02:45:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/04/11/patient-generated-data/</loc>
+    <lastmod>2015-05-06T02:45:16.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/23/mobile_needs_a_four_tier_engagement_platform/</loc>
+    <lastmod>2015-05-06T02:45:12.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices/</loc>
-    <lastmod>2015-04-27T13:40:21.000Z</lastmod>
+    <lastmod>2015-05-06T02:45:09.000Z</lastmod>
   </url>
   
   <url>
     <loc>http://wanghaisheng.github.io/2015/04/26/from-relational-to-Kafka/</loc>
-    <lastmod>2015-04-27T13:38:20.000Z</lastmod>
+    <lastmod>2015-05-06T02:44:58.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite.html</loc>
-    <lastmod>2015-04-12T09:48:13.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/2014/09/04/EHRMaterial/</loc>
+    <lastmod>2015-05-06T02:44:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/06/13/choice-you-made/</loc>
+    <lastmod>2015-05-06T02:44:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/04/27/bottled-water-real-time-integration-of-postgresql-and-kafka/</loc>
+    <lastmod>2015-05-06T02:44:08.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design/</loc>
+    <lastmod>2015-05-06T02:44:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/11/04/%E5%8C%BB%E7%96%97%E8%B4%A8%E9%87%8F%E6%94%B9%E8%BF%9B-%E8%A1%A8%E8%BE%BE%E7%9F%A5%E8%AF%86%E7%9A%84%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2015-05-06T02:43:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/17/ValueSets-and-QueryHealth/</loc>
+    <lastmod>2015-05-06T02:41:16.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/17/The-XSLT-document-function/</loc>
+    <lastmod>2015-05-06T02:39:20.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/02/04/%E6%8B%9B%E5%A6%93%E5%B0%8F%E4%BC%99%E4%BC%B4%E6%89%93%E5%B0%8F%E6%80%AA%E5%85%BD%E4%BA%86/</loc>
+    <lastmod>2015-05-06T02:38:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/11/partners-e-healthcare/</loc>
+    <lastmod>2015-05-06T02:38:15.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/06/06/openCDS-serial-2-concepts/</loc>
+    <lastmod>2015-05-06T02:38:10.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/06/05/openCDS-serial-1-internal-datatype/</loc>
+    <lastmod>2015-05-06T02:38:02.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/15/Liberating-consolidated-cda-templates-from-Trifolia/</loc>
+    <lastmod>2015-05-06T02:37:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/02/11/learn-cdss-from-beginning-2/</loc>
+    <lastmod>2015-05-06T02:37:48.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/02/10/learn-cdss-from-beginning-1/</loc>
+    <lastmod>2015-05-06T02:37:43.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/15/Implementing-IHE-SVS-Over-the-Trifolia-Consolidated-CDA/</loc>
+    <lastmod>2015-05-06T02:37:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/03/24/Health-Concern/</loc>
+    <lastmod>2015-05-06T02:37:30.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/02/24/Good-Exchange-Specifications-Microsoft-vs-Apple/</loc>
+    <lastmod>2015-05-06T02:37:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/05/21/find-exact-meaning-for-medical-informatics-terms/</loc>
+    <lastmod>2015-05-06T02:37:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/06/10/FHIR%E6%A6%82%E8%A7%88/</loc>
+    <lastmod>2015-05-06T02:37:11.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/06/11/FHIR%E2%80%94%E2%80%94%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2015-05-06T02:37:07.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2015/03/11/FHIR%E2%80%94my-little-point/</loc>
+    <lastmod>2015-05-06T02:37:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/15/defining-a-summary-care-record-for-mu-stage2/</loc>
+    <lastmod>2015-05-06T02:36:55.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/03/17/Data-Versus-Information-The-EMR-Readability-Problem/</loc>
+    <lastmod>2015-05-06T02:36:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/03/21/Clinical-Quality-Framework-starter/</loc>
+    <lastmod>2015-05-06T02:36:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2014/01/09/cds-workflow-integration/</loc>
+    <lastmod>2015-05-06T02:36:39.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/02/21/A-year-in-Review-at-HIMSS12/</loc>
+    <lastmod>2015-05-06T02:36:31.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/02/23/a-perfect-implementation-guide/</loc>
+    <lastmod>2015-05-06T02:36:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/04/30/show-special-element-value/</loc>
+    <lastmod>2015-05-06T02:35:45.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/about/index.html</loc>
+    <lastmod>2015-04-28T17:12:30.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2012/05/28/poor-kid-attend-college/</loc>
+    <lastmod>2015-04-28T16:29:46.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/2011/10/10/start-translation/</loc>
+    <lastmod>2015-04-28T15:37:01.000Z</lastmod>
   </url>
   
   <url>
@@ -47,42 +282,12 @@
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/Plugin_AllLinksTracking.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite.html</loc>
+    <lastmod>2015-04-12T09:48:13.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/RNBLUBDLZZEGLLNLHCQBCH.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/webtrends.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/belowTheFold.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/conversion.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/roundtrip.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/II3_Rules.js</loc>
-    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/jquery.js</loc>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/gil3vgx.js</loc>
     <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
@@ -107,12 +312,12 @@
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/iMAWebCookie.js</loc>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/webtrends.js</loc>
     <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/gil3vgx.js</loc>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/roundtrip.js</loc>
     <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
@@ -122,73 +327,43 @@
   </url>
   
   <url>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/conversion.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/belowTheFold.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/jwplayer.js</loc>
     <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/04/11/patient-generated-data/</loc>
-    <lastmod>2015-04-11T13:45:36.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/RNBLUBDLZZEGLLNLHCQBCH.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/03/23/service-principles/</loc>
-    <lastmod>2015-03-23T10:46:27.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/Plugin_AllLinksTracking.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/03/23/time-to-move-to-a-four-tier-application-architecture/</loc>
-    <lastmod>2015-03-23T03:40:16.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/II3_Rules.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2015/03/23/mobile_needs_a_four_tier_engagement_platform/</loc>
-    <lastmod>2015-03-23T03:38:16.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/jquery.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://wanghaisheng.github.io/2014/12/20/run-rhadoop-on-docker-cn/</loc>
-    <lastmod>2014-12-20T04:45:51.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/12/20/twitter-api-restapi/</loc>
-    <lastmod>2014-12-20T02:57:53.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/06/25/githubpages/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/06/09/abc/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/10/18/songwriting_note_1/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/05/20/welcome/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2010/10/22/ubuntu_sqlplus/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/2014/09/04/EHRMaterial/</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wanghaisheng.github.io/about/index.html</loc>
-    <lastmod>2014-12-03T10:25:25.000Z</lastmod>
+    <loc>http://wanghaisheng.github.io/images/Infor%20Cloverleaf%20Integration%20and%20Information%20Exchange%20Suite_files/iMAWebCookie.js</loc>
+    <lastmod>2015-04-12T09:48:12.000Z</lastmod>
   </url>
   
 </urlset>

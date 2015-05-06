@@ -1,0 +1,669 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>医疗质量改进-表达知识的概念模型 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14Introduction简介目前在美国，电子化的医疗质量测度eCQM和临床决策支持CDS是采用不同的数据模型来表达的。eCQM用的是QDM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="医疗质量改进-表达知识的概念模型">
+<meta property="og:url" content="http://wanghaisheng.github.io/2014/11/04/医疗质量改进-表达知识的概念模型/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14Introduction简介目前在美国，电子化的医疗质量测度eCQM和临床决策支持CDS是采用不同的数据模型来表达的。eCQM用的是QDM">
+<meta property="og:image" content="qdm2vmr.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="医疗质量改进-表达知识的概念模型">
+<meta name="twitter:description" content="HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14Introduction简介目前在美国，电子化的医疗质量测度eCQM和临床决策支持CDS是采用不同的数据模型来表达的。eCQM用的是QDM">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/11/04/医疗质量改进-表达知识的概念模型/" title="医疗质量改进-表达知识的概念模型" itemprop="url">医疗质量改进-表达知识的概念模型</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2014-11-04T09:57:12.000Z" itemprop="datePublished"> 发表于 Nov 4 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HL7_Domain_Analysis_Model:_Health_Quality_Improvement,_Release_1_September_2014_US_Realm_Informative_Specification文档_9/16/14"><span class="toc-number">1.</span> <span class="toc-text">HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction简介"><span class="toc-number">1.1.</span> <span class="toc-text">Introduction简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.2.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#受众"><span class="toc-number">1.3.</span> <span class="toc-text">受众</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大背景介绍"><span class="toc-number">1.4.</span> <span class="toc-text">大背景介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法学"><span class="toc-number">1.5.</span> <span class="toc-text">方法学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#范围"><span class="toc-number">1.6.</span> <span class="toc-text">范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#场景分析"><span class="toc-number">1.7.</span> <span class="toc-text">场景分析</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="HL7_Domain_Analysis_Model:_Health_Quality_Improvement,_Release_1_September_2014_US_Realm_Informative_Specification文档_9/16/14">HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14</h1><h2 id="Introduction简介">Introduction简介</h2><p>目前在美国，电子化的医疗质量测度eCQM和临床决策支持CDS是采用不同的数据模型来表达的。eCQM用的是QDM(Quality Data Model质量数据模型)，CDS是使用vMR(Virtual Medical Record虚拟病历)。而二者之间又存在紧密的关联，eCQM度量医疗服务的质量，CDS为改进以来质量通过干预措施，二者存在共通的需求，即如何标识某种eCQM或CDS知识/规则所应用的患者。<br>举例说明，在CDS中常常会用到怀孕的概念，我们可以将其映射到eCQM目前所使用的vMR模型中，在vMR中 如果Problem中给类的problemCode使用了特殊的字典(2.16.840.1.113883.3.600.1622 怀孕)，我们就认为这个Pbolem类它表示的是怀孕的概念。如下所示：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;def <span class="variable">name=</span><span class="string">"Pregnancy"</span>&gt;</span><br><span class="line">   &lt;expression xsi:<span class="variable">type=</span><span class="string">"ClinicalRequest"</span> <span class="variable">cardinality=</span><span class="string">"Multiple"</span></span><br><span class="line">       <span class="variable">dataType=</span><span class="string">"vmr:Problem"</span> <span class="variable">codeProperty=</span><span class="string">"problemCode"</span>  </span><br><span class="line">      <span class="variable">dateProperty=</span><span class="string">"problemEffectiveTime.low"</span></span><br><span class="line">        <span class="variable">useValueSets=</span><span class="string">"true"</span> <span class="variable">subjectProperty=</span><span class="string">"evaluatedPersonId"</span>&gt;</span><br><span class="line">       &lt;codes xsi:<span class="variable">type=</span><span class="string">"ValueSet"</span> <span class="variable">id=</span><span class="string">"2.16.840.1.113883.3.600.1622"</span></span><br><span class="line">           <span class="variable">authority=</span><span class="string">"Quality Insights of Pennsylvania"</span></span><br><span class="line">               <span class="variable">version=</span><span class="string">"20130614"</span> /&gt;</span><br><span class="line">   &lt;/expression&gt;</span><br><span class="line">&lt;/def&gt;</span><br></pre></td></tr></table></figure></p>
+<p>反过来 我们也可以用QDM(eCQM)模型来表达vMR(CDS)中的概念，比如eCQM中使用“Diagnosis, Active: Pregnancy” 的术语来表示怀孕，对于CDS而言，我们可以用字典为(2.16.840.1.113883.3.600.1622 怀孕)的Diagnosis类同样来表示怀孕。<br><img src="qdm2vmr.jpg" alt=""></p>
+<h2 id="目标">目标</h2><p>这份文档也就是QIDAM(Health Quality Improvement Domain Analysis Model 医疗质量改进领域分析模型)是一个概念层面数据模型(其实应该是概念模型就对了)，可以作为这个域的任何一种逻辑数据模型的基础。<br>这个模型分析了逻辑数据模型的需求，也就是说应该包含哪些元素。这个逻辑数据模型是用来表达医疗质量改进领域知识中的逻辑条件、总体条件、公式和其他表达的临床数据模型。这样子就确保了CDS和eCQM知识之间的一致性。</p>
+<h2 id="受众">受众</h2><p>包括医疗知识质量的测度、管理和上报的工作人员，知识的编辑和使用人员，标准分析和开发人员，工具开发人员以及系统集成商。<br>最好熟悉OO的设计原则和UML知识。</p>
+<h2 id="大背景介绍">大背景介绍</h2><p>MU第二阶段中要求通过认证的EHR系统实现CDS来支撑eCQM的改进。eCQM和CDS知识采用了不同的数据模型则1)阻碍了二者之间患者数据需求的共享;2)要求软件供应商在不同的格式间进行映射3)阻碍了二者之间共享模块开发<br>vMR是HL7的一种逻辑模型，2014年发布了第二版。使用UML来定义，其中的概念沿用了HL7 CLinical Statement 模型中的概念，使用了简化版的HL7 V3数据类型第二版。该模型的核心类是ClinicalStatement，该类可以具体化成ProcedureEvent，其中也包含了proposals的类，用以表示医嘱套餐中的一项或者一些规则中的建议。<br>QDM模型是基于components的，规定了如何将这些components组合成一种数据映射的表达方式。其中包括了：</p>
+<ul>
+<li>Category (e.g., Procedure, Medication, Communication)</li>
+<li>State (e.g., Active, Administered)</li>
+<li>Attribute (e.g., Dosage, Frequency, Admission Date Time)</li>
+<li>Timing Operators (e.g., Starts Before or During)<br>QIDAM对两种模型进行了整合</li>
+</ul>
+<h2 id="方法学">方法学</h2><p>QIDAM旨在确定医疗质量改进的应用程序的数据需求，它整合了vMR和QDM的功能点。除此之外，还考虑了Quality Reporting Document Architecture (QRDA) Category 1 Templates 、vMR Templates 、Consolidated Clinical Document Architecture (CCDA) Templates 中的模板来分析QIDAM中要对哪些概念建模，概念的结构。另外还尽可能的复用了HL7 Fast Healthcare Interoperability Resources (FHIR) Specification 和Federal Health Information Model (FHIM) Specification 的元素。<br>附件中的QDM-vMR-cross-map.xlsx中提供了QIDAM、QDM、VMR之间的映射关系。<br>由于QIDAM是概念模型，使用VMR和QDM表达的数据完全没必要转换成QIDAM。你可以通过将自己的数据模型与QIDAM映射的方式来分析数据模型是否有能力提供实现医疗质量改进目标所需的数据。</p>
+<h2 id="范围">范围</h2><p>仅适用于US的eCQM和CDS制品中所需的临床数据元的表达。目前涵盖的概念包括：</p>
+<ul>
+<li>Communication</li>
+<li>Care goals</li>
+<li>Diet and nutrition</li>
+<li>Participation in care plans and protocols</li>
+<li>Use of devices</li>
+<li>Encounters</li>
+<li>Immunization</li>
+<li>Medication treatments</li>
+<li>Procedures</li>
+<li>Allergies, intolerances, and adverse reactions</li>
+<li>Conditions including findings, diagnoses, symptoms</li>
+<li>Contraindications</li>
+<li>Care experience</li>
+<li>Family history</li>
+<li>Observation results</li>
+<li>Predictions such as risks and prognoses</li>
+</ul>
+<h2 id="场景分析">场景分析</h2><p>能够使用到  QIDAM的场景有三：</p>
+<ul>
+<li>artifacts的开发<ul>
+<li>描述：eCQM和CDS artifacts的作者创建数据标准或动作/行为标准</li>
+<li>标识符：M1</li>
+<li>角色：eCQM author or CDS artifact author</li>
+<li>前置条件：数据标准以描述性的形式(指南中或指标中的文字)已经有了；对于CDS而言，建议或其他动作的标准以描述性的形式存在(临床指南中的文本 检查或处方)</li>
+<li>动作：作者确定了选取哪个QIDAM概念来表示数据标准或动作/行为标准;作者确定了数据标准或动作/行为标准的语境，使用语境来选择QIDAM中的概念类;作者确定具体的属性，使用QIDAM属性来完成数据或行为标准</li>
+<li>后置条件：通过QIDAM就可以实现完整准确的数据标准或动作/行为标准的定义，标准中会包含一些诸如剂量、时间，字典中的属性来表达数据元(如诊断、用药、手术)</li>
+<li>备注：如果QIDAM用到了一些属性，它们的值来自其他受控术语中编码值，QIDAM中并未对编码进行限制</li>
+</ul>
+</li>
+<li>artifacts的实现<ul>
+<li>描述：eCQM和CDS artifact实现人员将采用QIDAM定义的数据标准和动作/行为标准对应到自己系统中</li>
+<li>标识：M2</li>
+<li>角色：eCQM implementer or CDS artifact implementer</li>
+<li>前置条件：eCQM  or CDS artifact 中已经定义好了数据标准，数据标准中将artifact中的用到的标记或名称映射到QIDAM中的定义 比如Last LDL result到an observation result with the specified LOINC codes and date selection criteria;<br>CDS artifact 包含了行为/动作标准(prescription of statins)</li>
+<li>动作：实施人员确定与用QIDAM定义的数据标准或动作标准中等同的目标系统中的元素 一张表或一个类;实施人员使用这个定义在目标环境下来构建数据或动作的定义;如果QIDAM的元素属性存在不明确的地方，实施人员对模型标准文档进行咨询; 重复此任务</li>
+<li>后置条件：实施人员成功的将eCQM和CDS制品中的数据标准、动作行为标准全部映射到自己的系统当中。</li>
+<li>备注：如果数据标准、动作行为标准中的一些项在目标系统中找不到对应的元素，根据实际情况可以不处理</li>
+</ul>
+</li>
+<li>artifacts的评估<ul>
+<li>描述：指标评估系统或者CDS系统来评估eCQM或者是CDS。用QIDAM来表示数据标准、动作/行为标准</li>
+<li>标识符：M3</li>
+<li>角色：A measure calculation system or a CDS system</li>
+<li>前置条件：eCQM CDS制品中存在数据标准，数据标准将制品中的符合映射到QIDAM的定义中;<br>CDS制品包含了行为动作标准；<br>制品中的所有标准都已经映射到自己系统的数据模型中或者是系统可以执行的动作</li>
+<li>动作：系统评估CDS制品和eCQM;当系统遇到数据标准，能够将其无歧义的转换成一个检索/查询数据的请求;CDS系统可以决定应用某个行为标准是由于评估逻辑，系统将标准转换成可执行的动作;动作分两种，一种是展现给用户的proposal，一种是系统自动执行的;</li>
+<li>后置条件：eCQM评估的结果是可计算机化的质量指标的效果，CDS制品评估的结果是从动作集合中选一个或者执行一些动作</li>
+<li>备注</li>
+</ul>
+</li>
+</ul>
+<p>artifacts在HL7中用的很多，比如像每个域对应的类图、excel、xsd等等，这里我们就理解成CDS的知识/规则。<br>这里我们描述时是将QIDAM作为数据模型来使用的，实际应用中，我们只需要用我们自己的数据模型将其替换即可。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/临床决策支持/">临床决策支持</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Health-Quality-Improvement/">Health Quality Improvement</a><a href="/tags/临床决策支持/">临床决策支持</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2014/11/04/医疗质量改进-表达知识的概念模型/" data-title="医疗质量改进-表达知识的概念模型 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/12/20/run-rhadoop-on-docker-cn/" title="Docker玩转Rhadoop">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Docker玩转Rhadoop</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/10/18/songwriting_note_1/"  title="SongWriting公开课笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>SongWriting公开课笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HL7_Domain_Analysis_Model:_Health_Quality_Improvement,_Release_1_September_2014_US_Realm_Informative_Specification文档_9/16/14"><span class="toc-number">1.</span> <span class="toc-text">HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction简介"><span class="toc-number">1.1.</span> <span class="toc-text">Introduction简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.2.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#受众"><span class="toc-number">1.3.</span> <span class="toc-text">受众</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大背景介绍"><span class="toc-number">1.4.</span> <span class="toc-text">大背景介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法学"><span class="toc-number">1.5.</span> <span class="toc-text">方法学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#范围"><span class="toc-number">1.6.</span> <span class="toc-text">范围</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#场景分析"><span class="toc-number">1.7.</span> <span class="toc-text">场景分析</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

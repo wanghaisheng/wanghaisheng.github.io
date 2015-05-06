@@ -1,0 +1,1388 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="loserdeworld.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="海生的世界">
+<meta property="og:url" content="http://wanghaisheng.github.io/page/4/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="loserdeworld.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="海生的世界">
+<meta name="twitter:description" content="loserdeworld.com">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/06/06/openCDS-serial-2-concepts/" title="openCDS系列 II——使用openCDS中的概念" itemprop="url">openCDS系列 II——使用openCDS中的概念</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-06-06T05:06:12.000Z" itemprop="datePublished"> 发表于 Jun 6 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <div id="blog_article" class="d cl">使用openCDS中的概念Using OpenCDS Concepts内容<br><div>1 什么是openCDS中的概念</div>
+
+<div>1.1概念类型</div>
+
+<div>1.2openCDS中的概念</div>
+
+<div>1.3概念映射规范</div>
+
+<div>1.4概念映射实例</div>
+
+<div>2Guvnor中的概念</div>
+
+<div>2.1概念类型</div>
+
+<div><font face="Calibri, sans-serif">2.2以</font>openCDS中的概念作为Guvnor中的枚举</div>
+
+<div>2.3特定领域语言dsl</div>
+
+<div>2.4Guvnor中的概念映射</div>
+
+<div>3OpenCDS决策支持服务中的概念</div>
+
+<div>3.1OpenCDS内部数据中的概念类型</div>
+
+<div>3.2OpenCDS 内部数据、概念映射规范和概念映射实例</div>
+
+<div>3.3对OpenCDS概念映射规范和概念映射的更新</div>
+
+<div>更新日志</div>
+
+<div><br><table border="1"><br><tbody><br><tr><br><td><br><div>Date</div>
+
+<p></p></td><p></p>
+<td><br><div>Author</div><br><br></td>
+
+<td><br><div>Notes</div><br><br></td>
+
+<p></p></tr><p></p>
+<tr><br><td><br><div>12-17-2011</div><br><br></td><br><br><td><br><div>David Shields</div><br><br></td><br><br><td><br><div>Initial document</div><br><br></td><br><br></tr>
+
+<tr><br><td><br><div>12-20-2011</div><br><br></td><br><br><td><br><div>Ken Kawamoto</div><br><br></td><br><br><td>Minor edits; added more details on use of Apelon.</td><br><br></tr>
+
+<tr><br><td><br><div>12-20-2011</div><br><br></td><br><br><td><br><div>David Shields</div><br><br></td><br><br><td>Add supporting graphics and examples, separate “OpenCDS Concepts” from “concept instances.”</td><br><br></tr>
+
+<tr><br><td><br><div>12-21-2011</div><br><br></td><br><br><td><br><div>David Shields</div><br><br></td><br><br><td>More examples, improved graphics, explain both OpenCDS and user maintained concepts better.</td><br><br></tr>
+
+<tr><br><td><br><div>4-6-2012</div><br><br></td><br><br><td><br><div>David Shields</div><br><br></td><br><br><td>Reworded definitions, improved graphics, worked on better linkage from ideas about OpenCDS Concepts to the actual setup files used for OpenCDS.</td><br><br></tr>
+
+<p></p></tbody><p></p>
+<p></p></table><p></p>
+<p></p></div><p></p>
+<p>简介</p>
+<div><br><div>OpenCDS是基于临床概念的思路构建的临床决策支持系统。我们将很多术语系统和医学信息交换系统称之为概念、概念描述符、或者是概念唯一标识符。</div>
+
+<p></p></div><p></p>
+<div>当我们提到一个OpenCDS概念时 我们指的是OpenCDS中所使用的特定的实现技术，它们与这些基本想法保持独立，但是更加具体的实现。</div>
+
+<div>本文的目的在于阐述我们如何在OpenCDS使用这些术语，以及它们与临床上广义上理解的概念的关系。</div>
+
+<div>1.什么是OpenCDS中的概念</div>
+
+<div>OpenCDS中的概念是OpenCDS中一种实现技术。作为一个全局概念，OpenCDS拥有一种结构和方法，使得临床用户能够适用临床概念来开发决策支持规则。我们称这些特定的概念为OpenCDS中的概念，它们能够为表示临床概念实例的具体数据提供一个接口。</div>
+
+<div>这意味着临床规则编辑人员能够利用医务人员能够理解的临床术语来工作。OpenCDS旨在支持为开源的Drool推理引擎编辑的规则，其中使用一种特定领域语言。这种特定领域语言使得可以如医务人员描述的那样来编辑规则，使用医务人员平常所使用的一些术语。</div>
+
+<div>然后医学信息学人员、术语人员或词汇专家将这些概念与中实际临床数据中使用的编码系统中的值对应起来。很多情况下，这涉及到使用大型数据库的术语管理系统，如Apelon First DataBank 以及UMLS，这些能够支持大型和国际化的术语。然而，也可以通过构建简单的XML文件来实现专有代码或特殊代码与OpenCDS概念的对应。</div>
+
+<div>临床规则使用OpenCDS概念要优于原始数据，多个不同的编码系统之间术语映射使得这些概念就是一些代码列表。这样就可以将规则的逻辑与规则所使用的具体数据分离开来。</div>
+
+<div>因此，OpenCDS中的概念是医学想法与表达临床概念实例的数据细节的接口。</div>
+
+<div><font size="3">本节下面的部分会阐述如下项目，讨论它们在</font>OpenCDS如何使用</div>
+
+<div>概念类型</div>
+
+<div>OpenCDS中的概念</div>
+
+<div><font size="3">概念实例</font></div>
+
+<div><font size="3">概念映射和枚举</font></div>
+
+<div><font size="3">下图可以很容易的看出它们间的关系</font></div>
+
+<div><br><div><a href="http://image.sciencenet.cn/home/132038iaix5unzdddgdbd5.jpg" target="_blank" rel="external"><img src="http://image.sciencenet.cn/home/132038iaix5unzdddgdbd5.jpg" alt=""></a></div>
+
+<div>下面的章节会讨论如下软件中将病人数据与临床概念或想法关联起来的技术：</div>
+
+<p>1.JBoss Drools Guvnor (our supported authoring environment for KnowledgeModules, aka “rules” or generically as “knowledge”)</p></div><p></p>
+<div>2.OpenCDS Decision Support Service (our software service to do clinical decision support)</div>
+
+<div>1.1 概念类型</div>
+
+<div>1.1.1定义</div>
+
+<div>OpenCDS中的概念类型是一个术语，我们常常指的是OpenCDS中的java类，它们是为结构化成vmr的输入数据中找到的</div>
+
+<div>每个概念描述符和模板而构建的。</div>
+
+<div>一个概念类型表示在临床声明中很多地方都能找到的一类信息。临床声明是vmr的基石，有关vmr更多的讨论可以在<span style="font-size: 11pt; line-height: 115%; " calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">Notes on OpenCDS internal Data Structure 中找到。另外 也有一些处理模板和vmr结构化元素的概念类型。</span></div>
+
+<div><span style="font-size: 11pt; line-height: 115%; " calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">在本文中，我用大写的Concept Type来表示java类，而用小写的来表示通常的concept概念。</span></div>
+
+<div><span style="font-size: 11pt; line-height: 115%; " calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">有时候，在输入数据中我们也会</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">post-coordinated不止一个CD,例如bodysite身体部位和laterality侧面，因为可能需要对这两种的组合做出一些决策，或者手术/操作和问题的常见的编码系统可能没有足够特殊的代码，我们需要将二者关联起来来表示。比如，我们想表示皮疹同时出现在左右胳膊上。</span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif"><span class="Apple-style-span" style="font-size: 15px; line-height: 17px;">Concept Type的例子有</span></font> “ProcedureConcept,”、“AdverseEventAgentConcept,”、ProblemConcept”,“MedicationClassConcept.”</div>
+
+<div>因为它们都是基于vmr中的一些特殊数据元素，OpenCDS支持的<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type的列表是固定的，包括很少的能够满足大多数其他分类的需要。当需求出现时，我们能够添加更多的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type，我们认为当前的列表是可用的。支持额外的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type不是件小事，所以不常常这么做。</span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif"><span class="Apple-style-span" style="font-size: 15px; line-height: 17px;">所支持的</span></font><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type的列表总能够在源代码中找到，它们是位于</span><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US"><strong>module opencds-vmr-1_0-internal中</strong>的单独的文件，是</span><strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">org.opencds.vmr.v1_0.internal.concepts</span></strong><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">.</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">中单独的java</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">类。这些文件的名称就是</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type，你可以在Drool rule中找到。出于其他目的在</span><strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">org.opencds.common.terminology.OpenCDSConceptTypes</span></strong><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">.java中也有单独的罗列出来。</span></div>
+
+<div><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">在本文档成文的时候 有如下的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Types</span></div>
+
+<div><span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventAffectedBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventAffectedBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventAgentConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventSeverityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">AdverseEventStatusConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">BrandedMedicationConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">CDSInputTemplateConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">CDSOutputTemplateConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ClinicalStatementEntityInRoleRelationshipConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ClinicalStatementRelationshipConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ClinicalStatementTemplateConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">DataSourceTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">DoseTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">DosingSigConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EncounterCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EncounterTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EntityRelationshipConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EntityTemplateConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EntityTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EthnicityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">EvaluatedPersonRelationshipConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GenderConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GenericMediccationConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalCodedValueConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalFocusConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalStatusConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalTargetBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">GoalTargetBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ImmunizationConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">InformationAttestationTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">InformationRecipientPreferredLanguageConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">InformationRecipientTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ManufacturerConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">MedicationClassConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">MedicationConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationCodedValueConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationFocusConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationInterpretationConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationMethodConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationTargetBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationTargetBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ObservationUnconductedReasonConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">PreferredLangugageConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemAffectedBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemAffectedBodySiteLatgeralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemImportanceConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemSeverityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProblemStatusConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureApproachBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureApproachBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureMethodConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureTargetBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ProcedureTargetBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">RaceConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">ResourceTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">RoleConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationApproachBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationApproachBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationGeneralPurposeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationTargetBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceAdministrationTargetBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceDeliveryMethodConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceDeliveryRouteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceFormConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SubstanceManufacturerConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SupplyConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SupplyCriticalityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SupplyTargetBodySiteConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SupplyTargetBodySiteLateralityConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SystemUserPreferredLanguageConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SystemUserTaskConctextConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">SystemUserTypeConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">UndeliveredProcedureReasonConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">UndeliveredSubstanceAdministrationReasonConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">VmrOpenCdsConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US">VMRTemplateConcept</span> <span style="font-size:8.0pt;line-height:115%;font-family:" courier="" new""="" lang="EN-US"><a name="_Toc321491400"><span lang="EN-US">2.</span><span lang="EN-US">OpenCDS Concepts</span></a></span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif"><span class="Apple-style-span" style="font-size: 15px; line-height: 17px;">2.1定义</span></font></div>
+
+<div><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US"><span style="font-size: 11pt; line-height: 115%; " lang="EN-US">OpenCDS Concept就是指</span></span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept Type的一个特殊的实例，它能够在决策支持的语境中标识一个医师熟悉的或有用的临床概念，并且是在</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS中通过Apelon DTS分配一个id ，是可标识的。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">每个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept都可能是某个特殊的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS </span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">KnowledgeModule的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">某个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Type的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">0到多个实例之一，</span></div>
+
+<div><span style="font-size: 11pt; line-height: 115%; " calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">比如，</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">ProblemConcept的实例可能是</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">diabetes mellitus, asthma, or chronic heart disease,可能有更多其他的。</span><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">MedicationClassConcept 的实例可能有</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">bronchodilator支气管扩张剂, or ACE inhibitor等等。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">我们为了保证所有</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS用户的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">知识模块间的互操作性，对</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept code进行集中式管理，这样不同的组织就能够共享知识模块。</span></div>
+
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">在软件和知识模块开发时，可以通过OpenCDS 配置文件创建临时的 </span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept，但是任意临时的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept都应该添加到中央的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept 列表中，这个列表部署在Apelon DTS 术语服务器上，是由犹他大学负责维护的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; "> 。将概念添加到OpenCDS Apelon 实例中会为其分配一个唯一ID，这样所有OpenCDS的实现人员就可以使用。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">如下步骤就可以浏览此服务器的内容：</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">登录</span><strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">Apelon.opencds.org网站</span></strong></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">使用如下参数登录 其中密码为</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">welcome2opencds</span></div>
+
+<div><a href="http://image.sciencenet.cn/home/212412dhnoxvjb6ie5fdfz.jpg" target="_blank" rel="external"><img src="http://image.sciencenet.cn/home/212412dhnoxvjb6ie5fdfz.jpg" alt=""></a> <span lang="EN-US">The master set of concepts can be generated for local use within the OpenCDS service from this central Apelon repository using a utility in the </span><strong><span lang="EN-US">opencds-decision-support-service module</span></strong><span lang="EN-US"> named <strong>org.opencds.terminology.OpenCDSConceptsFileCreator</strong>. </span><span lang="EN-US">3概念映射规范</span> <span lang="EN-US">定义</span> <span lang="EN-US"><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS中的</span>概念映射规范是</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS的一个概念，其中有一个与之关联的</span><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US"><strong>Determination</strong>方法，可能会或不会指定一个与之相关的编码系统。</span> <span style="font-size: 11pt; line-height: 115%; " calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">为每一个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS中的</span>概念创建一个或多个概念映射规范是很常用的。一般地概念映射规范会得到相关的编码系统的code的集合，这些code能够满足与之相关的determination方法的要求，当用在概念实例上时我们简单的称之为概念映射。然而，即使没有映射的实例也可以构建一个概念映射规范。</div>
+
+<div>我们常常没有区分有映射的概念实例和无映射的概念实例，因为定义映射规范一般是构建映射的第一步。而，将概念映射规范与映射到概念区分开来是很有用的，因为这是两个步骤：每个<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept</span>可能有多个概念映射规范，对于每个概念映射规范特定的code可能有多个映射实例。</div>
+
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">Associated Determination Method</span></div>
+
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">OpenCDS中概念映射规范的一个重要属性就是总是有一个与之相关的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method.这样就可以根据不同的需求构建类似的概念映射。当你要处理一个由某些职能部门如HEDIS 或NQF定义的概念时特别有用。这些机构一般都有自己特殊的code列表和编码系统来描述他们感兴趣的特定概念。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">为特殊的概念实例定义属于你自己的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method.也是可以的。可能包括</span><span style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; " lang="EN-US">“best available,” “in approved formulary,” “board approved,” “expensive,” or “cost effective,”等等。背后的思路是将特殊code实例和编码系统与通用概念对应起来的条件加以标注。</span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif"><span class="Apple-style-span" style="font-size: 15px; line-height: 17px;">单一</span></font><span style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; " lang="EN-US">OpenCDS Concept拥有多个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method也是可行的，在同一系列的rule中使用不止一个也是可能的。比如，你可能需要区分你的特殊医学场景下讨论糖尿病的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">NQF determination method, the HEDIS determination method, and the best available determination method。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">然而一般地，在一个特殊的知识模块中你可能只想要一个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method。我们包含了一个DSL的例子来为rule选择</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method，但是你可以根据自己的需要来使用他们。</span></div>
+
+<div><span lang="EN-US">(1)</span><span lang="EN-US">Associated Code System</span></div>
+
+<div><span lang="EN-US"><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS中</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">概念映射规范的</span>第二个重要属性是它可能与某个特殊的code system关联。这意味着不同的编码系统如</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">LOINC, CPT, ICD9, ICD10, SNOMED-CT, RXNORM, proprietary in-house systems,</span><span lang="EN-US">，</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS中中可能有不同的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">概念实例</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">总结一下的话，</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS concept mapping specification会与一个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept关联，能够标识一个</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concept的特殊实例，其中对于不同的编码系统可能有多个不同的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination methods。典型的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">concept mapping specification的名称中包含对</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">clinical concept和</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">determination method, and possibly the code system.</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">的引用，</span></div>
+
+<p><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">值得注意的是概念实例的名称没有计算机化的值，它是描述性的，只是为了人们理解。在OpenCDS启动时，不管文件名称，目录中所有文件都被装载，尽管我们想给文件一些有意义的名称。所有计算机化的知识都是位于概念实例的xml之中。</span></p>
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US"><a name="_Toc321491402"><span lang="EN-US">1.</span><span lang="EN-US">Concept Mapping Instances</span></a><br><div><a name="_Toc321491402"><span lang="EN-US">定义</span></a></div>
+
+<div><a name="_Toc321491402"><span lang="EN-US">OpenCDS中的概念验证实例指的是将一个概念映射规范与来自相关的</span></a><a name="_Toc321491402"><span lang="EN-US"><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">determination 方法指定的</span></span></a></div>
+
+<div><a name="_Toc321491402"><span lang="EN-US">零到多个相关的编码系统的code联系起来。</span></a></div>
+
+<div><a name="_Toc321491402"><span lang="EN-US">概念映射实例包含CD元素（编码系统和编码）的集合，其中暗含或者指定了与概念映射规范相关的临床概念（又叫做OpenCDS 概念）。两种情况下，它们存储以及检索的地方被称之为知识库。</span></a><a name="_Toc321491402"><span lang="EN-US"><strong>&lt;span style=”font-size:11.0pt;line-height:115%;font-family:” calibri”,”sans-serif”;=”” mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:=”” “times=”” new=”” roman”;mso-ansi-language:en-us;mso-fareast-language:en-us;=”” mso-bidi-language:ar-sa”=”” lang=”EN-US”&gt;Knowledge Repository&lt;/span&gt;</strong><span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">.</span></span></a></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">在很多情况下 映射只构建一次，然后就是不常见的在这个基础上更新。其他情况下 特别是在药物中，可能需啊哟与术语服务器实时连接来查询最新的映射，因为它们变化地很频繁。在未来OpenCDS的版本中会加入术语服务的这种实时查询。</font></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">对于OpenCDs而言，可以通过如下方法来构建存储映射的文件： </font><span class="Apple-style-span" style="font-family: Calibri, sans-serif; ">Apelon DTS和</span><font class="Apple-style-span" face="Calibri, sans-serif">包含在OpenCDS中的内嵌接口来生成XML文件；</font></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">可以生成XML文件的其他术语管理系统；</font></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">手动编辑XML文件</font></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">自动得到的概念映射与手动构建的单独存储（比如</font><span class="Apple-style-span" style="font-family: Calibri, sans-serif; ">files constructed by any method other than download from Apelon</span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">）以免疏忽大意覆盖了手动的概念映射。</font></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif">概念映射意在以分布式的方式由多个参与者在本地维护，这与知识模块类似。与</font></div>
+
+<p></p></span><p></p>
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">这与</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concepts相反，它是要集中式维护的。</span></div>
+
+<p></p></div><p></p>
+<div><a name="_Toc321491403"><span lang="EN-US">2<span style="font:7.0pt " times="" new="" roman""="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span lang="EN-US">Concepts in Guvnor</span></a></div>
+
+<div>尽管可以不使用Guvnor来为OpenCDS编辑rule，不引用任意的<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concepts，我们支持Gnvor,也推荐根据</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concepts来编辑你的rule。Guvnor和</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS Concepts的组合能够得到rule，它们是可视化的且有易于理解的逻辑，可以直接由医师来核对其准确性。</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Guvnor是一个工具，它能够完成两件事：</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">1编辑rule （我们有时候也称之为有关临床概念的知识）</span></div>
+
+<div><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">2.测试这些rule的逻辑上的有效性</span></div>
+
+<div><font class="Apple-style-span" face="Calibri, sans-serif"><span class="Apple-style-span" style="font-size: 15px; line-height: 17px;">在Guvnor中为你的rule编写完整的测试是一种良好的实践，在知识模块（也就是 Guvnor中的</span></font><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Package</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">）中rule有任意改变时都要运行它们。Guvnor中可以直接点击运行某个package的所有测试来完成。</span></div>
+
+<div><a name="_Toc321491404"><span lang="EN-US">1.</span><span lang="EN-US">Concept Types</span></a></div>
+
+<div><a name="_Toc321491404"><span lang="EN-US">定义</span></a><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; "> OpenCDS中的</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Concept Types的java类是通过导入名为</span><strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa"="" lang="EN-US">opencds-vmr-v1_0-internal的</span></strong><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS</span></div>
+
+<p><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">模块得到的。然后你就可以得到在web服务中可以使用的<span style="font-size: 11pt; line-height: 115%; " lang="EN-US">Concept Types。你也会需要</span><span style="font-size: 11pt; line-height: 115%; " lang="EN-US">OpenCDS 的通用jar，他们是</span><strong><span style="font-size: 11pt; line-height: 115%; " lang="EN-US">opencds-common</span></strong><span style="font-size: 11pt; line-height: 115%; " lang="EN-US">.模块。</span></span></p>
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US"><a href="http://image.sciencenet.cn/home/235037mji35tyk3jmjuttv.jpg" target="_blank" rel="external"><img src="http://image.sciencenet.cn/home/235037mji35tyk3jmjuttv.jpg" alt=""></a></span></div>
+
+<div><span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa"="" lang="EN-US">如果选择</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Edit标签而不是</span><span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Assets标签，你就可以查看模型的内容/</span></div>
+
+<div><a href="http://image.sciencenet.cn/home/235154ppssysp8jsfszpgp.jpg" target="_blank" rel="external"><img src="http://image.sciencenet.cn/home/235154ppssysp8jsfszpgp.jpg" alt=""></a> 如果点击<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">Advanced View按钮，你就能以文本形式编辑模型，你需要这样来做，</span> <a href="http://image.sciencenet.cn/home/235330f2xlcx4dqwmfcma2.jpg" target="_blank" rel="external"><img src="http://image.sciencenet.cn/home/235330f2xlcx4dqwmfcma2.jpg" alt=""></a> 当你导入了<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS的两个jar包，</span>在Guvnor中构建了一个新模型之后，它们的顺序是随机的，也会包含一些你不要的元素。我们提供了一个排好序的导入声明，在你删除得到的内容之后，你可以将其复制到该窗口。该排好序的列表在<span class="Apple-style-span" style="font-family: Calibri, sans-serif; font-size: 15px; line-height: 17px; ">OpenCDS</span> <span style="font-size:11.0pt;line-height:
+115%;font-family:" calibri","sans-serif";mso-fareast-font-family:宋体;mso-fareast-theme-font:="" minor-fareast;mso-bidi-font-family:"times="" new="" roman";mso-ansi-language:en-us;="" mso-fareast-language:en-us;mso-bidi-language:ar-sa;mso-no-proof:yes"="" lang="EN-US">源代码中的名称为<strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa;mso-no-proof:yes"="" lang="EN-US">ImportStatementsForOpenCDSGuvnor.txt 位于</span></strong></span><strong><span style="font-size:11.0pt;line-height:115%;font-family:" calibri","sans-serif";="" mso-fareast-font-family:宋体;mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:="" "times="" new="" roman";mso-ansi-language:en-us;mso-fareast-language:en-us;="" mso-bidi-language:ar-sa;mso-no-proof:yes"="" lang="EN-US">opencds-vmr-1_0-internal module之中。</span></strong> <span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">每次更改之后别忘了验证、构建和保存模型。</span> <span style="font-size: 11pt; line-height: 115%; font-family: Calibri, sans-serif; " lang="EN-US">一旦你定义好了模型就不用再管它。更改模型可能会破坏基于这个模型的rule。</span></div>
+
+<p></p></div><p></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/临床决策支持/">临床决策支持</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/OpenCDS/">OpenCDS</a><a href="/tags/临床决策支持/">临床决策支持</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/06/05/openCDS-serial-1-internal-datatype/" title="openCDS系列 I——内部数据结构" itemprop="url">openCDS系列 I——内部数据结构</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-06-05T05:23:12.000Z" itemprop="datePublished"> 发表于 Jun 5 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>译自Notes on OpenCDS Internal Data Structure</p>
+<p>目的<br>openCDS的内部数据结构大致上是基于HL7 2011年9月份投票版中VMR(虚拟医疗记录)的逻辑模型。该逻辑模型中严格定义了所有的数据元素，数据元素的定义都有对应的内部数据结构。<br>内部数据结构更多地与schema保持一致，schema是对逻辑模型的说明性补充材料。schema<br>提供了2种方式来定义数据关联。<br>1.嵌套式 XML和对象结构中特有的<br>2.列表式 关系型数据库结构中特有的<br>内部数据结构中嵌套式结构位于父类的子节点中，这样临床声明中的嵌套数据出现在闭合式数据元素的末尾。罗列式的数据关系位于一个“已评估个体”所有其他数据的末尾。<br>内部数据结构不是对外部的schema的完完全全的实现，抑或说，因为它试图使用单一的列表数据结构，这样规则编辑人员就可以很容易的使用。这意味着所有的嵌套式数据源是都被映射成列表式的，并且与列表格式的数据整合起来。<br>需要注意的是OpenCDS的使用者是否在嵌套式和列表式结构间复制数据。2种结构都可能用到，但是一个数据元素只能是其中的一种结构。<br>下面是一个VMR的实例，<br>嵌套式 相关的实体entity和临床声明都嵌套在源临床声明中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vmr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">templateId</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">patient</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">demographics</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                                        <span class="tag">&lt;<span class="title">relatedEntityInRole</span>&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">targetRole</span>/&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                                           . . .</span><br><span class="line">                                                 <span class="tag">&lt;/<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;/<span class="title">relatedEntityInRole</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">relatedClinicalStatement</span>&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">targetRelationshipToSource</span>/&gt;</span></span><br><span class="line">                                                 <span class="tag">&lt;<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                                           . . .</span><br><span class="line">                                                 <span class="tag">&lt;/<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;/<span class="title">relatedClinicalStatement</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;/<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">patient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/ <span class="attribute">vmr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>罗列式 每个临床声明和实体entity以及他们间的关系都单独罗列出来，没有嵌套<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vmr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">templateId</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="title">patient</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">""</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">demographics</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">adverseEvent</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">adverseEvents</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">observationResults</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"observationId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">observationResult</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">observationResults</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatements</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatementRelationships</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">clinicalStatementRelationship</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">sourceId</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">targetId</span> <span class="attribute">root</span>=<span class="value">"observationId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">targetRelationshipToSource</span> <span class="attribute">code</span>=<span class="value">"reasonFor"</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">clinicalStatementRelationship</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatementRelationships</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">clinicalStatementEntityInRoleRelationships</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">clinicalStatementEntityInRoleRelationship</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">clinicalStatementId</span> <span class="attribute">root</span>=<span class="value">"adverseEventId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">entityId</span> <span class="attribute">root</span>=<span class="value">"substanceId"</span>/&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">role</span> <span class="attribute">code</span>=<span class="value">"allergen"</span>/&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">clinicalStatementEntityInRoleRelationship</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">clinicalStatementEntityInRoleRelationships</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">entityLists</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="title">administrableSubstances</span>&gt;</span></span><br><span class="line">                               <span class="tag">&lt;<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="title">id</span> <span class="attribute">root</span>=<span class="value">"substanceId"</span>/&gt;</span></span><br><span class="line">                                        . . .</span><br><span class="line">                               <span class="tag">&lt;/<span class="title">administrableSubstance</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="title">administrableSubstances</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">entityLists</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="title">patient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vmr</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>内部结构<br>数据类型<br>起初通过复制得到内部数据类型<br>我们一开始通过复制逻辑模型和schema中的数据类型得到内部数据类型的定义。然后对数据类型的不同类做出一些改变将其变为可以在Drools和OpenCDS中可用的java bean<br>移除所有JaxB生成的所有批注，除了类的描述以外以及导入的JaxB类和生成代码中的所有方法。<br>利用Eclipse，我们进行如下操作：<br>1.添加getter setter方法<br>2.添加hash code和equal方法<br>3.添加toString方法<br>4.在类的头部添加Apache许可证的批注<br>修改一些内部数据类型<br>修改或优化一些内部数据类型以便我们使用。特别地，如下需要改变：<br>1.将CD数据类型(概念描述符)中嵌套式的displayName变为CD的一个属性，这是为了方便编辑rule。<br>2.将II数据类型中的root和extension改为一个单独的字符串，成为“root^extension”<br>的形式，这是为了在rule中将其作为唯一标识符来使用。注意II的实例并不包含extension 只包含root<br>3.将TS数据类型更换为java.util.Date数据类型<br>映射工具<br>有一个完成内部和外部数据类型间对应的映射工具类MappingUtility。映射的方法的命名如”DT2InternalDT”或”InternalDT2DT” DT表示数据类型的名称。<br>vMR中的类<br>外部的schema中定义的所有VMR中的类在内部结构中都有，除了以下几个：</p>
+<ul>
+<li>1.RelatedEntity</li>
+<li>2.RelatedClinicalStatement</li>
+<li>3.RelatedEntityInRole<br>如如上三个类中的数据被标准化地分割为2部分。第一部分包含在Realted_class中包含的原始的实体或临床声明，将其移至对应的临床声明或者实体列表中去。第二部分包含了关系的本质，以及源和目标的id，这些关系类从原来的嵌套式结构更改为如下对应的列表式内部类结构：</li>
+<li>EntityRelationship</li>
+<li>ClinicalStatementRelationship</li>
+<li>ClinicalStatementEntityInRoleRelationship<br>需要注意的是对vmr类的处理和数据类型的一样，同时还有一个相关联的Mapper类，其中实现了pullIn和pushOut方法。在alpha版本以后对这些方法进行了修订，从原来的内部java bean中移除，转移到单独的方法中。<br>也有一些原本不属于vmr所定义的内部类，它们旨在简化rule的编辑。<br>从外部结构映射<br>接口org.opencds.vmr.v1_0.mappings.inPayloadUnmarshaller.java<br>PayloadUnmarshaller.java<br>此接口能够从DSS消息中读取base64编码的负载，将其转化为结构化的jaxb元素就可作为CDSInput。然后调用PayloadUnmarshaller接口来产生一个内部的vmr数据结构，这样推理引擎就可以处理了。<br>IBuildFactLists.java<br>该接口接收一个JaxB CDSInput 的元素，将其转化为内部的vmr结构，也就是一些事实的列表，这其中其实就是对提交数据的标准化，以便推理引擎的使用。<br>我们也提供了一种支持Drool 事实列表的实现。用户与不同的推理引擎交互就需要不同的内部结构，但是仍然是基于vmr的，我们也可以按照需要来替换这个模块。<br>向外部结构映射<br>接口org.opencds.vmr.v1_0.mappings.out<br>IBuildResultSet.java<br>该接口接收推理引擎处理过的事实列表，产生一个CDSOutput schema结构<br>的结构化输出，然后该结构进一步被IMappingOutbound接口 处理。<br>IMappingOutbound.java该接口接收IBuildResultSet 产生的 CDSOutput structure，产生一个base64编码的字符串作为DSS 服务的响应。<br>使用OpenCDS vMR<br>下面是对vMR的组织结构的概述，也是你如何使用它大体上的指导。首先，是一个VMR的组织结构概览，后面有一些在OpenCDS中如何使用它的建议，输入和输出都是一样。<br>Abstract Base Classes<br>在VMR中有2大类数据结构：临床声明表示感兴趣的活动/行为，实体就是指人/地，物在这些医疗活动中所拥有的角色。这些抽象类不可能单独实例化，但你可以在rule中涉及到它们。比如，你可以研究基本类中的通用元素来得到大概的结论一个特殊的活动是否发生，没有发生，已计划或者已预订。<br>临床声明<br>我们将医疗活动分为8类，对于每个类都有一个base类。临床声明自身就是如下子类的base类，包含它们所共有的元素。</li>
+<li>AdverseEventBase</li>
+<li>EncounterBase</li>
+<li>GoalBase</li>
+<li>ObservationBase</li>
+<li>ProblemBase</li>
+<li>ProcedureBase</li>
+<li>SubstanceAdministrationBase</li>
+<li>SupplyBase<br>EntityBase<br>它包含了所有人、地点，组织和其他事物的通用元素。它是EvaluatedPerson和其他7类entity的基础。<br>实例化的类<br>如下所列不是抽象类。你可以实例化其中之一来给OpenCDS传递数据，你也可以在rule中实例化它们来返回从OpenCDS中推论出的数据给你的应用程序。<br>EvaluatedPerson<br>它是VMR的根类，所有的ClinicalStatements和相关的entity都与一个EvaluatedPerson关联起来（更通俗的讲就是patient）。在家族病史或者传染病接触或其他类似的场景中，vmr也可能包含与patient 相关的其他的EvaluatedPerson 。这些EvaluatedPerson有2个属性：1）他们与病人有某种医学上的关系2）他们可能有某些和病人一样的医疗活动相关的数据。<br>然而，总是只有一个person 也就是patient，也是vmr中所关注的。OpenCDS中编写的rule旨在辅助patient的医疗服务。<br>当EvaluatedPerson继承自entityBase类时，采取与其他次要的entity不同的处理方法。patient是vmr的客体，而其他实体则参与与病人相关的医疗活动当中。<br>entity类<br>这些就是在医疗活动中扮演某个角色的次要实体。他们可能是用药、医护人员、实验室样本或者是医疗路径。</li>
+<li>AdministrableSubstance</li>
+<li>Entity</li>
+<li>Facility</li>
+<li>Organization</li>
+<li>Person</li>
+<li>Organization</li>
+<li>Specimen<br>Event类<br>这些类用来描述一个已经发生或者正在发生的医疗活动</li>
+<li>AdverseEvent</li>
+<li>EncounterEvent</li>
+<li>Goal</li>
+<li>ObservationResult</li>
+<li>Problem</li>
+<li>ProcedureEvent</li>
+<li>SubstanceAdministrationEvent</li>
+<li>SubstanceDispensationEvent</li>
+<li>SupplyEvent<br>DeniedEvent类 这些类用来描述一个并未发生的医疗活动，比如 血压的UnconductedObservation意味着并没有采集血压值（本来应该已经采集了的）。DeniedProblem表示病人并没有所描述的症状或问题</li>
+<li>DeniedAdverseEvent</li>
+<li>MissedAppointment</li>
+<li>UnconductedObservation</li>
+<li>DeniedProblem</li>
+<li>UndeliveredProcedure</li>
+<li>UndeliveredSubstanceAdministration</li>
+<li>UndeliveredSupply<br>Proposal类<br>这些类大多数openCDS的输出。如病人需要MMR，或者HbA1c检测，但他们也能表示输入。比如，会有一些类如给病人某种药物的提议，openCDS会依据病人目前的用药进行一些药物-药物反应评估。提议/建议没有医嘱或申请权威性强，常常用来给医务人员传递一些需要考虑的信息。</li>
+<li>AppointmentProposal</li>
+<li>GoalProposal</li>
+<li>ObservationProposal</li>
+<li>ProcedureProposal</li>
+<li>SubstanceAdministrationProposal</li>
+<li>SupplyProposal<br>Request and Order类<br>申请和医嘱常常是由医务人员为解决病人的某个问题或症状而提出的，它们比proposal要更正式一些，表示一些必须完成的请求，通常由辅助人员来完成</li>
+<li>AppointmentRequest</li>
+<li>ObservationOrder</li>
+<li>ProcedureOrder</li>
+<li>SubstanceAdministrationOrder</li>
+<li>SupplyOrder<br>Populating Data for submission to OpenCDS<br>Choose your structureVMR是非常灵活的，通常不止一种解决办法。一般而言，根据你的数据选择最接近的结构化方法是不错的思路。<br>如果你的数据是对象结构或者xml格式，嵌套式结构可能更适合你的输入。<br>另一方面，如果你从关系型数据库获取数据，罗列式的可能效果更好。<br>Use a template<br>一个模板就是对特定目的的输入数据的约束和要求的集合。因为不止一种方法来表示事物，最好为特定目的收集模板，这样rule就可以重用和共享。<br>随着时间的推移，OpenCDS会收集和发布模板。如果不存在一个模板能够满足你的特殊需要，在你开发rule的时候把需求记录下来，我们会帮你一起构建一个模板。<br>一旦openCDS中记录了一个模板，我们就会为它分配一个模板标识符templateID，可以在rule中引用这个templateID来确保提交的数据满足规则作者的要求。<br>注意同一个模板可以用在以不同结构提交的数据中 如对象/xml结构或者列表/关系型结构，因为模板解决数据内容的问题 而不是它们的结构。<br>Use Best Practices<br>我们会收集表达各种通用医疗数据结构的最佳实践，以及这些数据结构中的元素。在管理rule时我们也会努力这么做。<br>这些最佳实践会在单独的文档中记录。<br>Populating Data in rules for return from OpenCDS<br>OpenCDS Output StructureOpenCDS的输出结构的一部分是预先定义好的，但仍有不止一种方法来构建输出。只要有2种选择1）单个结果元素2）CDS输出结构包含Vmr的结构化数据<br>单个元素结果<br>如果你选择这种类型的结果，你的输出数据就是一个单一元素，使用任意ISO21090中支持的任意数据类型<br>。比如你可能返回布尔值 true，或者返回23的一个整数值。<br>CDSOutput Result如果你选择这种结果，你的输出会将你发送给OpenCDS的输入进行重组。某些情况下，甚至会很类似。<br>Use a template <write me=""></write></li>
+</ul>
+<p>Use Best Practices <write me=""></write></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/临床决策支持/">临床决策支持</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/OpenCDS/">OpenCDS</a><a href="/tags/临床决策支持/">临床决策支持</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/05/28/poor-kid-attend-college/" title="穷人的子弟上大学" itemprop="url">穷人的子弟上大学</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-05-28T08:08:12.000Z" itemprop="datePublished"> 发表于 May 28 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>上大学在我的儿时的那个年代，几乎是所有娃儿的梦。<br>寒门的子弟上大学是不易的，需要结合的因素众多。<br>2012 07 如果顺利的话 我可以从这里毕业，拿到一个硕士学位证书。<br>是的 我贷款了，是的，即便是贷款了，仍然学费没有缴清，欠着学校7642.00。<br>不缴清 不让你参加答辩，虽然我们学院教务处的老师为人甚好，知道我的情况，允诺可以让我先答辩。可钱始终是个难题。<br>穷人的子弟 上大学 不容易。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/碎碎念/">碎碎念</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/生活/">生活</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/05/21/find-exact-meaning-for-medical-informatics-terms/" title="一些读医学信息学论文时遇到专业词汇的解决办法" itemprop="url">一些读医学信息学论文时遇到专业词汇的解决办法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-05-21T06:34:12.000Z" itemprop="datePublished"> 发表于 May 21 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>读论文是每个学生必修课之一 不管是主动抑或被动 其中一些专业词汇 对于我等非医学专业的it逼来说 着实困难。<br>解决办法<br>1网上查呗 最直接的就是google 关键词 如 episode of care 请具备基本的鉴别能力<br>推荐网站<br><a href="http://www.reference.md/" target="_blank" rel="external">http://www.reference.md/</a> 应该是美国FDA的网站吧 还是比较全<br><a href="http://www.wisegeek.com/health.htm" target="_blank" rel="external">http://www.wisegeek.com/health.htm</a> 这个网站是我最喜欢的 因为很形象和生动<br><a href="http://meteor.aihw.gov.au/content/index.phtml/itemId/181162" target="_blank" rel="external">http://meteor.aihw.gov.au/content/index.phtml/itemId/181162</a> 澳大利亚的数据字典<br><a href="http://www.datadictionaryadmin.scot.nhs.uk/isddd/9215.html" target="_blank" rel="external">http://www.datadictionaryadmin.scot.nhs.uk/isddd/9215.html</a> 英国的数据字典？<br>2.当然有一些整理好的资料</p>
+<p>Health informatics — System of concepts to support continuity of care —Part 1: Basic concepts  Part 2: Health care process and workflow</p>
+<p>这里真心的感谢付出这些劳动的人们</p>
+<p>3.专业字典</p>
+<p><a href="http://medical-dictionary.thefreedictionary.com" target="_blank" rel="external">http://medical-dictionary.thefreedictionary.com</a> 最imba的词典</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/04/30/show-special-element-value/" title="显示特定的标签值" itemprop="url">显示特定的标签值</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-04-30T09:14:12.000Z" itemprop="datePublished"> 发表于 Apr 30 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>From looking at your XSLT and expected results, it looks like that for each a element in your XML, you want to output infomation on the following c elements present, if any occur before the next a element present.</p>
+<p>For this, you could use an xsl:key to look up c elements for a given a element<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;xsl:key <span class="variable">name=</span><span class="string">"lookup"</span> <span class="variable">match=</span><span class="string">"c"</span> <span class="variable">use=</span><span class="string">"generate-id(preceding-sibling::a[1])"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>i.e. Group together all c elements by the first preceding a element.</p>
+<p>Then, you can firstly select a elements for which there are such c elements like so:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">xsl:apply-templates</span> <span class="attribute">select</span>=<span class="value">"a[key('lookup', generate-id())]"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Then, within this template, you can select the cc elements for output, like so:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">xsl:apply-templates</span> <span class="attribute">select</span>=<span class="value">"key('lookup', generate-id())"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>So, given the following XSLT</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;xsl:stylesheet version=<span class="string">"1.0"</span> xmlns:xsl=<span class="string">"http://www.w3.org/1999/XSL/Transform"</span>&gt;</span><br><span class="line">   &lt;xsl:output <span class="keyword">method</span>=<span class="string">"text"</span> indent=<span class="string">"yes"</span>/&gt;</span><br><span class="line"></span><br><span class="line">   &lt;xsl:key name=<span class="string">"lookup"</span> match=<span class="string">"c"</span> use=<span class="string">"generate-id(preceding-sibling::a[1])"</span> /&gt;</span><br><span class="line"></span><br><span class="line">   &lt;xsl:<span class="keyword">template</span> match=<span class="string">"/root"</span>&gt;</span><br><span class="line">      &lt;xsl:apply-templates select=<span class="string">"a[key('lookup', generate-id())]"</span> /&gt;</span><br><span class="line">   &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;xsl:<span class="keyword">template</span> match=<span class="string">"a"</span>&gt;</span><br><span class="line">      &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"concat(@id, ':&amp;#13;', '&amp;#13;')"</span> /&gt;</span><br><span class="line">      &lt;xsl:apply-templates select=<span class="string">"key('lookup', generate-id())"</span> /&gt;</span><br><span class="line">   &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;xsl:<span class="keyword">template</span> match=<span class="string">"c"</span>&gt;</span><br><span class="line">      &lt;xsl:apply-templates select=<span class="string">"@*"</span> /&gt;</span><br><span class="line">      &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"'&amp;#13;'"</span> /&gt;</span><br><span class="line">   &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line"></span><br><span class="line">   &lt;xsl:<span class="keyword">template</span> match=<span class="string">"c/@*"</span>&gt;</span><br><span class="line">      &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"concat(local-name(), ':', ., ':&amp;#13;')"</span> /&gt;</span><br><span class="line">   &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">&lt;/xsl:stylesheet&gt;</span><br></pre></td></tr></table></figure>
+<p>When applied to the following XML<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;root&gt;</span><br><span class="line">   &lt;a <span class="variable">id=</span><span class="string">"a1"</span> <span class="variable">name=</span><span class="string">"a1"</span>/&gt;</span><br><span class="line">   &lt;b <span class="variable">text=</span><span class="string">"b1"</span>/&gt;</span><br><span class="line">   &lt;d <span class="variable">test=</span><span class="string">"test0"</span> <span class="variable">location=</span><span class="string">"L0"</span> <span class="variable">text=</span><span class="string">"c0"</span>/&gt;</span><br><span class="line">   &lt;a <span class="variable">id=</span><span class="string">"a2"</span> <span class="variable">name=</span><span class="string">"a2"</span>/&gt;</span><br><span class="line">   &lt;b <span class="variable">text=</span><span class="string">"b2"</span>/&gt;</span><br><span class="line">   &lt;c <span class="variable">test=</span><span class="string">"test1"</span> <span class="variable">location=</span><span class="string">"L1"</span> <span class="variable">text=</span><span class="string">"c1"</span>/&gt;</span><br><span class="line">   &lt;c <span class="variable">test=</span><span class="string">"test2"</span> <span class="variable">location=</span><span class="string">"L2"</span> <span class="variable">text=</span><span class="string">"c2"</span>/&gt;</span><br><span class="line">   &lt;a <span class="variable">id=</span><span class="string">"a3"</span> <span class="variable">name=</span><span class="string">"a3"</span>/&gt;</span><br><span class="line">   &lt;b <span class="variable">text=</span><span class="string">"b3"</span>/&gt;</span><br><span class="line">   &lt;c <span class="variable">test=</span><span class="string">"test3"</span> <span class="variable">location=</span><span class="string">"L3"</span> <span class="variable">text=</span><span class="string">"c3"</span>/&gt;</span><br><span class="line">   &lt;c <span class="variable">test=</span><span class="string">"test4"</span> <span class="variable">location=</span><span class="string">"L4"</span> <span class="variable">text=</span><span class="string">"c4"</span>/&gt;</span><br><span class="line">   &lt;c <span class="variable">test=</span><span class="string">"test5"</span> <span class="variable">location=</span><span class="string">"L5"</span> <span class="variable">text=</span><span class="string">"c5"</span>/&gt;</span><br><span class="line">&lt;/root&gt;</span><br></pre></td></tr></table></figure></p>
+<p>The following is output<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">a2</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">test</span>:<span class="attribute">test1</span>:</span><br><span class="line"><span class="attribute">location</span>:<span class="attribute">L1</span>:</span><br><span class="line"><span class="attribute">text</span>:<span class="attribute">c1</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">test</span>:<span class="attribute">test2</span>:</span><br><span class="line"><span class="attribute">location</span>:<span class="attribute">L2</span>:</span><br><span class="line"><span class="attribute">text</span>:<span class="attribute">c2</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">a3</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">test</span>:<span class="attribute">test3</span>:</span><br><span class="line"><span class="attribute">location</span>:<span class="attribute">L3</span>:</span><br><span class="line"><span class="attribute">text</span>:<span class="attribute">c3</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">test</span>:<span class="attribute">test4</span>:</span><br><span class="line"><span class="attribute">location</span>:<span class="attribute">L4</span>:</span><br><span class="line"><span class="attribute">text</span>:<span class="attribute">c4</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">test</span>:<span class="attribute">test5</span>:</span><br><span class="line"><span class="attribute">location</span>:<span class="attribute">L5</span>:</span><br><span class="line"><span class="attribute">text</span>:<span class="attribute">c5</span>:</span><br></pre></td></tr></table></figure></p>
+<p>Note that I am output the attributes on the c element in the order they appear in the XML document.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/XSLT/">XSLT</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/XSLT/">XSLT</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/17/Data-Versus-Information-The-EMR-Readability-Problem/" title="Data Versus Information- The EMR Readability Problem  by  Bruce Friedman" itemprop="url">Data Versus Information- The EMR Readability Problem  by  Bruce Friedman</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-17T05:31:12.000Z" itemprop="datePublished"> 发表于 Mar 17 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>两篇来自 Bruce Friedman的博文<br><a href="http://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem.htmlhttp://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem-part-ii.html" target="_blank" rel="external">http://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem.htmlhttp://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem-part-ii.html</a><br>其中审视了当前医疗信息结构化所忽略的一些问题，主要是在强调结构化的同时，忽略了对数据的加工、忽略数据的人可读性所能带来的好处。机器和人不一样，各自有各自的特点和需求，如何在二者之间取得一个很好的权衡点，是件不容易的事情，CDA从诞生至今，至少朝着这个方向一直在努力，而且FHIR中也强调了这一特性，值得让人去关注。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Bruce-Friedman/">Bruce Friedman</a><a href="/tags/HIT/">HIT</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/17/ValueSets-and-QueryHealth/" title="译自Value Sets and QueryHealth  by  Keith Boone" itemprop="url">译自Value Sets and QueryHealth  by  Keith Boone</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-17T05:31:12.000Z" itemprop="datePublished"> 发表于 Mar 17 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Tuesday, November 1, 2011 By Keith Boone<br><a href="http://motorcycleguy.blogspot.com/2011/11/value-sets-and-queryhealth.html" target="_blank" rel="external">Value Sets and QueryHealth</a></p>
+<p><a href="">Query Health</a>的一大难题就是一个特殊的measure就可能引用大量的编码值。在HL7中它们称之为值集。比如 <a href="http://wiki.siframework.org/file/view/TCNY%20Quality%20Measures%20Report%20v%20Q4%202009%20091028.pdf" target="_blank" rel="external">TCNY Quality Measures</a>中在Query Health “Query and Data Analysis”就引用了大量的code<br>下面是一个例子<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Eligible encounters <span class="list">(<span class="keyword">CPT</span> codes)</span></span><br><span class="line"><span class="number">99201</span><span class="comment">; 99202; 99203; 99204; 99205; 99211; 99212; 99213; 99214; 99215; 99241; 99242;</span></span><br><span class="line"> <span class="number">99243</span><span class="comment">; 99244; 99245; 99354; 99355; 99385; 99386; 99387; 99395; 99396; 99397; 99401;</span></span><br><span class="line"> <span class="number">99402</span><span class="comment">; 99403; 99404; 99406; 99407</span></span><br></pre></td></tr></table></figure></p>
+<p>那么，我们就希望能够访问这些code。有很多种方法可以在query中对此值集进行编码<br>在HQMF中，可以写成由OR组成的单独encounter的条件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">conjunctionCode</span> <span class="attribute">code</span>=<span class="value">"OR"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">code</span>=<span class="value">'99201'</span> <span class="attribute">codeSystem</span>=<span class="value">'2.16.840.1.113883.6.12'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">conjunctionCode</span> <span class="attribute">code</span>=<span class="value">"OR"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">code</span>=<span class="value">'99202'</span> <span class="attribute">codeSystem</span>=<span class="value">'2.16.840.1.113883.6.12'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这看起来并不是很美观，或者重用性很好。本质上讲，你使用确定value set的某个code system中的一个code。<br>另一种方法是在code中使用valueSet属性。HQMF并不推荐这样的原因在于M&amp;M工作组的一些人认为这不是个好主意。 如果要用的话，会是如下的样子<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">valueSet</span>=<span class="value">'2.16.840.1.113883.19.1091'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这种方法的问题在于你只是引用了value set，系统需要处理query的话就必须解决如何解引用的问题。<br>至少有2种方法来处理。一就是使用HL7定义的 Common Terminology Service specification。另一种就是用 IHE Sharing Value Sets (SVS) profile .该规范同时支持HTTP和SOAP两种绑定方法。<br>下面是一个检索value set的URL示例<br><a href="https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308" target="_blank" rel="external">https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308</a><br>下面是它所能返回的示例<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;RetrieveValueSetResponse <span class="variable">xmlns=</span><span class="string">"urn:ihe:iti:svs:2008"</span> <span class="variable">cacheExpirationHint=</span><span class="string">"2008-08-15T00:00:00-05:00"</span>&gt;</span><br><span class="line">  &lt;ValueSet <span class="variable">id=</span><span class="string">"1.2.840.10008.6.1.308"</span></span><br><span class="line">    <span class="variable">displayName=</span><span class="string">"Common Anatomic Regions Context ID 4031"</span> <span class="variable">version=</span><span class="string">"20061023"</span>&gt;</span><br><span class="line">    &lt;ConceptList xml:<span class="variable">lang=</span><span class="string">"en-US"</span>&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-D4000"</span> <span class="variable">displayName=</span><span class="string">"Abdomen"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"R-FAB57"</span> <span class="variable">displayName=</span><span class="string">"Abdomen and Pelvis"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-15420"</span> <span class="variable">displayName=</span><span class="string">"Acromioclavicular joint"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-15750"</span> <span class="variable">displayName=</span><span class="string">"Ankle joint"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-280A0"</span> <span class="variable">displayName=</span><span class="string">"Apex of Lung"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-D8200"</span> <span class="variable">displayName=</span><span class="string">"Arm"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-60610"</span> <span class="variable">displayName=</span><span class="string">"Bile Duct"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-74000"</span> <span class="variable">displayName=</span><span class="string">"Bladder"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-04000"</span> <span class="variable">displayName=</span><span class="string">"Breast"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-26000"</span> <span class="variable">displayName=</span><span class="string">"Bronchus"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-12770"</span> <span class="variable">displayName=</span><span class="string">"Calcaneus"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-11501"</span> <span class="variable">displayName=</span><span class="string">"Cervical spine"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;/ConceptList&gt;</span><br><span class="line">  &lt;/ValueSet&gt;</span><br><span class="line">&lt;/RetrieveValueSetResponse&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对value set使用SVS有一些很好的特点。如果你想将value set放到SQL表中，你可以用XSLT来转换<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;xsl:stylesheet</span><br><span class="line">    xmlns:svs=<span class="string">"urn:ihe:iti:svs:2008"</span></span><br><span class="line">    xmlns:xsl=<span class="string">"http://www.w3.org/1999/XSL/Transform"</span> version=<span class="string">"1.0"</span>&gt;</span><br><span class="line">    &lt;xsl:output <span class="keyword">method</span>=<span class="string">"text"</span>/&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"/"</span>&gt;</span><br><span class="line">        &lt;xsl:apply-templates select=<span class="string">".//svs:ConceptList"</span>/&gt;</span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"svs:ConceptList"</span>&gt;</span><br><span class="line">        &lt;xsl:text&gt;<span class="type">INSERT</span> <span class="type">INTO</span> <span class="type">VALUESETMEMBERS</span> (<span class="type">VALUESETID</span>, <span class="type">CODE</span>, <span class="type">CODESYSTEMID</span>, <span class="type">DISPLAYNAME</span>)&amp;<span class="comment">#x0A;&lt;/xsl:text&gt;</span></span><br><span class="line">        &lt;xsl:apply-templates select=<span class="string">"svs:Concept"</span>&gt;&lt;/xsl:apply-templates&gt;</span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"svs:Concept"</span>&gt;</span><br><span class="line">        &lt;xsl:text&gt;<span class="type">VALUES</span> ('&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"../../@id"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@code"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@codeSystem"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@displayName"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;')&amp;<span class="comment">#x0A;&lt;/xsl:text&gt;</span></span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">&lt;/xsl:stylesheet&gt;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>另外你可以构建一些包含value set内容的JSON 对象<br>你也可以用XPath document功能来访问value set<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">document</span><span class="params">(<span class="string">"https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Keith-Boone/">Keith Boone</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/17/The-XSLT-document-function/" title="译自The XSLT document() function  by  Keith Boone" itemprop="url">译自The XSLT document() function  by  Keith Boone</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-17T05:10:12.000Z" itemprop="datePublished"> 发表于 Mar 17 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Thursday, January 26, 2012  BY Keith Boone<br><a href="http://motorcycleguy.blogspot.com/2012/01/using-xslt-document-function-to-look-up.html" target="_blank" rel="external">The XSLT document() function</a><br>有人在Structured Document 工作组邮件列表中问了一个如何将code转换成display name的问题。<br>在XSLT中，我一直在使用一种技术，它能够让我不用在XSLT stylesheet中嵌入转换逻辑，轻松地访问要查询的表。<br>在描述这种技术之前，我想先说说它的多种用途：<br>1.code转换<br>常常你需要将一种编码系统下的code转换为另一种code system下的code。我常使用这种技术实现本地code到标准词汇的转换 例如<br>从ANSI+到UCUM的单位转换<br>从问题严重程度的本地码到HITSP C32中要求的severity 的SNOMED CT code的转换<br>从问题状态的本地码到问题状态的SNOMED CT 码的转换<br>从问题类型的本地码到问题类型的SNOMED CT码的转换<br>从生命体征的本地码到生命体征的SNOMED CT码的转换<br>2.display name的查询 和code转换差不多，我们常常有的是标准的code，而没有与之相关的display name。利用此技术可实现比较小(不超过1000个code)的值集中display name的查询<br>3.标识符到web服务 end point的对应<br>从家庭社区的ID到XCA web服务地址<br>从DICOM AE标题到WADOweb服务endpoint<br>4.动态变化规则的验证，比如验证一个code是否符合词汇或值集的当前版本</p>
+<p>此技术最基本的就是构建一个你要在stylesheet中使用的XML文档资源，为了声明此资源 你要：</p>
+<p><xsl:variable name="myDocument" select="document('mydocument.xml')"><br>它能够构建一个变量，此变量在你随后的XML中使用的XPath表达式中会用到。对于开篇提到的问题，我们所要做的就是如何根据一个语言code 也就是病人优先选用的语言，获取相应的display name。此code的值位于patient/languageCommunication/languageCode/@code<br>下面的XSLT片段展示了一个通过查询XML文档来获取病人语言的display name的模板<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">xsl:variable</span> <span class="attribute">name</span>=<span class="value">"langs"</span> <span class="attribute">select</span>=<span class="value">"document('lang.xml')"</span>/&gt;</span></span><br><span class="line">   ...</span><br><span class="line"><span class="tag">&lt;<span class="title">xsl:template</span> <span class="attribute">name</span>=<span class="value">'patientLanguage'</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- get the code --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">xsl:variable</span> <span class="attribute">name</span>=<span class="value">'lang'</span></span><br><span class="line">    <span class="attribute">select</span>=<span class="value">'//patient/languageCommunication/languageCode/@code'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">xsl:variable</span> <span class="attribute">name</span>=<span class="value">'mappedLang'</span> <span class="attribute">select</span>=<span class="value">'langs//language[@code=lang]'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">xsl:choose</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">xsl:when</span> <span class="attribute">test</span>=<span class="value">'$mappedLang'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">xsl:value-of</span> <span class="attribute">select</span>=<span class="value">'$mappedLang/@displayName'</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">xsl:when</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">xsl:otherwise</span>&gt;</span>Unknown<span class="tag">&lt;/<span class="title">xsl:otherwise</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">xsl:choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">xsl:template</span>&gt;</span></span><br></pre></td></tr></table></figure></xsl:variable></p>
+<p>此技术也可用在访问由RESTFUL web服务器endpoint所动态构建的resource中。在Values Sets and Query Health博文中我进行了演示</p>
+<p>此技术的另外一个用途就是在schematron 规则中核对值集的一致性。如果你要求code/@code的值必须来自某一特殊的值集，你可以写一个访问web资源的规则，如下<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;rule <span class="variable">context=</span>'*/cda:templateId[@<span class="variable">root =</span> templateIdentifier]'&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;<span class="keyword">let</span> <span class="variable">name=</span>'code' <span class="variable">value=</span>'cda:code/@code'/&gt;</span><br><span class="line">  &lt;<span class="keyword">let</span> <span class="variable">name=</span>'valueSetDoc' <span class="variable">value=</span>'document(<span class="string">"https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308"</span>)'/&gt;</span><br><span class="line">  &lt;<span class="keyword">assert</span> <span class="variable">test=</span>'valueSetDoc//ihe:Concept[@<span class="variable">code=</span>code]'&gt;</span><br><span class="line">    The code/@code element must come from the XXX Value Set (OID: <span class="number">1.2</span>.<span class="number">840.10008</span>.<span class="number">6.1</span>.<span class="number">308</span>)</span><br><span class="line">  &lt;/<span class="keyword">assert</span>&gt;</span><br><span class="line">&lt;/rule&gt;</span><br></pre></td></tr></table></figure></p>
+<p>能够使用外部的XML数据文件是XSLT的一大优势。能够与web服务动态构建的XML资源结合起来使之功能更加强大。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Keith-Boone/">Keith Boone</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/16/CDA-quick-start-guide/" title="CDA快速入门" itemprop="url">CDA快速入门</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-16T05:02:48.000Z" itemprop="datePublished"> 发表于 Mar 16 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在大概了解了CDA文档实例的模样，手头上也有了各式各样自己喜好的XML编辑器，那么我们可能就希望实践一把。该怎么做呢?</p>
+<p>如果你希望先了解CDA前前后后的一些东西，那么你需要看看下面的PPT</p>
+<p>1.参考各个机构所带来的对CDA介绍的PPT</p>
+<p><a href="http://dl.dbank.com/c04us4v8xw" target="_blank" rel="external">台湾范士展老师整理的相关资料</a></p>
+<p><a href="http://dl.dbank.com/c09r23z2r9" target="_blank" rel="external">mayo的资料</a>  </p>
+<p><a href="http://dl.dbank.com/c0s8w5y0s6" target="_blank" rel="external">Grahame Grieve的介绍材料</a></p>
+<p><a href="http://dl.dbank.com/c0rzea8zwd" target="_blank" rel="external">Liora Alschuler2005在芝加哥的材料</a></p>
+<p><a href="http://dl.dbank.com/c01x6rguh3" target="_blank" rel="external">IBM 中国研究院卫生部电子病历委员会临床检验结果共享系统互操作性规范厂商培训研讨会的材料</a></p>
+<p><a href="http://dl.dbank.com/c0989u2276" target="_blank" rel="external">Oracle王海彤卫生部电子病历委员会临床检验结果共享系统互操作性规范厂商培训研讨会</a></p>
+<p><a href="http://dl.dbank.com/c00brfe4lv" target="_blank" rel="external">Gay Giannone2009的宣传材料</a></p>
+<p>2.相关介绍性论文</p>
+<p> Dolin RH, Alschuler L, Boyer S, Beebe C, Behlen FM, Biron PV, Shabo A. HL7 Clinical Document Architecture, Release 2. J Am Med Inform Assoc. 2006;13:30–39.</p>
+<p><a href="http://www.jamia.org/cgi/reprint/13/1/30" target="_blank" rel="external">http://www.jamia.org/cgi/reprint/13/1/30</a></p>
+<p><a href="http://dl.dbank.com/c0zj74mbc7" target="_blank" rel="external">下载链接</a></p>
+<p>JEFFREY M. FERRANTI,MD,R.CLAYTON MUSSER,MD,MS,KENSAKU KAWAMOTO,W.ED HAMMOND,PHD</p>
+<p>The Clinical Document Architecture and the Continuity of Care Record: A Critical Analysis</p>
+<p>J Am Med Inform Assoc. 2006;13:245–252. DOI 10.1197/jamia.M1963.</p>
+<p><a href="http://dl.dbank.com/c0yairz73b" target="_blank" rel="external">下载链接</a></p>
+<p>IHE, HL7和 HITSP 中的临床文档标准</p>
+<p>鲍永坚</p>
+<p><a href="http://dl.dbank.com/c0zqftswpd" target="_blank" rel="external">下载链接</a></p>
+<p>3.快速入门</p>
+<p><a href="http://dl.dbank.com/c07enskrua" target="_blank" rel="external">cda快速入门</a></p>
+<p><a href="http://dl.dbank.com/c021t5avjy" target="_blank" rel="external">CCD快速入门</a></p>
+<p>4.相关技术</p>
+<p>XML<span class="Apple-tab-span" style="white-space:pre"></span></p>
+<p><span class="Apple-tab-span" style="white-space:pre"></span><a href="http://www.w3.org/TR/xml" target="_blank" rel="external">http://www.w3.org/TR/xml</a></p>
+<p>XSLT</p>
+<p><span class="Apple-tab-span" style="white-space:pre"></span><a href="http://www.w3.org/TR/xslt" target="_blank" rel="external">http://www.w3.org/TR/xslt</a></p>
+<p>XHTML</p>
+<p><span class="Apple-tab-span" style="white-space:pre"></span><a href="http://www.w3.org/TR/xhtml-modularization/" target="_blank" rel="external">http://www.w3.org/TR/xhtml-modularization/</a></p>
+<p>Schematron</p>
+<p><span class="Apple-tab-span" style="white-space:pre"></span><a href="http://www.schematron.com/" target="_blank" rel="external">http://www.schematron.com/</a></p>
+<p><span class="Apple-tab-span" style="white-space:pre"></span><a href="http://xml.ascc.net/resource/schematron/schematron.html" target="_blank" rel="external">http://xml.ascc.net/resource/schematron/schematron.html</a></p>
+<p></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CDA/">CDA</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/16/cda-document-editor/" title="CDA文档编辑器" itemprop="url">CDA文档编辑器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-16T04:42:14.000Z" itemprop="datePublished"> 发表于 Mar 16 2012</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>CDA文档均为XML文件，故我们采用一些市面上常用的XML编辑软件。列举如下：<br>1.Oxygen XML Editor<br>它是一款基于Java的XML编辑器，支持XML, XSL, TXT, XSD, DTD文档，能自行校验XML, XSL, XSD代码，提示脚本错误。Oxygen能自动完成结束标签，代码高亮现实，支持Unicode。</p>
+<p>Oxygen XML Editor是一款简洁并且功能一流的集XML察看和编辑等功能为一体的软件。由于它提供了对XML编辑特性的完整覆盖，因此，无论在企业界还是学术界，该软件的应用都很普及。它能工作在XML Schemas/ DTDs/Relax NG schemas和NRL Schemas.强大的转换支持让你不仅能编辑XSLT和XSL-FO文档,也能把它们转换成为你想要的如HTML/PS/PDF等文件。<br>个人感觉比较美观 易用性较高<br>2.Altova XMLSpy©<br>在网上可以找到2006 2011的破解版本，易用性最高 我最喜欢和熟悉</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">XMLSpy的主要功能</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">XMLSpy 2005是一个用于XML工程开发的集成开发环境（Integrated Development Environment，简称IDE）。XMLSpy 2005可连同其他工具一起进行各种XML及文本文档的编辑和处理、进行XML文档（比如与数据库之间）的导入导出、在某些类型的XML文档与其他文档类型间作相互转换、关联工程中的不同类型的XML文档、利用内置的XSLT 1.0/2.0处理器和XQuery 1.0处理器进行文档处理，甚至能够根据XML文档生成代码。</span><br><span class="line"></span><br><span class="line">XMLSpy 2005还提供了一中XML文档的图形化编辑视图——Authentic视图（直观视图），它使得用户可以像使用字处理软件那样对XML文档进行数据录入。Authentic视图在下列场合特别有用：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">· 不熟悉XML的人被要求把数据录入XML文档</span><br><span class="line"></span><br><span class="line">· 多个用户需要浏览或将数据录入位于某个服务器或共享资源上的单个文档。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">本节我们仅对XMLSpy 2005的主要功能作简要的概述。这些功能在后面介绍各个视图（Text视图、Schema/WSDL视图、Authentic视图等）的章节和用户参考手册中还会被详细描述。请注意，本节没有完全列出XMLSpy 2005的所有功能。本节的目的只是给您提供一个XMLSpy 2005所支持功能的大致印象。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在多种编辑格式下编辑XML文档</span><br><span class="line">您可以将XML文档作为普通文本来编辑（Text视图）、也可以在一个具有层次结构的表中进行编辑（增强型Grid视图），还可以在图形化的所见即所得（WYSIWYG）视图中编辑（Authentic视图）。对于XML Schema和WSDL文档，您还可以使用Schema/WSDL视图，它的图形化用户界面极大地简化了复杂schema和WSDL文档的创建。您可以根据需要在各种视图间进行切换。Browser视图（浏览器视图）可用于浏览XSLT样式表对XML文档的转换结果和HTML文档。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">良构性（well-formedness）检查和内置验证器（validator）</span><br><span class="line">在您切换视图或保存文件时，XMLSpy会自动对XML文档进行良构型检查。如果是关联了schema（DTD或XML Schema）的XML文件，XMLSpy还会对它进行验证（validation）。对于其他类型的文档（如DTD等），XMLSpy也会作语法和结构上的检查。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结构化编辑</span><br><span class="line">在Text视图中，行号、缩进、书签以及可展开/折迭的元素显示等功能将协助您快速而有效地浏览文档。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">智能编辑</span><br><span class="line">在Text视图中，如果正在编辑的XML文档已经关联了schema，那么自动完成功能将在编辑过程中提供极大的帮助。在您敲击键盘的同时，光标所在位置会出现一个列有元素（element）、属性（attribute）和允许出现的枚举型属性值（enumerated attribute values）的窗口。另外，在您完成首标签（opening tag[译注//正式名称为<span class="operator"><span class="keyword">start</span> tag]）的输入时，自动完成功能会自动为您插入相应的尾标签（closing tag[译注//正式名称为<span class="keyword">end</span> tag]），而您在弹出窗口中选择的属性也会被自动插入并被引号括起来。如果一个元素下必须出现某些元素或/和属性，那么您还可以选择在该元素被插入时为它自动生成那些必需的成分。此外，每个视图都有一组输入助手（Entry Helper）[译注//输入助手是对IDE中一些窗口的统称，利用这些窗口，用户可以方便地往文档中插入成分。]，通过它们使您可以往文档中插入成分[译注//比如插入一个元素（element）]或为主窗口中选中的成分指定属性。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">Schema</span>的编辑和管理</span><br><span class="line">您可以在<span class="keyword">Schema</span>/WSDL视图中轻松而快捷地创建<span class="keyword">XML</span> <span class="keyword">Schema</span>。该视图免除了许多由学习<span class="keyword">XML</span> <span class="keyword">Schema</span>结构、语法和设计原则而带来的困难。您还可以创建DTD（XMLSpy会对它们的语法进行检查）、在<span class="keyword">Schema</span>和DTD间进行转换和生成档案（documentation），SchemaAgent功能将使您能够访问并使用存放于其他服务器上的<span class="keyword">schema</span> —— 所有这些都为专业的<span class="keyword">XML</span> <span class="keyword">Schema</span>管理和编辑提供了高效的<span class="keyword">XML</span>开发环境。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">内置的XSLT <span class="number">1.0</span>和XSLT <span class="number">2.0</span>处理器</span><br><span class="line">内置的XSLT <span class="number">1.0</span>和XSLT <span class="number">2.0</span>处理器都是符合相关W3C草案[译注//这里的草案指的是W3C工作草案（Working Draft），即正在制定过程中而尚未定型的W3C文档]的。它们使您可以直接在IDE中用XSLT <span class="number">1.0</span>或XSLT <span class="number">2.0</span>样式表来转换<span class="keyword">XML</span>文档，并用XSLT调试器对XSLT样式表进行调试。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">内置的XQuery <span class="number">1.0</span>处理器</span><br><span class="line">内置的XQuery <span class="number">1.0</span>处理器是符合<span class="number">2004</span>年<span class="number">7</span>月<span class="number">23</span>日发布的W3C XQuery <span class="number">1.0</span>工作草案的。通过它，您可以直接在IDE中执行和调试XQuery文档。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">XML</span>文档的转换</span><br><span class="line"><span class="keyword">XML</span>文档的转换可以直接在IDE中进行（利用内置的XSLT处理器或其他外部的XSLT处理器）如果您要在XMLSpy <span class="number">2005</span> IDE中生成PDF文件[译注//XSL分为XSLT和XSL-FO，前者一般用于将<span class="keyword">XML</span>文档转换为另一个<span class="keyword">XML</span>文档或HTML文档，而后者一般用于将<span class="keyword">XML</span>文档转换为PDF等文件格式。]，可以使用外部的FO处理器；在您指定样式表之后，只需一个点击即可将<span class="keyword">XML</span>转换为PDF。此外，可以在IDE中给XSLT转换（transformation）传递参数值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">XPath求值</span><br><span class="line">对于一个给定的<span class="keyword">XML</span>文档，XPath求值（Evaluate XPath）功能可以列出一个XPath表达式返回的序列（或结点集）。您可以将文档结点（Document Node）或选择一个元素作为上下文结点（context node）。在创建XSLT样式表的过程中常常需要对XPath表达式进行求值，此时XPath求值功能是非常有用的。您还可以浏览返回序列中的各个结点。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">XSLT <span class="number">1.0</span>/<span class="number">2.0</span>调试器</span><br><span class="line">XMLSpy <span class="number">2005</span>提供的XSLT <span class="number">1.0</span>和XSLT <span class="number">2.0</span>调试器是符合相关W3C草案的。您可以使用XSLT调试器来调试XSLT样式表。XSLT调试器在一个<span class="keyword">XML</span>文件上运行要调试的XSLT样式表，并按转换的步骤逐步生成输出结果，其间您可以看到上下文结点（context node）、被执行的模板（template）以及转换过程中各步的其他细节。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">XQuery <span class="number">1.0</span>调试器</span><br><span class="line">XQuery <span class="number">1.0</span>调试器是符合W3C于<span class="number">2004</span>年<span class="number">7</span>月<span class="number">23</span>日发布的XQuery <span class="number">1.0</span>工作草案的。XQuery调试器用于调试XQuery文档，功能与XSLT相似。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">XML</span>工程管理</span><br><span class="line">在XMLSpy <span class="number">2005</span> IDE中，您可以将相关的文件组织为工程（project）。与其他开发工具不同的是，在XMLSpy中，工程可以是一个树状结构（即可以在一个工程下创建另一个工程）。工程（project）中可以包含<span class="keyword">schema</span>文件、<span class="keyword">XML</span>数据文件、转换文件[译注//如一个XSLT文件]和输出文件等。工程中的文件被列在Project窗口（工程窗口）中，以便于访问工程中的文件。此外，您还可以为整个项目或整个目录做统一的设定，比如为整个目录的文件指定一个<span class="keyword">schema</span>文件或XSLT文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Authentic视图</span><br><span class="line">Authentic视图是XMLSpy <span class="number">2005</span>提供的一种图形化的<span class="keyword">XML</span>文档视图。用户可以像使用字处理软件那样轻易地将数据录入<span class="keyword">XML</span>文档。StyleVision <span class="keyword">Power</span> Stylesheet是一个已经用StyleVision <span class="number">2005</span>创建好的样式表，用于指定在Authentic视图中如何格式化<span class="keyword">XML</span>文档、以及如何进行数据录入。注意：Altova的免费软件Authentic <span class="number">2005</span> Desktop Edition中也提供了Authentic视图。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">数据库导入</span><br><span class="line">您可以将数据库中的数据导入为一个<span class="keyword">XML</span>文件、并生成一个与数据库结构对应的<span class="keyword">XML</span> <span class="keyword">Schema</span>文件。XMLSpy <span class="number">2005</span>目前支持下列数据库的导入：MS Access、MS <span class="keyword">SQL</span> <span class="keyword">Server</span>、Oracle、MySQL、Sybase、IBM DB2。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WSDL和SOAP</span><br><span class="line">在<span class="keyword">Schema</span>/WSDL视图中，您可以通过易用的图形用户界面创建和编辑WSDL文档。您也可以在IDE中创建、编辑并调试SOAP请求（SOAP request）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">对比<span class="keyword">XML</span>文件（寻找差异）</span><br><span class="line">XMLSpy <span class="number">2005</span>的对比功能让您能够发现两个<span class="keyword">XML</span>文件的差异。您可以设置各种选项以配置该功能，比如忽略属性或子元素的次序、是否解析实体（entity）、是否忽略命名空间（namespace）等。对比功能还可用于进行文件夹的比较。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">与Visual Studio .NET集成</span><br><span class="line">XMLSpy <span class="number">2005</span>可以与您的Visual Studio .NET开发环境集成。您只要从Altova网站下载一个可执行程序然后运行它即可。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">与Eclipse <span class="number">3.0</span>集成</span><br><span class="line">Eclipse <span class="number">3.0</span>是一个集成了以插件形式发布的不同类型应用的开放源码框架。XMLSpy <span class="number">2005</span> <span class="keyword">for</span> the Eclipse Platform是一个Eclipse <span class="number">3.0</span>的插件，通过它您可以在Eclipse <span class="number">3.0</span> Platform中使用XMLSpy <span class="number">2005</span>的功能（如果已经安装的话）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">代码生成</span><br><span class="line">如果您要使用Java、C++或C#代码来处理<span class="keyword">XML</span>文件中的数据，代码生成功能可以依据<span class="keyword">XML</span>文档为您生成包含有关<span class="keyword">schema</span>（DTD或<span class="keyword">XML</span> <span class="keyword">Schema</span>）的类定义代码。在XMLSpy <span class="number">2005</span>中，您可以直接根据DTD或<span class="keyword">XML</span> <span class="keyword">Schema</span>生成这样的代码。</span></span><br></pre></td></tr></table></figure>
+<p>3 XML Notepad 2007<br>台湾的范士展老师在其PPT中推荐了此编辑软件 不曾用 不熟悉<br>4.notepad++<br>简易编辑器  功能强大 很好用</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Notepad++ 是一款非常有特色的编辑器，是开源软件，可以免费使用。</span><br><span class="line"></span><br><span class="line">功能有：</span><br><span class="line">①、内置支持多达 <span class="number">27</span> 种语法高亮度显示(囊括各种常见的源代码、脚本，值得一提的是，完美支持 .nfo 文件查看)，也支持自定义语言；</span><br><span class="line">②、可自动检测文件类型，根据关键字显示节点，节点可自由折叠/打开，代码显示得非常有层次感！这是此软件最具特色的体现之一；</span><br><span class="line">③、可打开双窗口，在分窗口中又可打开多个子窗口，允许快捷切换全屏显示模式(F11)，支持鼠标滚轮改变文档显示比例，等等；</span><br><span class="line">④、提供数个特色东东，如 邻行互换位置、宏功能，等等...现在网上有很多文件编辑器，这个却是不可多得的一款，不论是日常使用还是手写编程代码，都能让你体会到它独有的优势和方便。</span><br><span class="line"></span><br><span class="line">支持的语言: C, C++ , Java , C#, XML, HTML, PHP, Javascript , RC resource <span class="keyword">file</span>, makefile, ASCII art <span class="keyword">file</span> (extension .nfo , screenshot1, screenshot2), doxygen, ini <span class="keyword">file</span>, batch <span class="keyword">file</span>, ASP , VB/VBS source files , SQL , Objective-C , CSS, <span class="keyword">Pascal</span>, Perl, Python <span class="keyword">and</span> Lua.</span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CDA/">CDA</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

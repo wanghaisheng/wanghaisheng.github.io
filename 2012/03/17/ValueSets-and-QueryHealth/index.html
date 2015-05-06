@@ -1,0 +1,613 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>译自Value Sets and QueryHealth  by  Keith Boone | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="Tuesday, November 1, 2011 By Keith BooneValue Sets and QueryHealth
+Query Health的一大难题就是一个特殊的measure就可能引用大量的编码值。在HL7中它们称之为值集。比如 TCNY Quality Measures中在Query Health “Query and Data Analysis”就引用了大量的code下面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译自Value Sets and QueryHealth  by  Keith Boone">
+<meta property="og:url" content="http://wanghaisheng.github.io/2012/03/17/ValueSets-and-QueryHealth/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="Tuesday, November 1, 2011 By Keith BooneValue Sets and QueryHealth
+Query Health的一大难题就是一个特殊的measure就可能引用大量的编码值。在HL7中它们称之为值集。比如 TCNY Quality Measures中在Query Health “Query and Data Analysis”就引用了大量的code下面">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="译自Value Sets and QueryHealth  by  Keith Boone">
+<meta name="twitter:description" content="Tuesday, November 1, 2011 By Keith BooneValue Sets and QueryHealth
+Query Health的一大难题就是一个特殊的measure就可能引用大量的编码值。在HL7中它们称之为值集。比如 TCNY Quality Measures中在Query Health “Query and Data Analysis”就引用了大量的code下面">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/17/ValueSets-and-QueryHealth/" title="译自Value Sets and QueryHealth  by  Keith Boone" itemprop="url">译自Value Sets and QueryHealth  by  Keith Boone</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-17T05:31:12.000Z" itemprop="datePublished"> 发表于 Mar 17 2012</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>Tuesday, November 1, 2011 By Keith Boone<br><a href="http://motorcycleguy.blogspot.com/2011/11/value-sets-and-queryhealth.html" target="_blank" rel="external">Value Sets and QueryHealth</a></p>
+<p><a href="">Query Health</a>的一大难题就是一个特殊的measure就可能引用大量的编码值。在HL7中它们称之为值集。比如 <a href="http://wiki.siframework.org/file/view/TCNY%20Quality%20Measures%20Report%20v%20Q4%202009%20091028.pdf" target="_blank" rel="external">TCNY Quality Measures</a>中在Query Health “Query and Data Analysis”就引用了大量的code<br>下面是一个例子<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Eligible encounters <span class="list">(<span class="keyword">CPT</span> codes)</span></span><br><span class="line"><span class="number">99201</span><span class="comment">; 99202; 99203; 99204; 99205; 99211; 99212; 99213; 99214; 99215; 99241; 99242;</span></span><br><span class="line"> <span class="number">99243</span><span class="comment">; 99244; 99245; 99354; 99355; 99385; 99386; 99387; 99395; 99396; 99397; 99401;</span></span><br><span class="line"> <span class="number">99402</span><span class="comment">; 99403; 99404; 99406; 99407</span></span><br></pre></td></tr></table></figure></p>
+<p>那么，我们就希望能够访问这些code。有很多种方法可以在query中对此值集进行编码<br>在HQMF中，可以写成由OR组成的单独encounter的条件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">conjunctionCode</span> <span class="attribute">code</span>=<span class="value">"OR"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">code</span>=<span class="value">'99201'</span> <span class="attribute">codeSystem</span>=<span class="value">'2.16.840.1.113883.6.12'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">conjunctionCode</span> <span class="attribute">code</span>=<span class="value">"OR"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">code</span>=<span class="value">'99202'</span> <span class="attribute">codeSystem</span>=<span class="value">'2.16.840.1.113883.6.12'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这看起来并不是很美观，或者重用性很好。本质上讲，你使用确定value set的某个code system中的一个code。<br>另一种方法是在code中使用valueSet属性。HQMF并不推荐这样的原因在于M&amp;M工作组的一些人认为这不是个好主意。 如果要用的话，会是如下的样子<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">sourceOf</span> <span class="attribute">typeCode</span>=<span class="value">"PRCN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">encounter</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="title">code</span> <span class="attribute">valueSet</span>=<span class="value">'2.16.840.1.113883.19.1091'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">encounter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">sourceOf</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这种方法的问题在于你只是引用了value set，系统需要处理query的话就必须解决如何解引用的问题。<br>至少有2种方法来处理。一就是使用HL7定义的 Common Terminology Service specification。另一种就是用 IHE Sharing Value Sets (SVS) profile .该规范同时支持HTTP和SOAP两种绑定方法。<br>下面是一个检索value set的URL示例<br><a href="https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308" target="_blank" rel="external">https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308</a><br>下面是它所能返回的示例<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;RetrieveValueSetResponse <span class="variable">xmlns=</span><span class="string">"urn:ihe:iti:svs:2008"</span> <span class="variable">cacheExpirationHint=</span><span class="string">"2008-08-15T00:00:00-05:00"</span>&gt;</span><br><span class="line">  &lt;ValueSet <span class="variable">id=</span><span class="string">"1.2.840.10008.6.1.308"</span></span><br><span class="line">    <span class="variable">displayName=</span><span class="string">"Common Anatomic Regions Context ID 4031"</span> <span class="variable">version=</span><span class="string">"20061023"</span>&gt;</span><br><span class="line">    &lt;ConceptList xml:<span class="variable">lang=</span><span class="string">"en-US"</span>&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-D4000"</span> <span class="variable">displayName=</span><span class="string">"Abdomen"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"R-FAB57"</span> <span class="variable">displayName=</span><span class="string">"Abdomen and Pelvis"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-15420"</span> <span class="variable">displayName=</span><span class="string">"Acromioclavicular joint"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-15750"</span> <span class="variable">displayName=</span><span class="string">"Ankle joint"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-280A0"</span> <span class="variable">displayName=</span><span class="string">"Apex of Lung"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-D8200"</span> <span class="variable">displayName=</span><span class="string">"Arm"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-60610"</span> <span class="variable">displayName=</span><span class="string">"Bile Duct"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-74000"</span> <span class="variable">displayName=</span><span class="string">"Bladder"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-04000"</span> <span class="variable">displayName=</span><span class="string">"Breast"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-26000"</span> <span class="variable">displayName=</span><span class="string">"Bronchus"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-12770"</span> <span class="variable">displayName=</span><span class="string">"Calcaneus"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;Concept <span class="variable">code=</span><span class="string">"T-11501"</span> <span class="variable">displayName=</span><span class="string">"Cervical spine"</span></span><br><span class="line">        <span class="variable">codeSystem=</span><span class="string">"2.16.840.1.113883.6.5"</span>/&gt;</span><br><span class="line">      &lt;/ConceptList&gt;</span><br><span class="line">  &lt;/ValueSet&gt;</span><br><span class="line">&lt;/RetrieveValueSetResponse&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对value set使用SVS有一些很好的特点。如果你想将value set放到SQL表中，你可以用XSLT来转换<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;xsl:stylesheet</span><br><span class="line">    xmlns:svs=<span class="string">"urn:ihe:iti:svs:2008"</span></span><br><span class="line">    xmlns:xsl=<span class="string">"http://www.w3.org/1999/XSL/Transform"</span> version=<span class="string">"1.0"</span>&gt;</span><br><span class="line">    &lt;xsl:output <span class="keyword">method</span>=<span class="string">"text"</span>/&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"/"</span>&gt;</span><br><span class="line">        &lt;xsl:apply-templates select=<span class="string">".//svs:ConceptList"</span>/&gt;</span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"svs:ConceptList"</span>&gt;</span><br><span class="line">        &lt;xsl:text&gt;<span class="type">INSERT</span> <span class="type">INTO</span> <span class="type">VALUESETMEMBERS</span> (<span class="type">VALUESETID</span>, <span class="type">CODE</span>, <span class="type">CODESYSTEMID</span>, <span class="type">DISPLAYNAME</span>)&amp;<span class="comment">#x0A;&lt;/xsl:text&gt;</span></span><br><span class="line">        &lt;xsl:apply-templates select=<span class="string">"svs:Concept"</span>&gt;&lt;/xsl:apply-templates&gt;</span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">    &lt;xsl:<span class="keyword">template</span> match=<span class="string">"svs:Concept"</span>&gt;</span><br><span class="line">        &lt;xsl:text&gt;<span class="type">VALUES</span> ('&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"../../@id"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@code"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@codeSystem"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;', '&lt;/xsl:text&gt;</span><br><span class="line">        &lt;xsl:value-<span class="keyword">of</span> select=<span class="string">"@displayName"</span>/&gt;</span><br><span class="line">        &lt;xsl:text&gt;')&amp;<span class="comment">#x0A;&lt;/xsl:text&gt;</span></span><br><span class="line">    &lt;/xsl:<span class="keyword">template</span>&gt;</span><br><span class="line">&lt;/xsl:stylesheet&gt;</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>另外你可以构建一些包含value set内容的JSON 对象<br>你也可以用XPath document功能来访问value set<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">document</span><span class="params">(<span class="string">"https://example.com/RetrieveValueSet?id=1.2.840.10008.6.1.308"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Keith-Boone/">Keith Boone</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2012/03/17/ValueSets-and-QueryHealth/" data-title="译自Value Sets and QueryHealth  by  Keith Boone | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2012/03/17/Data-Versus-Information-The-EMR-Readability-Problem/" title="Data Versus Information- The EMR Readability Problem  by  Bruce Friedman">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Data Versus Information- The EMR Readability Problem  by  Bruce Friedman</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2012/03/17/The-XSLT-document-function/"  title="译自The XSLT document() function  by  Keith Boone">
+ <strong>下一篇：</strong><br/> 
+ <span>译自The XSLT document() function  by  Keith Boone
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

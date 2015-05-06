@@ -1,0 +1,673 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="Tuesday, March 6, 2012 By Keith BooneLiberating Consolidated CDA Templates from the Trifolia Workbench DataCDA Consolidation project的目标之一是从模板的模型驱动数据中自动化的构建验证和开发工具。我曾期望与MDHT项目有更加紧密的合作，我希望最终能够实现。几个星期以前，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone">
+<meta property="og:url" content="http://wanghaisheng.github.io/2012/03/15/Liberating-consolidated-cda-templates-from-Trifolia/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="Tuesday, March 6, 2012 By Keith BooneLiberating Consolidated CDA Templates from the Trifolia Workbench DataCDA Consolidation project的目标之一是从模板的模型驱动数据中自动化的构建验证和开发工具。我曾期望与MDHT项目有更加紧密的合作，我希望最终能够实现。几个星期以前，">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone">
+<meta name="twitter:description" content="Tuesday, March 6, 2012 By Keith BooneLiberating Consolidated CDA Templates from the Trifolia Workbench DataCDA Consolidation project的目标之一是从模板的模型驱动数据中自动化的构建验证和开发工具。我曾期望与MDHT项目有更加紧密的合作，我希望最终能够实现。几个星期以前，">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/03/15/Liberating-consolidated-cda-templates-from-Trifolia/" title="译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone" itemprop="url">译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-03-15T06:48:12.000Z" itemprop="datePublished"> 发表于 Mar 15 2012</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>Tuesday, March 6, 2012 By Keith Boone<br>Liberating Consolidated CDA Templates from the Trifolia Workbench Data<br>CDA Consolidation project的目标之一是从模板的模型驱动数据中自动化的构建验证和开发工具。我曾期望与MDHT项目有更加紧密的合作，我希望最终能够实现。几个星期以前，HL7和Lantana发布了包含CDA Consolidation data的Trifolia Workbench。Trifolia Workbench是以Eclipse Public License开源形式发布的，其源码，目前也就是数据库表结构，和一个Microsoft Access前端，同时从CDAConsolidation guide中将数据载入MySQL数据库的工具。 就此工具而言，它只是开了个头，我想要的更多。我的开发人员需要CDA Consolidation Guide的schematron文件。我想要数据以一种我可以与源材料进行比较以完成与HITSP C32的差距分析。因此，过去的俩天里我想把数据整成一种我能用的XML的格式，从这种格式中得到schematron文件。第一部分的工作已经完成了，你可以在下面的标题中下载。第二部分仍在进行当中。<br>要从数据库中得到数据，整成XML的格式，我使用了如下三种工具：</p>
+<ul>
+<li>Oxygen XML Editor (my current favorite among XML Editors)</li>
+<li>Xalan XSLT Engine (the only XSL Transformer I want to use)</li>
+<li>MySQL JDBC Drivers</li>
+<li><p>An XSL Stylesheet which is really the subject of this post<br>Oxygen中包含了Xalan，也包含了一个SQL Extensions library,这意味着我可以完成对Trifolia Workbench表中数据的查询。<br>我写了一个两步转换。第一步先把表分开，第二步构建合适的XML结构。Trifolia template database共有5个主要的表：</p>
+</li>
+<li><p>Templates (template)</p>
+</li>
+<li>Constraints (template_constraint)</li>
+<li>Code Systems (dictionarycodesystem)</li>
+<li>Value Sets (valueset)</li>
+<li>Value Set Members (valuesetmember)</li>
+</ul>
+<p>前2个主要的表对于验证而言是最重要的。剩下的三个是为了维护值集。也有很多不同目的的包含了人可读术语的编码表：</p>
+<ul>
+<li>Vocabulary Binding Types (vocbinding_type) [STATIC, DYNAMIC]</li>
+<li>Contexts (dictionarycontext)</li>
+<li>Conformance Types (conformance_type) [SHALL, SHALL NOT, SHOULD, SHOULD NOT, MAY]</li>
+<li>Template Types (template_type) [document, section, entry, subentry, unspecified]</li>
+</ul>
+<p>我没有处理implementation guide表(implementationguide或associationtemplateimplementationguide)，或者是用户列表(tdb_users)，但你要知道 有这些表的存在<br>第一步，将这些表的内容复制到<templates>, <constraints>, <codesystems>, <valuesets>, and <members> elements  <tdb> element元素内。数据复制是直接了当的。第一步就是对一些表格进行查询，用Left JOIN操作来分解code表中的术语。<br>我写了一个处理结果的模板，然后根据列名得到每行中的每个单元的属性或元素。如下；</tdb></members></valuesets></codesystems></constraints></templates></p>
+<pre><code><span class="tag">&lt;<span class="title">xsl:template</span> <span class="attribute">name</span>=<span class="value">"SQLtoXML"</span>&gt;</span>
+  <span class="comment">&lt;!-- resultXML is the rowset returned by the query --&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:param</span> <span class="attribute">name</span>=<span class="value">"resultXML"</span> <span class="attribute">select</span>=<span class="value">"."</span>/&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:param</span> <span class="attribute">name</span>=<span class="value">"result"</span> <span class="attribute">select</span>=<span class="value">"exslt:node-set($resultXML)"</span>/&gt;</span>
+  <span class="comment">&lt;!-- map is a string containing either an a or an e for each cell
+       indicating whether it should be output as an attribute or an
+       element
+  --&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:param</span> <span class="attribute">name</span>=<span class="value">"map"</span>/&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:param</span> <span class="attribute">name</span>=<span class="value">"meta"</span> <span class="attribute">select</span>=<span class="value">"$result/sql/metadata"</span>/&gt;</span>
+
+  <span class="comment">&lt;!-- name is the element name to use for each row, and defaults
+       to the table name --&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:param</span> <span class="attribute">name</span>=<span class="value">"name"</span> <span class="attribute">select</span>=<span class="value">"$meta/column-header[1]/@table-name"</span>/&gt;</span>
+
+  <span class="comment">&lt;!-- for each row in the result set --&gt;</span>
+  <span class="tag">&lt;<span class="title">xsl:for-each</span> <span class="attribute">select</span>=<span class="value">"$result/sql/row-set/row"</span>&gt;</span>
+    <span class="comment">&lt;!-- generate an element for the row --&gt;</span>
+    <span class="tag">&lt;<span class="title">xsl:element</span> <span class="attribute">name</span>=<span class="value">"{$name}"</span>&gt;</span>
+      <span class="comment">&lt;!-- for each column in the result set --&gt;</span>
+      <span class="tag">&lt;<span class="title">xsl:for-each</span> <span class="attribute">select</span>=<span class="value">"col"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">xsl:variable</span> <span class="attribute">name</span>=<span class="value">"pos"</span> <span class="attribute">select</span>=<span class="value">"position()"</span>/&gt;</span>
+        <span class="comment">&lt;!-- if there is an a in the map position for the cell --&gt;</span>
+        <span class="tag">&lt;<span class="title">xsl:if</span>
+          <span class="attribute">test</span>=<span class="value">"substring(map,pos, 1) = 'a' and string(.) != ''"</span>&gt;</span>
+          <span class="comment">&lt;!-- generate an attribute for it --&gt;</span>
+          <span class="tag">&lt;<span class="title">xsl:attribute</span> <span class="attribute">name</span>=<span class="value">"{@column-label}"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">xsl:value-of</span> <span class="attribute">select</span>=<span class="value">"."</span>/&gt;</span>
+          <span class="tag">&lt;/<span class="title">xsl:attribute</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">xsl:if</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">xsl:for-each</span>&gt;</span>
+      <span class="comment">&lt;!-- And again for each column in the result set --&gt;</span>
+      <span class="tag">&lt;<span class="title">xsl:for-each</span> <span class="attribute">select</span>=<span class="value">"col"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">xsl:variable</span> <span class="attribute">name</span>=<span class="value">"pos"</span> <span class="attribute">select</span>=<span class="value">"position()"</span>/&gt;</span>
+        <span class="comment">&lt;!-- if there is an e in the map position for the cell --&gt;</span>
+        <span class="tag">&lt;<span class="title">xsl:if</span>
+          <span class="attribute">test</span>=<span class="value">"substring(map,pos, 1) != 'a' and string(.) != ''"</span>&gt;</span>
+          <span class="comment">&lt;!-- generate an element for it --&gt;</span>
+          <span class="tag">&lt;<span class="title">xsl:element</span> <span class="attribute">name</span>=<span class="value">"{@column-label}"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">xsl:value-of</span> <span class="attribute">select</span>=<span class="value">"."</span>/&gt;</span>
+          <span class="tag">&lt;/<span class="title">xsl:element</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">xsl:if</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">xsl:for-each</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">xsl:element</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">xsl:for-each</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">xsl:template</span>&gt;</span>
+</code></pre><p>第一步中提取数据成XML的片段，但是还没有合适的容器。这些片段在第二步中重构。这一步中每个constraint元素根据parentConstraintID 和templateID 属性的值 置于合适的 <template> or <constraint>，每个 <member>根据它的valueSetOID 属性值插入到合适的 <valueset>元素中。</valueset></member></constraint></template></p>
+<p>下载<br>你可以从google code中下载得到Stylesheet文件，它能够将 Trifolia Workbench database中的数据提取成XML格式。这种格式的文档 后面我会写。<br>指导<br>1.安装Trifolia Database 需要MySQL Community Edition)<br>注意：如果已经安装了MySQL 请在运行源码前执行命令 set charset latin1<br>2.安装JDBC Driver for MySQL.将jar文件复制到合适的lib文件夹下。<br>3.修改stylesheet顶端的 <xsl:param>元素 插入你的用户名和密码。<br>4.运行stylesheet。它会输出一个包含模板数据库内容的文件。<br>问题<br>有任何问题可以留言<br>备注<br>stylesheet修正了Trifolia Workbench数据的很多问题。workbench中数据的语境并没有限制namespace，因此你不能直接在stylesheets or Schematron中使用。<br>同时，请注意template_constraint中valueSetOID是直接实际的ID 而不是它的OID。</xsl:param></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/译文/">译文</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HIT/">HIT</a><a href="/tags/Keith-Boone/">Keith Boone</a><a href="/tags/医疗信息标准/">医疗信息标准</a><a href="/tags/译文/">译文</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2012/03/15/Liberating-consolidated-cda-templates-from-Trifolia/" data-title="译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2012/03/15/Implementing-IHE-SVS-Over-the-Trifolia-Consolidated-CDA/" title="译自Implementing IHE SVS Over the Trifolia Consolidated CDA by  Keith Boone">
+  <strong>上一篇：</strong><br/>
+  <span>
+  译自Implementing IHE SVS Over the Trifolia Consolidated CDA by  Keith Boone</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2012/03/15/defining-a-summary-care-record-for-mu-stage2/"  title="译自Defining a Summary Care Record for MeaningfulUse Stage2 by Keith Boone">
+ <strong>下一篇：</strong><br/> 
+ <span>译自Defining a Summary Care Record for MeaningfulUse Stage2 by Keith Boone
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

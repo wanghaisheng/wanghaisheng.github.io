@@ -162,7 +162,7 @@ Service Principles
 </li>
 </ul>
 <h2 id="创建">创建</h2><h3 id="首先探讨系统的整体架构">首先探讨系统的整体架构</h3><p>在你开始考虑设计服务之初，也就是动手写代码和设计之前，和团队成员、其他服务领域的专家聊一聊。除了如何与现有的特性、产品以及服务如何适配之外，考虑一下你想要额外添加的功能。考虑一种最合理的组织整体功能的方式。有时候添加新功能意味着要对现有组件进行重组。</p>
-<p>我们希望避免那些简单的 “append-only”服务架构，也就是说development只存在于新的服务中 </p>
+<p>我们希望避免那些简单的 “append-only”服务架构，也就是说development只存在于新的服务中</p>
 <h3 id="核实是否能够给现有服务添加新的功能">核实是否能够给现有服务添加新的功能</h3><p>在编写新的服务之前，应该核实是否现有服务不包括你的功能。它可能会与现有的功能存在冲突，处理相同的信息，或者只是在现有服务功能范围内的演化。另一方面，如果给现有服务添加新的功能会让服务的使用者感到困惑的话，最好就不要添加新的功能了。</p>
 <h3 id="考虑你的功能是否更适合作为一个库">考虑你的功能是否更适合作为一个库</h3><p>尽管这篇文档是讲服务的，但值得注意的是一些功能更适合做成库。为了帮助大家更好的决策，我们介绍了库与服务之间进行取舍的一些经验:</p>
 <p><strong><em>升级速度</em></strong>  对于库来讲更适合哪些用户期望很长时间才进行升级的场合(通常数周或数月，甚至于数年)。一般来说，这要求功能本身相对小且自包含，所以本身变更的可能就小。相反，如果你还正在进行开发，或者你希望能够快速推送一些bug修订给用户，这样的功能更适合作为一个服务。这样功能就回更复杂一些，常常需要依赖外部的一些库。</p>
@@ -231,7 +231,7 @@ Service Principles
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/日记/">日记</a>►<a class="article-category-link" href="/categories/日记/架构/">架构</a>►<a class="article-category-link" href="/categories/日记/架构/微服务/">微服务</a>
+  <a class="article-category-link" href="/categories/架构/">架构</a>►<a class="article-category-link" href="/categories/架构/微服务/">微服务</a>
 </div>
 
 
@@ -300,71 +300,75 @@ Service Principles
 		<ul>
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -377,7 +381,31 @@ Service Principles
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
 			
 		
 			
@@ -389,15 +417,23 @@ Service Principles
 			
 		
 			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
 			
 		
 			
@@ -409,47 +445,19 @@ Service Principles
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
 			
 		
 		</ul>

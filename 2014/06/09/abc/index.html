@@ -11,27 +11,27 @@
     
 
     
-    <meta name="description" content="piqi学习*目标一：·piqi是什么   
- *目标二：piqi与FHIR整合的可能性评估    
+    <meta name="description" content="piqi学习*目标一：·piqi是什么
+ *目标二：piqi与FHIR整合的可能性评估
 *目标三：piqi用在文档内容校验上的可能性  
-*目标四：基于piqi的消息引擎的设计      
-piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+*目标四：基于piqi的消息引擎的设计
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human">
 <meta property="og:type" content="article">
 <meta property="og:title" content="piqi学习">
 <meta property="og:url" content="http://wanghaisheng.github.io/2014/06/09/abc/index.html">
 <meta property="og:site_name" content="海生的世界">
-<meta property="og:description" content="piqi学习*目标一：·piqi是什么   
- *目标二：piqi与FHIR整合的可能性评估    
+<meta property="og:description" content="piqi学习*目标一：·piqi是什么
+ *目标二：piqi与FHIR整合的可能性评估
 *目标三：piqi用在文档内容校验上的可能性  
-*目标四：基于piqi的消息引擎的设计      
-piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+*目标四：基于piqi的消息引擎的设计
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="piqi学习">
-<meta name="twitter:description" content="piqi学习*目标一：·piqi是什么   
- *目标二：piqi与FHIR整合的可能性评估    
+<meta name="twitter:description" content="piqi学习*目标一：·piqi是什么
+ *目标二：piqi与FHIR整合的可能性评估
 *目标三：piqi用在文档内容校验上的可能性  
-*目标四：基于piqi的消息引擎的设计      
-piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimi">
+*目标四：基于piqi的消息引擎的设计
+piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human">
 <meta name="twitter:creator" content="@edwin_uestc">
 <link rel="publisher" href="111190881341800840000">
 
@@ -113,22 +113,22 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 		
 		</div>
 		
-		<h1 id="piqi学习">piqi学习</h1><p>*目标一：·piqi是什么   </p>
-<p> *目标二：piqi与FHIR整合的可能性评估    </p>
+		<h1 id="piqi学习">piqi学习</h1><p>*目标一：·piqi是什么</p>
+<p> *目标二：piqi与FHIR整合的可能性评估</p>
 <p>*目标三：piqi用在文档内容校验上的可能性  </p>
-<p>*目标四：基于piqi的消息引擎的设计      </p>
+<p>*目标四：基于piqi的消息引擎的设计</p>
 <h2 id="piqi_FAQ">piqi FAQ</h2><p>*1. piq和JSON的区别在哪里<br>Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human interaction, whereas JSON is a standard, portable and reasonably efficient way of representing structured data.  </p>
-<p>与JSON不同的是，Piq中有comment批注和逐字文本。字段名称也没有逗号分割和引号。这些特征都使得PIq更适合查看结构化数据或者在文本编辑器中编辑结构化数据.  Unlike JSON, Piq has comments and verbatim text literals. Also, there’s no comma-separators and quotes around field names. These and some other features make Piq a better choice for viewing structured data or editing it in a text editor.   </p>
-<p>Piq是一种强类型语言 JSON则是动态类型的.  Piq is a strongly typed language and JSON is dynamically typed.   </p>
-<p>Piq的使用离不开Piqi数据定义.有了数据定义之后,它就比JSON更强大.比如 在Piq中 字段默认值 甚至说字段本身都可以省略.  Piq can’t be used without Piqi data definitions. With data definitions, though, it is much more powerful than JSON. For example, in Piq, default field values and even field names can be omitted.    </p>
-<p>同时也可以在Piq中嵌入未分配类型的JSON.  And it is possible to embed untyped JSON in Piq!   </p>
-<p>Piq的数据模型更加强大.  Piq has a more powerful data model.   </p>
-<p>除了JSON所支持的所有数据类型,Piq/piqi还支持binary 二进制 enum枚举和variant(如tagged unions)还有一些其他优点 如支持浮点数NaN 正无穷 负无穷.   In addition to all data types supported by JSON, Piq/Piqi supports binaries, enums and variants (i.e. tagged unions). There are some other goodies, such as support for floating point NaN, negative and positive infinities.   </p>
+<p>与JSON不同的是，Piq中有comment批注和逐字文本。字段名称也没有逗号分割和引号。这些特征都使得PIq更适合查看结构化数据或者在文本编辑器中编辑结构化数据.  Unlike JSON, Piq has comments and verbatim text literals. Also, there’s no comma-separators and quotes around field names. These and some other features make Piq a better choice for viewing structured data or editing it in a text editor.</p>
+<p>Piq是一种强类型语言 JSON则是动态类型的.  Piq is a strongly typed language and JSON is dynamically typed.</p>
+<p>Piq的使用离不开Piqi数据定义.有了数据定义之后,它就比JSON更强大.比如 在Piq中 字段默认值 甚至说字段本身都可以省略.  Piq can’t be used without Piqi data definitions. With data definitions, though, it is much more powerful than JSON. For example, in Piq, default field values and even field names can be omitted.</p>
+<p>同时也可以在Piq中嵌入未分配类型的JSON.  And it is possible to embed untyped JSON in Piq!</p>
+<p>Piq的数据模型更加强大.  Piq has a more powerful data model.</p>
+<p>除了JSON所支持的所有数据类型,Piq/piqi还支持binary 二进制 enum枚举和variant(如tagged unions)还有一些其他优点 如支持浮点数NaN 正无穷 负无穷.   In addition to all data types supported by JSON, Piq/Piqi supports binaries, enums and variants (i.e. tagged unions). There are some other goodies, such as support for floating point NaN, negative and positive infinities.</p>
 <p>Piq在持续改进中 而JSON木已成舟.  Piq is evolving, whereas JSON is set in stone.  </p>
 <p>Piq最终将支持半结构化数据.  For example, Piq will eventually get support for semi-structured data.</p>
-<p>需要注意的是 尽管存在差异,Piq格式的数据仍可以转换成JSON、XML、Protoco Buffer格式.这样你就可以使用PIq来对数据进行手动编辑,在其他目的下将其转换成其他格式即可.   Note that despite all the differences, data represented in Piq can be reliably converted to and from JSON, XML and Protocol Buffers binary formats. This way one can use Piq for manual data editing and convert it to other formats for other purposes.   </p>
+<p>需要注意的是 尽管存在差异,Piq格式的数据仍可以转换成JSON、XML、Protoco Buffer格式.这样你就可以使用PIq来对数据进行手动编辑,在其他目的下将其转换成其他格式即可.   Note that despite all the differences, data represented in Piq can be reliably converted to and from JSON, XML and Protocol Buffers binary formats. This way one can use Piq for manual data editing and convert it to other formats for other purposes.</p>
 <p>*2. Piqi与Protocol Buffer的区别/How Piqi compares to Protocol Buffers?</p>
-<p>作为数据序列化系统,piqi与protocol buffer是类似的,也兼容它.事实上,Piqi主要是受其启发.然而 却存在一些本质上的设计差异.  As a data serialization system, Piqi is very similar and compatible with Protocol Buffers. In fact, Piqi was largely inspired by it. However, there are some fundamental design differences.   </p>
+<p>作为数据序列化系统,piqi与protocol buffer是类似的,也兼容它.事实上,Piqi主要是受其启发.然而 却存在一些本质上的设计差异.  As a data serialization system, Piqi is very similar and compatible with Protocol Buffers. In fact, Piqi was largely inspired by it. However, there are some fundamental design differences.</p>
 <p>Piqi是围绕着一个更加强大的数据模型而设计的.  Piqi is designed around a more powerful data model.</p>
 <p>另外 对于protocol buffer中支持的record记录、enum枚举 、user-defined types自定义类型,Piqi中有list、type aliase和variant.  In addition to record and enum user-defined types supported by Protocol Buffer, Piqi has lists, type aliases and variants (aka tagged unions).</p>
 <p>支持丰富的数据类型,这对于高级编程语言如OCaml和Erlang相当重要.比如,没有了list和variant,在处理数据时,就无法充分使用这些语言的功能.  Rich type support really makes a difference for high-level programming languages such as OCaml and Erlang. For example, without lists and variants, one can’t use utilize full potential of these languages when working with data.</p>
@@ -136,15 +136,11 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 <p>Piqi是一种高级的数据定义语言.  Piqi is a high-level data definition language.</p>
 <p>list、variant、record和aliase的组合可以很好地定义任何复杂的数据结构.在这方面protocol Buffer数据定义语言的层次就太低了.  Combination of lists, variants, records and aliases can be used to define any complex data structure in a very expressive way. Protocol Buffers data definition language is too low-level in this respect.</p>
 <p>Portocol Buffer DDL的一些特性 如嵌套定义会给数据定义的表达能力带来负面作用.Piqi中拿掉了这些特性.  Some Protocol Buffers DDL’s features, like nested definitions, can negatively affect expressiveness of data definitions. Piqi avoids such features.  </p>
-<h2 id="person实例">person实例</h2><h3 id="person-piqi（schema定义）">person.piqi（schema定义）</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% this <span class="keyword">is</span> an object <span class="keyword">of</span> type <span class="string">"person"</span> which <span class="keyword">is</span> defined <span class="keyword">in</span> module <span class="string">"person"</span></span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"J. Random Hacker"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    .email <span class="string">"j.r.hacker@example.com"</span></span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(111) 123 45 67"</span></span><br><span class="line">        % NOTE: phone <span class="keyword">is</span> <span class="string">"home"</span> <span class="keyword">by</span> default</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(222) 123 45 67"</span></span><br><span class="line">        .mobile</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(333) 123 45 67"</span></span><br><span class="line">        .work</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">% another object <span class="keyword">of</span> <span class="keyword">the</span> same type</span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"Joe User"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    % Joe User doesn't have an email</span><br><span class="line"></span><br><span class="line">    .phone [ <span class="string">"(444) 123 45 67"</span> ]</span><br><span class="line">    .phone [ <span class="string">"(555) 123 45 67"</span> .work ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>  
+<h2 id="person实例">person实例</h2><h3 id="person-piqi（schema定义）">person.piqi（schema定义）</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% this <span class="keyword">is</span> an object <span class="keyword">of</span> type <span class="string">"person"</span> which <span class="keyword">is</span> defined <span class="keyword">in</span> module <span class="string">"person"</span></span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"J. Random Hacker"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    .email <span class="string">"j.r.hacker@example.com"</span></span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(111) 123 45 67"</span></span><br><span class="line">        % NOTE: phone <span class="keyword">is</span> <span class="string">"home"</span> <span class="keyword">by</span> default</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(222) 123 45 67"</span></span><br><span class="line">        .mobile</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    .phone [</span><br><span class="line">        .<span class="type">number</span> <span class="string">"(333) 123 45 67"</span></span><br><span class="line">        .work</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">% another object <span class="keyword">of</span> <span class="keyword">the</span> same type</span><br><span class="line">:person/person [</span><br><span class="line">    .<span class="property">name</span> <span class="string">"Joe User"</span></span><br><span class="line">    .<span class="property">id</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    % Joe User doesn't have an email</span><br><span class="line"></span><br><span class="line">    .phone [ <span class="string">"(444) 123 45 67"</span> ]</span><br><span class="line">    .phone [ <span class="string">"(555) 123 45 67"</span> .work ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/日志/">日志</a>►<a class="article-category-link" href="/categories/日志/第一天/">第一天</a>
-</div>
 
 
   <div class="article-tags">
@@ -212,71 +208,75 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 		<ul>
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -289,7 +289,31 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
 			
 		
 			
@@ -301,15 +325,23 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 			
 		
 			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
 			
 		
 			
@@ -321,47 +353,19 @@ piqi FAQ*1. piq和JSON的区别在哪里Piq语言适合与人机交互，JSON则
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -1,0 +1,629 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>FHIR——介绍 | 海生的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Edwin">
+    
+
+    
+    <meta name="description" content="http://www.hl7.org/implement/standards/fhir/introduction.htm介绍IntroductionFast Healthcare Interoperability Resources 定义了一个医疗卫生资源的集合。这些资源所表达的是一个个模块化的医学概念，通过交换它们以达到在医疗保健及相关流程中快速高效地解决问题。这些资源涵盖了医疗卫生的基本元素-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FHIR——介绍">
+<meta property="og:url" content="http://wanghaisheng.github.io/2012/06/11/FHIR——介绍/index.html">
+<meta property="og:site_name" content="海生的世界">
+<meta property="og:description" content="http://www.hl7.org/implement/standards/fhir/introduction.htm介绍IntroductionFast Healthcare Interoperability Resources 定义了一个医疗卫生资源的集合。这些资源所表达的是一个个模块化的医学概念，通过交换它们以达到在医疗保健及相关流程中快速高效地解决问题。这些资源涵盖了医疗卫生的基本元素-">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FHIR——介绍">
+<meta name="twitter:description" content="http://www.hl7.org/implement/standards/fhir/introduction.htm介绍IntroductionFast Healthcare Interoperability Resources 定义了一个医疗卫生资源的集合。这些资源所表达的是一个个模块化的医学概念，通过交换它们以达到在医疗保健及相关流程中快速高效地解决问题。这些资源涵盖了医疗卫生的基本元素-">
+<meta name="twitter:creator" content="@edwin_uestc">
+<link rel="publisher" href="111190881341800840000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="海生的世界" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="海生的世界" title="海生的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="海生的世界">海生的世界</a></h1>
+				<h2 class="blog-motto">正在打怪升级中～～～</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:wanghaisheng.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2012/06/11/FHIR——介绍/" title="FHIR——介绍" itemprop="url">FHIR——介绍</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/111190881341800840000?rel=author" title="Edwin" target="_blank" itemprop="author">Edwin</a>
+		
+  <p class="article-time">
+    <time datetime="2012-06-10T16:00:12.000Z" itemprop="datePublished"> 发表于 Jun 11 2012</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p><a href="http://www.hl7.org/implement/standards/fhir/introduction.htm" target="_blank" rel="external">http://www.hl7.org/implement/standards/fhir/introduction.htm</a><br>介绍Introduction<br>Fast Healthcare Interoperability Resources 定义了一个医疗卫生资源的集合。这些资源所表达的是一个个模块化的医学概念，通过交换它们以达到在医疗保健及相关流程中快速高效地解决问题。这些资源涵盖了医疗卫生的基本元素-病人、入院、诊断报告、药物和问题列表以及其中的一些参与者，同时也支持更加丰富和复杂的临床模型。资源的简单的直接的定义是基于充分的需求收集、正规分析以及与其他标准的交叉对应而来。</p>
+<p>技术上来讲，FHIR是面向web的，在可能或合适的情况下，使用开放的internet标准来表达数据。资源基于简单的XML，使用基于http的restful协议，这样每个资源都有一定的url。注意尽管定义的资源要支持基于http的RESTful架构，但是使用这些资源时不一定非要是这种架构。该规范也定义了一种基于分类消息的框架和使用这些资源来构建文档的方法。另外，也可以在基于soa的架构中使用这些资源。这种灵活性为很广范围的互操作性问题提供了一致的解决方案。</p>
+<p>Roadmap<br>新增<br>概述</p>
+<p>FHIR定义了医疗卫生流程相关的信息交互中使用到的一些资源，这些资源是：</p>
+<pre><code>模块化的Granular -它们是自身事务范围和操作的最小单元
+独立的Independent -无需引用其他资源就可理解资源的内容
+简单的Simple -每个资源都易于理解和实现 <span class="keyword">each</span> resource is easy <span class="built_in">to</span> understand <span class="operator">and</span> implement <span class="keyword">without</span> needing tooling <span class="operator">or</span> infrastructure (though that can be used <span class="keyword">if</span> desired)
+RESTful - resources are able <span class="built_in">to</span> be used <span class="operator">in</span> <span class="operator">a</span> RESTful exchange context
+灵活的Flexible - 资源也可用于其他语境中如SOA架构、消息resources can also be used <span class="operator">in</span> other contexts, such <span class="keyword">as</span> messaging <span class="operator">or</span> SOA architectures, <span class="operator">and</span> moved <span class="operator">in</span> <span class="operator">and</span> out <span class="operator">of</span> RESTful paradigms <span class="keyword">as</span> convenient
+可扩展Extensible -在不影响互操作性的前提下对资源扩展以满足本地化需求 resources can be extended <span class="built_in">to</span> cater <span class="keyword">for</span> <span class="built_in">local</span> requirements <span class="keyword">without</span> impacting <span class="command"><span class="keyword">on</span> <span class="title">interoperability</span></span>
+支持web Web Enabled - where possible <span class="operator">or</span> appropriate, <span class="built_in">open</span> <span class="keyword">internet</span> standards are used <span class="keyword">for</span> data representation
+免费使用Free <span class="keyword">for</span> use -FHIR标准本身是免费的-任何人都可以实现FHIR或者衍生出相关标准，没有任何的IP限制。
+</code></pre><p>除了一些基本的资源之外，FHIR定义了一个轻量级的实现框架，支持这些资源在RESTful、典型的消息交互、以人为主的临床文档和企业SOA架构环境中的应用。每一种方法都有自己的优点——FHIR provides the underpinning enablement that makes the choosing one of these painless and enables enterprises to choose their own paradigm without forsaking interoperability with other paradigms.</p>
+<p>尽管资源很简单 很容易理解，Though the resources are simple and easy to understand, they are backed by a thorough, global requirements gathering and formal modeling process that ensures that the content of the resources is stable and reliable. The resource contents are mapped to solid underlying ontologies and models using computable languages (including RDF) so that the definitions and contents of the resources can be leveraged by computational analysis and conversion processes.</p>
+<p>FHIR also provides an underlying conformance framework and tooling that allows different implementation contexts and enterprises to describe their context and use of resources in formal computable ways and to empower computed interoperability that leverages both the conformance and definitional frameworks.</p>
+<p>The combination of the resources and the 3 supporting layers (implementation frameworks, definitional thoroughness, and conformance tooling) frees healthcare data so that it can easily flow to where it needs to be (hospital production systems, mobile clinical systems, cloud based data stores, national health repositories, research databases, etc.) without having to pass through format and semantic inter-conversion hurdles along the way.</p>
+<p>Compared to the all the other approaches, FHIR… [— Obligatory: insert your FHIR FIRE related joke here —].<br>该规范包含如下部分：<br>基本架构：定义和使用资源最基本的一些（资源格式、基本数据类型、管理编码的框架、使用扩展的规则、规范资源如何使用的方法）<br>交换协议：用以支持资源的交换（(HTTP RESTful协议、消息和文档以及一个通用的实现网页）<br>管理性资源：整个医疗流程中遇到的基本资源<br>基本的临床/医学组件：大多数临床实践中能够遇到的核心可重用临床资源<br>Resources<br>所有资源都包含以下部分：<br>一个永不会变的主id<br>结构化数据-资源的计算机化的正式表示<br>扩展性章节-HL7中没有定义的额外数据<br>文本表示-人可读的表示</p>
+<p>因为主id是从不改变或被重用的，资源可能通过主id来引用，我们知道这是一个稳定的引用。虽然在没有明确引用其他资源的时候我们也能读和或改变这些资源，但是这些引用的存在会影响系统的状况，实现当中我们始终要求维护数据以及系统完整性。<br>交换规范很简单、直截了当，是基于XML表示的资源直接描述。每个资源独立描述，尽管资源之间有一些共同的数据模式即数据类型存在。<br>对于每个资源，该规范定义了：</p>
+<pre><code>资源的含义以及范围
+资源的语义和业务内涵
+资源的<span class="built_in">XML</span>内容模型 如<span class="built_in">XML</span> UML schema等
+</code></pre><p>除了简单的XML定义之外，也提供了XML schema和UML类图。UML类图表示了和XML格式一样的逻辑模型，尽管由于一些UML中的问题的，我们不能直接从这些UML模型中自动地得到符合或能够与该规范中定义的XML互操作的软件。<br>每个xml元素都有一个正式的定义，其中包括定义、需求声明、额外注释、与v3 RIM的对应、v2的对应。<br>另外，对于每个资源，也描述了一些与RESTful 有关的特性</p>
+<pre><code>从id以及<span class="class"><span class="keyword">type</span>和本地基础<span class="title">URL</span>衍生出<span class="title">RESTful</span>实现中的相对<span class="title">URL</span></span>
+与特定资源相关的事务
+与特定资源相关的额外的搜索变量
+</code></pre><p>每个资源都支持同样的一组事务-读、写、删除等等。每个资源类型所支持的一个特别重要的事务是提供一致性声明，它指定了系统支持所定义的内容模型中那一部分，支持那些其他的交互或事务。如果不支持其他的事务，就必须支持一致性交换。比如如果一致性交互返回一个错误error，就不支持任何操作。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/医疗信息标准/">医疗信息标准</a>►<a class="article-category-link" href="/categories/医疗信息标准/FHIR/">FHIR</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/FHIR/">FHIR</a><a href="/tags/HIT/">HIT</a><a href="/tags/信息交换/">信息交换</a><a href="/tags/医疗信息标准/">医疗信息标准</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://wanghaisheng.github.io/2012/06/11/FHIR——介绍/" data-title="FHIR——介绍 | 海生的世界" data-tsina="1998662112" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2012/06/13/choice-you-made/" title="关于选择">
+  <strong>上一篇：</strong><br/>
+  <span>
+  关于选择</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2012/06/10/FHIR概览/"  title="FHIR概览">
+ <strong>下一篇：</strong><br/> 
+ <span>FHIR概览
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/架构/" title="架构">架构<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.sciencenet.cn/" target="_blank" title="科学网">科学网</a></li>
+      <li><a href="http://motorcycleguy.blogspot.com" target="_blank" title="zippera">Keith Boone's Blog</a></li>
+      <li><a href="http://www.healthintersections.com.au/" target="_blank" title="Grahame Grieve">Grahame Grieve's Blog</a></li>
+      <li><a href="http://mooc.guokr.com/" target="_blank" title="MOOC学院">MOOC学院</a></li>
+      <li><a href="https://trello.com/" target="_blank" title="Trello">Trello工具</a></li>
+
+
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/48701103/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello,I&#39;m wanghaisheng. For now I&#39;m a engineer in ShangHai. <br/>
+			曾几何时，幻想着自己能文思如尿奔，写一些生活的感悟，记录一些成长的足迹，辗转从qq空间到chinaunix再到科学网，种种不适，最终在这里落脚。 这里是海生(edwin)的小窝，记录着海生成长过程中的酸甜苦辣。虽努力地想让大家看到、了解、认识真实的自己，海生却不如自己所想的那般勇敢和自信，这其中或多或少是由于天生的那点自尊、自恋和自卑在作祟。文字总是唯美的，我可爱的朋友们，希望你们能够从这些拙劣的话语中找到一丝丝温暖，感受到一丝丝温馨.如果看了我的碎碎念之后,你有要说话的冲动，请不要过分珍惜你的键盘或者是我的空间 －－ 因为，你是我的朋友。</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/edwinuestc" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/wanghaisheng" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/edwin_uestc" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/48701103" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		
+		<a href="https://plus.google.com/111190881341800840000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:edwin_uestc@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Edwin">Edwin</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

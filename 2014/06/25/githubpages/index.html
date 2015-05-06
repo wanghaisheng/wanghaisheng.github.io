@@ -13,22 +13,25 @@
     
     <meta name="description" content="Github pages 个人主页和项目主页的不同设置
 如果你想利用github pages来搭建属于自己的博客 亦或是为某个小项目做一个宣传页面  这里有点小坑 大家需要提防一下。  
-1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，   
-123456 http://wanghaisheng.github.io   ```">
+1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，
+1http://wanghaisheng.github.io
+同时，github pages要求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github pages 个人主页和项目主页的不同设置">
 <meta property="og:url" content="http://wanghaisheng.github.io/2014/06/25/githubpages/index.html">
 <meta property="og:site_name" content="海生的世界">
 <meta property="og:description" content="Github pages 个人主页和项目主页的不同设置
 如果你想利用github pages来搭建属于自己的博客 亦或是为某个小项目做一个宣传页面  这里有点小坑 大家需要提防一下。  
-1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，   
-123456 http://wanghaisheng.github.io   ```">
+1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，
+1http://wanghaisheng.github.io
+同时，github pages要求">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github pages 个人主页和项目主页的不同设置">
 <meta name="twitter:description" content="Github pages 个人主页和项目主页的不同设置
 如果你想利用github pages来搭建属于自己的博客 亦或是为某个小项目做一个宣传页面  这里有点小坑 大家需要提防一下。  
-1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，   
-123456 http://wanghaisheng.github.io   ```">
+1.如果你想做一个个人主页的话，比如我在github建了这样一个repo，除了需要有一个CNAME文件，内容如下，
+1http://wanghaisheng.github.io
+同时，github pages要求">
 <meta name="twitter:creator" content="@edwin_uestc">
 <link rel="publisher" href="111190881341800840000">
 
@@ -112,20 +115,18 @@
 		
 		<p>Github pages 个人主页和项目主页的不同设置</p>
 <p>如果你想利用github pages来搭建属于自己的博客 亦或是为某个小项目做一个宣传页面  这里有点小坑 大家需要提防一下。  </p>
-<p>1.如果你想做一个个人主页的话，比如我在github建了这样一个<a href="https://github.com/wanghaisheng/wanghaisheng.github.io" target="_blank" rel="external">repo</a>，除了需要有一个CNAME文件，内容如下，   </p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attribute">http</span>:<span class="comment">//wanghaisheng.github.io   </span></span><br><span class="line"><span class="built_in">``</span>`   </span><br><span class="line">同时，github pages要求你要发布的网站内容必须位于master分支下。  </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.如果你只是想做一个项目主页的话，比如你在GitHub建了个项目叫作 wiki ，那么只需在这个项目下新建一个root branch叫作 gh-pages ，</span><br><span class="line">那么push到这个branch里的内容都会发布到</span><br></pre></td></tr></table></figure>
-<p><a href="http://你的用户名.github.com/wiki" target="_blank" rel="external">http://你的用户名.github.com/wiki</a><br>```<br>现成的例子如<a href="http://twitter.github.com/bootstrap/" target="_blank" rel="external">bootstrap</a>。</p>
+<p>1.如果你想做一个个人主页的话，比如我在github建了这样一个<a href="https://github.com/wanghaisheng/wanghaisheng.github.io" target="_blank" rel="external">repo</a>，除了需要有一个CNAME文件，内容如下，</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//wanghaisheng.github.io</span></span><br></pre></td></tr></table></figure>
+<p>同时，github pages要求你要发布的网站内容必须位于master分支下。  </p>
+<p>2.如果你只是想做一个项目主页的话，比如你在GitHub建了个项目叫作 wiki ，那么只需在这个项目下新建一个root branch叫作 gh-pages ，<br>那么push到这个branch里的内容都会发布到  </p>
+<pre><code><span class="string">http:</span><span class="comment">//你的用户名.github.com/wiki</span>
+</code></pre><p>现成的例子如<a href="http://twitter.github.com/bootstrap/" target="_blank" rel="external">bootstrap</a>。</p>
 <p>在每个项目的Admin页面里都有一个选项叫做 GitHub Pages ，勾选此选项则会自动为你生成上述的branch。  </p>
 <p>具体操作可以参阅GitHub Pages主页。当然，这个项目页面也和个人主页一样支持自定义域名，只需建立一个名为 CNAME 的文件并包含所映射的域名，然后修改DNS设置就可以了。所以理论上你可以绑定任意数量的域名到GitHub。绑定域名后 <a href="http://你的用户名.github.com/projectname" target="_blank" rel="external">http://你的用户名.github.com/projectname</a> 和 你绑定的域名都能访问这个站点。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/日志/">日志</a>
-</div>
 
 
   <div class="article-tags">
@@ -193,71 +194,75 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+			<li><a href="/categories/EHR/" title="EHR">EHR<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/" title="HTTP API">HTTP API<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/HTTP-API/REST/" title="REST">REST<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/" title="KAFKA">KAFKA<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/REST/" title="REST">REST<sup>1</sup></a></li>
+			<li><a href="/categories/数据仓库/KAFKA/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
+			<li><a href="/categories/HTTP-API/REST/" title="REST">REST<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+			<li><a href="/categories/XSLT/" title="XSLT">XSLT<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
+			<li><a href="/categories/rhadoop/docker/" title="docker">docker<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
+			<li><a href="/categories/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/" title="日志">日志<sup>4</sup></a></li>
+			<li><a href="/categories/医疗信息标准/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/" title="日记">日记<sup>12</sup></a></li>
+			<li><a href="/categories/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日记/架构/" title="架构">架构<sup>5</sup></a></li>
+			<li><a href="/categories/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>31</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/生活日志/" title="生活日志">生活日志<sup>1</sup></a></li>
+			<li><a href="/categories/架构/微服务/" title="微服务">微服务<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/数据仓库/" title="数据仓库">数据仓库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+			<li><a href="/categories/架构/" title="架构">架构<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/日志/第一天/" title="第一天">第一天<sup>1</sup></a></li>
+			<li><a href="/categories/碎碎念/" title="碎碎念">碎碎念<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/医疗信息标准/译文/" title="译文">译文<sup>13</sup></a></li>
 		  
 		
 		</ul>
@@ -270,7 +275,31 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/医疗信息标准/" title="医疗信息标准">医疗信息标准<sup>32</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HIT/" title="HIT">HIT<sup>27</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/日记/" title="日记">日记<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keith-Boone/" title="Keith Boone">Keith Boone<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/临床决策支持/" title="临床决策支持">临床决策支持<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息交换/" title="信息交换">信息交换<sup>5</sup></a></li>
 			
 		
 			
@@ -282,15 +311,23 @@
 			
 		
 			
+				<li><a href="/tags/FHIR/" title="FHIR">FHIR<sup>5</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/REST/" title="REST">REST<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
+				<li><a href="/tags/CDA/" title="CDA">CDA<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
+				<li><a href="/tags/OpenCDS/" title="OpenCDS">OpenCDS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDSS/" title="CDSS">CDSS<sup>2</sup></a></li>
 			
 		
 			
@@ -302,47 +339,19 @@
 			
 		
 			
-				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>1</sup></a></li>
+				<li><a href="/tags/临床概念/" title="临床概念">临床概念<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/PostgreSQL/" title="PostgreSQL">PostgreSQL<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP-API/" title="HTTP API">HTTP API<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/rhadoop/" title="rhadoop">rhadoop<sup>1</sup></a></li>
+				<li><a href="/tags/碎碎念/" title="碎碎念">碎碎念<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模板/" title="模板">模板<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/互联网医疗/" title="互联网医疗">互联网医疗<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/PGHD/" title="PGHD">PGHD<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Github-pages/" title="Github pages">Github pages<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/博客/" title="博客">博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Oracle/" title="Oracle">Oracle<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/docker/" title="docker">docker<sup>1</sup></a></li>
 			
 		
 		</ul>
