@@ -6,8 +6,6 @@ tags:
 - 医疗信息标准
 - HIT
 categories:
-- HIT
-
 ---
 
 

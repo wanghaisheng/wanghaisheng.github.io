@@ -7,7 +7,6 @@ tags:
 - 互联网医疗
 - PGHD
 categories:
-- 日记
 - 互联网医疗
 
 

@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - 译文
-- HIT
-
 ---
 Wednesday, March 14, 2012 By Keith Boone
 # Defining a Summary Care Record for MeaningfulUse Stage2

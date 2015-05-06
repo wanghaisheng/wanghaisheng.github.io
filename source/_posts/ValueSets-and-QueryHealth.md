@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - 译文
-- HIT
-
 ---
 
 Tuesday, November 1, 2011 By Keith Boone

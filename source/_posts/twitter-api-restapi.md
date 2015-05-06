@@ -1,13 +1,14 @@
 title:	TWITTER REST API研究
 date: 2014-12-20 10:52:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 日记
 - REST
 categories:
-- 日记
+- HTTP API
 - REST
+
 
 ---
 
@@ -22,7 +23,7 @@ categories:
 ## REST APIs
 这样就能够以编程的方式读写Twitter数据。发一条推或者读取某个人的资料和他的粉丝信息等。通过OAuth来识别twitter应用程序和用户，返回的数据是JSON格式。
 
- entities(实体) 
+ entities(实体)
  retweets(转发)
  Tweet objects微博对象
 ### 概述
@@ -38,7 +39,7 @@ categories:
 这种透明化的方式避免了滥用行为，也能够让我们对使用API的应用程序更好的分类。
 这样我们就能对平台持续演进以更好的满足开发者的需求
 
-3、Rate Limiting 
+3、Rate Limiting
 
 对于每个endpoint，我们将频率限制划分为15分钟一段，在每段当中，单个应用调用的请求的上限为15次。
 与V1版本的API相比，每个endpoint的调用次数都变多了，有些特殊的节点在一段内甚至可以达到180次，尤其有利于使用了GET statuses / show / :id, GET users / lookup, GET search / tweets 等接口的APP。详细信息请阅读API V1.1Rate Limiting相关文档和每个方法中具体对于调用上限的描述
@@ -48,4 +49,4 @@ categories:
 所有再造了Twitter核心功能的应用斗称之为client客户端，都必须遵循某些约束，包括100，000用户令牌的限制。这点也仅仅适用于小型的客户端，并不适用于生态系统中的大多数应用程序。详情请查看[开发者守则](https://dev.twitter.com/terms/api-terms)
 
 
-### 
+###

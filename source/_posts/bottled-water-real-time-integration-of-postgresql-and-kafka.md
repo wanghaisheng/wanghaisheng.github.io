@@ -3,12 +3,10 @@ date: 2015-04-27 16:34:12
 updated	:
 permalink:
 tags:
-- 日记
 - 数据仓库
 - KAFKA
 - PostgreSQL
 categories:
-- 日记
 - 数据仓库
 - KAFKA
 - PostgreSQL

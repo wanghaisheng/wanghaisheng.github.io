@@ -3,7 +3,7 @@ date: 2012-6-13 13:39:12
 updated	:
 permalink:
 tags:
-- 生活日记
+- 日记
 categories:
 - 碎碎念
 

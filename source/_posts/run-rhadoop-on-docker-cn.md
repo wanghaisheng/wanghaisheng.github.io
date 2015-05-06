@@ -1,13 +1,12 @@
 title:	Docker玩转Rhadoop
 date: 2014-12-20 10:52:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 日记
 - docker
 - rhadoop
 categories:
-- 日记
 - rhadoop
 - docker
 
@@ -18,7 +17,7 @@ categories:
 >欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。
 
 ## Docker 玩转 RHadoop
-网络上已经有了太多的 RHadoop 的安装使用的教程，鉴于其中的配置配置繁复，对软件版本的要求又极其苛刻，故笔者想用时下热门的 docker 来尝尝鲜，以下是心路历程，供看客参考，希望能给大家一些帮助。    
+网络上已经有了太多的 RHadoop 的安装使用的教程，鉴于其中的配置配置繁复，对软件版本的要求又极其苛刻，故笔者想用时下热门的 docker 来尝尝鲜，以下是心路历程，供看客参考，希望能给大家一些帮助。
 
 ### 1、软硬件环境
 
@@ -88,7 +87,7 @@ subl  part-m-00000
 /Users/wanghaisheng/docker
 ````
 5、请确保docker成功安装，不同操作系统的安装教程请前往国内docker中文社区寻找答案
-[docker中文社区站](http://www.docker.org.cn/)     
+[docker中文社区站](http://www.docker.org.cn/)
 [docker.cn ](https://docker.cn/)
 [DockerPool](http://www.dockerpool.com/)
 
@@ -128,7 +127,7 @@ deb http://cran.r-project.org/bin/linux/ubuntu xxx/
 
 1、需要运行如下命令，让R与系统中安装好得jdk环境关联起来
 ````
- 	~ R CMD javareconf 
+ 	~ R CMD javareconf
 ````
 2、启动启动R程序
 ````
@@ -148,24 +147,24 @@ install.packages("caTools")
 ````
 ### 6、rhdfs和rmr2的安装
 
-1、配置环境变量，网络上大量的例子使用的是hadoop1.0.3，我们使用的是Apache2.6，这里的HADOOP_STREAMING路径可能大不一样，/hadoop-1.0.3/contrib/streaming/hadoop-streaming-1.0.3.jar)，PATH这里要添加hadoop的安装路径的bin目录，否则后续使用hadoop命令会出现not found   
+1、配置环境变量，网络上大量的例子使用的是hadoop1.0.3，我们使用的是Apache2.6，这里的HADOOP_STREAMING路径可能大不一样，/hadoop-1.0.3/contrib/streaming/hadoop-streaming-1.0.3.jar)，PATH这里要添加hadoop的安装路径的bin目录，否则后续使用hadoop命令会出现not found
 ````
 ~ vi /etc/environment
 
     HADOOP_CMD=/usr/local/hadoop/bin/hadoop
-    HADOOP_STREAMING=/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar 
-	PATH=$PATH:/usr/local/hadoop/bin 
+    HADOOP_STREAMING=/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar
+	PATH=$PATH:/usr/local/hadoop/bin
 
 
 ~ source /etc/environment
 ````
 2、安装rhdfs
 ````
-~ R CMD INSTALL /Users/wanghaisheng/docker/rhdfs_1.0.8.tar.gz 
+~ R CMD INSTALL /Users/wanghaisheng/docker/rhdfs_1.0.8.tar.gz
 ````
 3、安装rmr2
 ````
-~  R CMD INSTALL /Users/wanghaisheng/docker/rmr2_3.3.0.tar.gz 
+~  R CMD INSTALL /Users/wanghaisheng/docker/rmr2_3.3.0.tar.gz
 ````
 ### 7、测试rmr2-wordcount
 1、启动R
@@ -218,7 +217,7 @@ library(rmr2)
 
     wc.reduce =function(word, counts ) {
             keyval(word, sum(counts))
-    }         
+    }
 
     mapreduce(input = input ,output = output, input.format = "text",
         map = wc.map, reduce = wc.reduce,combine = T)

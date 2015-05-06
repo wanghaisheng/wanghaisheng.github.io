@@ -1,12 +1,10 @@
-title: xxxxx
+title: 博文撰写语法
 date: 2014-05-20 15:11:12
 updated	:
 permalink:
 tags:
 - 碎碎念
-- 碎碎念
 categories:
-- 碎碎念
 - 碎碎念
 
 ---

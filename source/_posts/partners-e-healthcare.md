@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - FHIR
-- HIT
-
 ---
 互联网医疗在过去的一年里如火如荼，希望大家能够一起来汉化和开发FHIR相关的产品
 FHIR – Fast Health Interoperable Resources (hl7.org/fhir) – 是由HL7创建的新一代标准框架.FHIR 整合了 HL7 V2,V3 和 CDA 的优点,同时利用了最新的Web标准,紧紧围绕着 implementability 可实现性.

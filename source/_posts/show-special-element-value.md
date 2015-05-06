@@ -8,7 +8,6 @@ tags:
 - HIT
 categories:
 - XSLT
-- HIT
 
 ---
 

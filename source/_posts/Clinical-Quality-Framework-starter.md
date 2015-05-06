@@ -9,7 +9,6 @@ tags:
 categories:
 - 医疗信息标准
 - 临床决策支持
-- HIT
 
 ---
 [原文链接](http://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/interoperability-electronic-health-and-medical-records/standards-interoperability-framework-milestones-health-edecision-initiative-closeout-clinical-quality-framework-launch/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+healthitbuzzblog+%28Health+IT+Buzz+Blog%29)

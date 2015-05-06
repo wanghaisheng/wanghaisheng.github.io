@@ -1,49 +1,47 @@
 title: piqi学习
 date: 2014-06-09 18:18:30
-updated : 
+updated :
 permalink: abc
 tags:
 - 模板
 - 日记
 categories:
-- 日志
-- 第一天
 
 ---
-#piqi学习   
-*目标一：·piqi是什么   
+#piqi学习
+*目标一：·piqi是什么
 
- *目标二：piqi与FHIR整合的可能性评估    
-     
+ *目标二：piqi与FHIR整合的可能性评估
+
 *目标三：piqi用在文档内容校验上的可能性  
-  
-*目标四：基于piqi的消息引擎的设计      
+
+*目标四：基于piqi的消息引擎的设计
 
 ##piqi FAQ
 *1. piq和JSON的区别在哪里  
 Piq语言适合与人机交互，JSON则只是一种标准的、轻便的、高效的结构化数据的表达方式。  The Piq language is optimized for human interaction, whereas JSON is a standard, portable and reasonably efficient way of representing structured data.  
 
-与JSON不同的是，Piq中有comment批注和逐字文本。字段名称也没有逗号分割和引号。这些特征都使得PIq更适合查看结构化数据或者在文本编辑器中编辑结构化数据.  Unlike JSON, Piq has comments and verbatim text literals. Also, there’s no comma-separators and quotes around field names. These and some other features make Piq a better choice for viewing structured data or editing it in a text editor.   
+与JSON不同的是，Piq中有comment批注和逐字文本。字段名称也没有逗号分割和引号。这些特征都使得PIq更适合查看结构化数据或者在文本编辑器中编辑结构化数据.  Unlike JSON, Piq has comments and verbatim text literals. Also, there’s no comma-separators and quotes around field names. These and some other features make Piq a better choice for viewing structured data or editing it in a text editor.
 
-Piq是一种强类型语言 JSON则是动态类型的.  Piq is a strongly typed language and JSON is dynamically typed.   
+Piq是一种强类型语言 JSON则是动态类型的.  Piq is a strongly typed language and JSON is dynamically typed.
 
-Piq的使用离不开Piqi数据定义.有了数据定义之后,它就比JSON更强大.比如 在Piq中 字段默认值 甚至说字段本身都可以省略.  Piq can’t be used without Piqi data definitions. With data definitions, though, it is much more powerful than JSON. For example, in Piq, default field values and even field names can be omitted.    
+Piq的使用离不开Piqi数据定义.有了数据定义之后,它就比JSON更强大.比如 在Piq中 字段默认值 甚至说字段本身都可以省略.  Piq can’t be used without Piqi data definitions. With data definitions, though, it is much more powerful than JSON. For example, in Piq, default field values and even field names can be omitted.
 
-同时也可以在Piq中嵌入未分配类型的JSON.  And it is possible to embed untyped JSON in Piq!   
-   
-Piq的数据模型更加强大.  Piq has a more powerful data model.   
+同时也可以在Piq中嵌入未分配类型的JSON.  And it is possible to embed untyped JSON in Piq!
 
-除了JSON所支持的所有数据类型,Piq/piqi还支持binary 二进制 enum枚举和variant(如tagged unions)还有一些其他优点 如支持浮点数NaN 正无穷 负无穷.   In addition to all data types supported by JSON, Piq/Piqi supports binaries, enums and variants (i.e. tagged unions). There are some other goodies, such as support for floating point NaN, negative and positive infinities.   
+Piq的数据模型更加强大.  Piq has a more powerful data model.
+
+除了JSON所支持的所有数据类型,Piq/piqi还支持binary 二进制 enum枚举和variant(如tagged unions)还有一些其他优点 如支持浮点数NaN 正无穷 负无穷.   In addition to all data types supported by JSON, Piq/Piqi supports binaries, enums and variants (i.e. tagged unions). There are some other goodies, such as support for floating point NaN, negative and positive infinities.
 
 Piq在持续改进中 而JSON木已成舟.  Piq is evolving, whereas JSON is set in stone.  
 
 Piq最终将支持半结构化数据.  For example, Piq will eventually get support for semi-structured data.
 
-需要注意的是 尽管存在差异,Piq格式的数据仍可以转换成JSON、XML、Protoco Buffer格式.这样你就可以使用PIq来对数据进行手动编辑,在其他目的下将其转换成其他格式即可.   Note that despite all the differences, data represented in Piq can be reliably converted to and from JSON, XML and Protocol Buffers binary formats. This way one can use Piq for manual data editing and convert it to other formats for other purposes.   
+需要注意的是 尽管存在差异,Piq格式的数据仍可以转换成JSON、XML、Protoco Buffer格式.这样你就可以使用PIq来对数据进行手动编辑,在其他目的下将其转换成其他格式即可.   Note that despite all the differences, data represented in Piq can be reliably converted to and from JSON, XML and Protocol Buffers binary formats. This way one can use Piq for manual data editing and convert it to other formats for other purposes.
 
 *2. Piqi与Protocol Buffer的区别/How Piqi compares to Protocol Buffers?
 
-作为数据序列化系统,piqi与protocol buffer是类似的,也兼容它.事实上,Piqi主要是受其启发.然而 却存在一些本质上的设计差异.  As a data serialization system, Piqi is very similar and compatible with Protocol Buffers. In fact, Piqi was largely inspired by it. However, there are some fundamental design differences.   
+作为数据序列化系统,piqi与protocol buffer是类似的,也兼容它.事实上,Piqi主要是受其启发.然而 却存在一些本质上的设计差异.  As a data serialization system, Piqi is very similar and compatible with Protocol Buffers. In fact, Piqi was largely inspired by it. However, there are some fundamental design differences.
 
 Piqi是围绕着一个更加强大的数据模型而设计的.  Piqi is designed around a more powerful data model.
 
@@ -95,5 +93,5 @@ Portocol Buffer DDL的一些特性 如嵌套定义会给数据定义的表达能
     .phone [ "(444) 123 45 67" ]
     .phone [ "(555) 123 45 67" .work ]
 ]
-                            
+
 ```

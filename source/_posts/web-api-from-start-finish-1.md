@@ -7,7 +7,6 @@ tags:
 - HTTP API
 - REST
 categories:
-- 日记
 - HTTP API
 - REST
 
@@ -110,7 +109,7 @@ $cfg['disable_search'] = false;
 * 1、前期使用分支来开发。Use branches for early development
 * 2、分支要合并到trunk下。Branches merged into trunk
 * 3、功能差不多了要上线时使用flag。Use flags for rollout of almost-finished code
-{% endraw %}   
+{% endraw %}
 
 为了进一步了解feature flag究竟为何物，google一把，定位了几个不错的资源
 1、[stackoverflow上关于feature-flag的讨论](http://stackoverflow.com/questions/7707383/what-is-a-feature-flag)

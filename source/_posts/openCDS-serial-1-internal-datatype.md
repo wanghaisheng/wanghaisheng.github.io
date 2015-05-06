@@ -9,8 +9,6 @@ tags:
 - 临床决策支持
 categories:
 - 医疗信息标准
-- OpenCDS
-- HIT
 - 临床决策支持
 
 ---

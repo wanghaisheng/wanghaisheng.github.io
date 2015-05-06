@@ -1,13 +1,12 @@
 title:	<微服务架构在Netflix的应用>系列博文-2 是时候转移到四层架构上来了
 date: 2015-03-23 11:17:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 日记
 - 架构
 - 微服务
 categories:
-- 日记
 - 架构
 - 微服务
 
@@ -35,9 +34,9 @@ categories:
 中文版：
 [第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices)
 
-英文版： 
+英文版：
 [第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design ](http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/)
-中文版： 
+中文版：
 [第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训](http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design)
 
 
@@ -54,7 +53,7 @@ categories:
 ![](http://nginx.com/wp-content/uploads/2015/02/monolithic_architecture_post.png)
 Monolithic Architecture, Source: Martin Fowler
 在传统的 monolithic 架构中，应用程序处于中间那层，也就是说前端是展现层，后端是数据层。应用程序将数据传输给web浏览器，也就是展现层，它能给用户提供向应用程序请求信息、展现信息、管理和更改信息的方式，应用程序读写信息到数据层，数据层也就是数据库或其他存储设备负责管理和维护数据。应用程序本身负责与前后两层之间进行交互的业务逻辑以及数据的转换。
- 
+
  并不是monolithic架构自身存在缺陷，只是它已经过时了，在智能手机和其他移动设备设计之前就已经存在了，那时候应用程序在展现层只需要跟一种实体进行交互，这种缺陷并不是由于层数亦或是层与层之间数据的处理方式，而是应用程序本身被写成一个单独的统一的代码块。monolithic的天性导致开发人员很难用敏捷性和灵活性对应用程序进行改造以适应移动终端用户的需求，满足运营团队自由伸缩应用程序规模以满足实际的需求。
 
  monolithic 的设计理念阻碍了应用程序开发流程诸多阶段的敏捷性。即使应用程序的功能是以模块化方式组织的，人以模块的更改都需要对整个应用程序进行编译和测试。这本身是恨耗时的，对于那些一年内只更新很少次的公司来讲可能是可以接受的，但要跟上如今的大环境，一年只更新几次的APP恐怕难以在竞争中存活下来。你需要很快的响应渐进式的更新来为用户提供更好的性能和最新的功能。在这样的一个世界里，更新APP永远不会给大多数用户带来不便。
@@ -63,7 +62,7 @@ Source: Martin Fowler
 
 ![](http://nginx.com/wp-content/uploads/2015/02/microservices_architecture_post.png)
 Microservices Architecture, Source: Martin Fowler
- 
+
  将应用程序拆分成模块长久以来被视为最佳实践。最近，开源项目的成功使得多数开发人员能够借助外部的一些库来实现特殊的功能。这些开源库常常用于那些开发人员不熟悉的特殊功能，或仅仅是为了节省时间，或者是出于维护安全性的考虑。对于 monolithic设计而言 就不存在从诸多方案中任选其一的灵活性，应用程序往往是由一些高度耦合的组件开发而成。
 
  最后一点，三层架构缺乏伸缩性。事实上，提出这种架构理念的年代并不存在 elasticity and rapid scaling 。由于应用程序的功能组件是打包成一个整体的，你要响应客户端需求变更的唯一方式就是对整体进行扩展。由于应用程序是紧耦合的，三层架构的应用程序通常是没有办法对某个特殊部分单独进行扩展的。不管是一个电子商务的平台、社交媒体的应用还是一个博客，现如今应用程序的基本要求是能够按需伸缩，成本越低越好。对应用程序进行伸缩控制的过程要简单、自动化和智能。比如说某个应用架构能够让你根据用户注册的突发量来部署额外的Node.js节点。

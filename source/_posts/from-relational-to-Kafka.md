@@ -7,7 +7,6 @@ tags:
 - 数据仓库
 - KAFKA
 categories:
-- 日记
 - 数据仓库
 - KAFKA
 

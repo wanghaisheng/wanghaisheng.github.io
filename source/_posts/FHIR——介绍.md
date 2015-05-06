@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - FHIR
-- HIT
-
 ---
 
 http://www.hl7.org/implement/standards/fhir/introduction.htm

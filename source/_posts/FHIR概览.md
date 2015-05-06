@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - FHIR
-- HIT
-
 ---
 自去年Grahame Grieve引出v3 has failed的讨论之后，RFH的出现似乎给HL7带来了一些生机。从RFH到FHIR 自是经过一番努力。越来越多的人对此表示出极大的兴趣，菜鸟我也不例外。故拟在后面的一些篇章中对目前所有的一些的资料进行一些简单的介绍和试译。 来到Grahame Grieve自己维护的博客主站（链接）上，在右侧links处即可看到一些相关信息，点击Fast Health Interoperability Resources即可进入，本文中将尝试对此主页上的内容做简要介绍。
 20120814更新

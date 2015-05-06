@@ -8,7 +8,6 @@ tags:
 - 临床概念
 categories:
 - 医疗信息标准
-- HIT
 - 临床概念
 
 ---

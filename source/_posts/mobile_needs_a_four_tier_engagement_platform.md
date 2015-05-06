@@ -1,13 +1,12 @@
 title:	<微服务架构在Netflix的应用>系列博文-1 移动应用所需要的四层架构
 date: 2015-03-23 11:17:12
-updated	: 
-permalink: 
+updated	:
+permalink:
 tags:
 - 日记
 - 架构
 - 微服务
 categories:
-- 日记
 - 架构
 - 微服务
 
@@ -35,9 +34,9 @@ categories:
 中文版：
 [第三部分：微服务架构在Netflix的应用：架构设计的经验教训](http://wanghaisheng.github.io/2015/03/23/microservices-at-netflix-architectural-best-practices)
 
-英文版： 
+英文版：
 [第四部分：Adopting Microservices at Netflix: Lessons for Team and Process Design ](http://nginx.com/blog/adopting-microservices-at-netflix-lessons-for-team-and-process-design/)
-中文版： 
+中文版：
 [第四部分：微服务架构在Netflix的应用：团队和流程设计相关的经验教训](http://wanghaisheng.github.io/2015/03/23/adopting-microservices-at-netflix-lessons-for-team-and-process-design)
 
 

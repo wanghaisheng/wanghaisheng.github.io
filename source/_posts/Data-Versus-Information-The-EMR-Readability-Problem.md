@@ -10,7 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - 译文
-- HIT
 
 ---
 

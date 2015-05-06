@@ -4,21 +4,20 @@ tags:
 - Github pages
 - 博客
 categories:
-- 日志
 
 ---
-		
+
 
 Github pages 个人主页和项目主页的不同设置
 
 如果你想利用github pages来搭建属于自己的博客 亦或是为某个小项目做一个宣传页面  这里有点小坑 大家需要提防一下。  
 
 
-1.如果你想做一个个人主页的话，比如我在github建了这样一个[repo](https://github.com/wanghaisheng/wanghaisheng.github.io)，除了需要有一个CNAME文件，内容如下，   
+1.如果你想做一个个人主页的话，比如我在github建了这样一个[repo](https://github.com/wanghaisheng/wanghaisheng.github.io)，除了需要有一个CNAME文件，内容如下，
 
 ```
- http://wanghaisheng.github.io   
-```   
+ http://wanghaisheng.github.io
+```
 同时，github pages要求你要发布的网站内容必须位于master分支下。  
 
 2.如果你只是想做一个项目主页的话，比如你在GitHub建了个项目叫作 wiki ，那么只需在这个项目下新建一个root branch叫作 gh-pages ，

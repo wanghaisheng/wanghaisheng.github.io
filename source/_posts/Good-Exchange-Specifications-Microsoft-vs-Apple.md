@@ -10,8 +10,6 @@ tags:
 categories:
 - 医疗信息标准
 - 译文
-- HIT
-
 ---
 
 # 译自Good Exchange Specifications: Microsoft vs Apple  by Grahame Grieve
