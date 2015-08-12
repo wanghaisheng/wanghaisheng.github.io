@@ -1,4 +1,5 @@
 1.安装git nodejs hexo  
+npm install hexo --no-optional
 
 2.执行  
 ```
