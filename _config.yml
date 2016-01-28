@@ -82,6 +82,8 @@ loserdeworld.com:
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: jacman
 exclude_generator:
+plugins:
+- hexo-renderer-stylus
 
 # Markdown
 ## https://github.com/chjj/marked
