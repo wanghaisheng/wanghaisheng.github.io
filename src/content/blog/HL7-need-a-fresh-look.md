@@ -6,7 +6,7 @@ date: 2011-08-17T21:38:46Z
 image: "/images/image-placeholder.png"
 categories: ["医疗信息标准", "译文"]
 author: "John Doe"
-tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+tags: ["医疗信息标准", "译文","HIT","Keith Boone"]
 draft: false
 ---
 
