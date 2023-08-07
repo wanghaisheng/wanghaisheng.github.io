@@ -1,17 +1,14 @@
-title: how to understand  Health Concern
-date:   2014-3-24 14:43:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- HIT
-- 临床概念
-categories:
-- 医疗信息标准
-- 临床概念
-
 ---
-
+title: "how to understand  Health Concern"
+meta_title: ""
+description: "this is meta description"
+date: 2014-3-24T14:43:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
 
 
 Health Concern的概念是我一直捉摸不透的，

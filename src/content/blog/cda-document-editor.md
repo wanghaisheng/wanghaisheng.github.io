@@ -1,13 +1,13 @@
-title: CDA文档编辑器
-date: 2012-03-16 12:42:14
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- CDA
-categories:
-- 医疗信息标准
-
+---
+title: "CDA文档编辑器"
+meta_title: ""
+description: "this is meta description"
+date: 2012-03-16T12:42:14Z
+image: "/images/image-placeholder.png"
+categories: ["数据仓库", "PostgreSQL"]
+author: "John Doe"
+tags: ["数据仓库", "KAFKA","PostgreSQL"]
+draft: false
 ---
 
 

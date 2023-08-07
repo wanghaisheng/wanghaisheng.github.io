@@ -1,14 +1,14 @@
-title: 关于选择
-date: 2012-6-13 13:39:12
-updated	:
-permalink:
-tags:
-- 日记
-categories:
-- 碎碎念
-
 ---
-
+title: "关于选择"
+meta_title: ""
+description: "this is meta description"
+date: 2012-6-13T13:39:12Z
+image: "/images/image-placeholder.png"
+categories: ["碎碎念","临床决策支持"]
+author: "John Doe"
+tags: ["日记"]
+draft: false
+---
 
 
 p哥哥的教导

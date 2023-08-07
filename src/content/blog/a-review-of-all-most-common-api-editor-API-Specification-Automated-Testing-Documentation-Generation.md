@@ -1,3 +1,16 @@
+---
+title: "a-review-of-all-most-common-api-editor-API-Specification-Automated-Testing-Documentation-Generation"
+meta_title: ""
+description: "this is meta description"
+date: 2012-2-23T17:40:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
+
+
 需求
 * 1、DSL：要能够使用DSL来描述定义API
 * 2、DSL编辑工具：要有易用的编辑工具来编写API定义

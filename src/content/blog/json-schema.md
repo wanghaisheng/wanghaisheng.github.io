@@ -1,12 +1,13 @@
-title:  待补
-date: 2016-01-29 16:52:23
-updated	:
-permalink:
-tags:
-- API
-categories:
-- API
-
+---
+title: "理解JSON Schema"
+meta_title: ""
+description: "this is meta description"
+date: 2016-01-29T16:52:23Z
+image: "/images/image-placeholder.png"
+categories: ["API", "译文"]
+author: "John Doe"
+tags: ["API", "GraphQL"]
+draft: false
 ---
 
 

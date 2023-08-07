@@ -1,16 +1,16 @@
-title:   Health eDecision 项目收尾Clinical Quality Framework项目启动
-date:    2014-3-21 09:57:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 临床决策支持
-- HIT
-categories:
-- 医疗信息标准
-- 临床决策支持
-
 ---
+title: "Health eDecision 项目收尾Clinical Quality Framework项目启动"
+meta_title: ""
+description: "this is meta description"
+date: 2014-3-21T09:57:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "临床决策支持","HIT"]
+draft: false
+---
+
+
 [原文链接](http://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/interoperability-electronic-health-and-medical-records/standards-interoperability-framework-milestones-health-edecision-initiative-closeout-clinical-quality-framework-launch/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+healthitbuzzblog+%28Health+IT+Buzz+Blog%29)
 
    历时21个月的Health eDecision 项目终于要收尾了，自2012年7月启动，在Ken Kawamoto, Tonya Hongsermeier, Aziz Boxwala, Bryn Rhodes and Jamie Parker等人的带领下，围绕着如下两个问题

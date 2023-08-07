@@ -1,16 +1,15 @@
-title:    译自Value Sets and QueryHealth  by  Keith Boone
-date:   2012-3-17 13:31:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
 ---
+title: "译自Value Sets and QueryHealth  by  Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-17T13:31:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
+
 
 Tuesday, November 1, 2011 By Keith Boone
 [Value Sets and QueryHealth](http://motorcycleguy.blogspot.com/2011/11/value-sets-and-queryhealth.html)

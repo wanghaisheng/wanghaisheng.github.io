@@ -1,3 +1,14 @@
+---
+title: "致访客"
+meta_title: ""
+description: "this is meta description"
+date: 2014-05-20T15:13:12Z
+image: "/images/image-placeholder.png"
+categories: ["日记"]
+author: "John Doe"
+tags: ["日记"]
+draft: false
+---
 title: 致访客
 date: 2014-05-20 15:13:12
 tags:

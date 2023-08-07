@@ -1,14 +1,13 @@
-title:  显示特定的标签值
-date: 2012-4-30 17:14:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- XSLT
-- HIT
-categories:
-- XSLT
-
+---
+title: "显示特定的标签值"
+meta_title: ""
+description: "this is meta description"
+date: 2012-4-30T17:14:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "XSLT","HIT"]
+author: "John Doe"
+tags: ["XSLT"]
+draft: false
 ---
 
 

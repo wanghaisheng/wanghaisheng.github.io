@@ -1,11 +1,15 @@
-title: Github pages 个人主页和项目主页的不同设置
-date: 2014-06-25 22:05:57
-tags:
-- Github pages
-- 博客
-categories:
-
 ---
+title: "Github pages 个人主页和项目主页的不同设置"
+meta_title: ""
+description: "this is meta description"
+date: 2014-06-25T22:05:57Z
+image: "/images/image-placeholder.png"
+categories: ["博客", "技术"]
+author: "John Doe"
+tags: ["Github pages", "博客"]
+draft: false
+---
+
 
 
 Github pages 个人主页和项目主页的不同设置

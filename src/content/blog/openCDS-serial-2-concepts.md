@@ -1,16 +1,13 @@
-title:  openCDS系列 II——使用openCDS中的概念
-date:   2012-6-6 13:06:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- OpenCDS
-- HIT
-- 临床决策支持
-categories:
-- 医疗信息标准
-- 临床决策支持
-
+---
+title: "openCDS系列 II——使用openCDS中的概念"
+meta_title: ""
+description: "this is meta description"
+date: 2012-6-5T13:23:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "CDSS","临床决策支持","OpenCDS"]
+author: "John Doe"
+tags: ["医疗信息标准", "临床决策支持","HIT"]
+draft: false
 ---
 
 

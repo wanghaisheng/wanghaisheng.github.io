@@ -1,9 +1,13 @@
-title: EHR架构与设计相关材料
-date: 2014-09-04 15:13:12
-tags:
-- 日记
-categories:
-- EHR
+---
+title: "EHR架构与设计相关材料"
+meta_title: ""
+description: "this is meta description"
+date: 2014-09-04T15:13:12Z
+image: "/images/image-placeholder.png"
+categories: ["EHR", "译文"]
+author: "John Doe"
+tags: ["日记"]
+draft: false
 ---
 
 

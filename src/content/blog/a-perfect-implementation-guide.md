@@ -1,17 +1,15 @@
-title: 译《A Perfect Implementation Guide》by Keith Boone
-date: 2012-2-23 17:40:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
-
 ---
+title: "译《A Perfect Implementation Guide》by Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-2-23T17:40:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
+
 
 Tuesday, February 1, 2011
 # A Perfect Implementation Guide

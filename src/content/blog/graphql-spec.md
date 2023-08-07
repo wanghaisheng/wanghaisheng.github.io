@@ -1,3 +1,16 @@
+---
+title: "中文版GraphQL标准"
+meta_title: ""
+description: "this is meta description"
+date: 2015-07-29T16:52:33Z
+image: "/images/image-placeholder.png"
+categories: ["API", "译文"]
+author: "John Doe"
+tags: ["API", "GraphQL"]
+draft: false
+---
+
+
 title: 中文版GraphQL标准
 date: 2015-07-29 16:52:33
 updated	:

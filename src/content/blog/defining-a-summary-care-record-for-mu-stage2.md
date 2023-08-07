@@ -1,16 +1,16 @@
-title:  译自Defining a Summary Care Record for MeaningfulUse Stage2 by Keith Boone
-date:  2012-3-15 14:20:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
 ---
+title: "译自Defining a Summary Care Record for MeaningfulUse Stage2 by Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-15T14:20:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","Keith Boone"]
+draft: false
+---
+
+
 Wednesday, March 14, 2012 By Keith Boone
 # Defining a Summary Care Record for MeaningfulUse Stage2
 

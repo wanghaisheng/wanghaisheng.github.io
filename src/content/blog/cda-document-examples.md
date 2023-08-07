@@ -1,15 +1,14 @@
-title: CDA文档实例
-date: 2012-03-16 00:28:02
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- CDA
-categories:
-- 医疗信息标准
-
 ---
-
+title: "CDA文档实例"
+meta_title: ""
+description: "this is meta description"
+date: 2012-03-16T00:28:02Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准"]
+author: "John Doe"
+tags: ["医疗信息标准", "CDA"]
+draft: false
+---
 
 
 

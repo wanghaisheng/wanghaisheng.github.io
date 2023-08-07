@@ -1,17 +1,16 @@
-title:   从零开始学临床决策支持 CDSS-第一篇 扒扒美国卫生部网站上的资料
-date:   2015-2-10 20:28:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- CDSS
-- HIT
-- 临床决策支持
-categories:
-- 医疗信息标准
-- 临床决策支持
-
 ---
+title: " 从零开始学临床决策支持 CDSS-第一篇 扒扒美国卫生部网站上的资料"
+meta_title: ""
+description: "this is meta description"
+date: 2015-2-10T20:28:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "CDSS","临床决策支持","HIT"]
+author: "John Doe"
+tags: ["医疗信息标准", "临床决策支持","HIT"]
+draft: false
+---
+
+
 美国卫生部网站上有关CDS的内容
 
 What is Clinical Decision Support (CDS)?

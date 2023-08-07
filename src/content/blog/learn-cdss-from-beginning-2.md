@@ -1,3 +1,15 @@
+---
+title: "从零开始学临床决策支持CDSS-第二篇 如何将临床决策支持与医疗信息系统的业务流程整合起来"
+meta_title: ""
+description: "this is meta description"
+date: 2015-2-11T19:53:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "CDSS","临床决策支持","HIT"]
+author: "John Doe"
+tags: ["医疗信息标准", "临床决策支持","HIT"]
+draft: false
+---
+
 title:   从零开始学临床决策支持CDSS-第二篇 如何将临床决策支持与医疗信息系统的业务流程整合起来
 date:   2015-2-11 19:53:12
 updated	:

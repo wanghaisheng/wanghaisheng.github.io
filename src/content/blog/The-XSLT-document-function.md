@@ -1,16 +1,15 @@
-title:    译自The XSLT document() function  by  Keith Boone
-date:  2012-3-17 13:10:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
 ---
+title: "译自The XSLT document() function  by  Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-17T13:10:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
+
 
 Thursday, January 26, 2012  BY Keith Boone
 [The XSLT document() function](http://motorcycleguy.blogspot.com/2012/01/using-xslt-document-function-to-look-up.html)

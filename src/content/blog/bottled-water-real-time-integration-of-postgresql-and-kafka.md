@@ -1,17 +1,16 @@
-title: Bottled Water-PostgreSQL与 Kafka的实时数据整合
-date: 2015-04-27 16:34:12
-updated	:
-permalink:
-tags:
-- 数据仓库
-- KAFKA
-- PostgreSQL
-categories:
-- 数据仓库
-- KAFKA
-- PostgreSQL
-
 ---
+title: "Bottled Water-PostgreSQL与 Kafka的实时数据整合"
+meta_title: ""
+description: "this is meta description"
+date: 2015-04-27T16:34:12Z
+image: "/images/image-placeholder.png"
+categories: ["数据仓库", "PostgreSQL"]
+author: "John Doe"
+tags: ["数据仓库", "KAFKA","PostgreSQL"]
+draft: false
+---
+
+
 
 >版权声明：
 >欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。

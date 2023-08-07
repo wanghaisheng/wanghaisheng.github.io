@@ -1,14 +1,13 @@
-title: 医疗信息标准的开源实现
-date: 2010-11-29 15:41:17
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-categories:
-- 医疗信息标准
-- 译文
-
+---
+title: "医疗开源实现"
+meta_title: ""
+description: "this is meta description"
+date: 2010-11-29T15:41:17Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文","临床决策支持","OpenCDS"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT"]
+draft: false
 ---
 
 

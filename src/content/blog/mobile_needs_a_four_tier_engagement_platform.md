@@ -1,17 +1,15 @@
-title:	<微服务架构在Netflix的应用>系列博文-1 移动应用所需要的四层架构
-date: 2015-03-23 11:17:12
-updated	:
-permalink:
-tags:
-- 日记
-- 架构
-- 微服务
-categories:
-- 架构
-- 微服务
-
-
 ---
+title: "<微服务架构在Netflix的应用>系列博文-1 移动应用所需要的四层架构"
+meta_title: ""
+description: "this is meta description"
+date: 2015-03-23T11:17:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["日记", "架构","微服务"]
+draft: false
+---
+
 
 >版权声明：
 >欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。

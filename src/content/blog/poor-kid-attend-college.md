@@ -1,12 +1,13 @@
-title: 穷人的子弟上大学
-date:   2012-5-28 16:08:12
-updated	:
-permalink:
-tags:
-- 生活
-categories:
-- 碎碎念
-
+---
+title: "穷人的子弟上大学"
+meta_title: ""
+description: "this is meta description"
+date: 2012-5-28T16:08:12Z
+image: "/images/image-placeholder.png"
+categories: ["日记", "生活"]
+author: "John Doe"
+tags: ["碎碎念"]
+draft: false
 ---
 
 

@@ -1,11 +1,15 @@
-title: ubuntu下sqlplus上下光标键乱码解决方法
-date: 2010-10-22 19:15:57
-tags:
-- Oracle
-- Ubuntu
-categories:
-
 ---
+title: "ubuntu下sqlplus上下光标键乱码解决方法"
+meta_title: ""
+description: "this is meta description"
+date: 2010-10-22T19:15:57Z
+image: "/images/image-placeholder.png"
+categories: ["Oracle","Ubuntu"]
+author: "John Doe"
+tags: ["Ubuntu"]
+draft: false
+---
+
 
 
 ubuntu下sqlplus上下光标键乱码解决方法

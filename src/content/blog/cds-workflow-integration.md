@@ -1,17 +1,14 @@
-title:  第一篇-CDS应该集成到那些业务流程当中
-date:   2014-1-9 15:03:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- HIT
-- 临床决策支持
-categories:
-- 医疗信息标准
-- 临床决策支持
-
 ---
-
+title: " 第一篇-CDS应该集成到那些业务流程当中"
+meta_title: ""
+description: "this is meta description"
+date: 2014-1-9T15:03:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准","临床决策支持"]
+author: "John Doe"
+tags: ["医疗信息标准", "临床决策支持","HIT"]
+draft: false
+---
 
 一.美国卫生部的网站上对这个问题进行了一个归纳和总结，见[Workflow Taxonomy](http://www.healthit.gov/sites/default/files/cds/3_5_6__ref_workflow_taxonomy.pdf)，大致上翻译了一个版本参考附件[Reference Taxonomy of Clinical Workflows.xlsx](http://blog.sciencenet.cn/home.php?mod=attachment&id=48303)
 

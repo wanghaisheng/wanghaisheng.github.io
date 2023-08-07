@@ -1,13 +1,16 @@
-title:  关于科研-启动翻译计划
-date: 2011-10-10 23:33:12
-updated	:
-permalink:
-tags:
-- 书籍翻译
-categories:
-- 医疗信息标准
-
 ---
+title: "关于科研-启动翻译计划"
+meta_title: ""
+description: "this is meta description"
+date: 2011-10-10T23:33:12Z
+image: "/images/image-placeholder.png"
+categories: ["书籍翻译"]
+author: "John Doe"
+tags: ["医疗信息标准"]
+draft: false
+---
+
+
 
 #  关于科研-启动翻译计划
 一个人的战斗 两个人的战斗

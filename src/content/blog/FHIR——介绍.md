@@ -1,16 +1,15 @@
-title:     FHIR——介绍
-date:   2012-6-11 00:00:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- FHIR
-- HIT
-- 信息交换
-categories:
-- 医疗信息标准
-- FHIR
 ---
+title: "FHIR——介绍"
+meta_title: ""
+description: "this is meta description"
+date: 2012-6-11T00:00:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "FHIR"]
+author: "John Doe"
+tags: ["医疗信息标准", "信息交换","FHIR"]
+draft: false
+---
+
 
 http://www.hl7.org/implement/standards/fhir/introduction.htm
 介绍Introduction

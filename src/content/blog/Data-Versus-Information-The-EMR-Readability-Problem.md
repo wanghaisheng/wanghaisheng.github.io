@@ -1,17 +1,15 @@
-title:    Data Versus Information- The EMR Readability Problem  by  Bruce Friedman
-date:   2012-3-17 13:31:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Bruce Friedman
-categories:
-- 医疗信息标准
-- 译文
-
 ---
+title: "Data Versus Information- The EMR Readability Problem  by  Bruce Friedman"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-17T13:31:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","Bruce Friedman"]
+draft: false
+---
+
 
 两篇来自 Bruce Friedman的博文
 http://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem.htmlhttp://labsoftnews.typepad.com/lab_soft_news/2012/08/data-vs-information-the-emr-readability-problem-part-ii.html

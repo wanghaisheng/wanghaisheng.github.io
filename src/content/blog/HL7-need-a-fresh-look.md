@@ -1,14 +1,13 @@
-title: HL7 need a fresh look
-date: 2011-08-17 21:38:46
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-categories:
-- 医疗信息标准
-- 译文
-
+---
+title: "HL7 need a fresh look"
+meta_title: ""
+description: "this is meta description"
+date: 2011-08-17T21:38:46Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
 ---
 
 

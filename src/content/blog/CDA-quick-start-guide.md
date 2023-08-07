@@ -1,16 +1,14 @@
-title: CDA快速入门
-date: 2012-03-16 13:02:48
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- CDA
-categories:
-- 医疗信息标准
-
 ---
-
-
+title: "CDA快速入门"
+meta_title: ""
+description: "this is meta description"
+date: 2012-03-16T13:02:48Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准"]
+author: "John Doe"
+tags: ["医疗信息标准", "CDA"]
+draft: false
+---
 
 在大概了解了CDA文档实例的模样，手头上也有了各式各样自己喜好的XML编辑器，那么我们可能就希望实践一把。该怎么做呢?
 

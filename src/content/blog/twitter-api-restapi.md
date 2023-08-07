@@ -1,16 +1,15 @@
-title:	TWITTER REST API研究
-date: 2014-12-20 10:52:12
-updated	:
-permalink:
-tags:
-- 日记
-- REST
-categories:
-- HTTP API
-- REST
-
-
 ---
+title: "TWITTER REST API研究"
+meta_title: ""
+description: "this is meta description"
+date: 2014-12-20T10:52:12Z
+image: "/images/image-placeholder.png"
+categories: ["HTTP API","REST"]
+author: "John Doe"
+tags: ["REST","HTTP API"]
+draft: false
+---
+
 
 原文标题：[REST APIs](https://dev.twitter.com/rest/public)
 原文作者：Twitter Inc

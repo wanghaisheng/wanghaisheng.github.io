@@ -1,16 +1,16 @@
-title: 译自Good Exchange Specifications- Microsoft vs Apple  by Grahame Grieve
-date: 2012-2-24 12:46:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Grahame Grieve
-categories:
-- 医疗信息标准
-- 译文
 ---
+title: "译自Good Exchange Specifications- Microsoft vs Apple  by Grahame Grieve"
+meta_title: ""
+description: "this is meta description"
+date: 2012-2-24T12:46:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Grahame Grieve",""]
+draft: false
+---
+
+
 
 # 译自Good Exchange Specifications: Microsoft vs Apple  by Grahame Grieve
 

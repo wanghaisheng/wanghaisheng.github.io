@@ -1,17 +1,17 @@
-title: 译自2011- A Year in Review at HIMSS12 by Keith Boone
-date: 2012-2-21 22:18:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
-
 ---
+title: "译自2011- A Year in Review at HIMSS12 by Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-2-21T22:18:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
+---
+
+
+
 
 # 译2011: A Year in Review at HIMSS12 by Keith Boone
 Keith Boone是我一直在关注 在follow的老头子，虽然好像还是蛮年轻 ，一直找不到很好的地方 很好的网站 大多数网站在外面实验室糟糕的代理模式下是压根发表不了新帖的。不幸的科学网就这样躺在中枪了。

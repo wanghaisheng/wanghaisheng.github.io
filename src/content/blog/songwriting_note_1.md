@@ -1,13 +1,15 @@
-title: SongWriting公开课笔记
-date: 2014-10-18 22:26:30
-updated	:
-permalink:
-tags:
-- 碎碎念
-categories:
-- 碎碎念
-
 ---
+title: "SongWriting公开课笔记"
+meta_title: ""
+description: "this is meta description"
+date: 2014-10-18T22:26:30Z
+image: "/images/image-placeholder.png"
+categories: ["碎碎念"]
+author: "John Doe"
+tags: ["碎碎念"]
+draft: false
+---
+
 
 Courera上新一轮的SongWriting又开课了，去年就跟了一些，这次争取能把全部跟完，不求拿证，只为开心。
 

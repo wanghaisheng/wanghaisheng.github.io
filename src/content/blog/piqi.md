@@ -1,13 +1,16 @@
-title: piqi学习
-date: 2014-06-09 18:18:30
-updated :
-permalink: abc
-tags:
-- 模板
-- 日记
-categories:
-
 ---
+title: "piqi学习"
+meta_title: ""
+description: "this is meta description"
+date: 2014-06-09T18:18:30Z
+image: "/images/image-placeholder.png"
+categories: ["日记", "piqi"]
+author: "John Doe"
+tags: ["日记","模板"]
+draft: false
+---
+
+
 #piqi学习
 *目标一：·piqi是什么
 

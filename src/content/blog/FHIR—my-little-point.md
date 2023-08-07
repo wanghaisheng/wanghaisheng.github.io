@@ -1,15 +1,13 @@
-title:   对FHIR的一些浅显认识
-date:   2015-3-11 14:31:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- FHIR
-- HIT
-- 信息交换
-categories:
-- 医疗信息标准
-- FHIR
+---
+title: "对FHIR的一些浅显认识"
+meta_title: ""
+description: "this is meta description"
+date: 2015-3-11T14:31:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "FHIR"]
+author: "John Doe"
+tags: ["医疗信息标准", "信息交换","FHIR"]
+draft: false
 ---
 
 FHIR标准

@@ -1,11 +1,13 @@
-title: 一些读医学信息学论文时遇到专业词汇的解决办法
-date: 2012-5-21 14:34:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- HIT
-categories:
+---
+title: "一些读医学信息学论文时遇到专业词汇的解决办法"
+meta_title: ""
+description: "this is meta description"
+date: 2012-5-21T14:34:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "FHIR"]
+author: "John Doe"
+tags: ["医疗信息标准", "信息交换","FHIR"]
+draft: false
 ---
 
 

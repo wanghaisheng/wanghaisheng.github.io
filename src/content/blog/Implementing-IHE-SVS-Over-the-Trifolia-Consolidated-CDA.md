@@ -1,15 +1,13 @@
-title:   译自Implementing IHE SVS Over the Trifolia Consolidated CDA by  Keith Boone
-date:  2012-3-15 15:27:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
+---
+title: "译自Implementing IHE SVS Over the Trifolia Consolidated CDA by  Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-15T15:27:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
 ---
 
 Friday, March 9, 2012 BY Keith Boone

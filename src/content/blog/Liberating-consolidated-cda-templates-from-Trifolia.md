@@ -1,15 +1,13 @@
-title:  译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone
-date:  2012-3-15 14:48:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
+---
+title: "译自Liberating Consolidated CDA Templates from the Trifolia  Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2012-3-15T14:48:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
 ---
 
 Tuesday, March 6, 2012 By Keith Boone

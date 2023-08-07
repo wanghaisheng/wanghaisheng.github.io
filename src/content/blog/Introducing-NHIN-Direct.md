@@ -1,16 +1,13 @@
-title:  译Introducing NHIN Direct NHIN Direct的介绍 by Keith Boone
-date: 2010-12-13 16:52:23
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- 译文
-- HIT
-- Keith Boone
-categories:
-- 医疗信息标准
-- 译文
-
+---
+title: "译Introducing NHIN Direct NHIN Direct的介绍 by Keith Boone"
+meta_title: ""
+description: "this is meta description"
+date: 2010-12-13T16:52:23Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "译文"]
+author: "John Doe"
+tags: ["医疗信息标准", "译文","HIT","Keith Boone",""]
+draft: false
 ---
 
 
