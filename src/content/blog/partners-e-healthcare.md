@@ -1,17 +1,16 @@
-
-title:   共同构建互联网医疗大共荣圈-FHIR标准的汉化和产品的开发
-date:   2015-3-11 12:35:12
-updated	:
-permalink:
-tags:
-- 医疗信息标准
-- FHIR
-- HIT
-- 信息交换
-categories:
-- 医疗信息标准
-- FHIR
 ---
+title: "共同构建互联网医疗大共荣圈-FHIR标准的汉化和产品的开发"
+meta_title: ""
+description: "this is meta description"
+date: 2015-3-11T12:35:12Z
+image: "/images/image-placeholder.png"
+categories: ["医疗信息标准", "FHIR"]
+author: "John Doe"
+tags: ["医疗信息标准", "FHIR","HIT","信息交换"]
+draft: false
+---
+
+
 互联网医疗在过去的一年里如火如荼，希望大家能够一起来汉化和开发FHIR相关的产品
 FHIR – Fast Health Interoperable Resources (hl7.org/fhir) – 是由HL7创建的新一代标准框架.FHIR 整合了 HL7 V2,V3 和 CDA 的优点,同时利用了最新的Web标准,紧紧围绕着 implementability 可实现性.
 
