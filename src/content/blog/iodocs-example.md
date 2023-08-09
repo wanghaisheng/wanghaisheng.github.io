@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2016-01-29T16:52:23Z
 image: "/images/image-placeholder.png"
-categories: ["架构", "API"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["API"]
 draft: false
 ---

@@ -4,9 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-06-09T18:18:30Z
 image: "/images/image-placeholder.png"
-categories: ["日记", "piqi"]
-author: "John Doe"
-tags: ["日记","模板"]
+categories: ["工作"]
+author: "haisheng"
+tags: ["FHIR","piqi"]
 draft: false
 ---
 

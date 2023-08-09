@@ -2,7 +2,8 @@
 import config from "@/config/config.json";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Image } from "@astrojs/image/components";
-import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
+import { FaRegFolder, FaRegUserCircle,FaRegClock } from "react-icons/fa/index.js";
+import dateFormat from "@/lib/utils/dateFormat";
 
 const {
   summary_length,
@@ -31,6 +32,10 @@ const { title, image, date, author, categories } = data.data;
     </a>
   </h4>
   <ul class="mb-4">
+    <li class="mr-4 inline-block">
+      <FaRegClock className={"mr-2 -mt-1 inline-block"} />
+      {dateFormat(date)}
+    </li>
     <li class="mr-4 inline-block">
       <a href={`/authors/${slugify(author)}`}>
         <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />

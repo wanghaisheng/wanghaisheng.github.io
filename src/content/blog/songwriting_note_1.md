@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-10-18T22:26:30Z
 image: "/images/image-placeholder.png"
-categories: ["碎碎念"]
-author: "John Doe"
+categories: ["生活"]
+author: "haisheng"
 tags: ["碎碎念"]
 draft: false
 ---

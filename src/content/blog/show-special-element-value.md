@@ -4,9 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2012-4-30T17:14:12Z
 image: "/images/image-placeholder.png"
-categories: ["医疗信息标准", "XSLT","HIT"]
-author: "John Doe"
-tags: ["XSLT"]
+categories: ["工作"]
+author: "haisheng"
+tags:  ["医疗信息标准", "XSLT","HIT"]
 draft: false
 ---
 

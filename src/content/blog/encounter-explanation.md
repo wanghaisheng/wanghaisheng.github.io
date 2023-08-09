@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2011-10-30T22:10:51Z
 image: "/images/image-placeholder.png"
-categories: ["医疗信息标准", "临床概念"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["医疗信息标准", "译文","临床概念"]
 draft: false
 ---

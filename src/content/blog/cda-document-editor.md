@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2012-03-16T12:42:14Z
 image: "/images/image-placeholder.png"
-categories: ["数据仓库", "PostgreSQL"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["数据仓库", "KAFKA","PostgreSQL"]
 draft: false
 ---

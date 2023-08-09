@@ -4,16 +4,15 @@ meta_title: ""
 description: "this is meta description"
 date: 2015-04-26T14:19:12Z
 image: "/images/image-placeholder.png"
-categories: ["数据仓库", "KAFKA"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["日记", "数据仓库","KAFKA"]
 draft: false
 ---
 
 
 
->版权声明：
->欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。
+
 
 ##  关系型数据库向KAFKA迁移 FROM RELATIONAL INTO KAFKA
 

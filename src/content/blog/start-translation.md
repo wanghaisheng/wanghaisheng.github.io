@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2011-10-10T23:33:12Z
 image: "/images/image-placeholder.png"
-categories: ["书籍翻译"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["医疗信息标准"]
 draft: false
 ---

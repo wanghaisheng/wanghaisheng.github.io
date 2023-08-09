@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2012-3-15T15:27:12Z
 image: "/images/image-placeholder.png"
-categories: ["医疗信息标准", "译文"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["医疗信息标准", "译文","HIT","Keith Boone"]
 draft: false
 ---

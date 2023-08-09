@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2012-6-11T00:00:12Z
 image: "/images/image-placeholder.png"
-categories: ["医疗信息标准", "FHIR"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["医疗信息标准", "信息交换","FHIR"]
 draft: false
 ---

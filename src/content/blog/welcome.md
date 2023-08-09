@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-05-20T15:13:12Z
 image: "/images/image-placeholder.png"
-categories: ["日记"]
-author: "John Doe"
+categories: ["生活"]
+author: "haisheng"
 tags: ["日记"]
 draft: false
 ---

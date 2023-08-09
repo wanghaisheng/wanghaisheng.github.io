@@ -4,15 +4,14 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-12-20T10:52:12Z
 image: "/images/image-placeholder.png"
-categories: ["日记", "HTTP API","REST"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["REST","HTTP API"]
 draft: false
 ---
 
 
->版权声明：
->欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。
+
 
 ## 第一篇，读< 与Roy Fielding谈论版本化、超媒体以及REST >
 全系列[Web APIs: From Start to Finish ](http://www.infoq.com/articles/Web-APIs-From-Start-to-Finish)

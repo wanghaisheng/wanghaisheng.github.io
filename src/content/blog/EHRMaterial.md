@@ -4,9 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-09-04T15:13:12Z
 image: "/images/image-placeholder.png"
-categories: ["EHR", "译文"]
-author: "John Doe"
-tags: ["日记"]
+categories: ["工作"]
+author: "haisheng"
+tags: ["EHR", "译文"]
 draft: false
 ---
 

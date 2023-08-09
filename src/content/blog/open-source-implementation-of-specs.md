@@ -4,9 +4,9 @@ meta_title: ""
 description: "this is meta description"
 date: 2010-11-29T15:41:17Z
 image: "/images/image-placeholder.png"
-categories: ["医疗信息标准", "译文","临床决策支持","OpenCDS"]
-author: "John Doe"
-tags: ["医疗信息标准", "译文","HIT"]
+categories: ["工作"]
+author: "haisheng"
+tags: ["医疗信息标准", "译文","临床决策支持","OpenCDS"]
 draft: false
 ---
 

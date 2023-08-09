@@ -7,28 +7,30 @@
     {
       "name": "About",
       "url": "/about"
+    },        {
+      "name": "Blog",
+      "url": "/blog"
     },
+
     {
-      "name": "Elements",
-      "url": "/elements"
-    },
+      "name": "Projects",
+      "url": "/projects"
+    },    
+    {
+      "name": "Feedback",
+      "url": "/contact"
+    },    
     {
       "name": "Pages",
       "url": "",
       "hasChildren": true,
       "children": [
+
         {
-          "name": "Contact",
-          "url": "/contact"
+          "name": "Elements",
+          "url": "/elements"
         },
-        {
-          "name": "Blog",
-          "url": "/blog"
-        },
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
+
         {
           "name": "Categories",
           "url": "/categories"

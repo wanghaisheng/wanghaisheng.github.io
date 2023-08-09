@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2014-06-25T22:05:57Z
 image: "/images/image-placeholder.png"
-categories: ["博客", "技术"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["Github pages", "博客"]
 draft: false
 ---

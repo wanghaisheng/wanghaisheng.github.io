@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2010-10-22T19:15:57Z
 image: "/images/image-placeholder.png"
-categories: ["Oracle","Ubuntu"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["Ubuntu"]
 draft: false
 ---

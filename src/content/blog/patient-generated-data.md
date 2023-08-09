@@ -4,13 +4,12 @@ meta_title: ""
 description: "this is meta description"
 date: 2015-08-12T17:25:12Z
 image: "/images/image-placeholder.png"
-categories: ["日记", "互联网医疗","PGHD"]
-author: "John Doe"
+categories: ["工作"]
+author: "haisheng"
 tags: ["互联网医疗", "PGHD","HIT"]
 draft: false
 ---
->版权声明：
->欢迎转载本站的所有内容，本站的所有文章使用[知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)，唯一的要求就是保留署名权，请在转载时注明出处。
+
 
 ##  病人记录的健康信息PGHD
 patient-generated health-information (PGHI) or patient-generated health data (PGHD). 这样一些在医院、医疗机构之外由患者或护理人员创建、收集、记录的与某个健康问题相关的观察、检验结果、 抑或是对已有EHR中某项数据的确认或变更等信息。

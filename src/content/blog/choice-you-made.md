@@ -4,8 +4,8 @@ meta_title: ""
 description: "this is meta description"
 date: 2012-6-13T13:39:12Z
 image: "/images/image-placeholder.png"
-categories: ["碎碎念","临床决策支持"]
-author: "John Doe"
+categories: ["生活"]
+author: "haisheng"
 tags: ["日记"]
 draft: false
 ---
