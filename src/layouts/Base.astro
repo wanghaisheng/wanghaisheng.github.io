@@ -25,6 +25,7 @@ export interface Props {
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
 ---
+<astro-script src="@/lib/utils/remove-ads-iframe.ts"></astro-script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -138,18 +139,7 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
-<script>
-(function($){
-    setInterval(() => {
-        $.each($('iframe'), (arr,x) => {
-            let src = $(x).attr('src');
-            if (src && src.includes("ads-iframe")) {
-                $(x).remove();
-            }
-        });
-    }, 300);
-})(jQuery);
-</script>
+
 
   </head>
   <body>
