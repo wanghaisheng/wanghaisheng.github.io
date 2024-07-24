@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "海生的小窝",
+    "title": "海生打怪中",
     "base_url": "https://astroplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/th.jpeg",
     "logo_width": "128",
     "logo_height": "60",
-    "logo_text": "海生的小窝"
+    "logo_text": "海生打怪中"
   },
 
   "settings": {
