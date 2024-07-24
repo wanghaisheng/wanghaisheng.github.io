@@ -2,6 +2,12 @@
 title: "毕业12年"
 meta_title: ""
 description: "个人使用说明书"
+date: 2024-07-21T22:18:12Z
+image: "/images/image-placeholder.png"
+categories: ["工作"]
+author: "haisheng"
+tags: ["简历"]
+draft: false
 ---
 
 
