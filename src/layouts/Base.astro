@@ -143,7 +143,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     setInterval(() => {
         $.each($('iframe'), (arr,x) => {
             let src = $(x).attr('src');
-            if (src == undefined) {
+            if (src && src.includes("ads-iframe")) {
                 $(x).remove();
             }
         });
