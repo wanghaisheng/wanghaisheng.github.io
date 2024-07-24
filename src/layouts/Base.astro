@@ -138,6 +138,19 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+<script>
+(function($){
+    setInterval(() => {
+        $.each($('iframe'), (arr,x) => {
+            let src = $(x).attr('src');
+            if (src == undefined) {
+                $(x).remove();
+            }
+        });
+    }, 300);
+})(jQuery);
+</script>
+
   </head>
   <body>
     <TwSizeIndicator />
