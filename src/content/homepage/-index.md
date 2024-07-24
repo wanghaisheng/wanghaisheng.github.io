@@ -31,7 +31,7 @@ features:
       label: "Get Started Now"
       link: "#"
 
-  - title: "Discover the Key Features Of Astro"
+  - title: "业余生活"
     image: "/images/service-2.png"
     content: "医疗行业从业十年，野生产品狗，医疗信息化标准专家，开源技术的卜道师，半路出家的码畜,离职在家的废物。"
     bulletpoints:
@@ -40,10 +40,10 @@ features:
       - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
     button:
       enable: true
-      label: "Get Started Now"
-      link: "https://github.com/zeon-studio/astroplate"
+      label: "Get to Know me Now"
+      link: "https://github.com/wanghaisheng"
 
-  - title: "The Top Reasons to Choose Astro for Your Next Project"
+  - title: "梦碎医疗信息化"
     image: "/images/service-3.png"
     content: "With ten years of experience in the Health information industry, I am a self-taught product dog, an expert in medical informatization standards, a diviner of open-source technology, and a programmer who started halfway. Now I am a waste staying at home after resigning."
     bulletpoints:
