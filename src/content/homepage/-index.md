@@ -1,7 +1,7 @@
 ---
 # Banner
 banner:
-  title: "海生打怪中Automation is my thing.A passionate smart watch pm from China."
+  title: "Automation is my thing.A passionate smart watch pm from China."
   content: "Benjamin Franklin once said: “If you would not be forgotten as soon as you are dead, either write something worth reading, or do something worth writing.”"
   image: "/images/banner.png"
   button:
