@@ -119,7 +119,7 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - Completed first version development and deployment within less than two months of full team deployment.
 - Trial operation in Peking University Shenzhen Hospital pharmacy for two weeks, completing project delivery at Guangdong Provincial Hospital of Traditional Chinese Medicine.
 
-### 3. Early Detection Integrated Machine for Infant Cerebral Palsy | Product Manager | 2018.10 - 2021.06
+### 3. Early Detection Integrated Machine for Infant Cerebral Palsy | Product Manager | 2018.10 - 2020.06
 
 **Project Details:**
 - Developed novel cerebral palsy screening device combining depth camera and AI pose recognition technology.
@@ -128,7 +128,7 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - Completed software solution design and code development, achieving precise segmentation and posture recognition of infant bodies.
 - Promoted HINE assessment scale, designed AI-assisted evaluation system, reducing dependence on doctor experience.
 
-### 4. Full Process Hospital Self-service Terminal with Face Recognition | Product Manager | 2017.03 - 2021.06
+### 4. Full Process Hospital Self-service Terminal with Face Recognition | Product Manager | 2017.03 - 2018.03
 
 **Project Details:**
 - Designed new generation intelligent service terminal supporting face recognition, covering full processes of document filing, registration, ticket taking, and payment.
@@ -137,7 +137,7 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - Launched face recognition feature in 2018, significantly enhancing user experience.
 - Implemented rapid deployment of Alipay report checking function in 60 hospitals.
 
-### 5. Medical Self-service Cloud Platform | Big Data Manager | 2016.01 - 2021.06
+### 5. Medical Self-service Cloud Platform | Big Data Manager | 2015.09 - 2018.06
 
 **Project Details:**
 - Built medical big data infrastructure platform, providing IaaS, SaaS, PaaS, DaaS, and multi-layered services.
