@@ -10,10 +10,6 @@ tags: ["resume"]
 draft: false
 ---
 
-
-
-Certainly! Here's the formatted text that includes all the provided information:
-
 ---
 
 ### Haisheng Wang
