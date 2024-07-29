@@ -177,19 +177,22 @@ Our goal was to enhance user accessibility to medical information via mobile app
 
 ##### **Challenges in Implementation**:
 
-High Costs and Quality Issues with Traditional Interfaces: Vendor-provided interfaces were expensive and unreliable, leading us to explore alternative solutions.
-Complex Report Formats: Diverse and inconsistent report layouts posed significant obstacles to standardization.
+- High Costs and Quality Issues with Traditional Interfaces: Vendor-provided interfaces were expensive and unreliable, leading us to explore alternative solutions.
+- Complex Report Formats: Diverse and inconsistent report layouts posed significant obstacles to standardization.
+
 **Adoption of RPA and Advanced OCR**:
 
 - RPA for Data Extraction: Implemented RPA to automate the data extraction process, bypassing the need for costly and unreliable vendor interfaces. This approach allowed us to efficiently collect and process data from a wide range of report formats without relying on traditional integration methods.
-Direct Parsing of PDF and XPS Files: Developed capabilities to directly handle structured PDF and XPS files, which simplified data extraction for well-defined formats.
-Innovative OCR Solutions: For unstructured files, introduced an intermediate format capturing each character and its spatial coordinates. This facilitated more accurate layout analysis and data extraction, addressing the limitations of traditional OCR methods.
-Technological Advancements: Transitioned from traditional OCR algorithms to advanced techniques using CNN (Convolutional Neural Networks) and LSTM (Long Short-Term Memory) networks. This leap in technology significantly improved accuracy and efficiency in data processing.
-Business and Technical Integration:
+- Direct Parsing of PDF and XPS Files: Developed capabilities to directly handle structured PDF and XPS files, which simplified data extraction for well-defined formats.
+- Innovative OCR Solutions: For unstructured files, introduced an intermediate format capturing each character and its spatial coordinates. This facilitated more accurate layout analysis and data extraction, addressing the limitations of traditional OCR methods.
+- Technological Advancements: Transitioned from traditional OCR algorithms to advanced techniques using CNN (Convolutional Neural Networks) and LSTM (Long Short-Term Memory) networks. This leap in technology significantly improved accuracy and efficiency in data processing.
+
+**Business and Technical Integration**:
 
 - Intermediate Format Development: Created a standardized intermediate format for character mapping and spatial coordinates, enhancing the precision of layout analysis and data extraction.
 - Cost and Time Efficiency: By leveraging RPA and advanced OCR technologies, we reduced integration timelines from months to weeks and lowered implementation costs, making the solution more commercially viable.
 - Enhanced User Experience: Improved the accessibility and presentation of medical reports via mobile apps and kiosks, resulting in a better user experience and higher adoption rates.
+  
 ##### Personal Contribution:
 As a leading contributor:
 
