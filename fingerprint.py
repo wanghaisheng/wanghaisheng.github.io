@@ -35,8 +35,7 @@ REPO_URLS = f"{USER_ROOT}/repos"
 EVENT_URLS = f"{USER_ROOT}/events"
 ISSUE_URLS = f"{API_ROOT}/search/issues"
 
-PATH_SUMMARY_OUTPUT="src/content/pages/changelog.mdx
-"
+PATH_SUMMARY_OUTPUT="content/changelog.md"
 class GitUserStatus:
     def __init__(self):
         self.user_obj = {}
@@ -217,7 +216,7 @@ class MarkdownTemplater:
         return ctx
 
 
-def cache_summary(summary):
+def cache_summary(summary,PATH_SUMMARY_OUTPUT):
     with open(PATH_SUMMARY_OUTPUT, "w", encoding="utf8") as file:
         file.write(summary)
 
@@ -285,7 +284,7 @@ def arrange_summary():
     # -- Write content --
     mt.to_unordered_list({"count": len(sequence)})
     mt.to_table(title=title, sequence=sequence)
-
+    # return mt.get_summary()
     # Output
     cache_summary(mt.get_summary())
 
