@@ -204,3 +204,7 @@ if __name__ == "__main__":
     source_folder=os.path.join(directory_path, theme_name, 'config')
     destination_folder='astroplate/astroplate-main/src/config'
     copy_json_files(source_folder,destination_folder)
+    print('process i18n config')
+    source_folder=os.path.join(directory_path, theme_name, 'i18n')
+    destination_folder='astroplate/astroplate-main/src/i18n'
+    copy_json_files(source_folder,destination_folder)
