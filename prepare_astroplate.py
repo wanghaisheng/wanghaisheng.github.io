@@ -74,13 +74,14 @@ def set_homepage(directory,theme_name,output_directory):
     json_path = os.path.join(directory, theme_name, json_file)
     json_data = load_json(json_path)
 
-    # Dump JSON data to YAML format
-    output_yaml = yaml.dump(json_data)
+    # Construct the output YAML file path
     combined_md_path = os.path.join(output_directory, '-index.md')
 
+    # Dump JSON data to YAML format
     with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
-        combined_file.write(output_yaml)
+        yaml.dump(json_data, combined_file)
 
+    print(f"YAML file created: {combined_md_path}")
 # Example usage:
 if __name__ == "__main__":
     theme_name='astroplate'
