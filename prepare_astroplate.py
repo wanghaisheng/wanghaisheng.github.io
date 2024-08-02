@@ -127,8 +127,8 @@ def set_homepage(directory,theme_name,output_directory):
 
     print(f"YAML file created: {combined_md_path}")
 # Example usage:
-if __name__ == "__main__":
-    theme_name='astroplate'
-    directory_path = 'content'  # Replace with your parent directory path
-    set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog/english')
-    set_homepage(directory_path,theme_name,'astroplate/astroplate-main/src/content/homepage/english')
+# if __name__ == "__main__":
+#     theme_name='astroplate'
+#     directory_path = 'content'  # Replace with your parent directory path
+#     set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog/english')
+#     set_homepage(directory_path,theme_name,'astroplate/astroplate-main/src/content/homepage/english')
