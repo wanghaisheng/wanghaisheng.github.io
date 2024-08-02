@@ -4,7 +4,7 @@ import io
 import os
 import json
 from fingerprint import arrange_summary,cache_summary
-from .prepare_astroplate import *
+from prepare_astroplate import *
 # URL of the ZIP file
 astroplateurl = "https://github.com/zeon-studio/astroplate/archive/refs/heads/main.zip"
 
