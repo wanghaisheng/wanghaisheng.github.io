@@ -15,8 +15,9 @@
       "children": [
         { "name": "作者", "url": "/authors" },
         { "name": "404 Page", "url": "/404" },
-        { "name": "Elements", "url": "/elements" },
-        { "name": "目录", "url": "/categories" }
+        { "name": "分类", "url": "/categories" },
+        { "name": "Elements", "url": "/elements" }
+
       ]
     }
   ],
