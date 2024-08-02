@@ -34,8 +34,14 @@ def combine_yaml_md(yaml_data, md_path, combined_path=None):
     yaml = ruamel.yaml.YAML()
     yaml.default_flow_style = False  # Ensure block style YAML
 
-    yaml_str = yaml.dump(yaml_data,None)
+    # Create an in-memory stream (StringIO) to dump YAML content
+    yaml_stream = ruamel.yaml.compat.StringIO()
 
+    # Dump YAML data to the in-memory stream
+    yaml.dump(yaml_data, yaml_stream)
+
+    # Get YAML string from the in-memory stream
+    yaml_str = yaml_stream.getvalue()
     # Remove the final '...' added by ruamel.yaml (if present)
     if yaml_str.endswith('...\n'):
         yaml_str = yaml_str[:-4]
