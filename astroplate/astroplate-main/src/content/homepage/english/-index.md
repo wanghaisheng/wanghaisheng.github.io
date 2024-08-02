@@ -49,7 +49,8 @@ features:
     size.
   - Built on cutting-edge technology to keep your projects up-to-date with the latest
     web standards.
-  enable: true
-  label: Make Friends with me
-  link: https://github.com/wanghaisheng
+  button:
+    enable: true
+    label: Make Friends with me
+    link: https://github.com/wanghaisheng
 ---
