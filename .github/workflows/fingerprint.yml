@@ -33,7 +33,7 @@ jobs:
         name: prepare fingerprint
         run: |
           sudo timedatectl set-timezone "Asia/Shanghai"
-          pip install requests && python main.py
+          python fingerprint.py
           echo "$(cat README.md)" >> $GITHUB_STEP_SUMMARY     
       -
         name: Push
