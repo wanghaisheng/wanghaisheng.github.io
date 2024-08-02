@@ -2,7 +2,7 @@
 title: How to Build an Application with Modern Technology
 meta_title: Title for SEO
 description: This is a meta description
-date: '2022-04-04T05:00:00Z'
+date: 2022-04-04 05:00:00
 image: /images/image-placeholder.png
 categories:
 - Application
