@@ -56,17 +56,37 @@ def set_fingerprint(directory,theme_name,output_directory):
         combined_file.write(full_md_content)
     
     print(f"Combined file created: {combined_md_path}")
-# Manually manage the event loop in Jupyter Notebook or other environments
+
 def copy_images(source_folder, destination_folder):
     # Create destination folder if it doesn't exist
-    os.makedirs(destination_folder, exist_ok=True)
+    if not os.path.exists(destination_folder):
+        os.makedirs(destination_folder)
+    else:
+        # If the destination folder exists, find a new name for it
+        base_folder, folder_name = os.path.split(destination_folder)
+        folder_number = 1
+        new_folder_name = f"{folder_name}_copy{folder_number}"
+        new_destination_folder = os.path.join(base_folder, new_folder_name)
+        
+        # Keep finding new names until an available one is found
+        while os.path.exists(new_destination_folder):
+            folder_number += 1
+            new_folder_name = f"{folder_name}_copy{folder_number}"
+            new_destination_folder = os.path.join(base_folder, new_folder_name)
+        
+        # Rename the existing destination folder
+        shutil.move(destination_folder, new_destination_folder)
+        print(f"Existing destination folder renamed to {new_destination_folder}")
+        
+        # Now create the new destination folder
+        os.makedirs(destination_folder)
     
     # List all files in the source folder
     files = os.listdir(source_folder)
     
     for file in files:
         # Check if the file is an image (you can adjust the condition as needed)
-        if file.endswith('.png') or file.endswith('.jpg') or file.endswith('.jpeg'):
+        if file.lower().endswith(('.png', '.jpg', '.jpeg')):
             # Construct paths
             source_path = os.path.join(source_folder, file)
             destination_path = os.path.join(destination_folder, file)
@@ -75,6 +95,51 @@ def copy_images(source_folder, destination_folder):
             shutil.copyfile(source_path, destination_path)
             print(f"Copied {file} to {destination_folder}")
 
+# Example usage:
+# copy_images('/path/to/source', '/path/to/destination')
+
+
+
+def copy_json_files(source_folder, destination_folder):
+    # Create destination folder if it doesn't exist
+    if not os.path.exists(destination_folder):
+        os.makedirs(destination_folder)
+    else:
+        # If the destination folder exists, find a new name for it
+        base_folder, folder_name = os.path.split(destination_folder)
+        folder_number = 1
+        new_folder_name = f"{folder_name}_copy{folder_number}"
+        new_destination_folder = os.path.join(base_folder, new_folder_name)
+        
+        # Keep finding new names until an available one is found
+        while os.path.exists(new_destination_folder):
+            folder_number += 1
+            new_folder_name = f"{folder_name}_copy{folder_number}"
+            new_destination_folder = os.path.join(base_folder, new_folder_name)
+        
+        # Rename the existing destination folder
+        shutil.move(destination_folder, new_destination_folder)
+        print(f"Existing destination folder renamed to {new_destination_folder}")
+        
+        # Now create the new destination folder
+        os.makedirs(destination_folder)
+    
+    # List all files in the source folder
+    files = os.listdir(source_folder)
+    
+    for file in files:
+        # Check if the file is a JSON file
+        if file.lower().endswith('.json'):
+            # Construct paths
+            source_path = os.path.join(source_folder, file)
+            destination_path = os.path.join(destination_folder, file)
+            
+            # Copy the file
+            shutil.copyfile(source_path, destination_path)
+            print(f"Copied {file} to {destination_folder}")
+
+# Example usage:
+# copy_json_files('/path/to/source', '/path/to/destination')
 def move_image(source_file, destination_folder):
     # Create destination folder if it doesn't exist
     if not os.path.exists(destination_folder):
@@ -131,3 +196,8 @@ if __name__ == "__main__":
     logo_output_path=os.path.join('astroplate/astroplate-main/public/images', 'logo.png')
     
     move_image(logopath,logo_output_path)
+
+    print('process astro config')
+    source_folder=os.path.join(directory_path, theme_name, 'config')
+    destination_folder='astroplate/astroplate-main/src/config'
+    copy_json_files(source_folder,destination_folder)

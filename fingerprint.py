@@ -239,13 +239,10 @@ def arrange_summary():
     gus = register_user_data()
     mt = MarkdownTemplater()
 
-    # SayHi
-    mt.sayhi()
-    mt.to_html_img(alt=GITHUB_ACTOR, src=gus.avatar_url)
 
     # == Statistics ==
-    mt.to_title("Statistics", level=2)
-    mt.to_content(f"> Automated deployment @ {str(datetime.now()).split('.')[0]} Asia/Shanghai")
+    mt.to_title("UpdateDate", level=2)
+    mt.to_content(f"> Automated update @ {str(datetime.now()).split('.')[0]} Asia/Shanghai")
 
     # === User Statistics ===
     mt.to_title("User", level=3)
@@ -255,7 +252,7 @@ def arrange_summary():
     mt.to_unordered_list(_user_statistics)
 
     # === Repositories Statistics ===
-    mt.to_title("Sources", level=3)
+    mt.to_title("Working on", level=3)
     # -- Arrange content --
     repo_obj = sorted(
         gus.repo_objs.items(), key=lambda kv: (kv[-1]["pushed_at"], kv[0]), reverse=True
@@ -289,6 +286,11 @@ def arrange_summary():
     # -- Write content --
     mt.to_unordered_list({"count": len(sequence)})
     mt.to_table(title=title, sequence=sequence)
+
+    # SayHi
+    mt.sayhi()
+    mt.to_html_img(alt=GITHUB_ACTOR, src=gus.avatar_url)
+
     # return mt.get_summary()
     # Output
     cache_summary(mt.get_summary(),PATH_SUMMARY_OUTPUT)
