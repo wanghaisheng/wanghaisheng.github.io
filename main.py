@@ -25,14 +25,24 @@ def get_theme(url):
     else:
         print(f"Failed to download ZIP file. Status code: {response.status_code}")
 def set_blog(directory,theme_name):
-    set_astroplate_blogs(directory,theme_name)
+    set_astroplate_blogs(directory+'/blogs',theme_name)
 
 def set_fingerprint(directory,theme_name,output_directory):
-    s=arrange_summary()
+    arrange_summary()
     md_path="content/changelog.md"
-    json_data="content/astroplate/changelog.json"
+    json_path="content/astroplate/changelog.json"
+    if os.path.exists(json_path):
+        print('finger print meta json is here')
+    else:
+        print('finger print meta json is not here')
+        return
+    if os.path.exists(md_path):
+        print('finger print md_path is here')
+    else:
+        print('finger print md_path is not here')
+        return
 
-    full_md_content = construct_full_md(md_path, json_data)
+    full_md_content = construct_full_md(md_path, json_path)
     
     # Write combined content to a new file
     combined_md_path = os.path.join(output_directory, f"changelog.mdx")

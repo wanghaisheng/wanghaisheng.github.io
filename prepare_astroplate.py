@@ -21,7 +21,8 @@ def construct_full_md(md_path, json_path):
 
     # Construct front matter
     front_matter =json_to_yaml(json_path)
-
+    if not front_matter:
+        print(f'frontmatter error:{front_matter}')
     # Combine front matter with original content
     full_content = f"{front_matter}\n{md_content}"
 
