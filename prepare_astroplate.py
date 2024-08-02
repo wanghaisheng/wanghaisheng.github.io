@@ -14,24 +14,13 @@ def load_json(file_path):
         print(f"Invalid JSON format in file: {file_path}")
         return None
 
-def construct_full_md(md_path, json_data):
+def construct_full_md(md_path, json_path):
     # Read original markdown content
     with open(md_path, 'r', encoding='utf-8') as md_file:
         md_content = md_file.read().strip()
 
     # Construct front matter
-    front_matter = f"""---
-title: "{json_data.get('title', '')}"
-meta_title: "{json_data.get('meta_title', '')}"
-description: "{json_data.get('description', '')}"
-date: "{json_data.get('date', '')}"
-image: "{json_data.get('image', '')}"
-categories: {json_data.get('categories', [])}
-author: "{json_data.get('author', '')}"
-tags: {json_data.get('tags', [])}
-draft: {json_data.get('draft', False)}
----
-"""
+    front_matter =json_to_yaml(json_path)
 
     # Combine front matter with original content
     full_content = f"{front_matter}\n{md_content}"
@@ -57,7 +46,7 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
             json_data = load_json(json_path)
             if json_data:
                 # Construct full markdown content
-                full_md_content = construct_full_md(md_path, json_data)
+                full_md_content = construct_full_md(md_path, json_path)
                 
                 # Write combined content to a new file
                 combined_md_path = os.path.join(output_directory, f"{md_file}")
@@ -66,6 +55,14 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
                 
                 print(f"Combined file created: {combined_md_path}")
 
+def json_to_yaml(json_path):
+    # Create a YAML object
+    yaml = ruamel.yaml.YAML()
+    json_data = load_json(json_path)
+
+
+    # Dump JSON data to YAML format
+    return yaml.dump(json_data)
 
 def set_homepage(directory,theme_name,output_directory):
     # Create a YAML object
