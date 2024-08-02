@@ -3,6 +3,8 @@ import json
 import re
 import ruamel.yaml
 import sys
+from ruamel.yaml.comments import CommentedMap
+from ruamel.yaml.scalarstring import PreservedScalarString
 def load_json(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -13,6 +15,38 @@ def load_json(file_path):
     except json.JSONDecodeError:
         print(f"Invalid JSON format in file: {file_path}")
         return None
+
+def load_json_to_yaml(json_path):
+    # Load JSON data from file
+    with open(json_path, 'r', encoding='utf-8') as json_file:
+        json_data = json.load(json_file)
+    
+    # Convert JSON to YAML format
+    yaml_data = CommentedMap(json_data)  # Convert JSON to a CommentedMap
+
+    return yaml_data
+
+def combine_yaml_md(yaml_data, md_path, combined_path=None):
+    # Load existing Markdown content
+    with open(md_path, 'r', encoding='utf-8') as md_file:
+        md_content = md_file.read()
+
+    # Convert YAML data to YAML string
+    yaml = ruamel.yaml.YAML()
+    yaml.default_flow_style = False  # Ensure block style YAML
+
+    yaml_str = yaml.dump(yaml_data)
+    yaml_str = yaml_str.replace('\n...', '')  # Remove the final '...' added by ruamel.yaml
+
+    # Combine YAML string and existing Markdown content
+    combined_content = f"{yaml_str}\n---\n\n{md_content}"
+    # # Write combined content to a new file
+    if combined_path:
+        with open(combined_path, 'w', encoding='utf-8') as combined_file:
+            combined_file.write(combined_content)
+    print(f"Combined YAML and Markdown file created: {combined_path}")
+
+    return combined_content
 
 def construct_full_md(md_path, json_path):
     # Read original markdown content
@@ -37,6 +71,7 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
     # Iterate through all .md files in the directory
     for md_file in os.listdir(directory):
         if md_file.endswith('.md'):
+            print(f'find a md under /blog:{md_file}')
             md_path = os.path.join(directory, md_file)
             
             # Construct corresponding JSON file path in subdirectory 'x'
@@ -45,16 +80,17 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
             
             # Load JSON data
             json_data = load_json(json_path)
+            print('load yml frontmatter')
             if json_data:
                 # Construct full markdown content
-                full_md_content = construct_full_md(md_path, json_path)
+                full_md_content = combine_yaml_md(md_path, json_path)
                 
                 # Write combined content to a new file
                 combined_md_path = os.path.join(output_directory, f"{md_file}")
                 with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
                     combined_file.write(full_md_content)
                 
-                print(f"Combined file created: {combined_md_path}")
+                print(f"Combined blog file created: {combined_md_path}")
 
 def json_to_yaml(json_path):
     # Create a YAML object

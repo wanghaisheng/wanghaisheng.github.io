@@ -29,8 +29,8 @@ def set_blog(directory,theme_name):
 
 def set_fingerprint(directory,theme_name,output_directory):
     arrange_summary()
-    md_path="content/changelog.md"
-    json_path="content/astroplate/changelog.json"
+    md_path=f"{directory}/changelog.md"
+    json_path=f"{directory}/{theme_name}/changelog.json"
     if os.path.exists(json_path):
         print('finger print meta json is here')
     else:
@@ -42,7 +42,7 @@ def set_fingerprint(directory,theme_name,output_directory):
         print('finger print md_path is not here')
         return
 
-    full_md_content = construct_full_md(md_path, json_path)
+    full_md_content = combine_yaml_md(md_path, json_path)
     
     # Write combined content to a new file
     combined_md_path = os.path.join(output_directory, f"changelog.mdx")
