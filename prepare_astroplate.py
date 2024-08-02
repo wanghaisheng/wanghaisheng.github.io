@@ -25,7 +25,7 @@ def load_json_to_yaml(json_path):
     yaml_data = CommentedMap(json_data)  # Convert JSON to a CommentedMap
 
     return yaml_data
-def combine_yaml_md(yaml_data, md_path, combined_path=None):
+def combine_yaml_md( md_path,json_path, combined_path=None):
     # Load existing Markdown content
     with open(md_path, 'r', encoding='utf-8') as md_file:
         md_content = md_file.read()
@@ -33,7 +33,7 @@ def combine_yaml_md(yaml_data, md_path, combined_path=None):
     # Convert YAML data to YAML string
     yaml = ruamel.yaml.YAML()
     yaml.default_flow_style = False  # Ensure block style YAML
-
+    yaml_data=load_json_to_yaml(json_path)
     # Create an in-memory stream (StringIO) to dump YAML content
     yaml_stream = ruamel.yaml.compat.StringIO()
 
