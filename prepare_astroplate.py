@@ -129,17 +129,18 @@ def add_lang_folder(directory,theme_name,output_directory):
     langpath=os.path.join(directory, theme_name, 'config/language.json')
 
     langlist=prepare_lang(langpath)    
-    for lang in langlist:
-
+    for lang_code in langlist:
         for dir in os.listdir(output_directory):
-            new_destination_folder=os.path.join(dir,lang) 
-            destination_folder=os.path.join(dir,'english') 
-
-            if not os.path.exists(new_destination_folder):
-                # Rename the existing destination folder
-                shutil.move(destination_folder, new_destination_folder)
-                print(f"cp english  folder  to {new_destination_folder}")
+            # Check if 'dir' is a directory and not a file
+            if os.path.isdir(os.path.join(output_directory, dir)):
+                new_destination_folder = os.path.join(output_directory, dir, lang_code)
+                destination_folder = os.path.join(output_directory, dir, 'english')
                 
+                # Check if the 'english' folder exists and the new destination folder does not
+                if os.path.exists(destination_folder) and not os.path.exists(new_destination_folder):
+                    # Rename the existing 'english' folder to the new language code folder
+                    shutil.move(destination_folder, new_destination_folder)
+                    print(f"Renamed 'english' folder to '{lang_code}' in {dir}")
 def json_to_yaml(json_path):
     # Create a YAML object
     yaml = ruamel.yaml.YAML()
