@@ -25,7 +25,7 @@ from typing import Union, Optional, List
 
 import requests
 
-GITHUB_ACTOR = os.getenv("GITHUB_ACTOR", "QIN2DIM")
+GITHUB_ACTOR = os.getenv("GITHUB_ACTOR", "wanghaisheng")
 
 PATH_SUMMARY_OUTPUT = "README.md"
 
@@ -77,22 +77,26 @@ class GitUserStatus:
         # 解析用户仓库对象
         for index, page in enumerate(range(1, self.pages + 1)):
             url = f"{REPO_URLS}?page={page}&&per_page={self.per_page}"
-            repos = requests.get(url).json()
-            for repo in repos:
-                # 仅统计原创项目
-                _docker = self.forked_repo_objs if repo["fork"] else self.repo_objs
-                _docker[repo["full_name"]] = {
-                    "stars": repo["stargazers_count"],
-                    "forks": repo["forks_count"],
-                    # "watches": repo["watchers_count"], # 失效
-                    "pushed_at": repo["pushed_at"],
-                }
-                # 获取仓库超链接映射
-                self.repo2hyperlink[repo["full_name"]] = repo["html_url"]
-                # 補充用戶統計信息
-                if patch_statistics and not repo["fork"]:
-                    self.total_stars_earned += repo["stargazers_count"]
-
+            try:
+                repos = requests.get(url).json()
+                print(f"page {index} data:{repos}")
+                for repo in repos:
+                    # 仅统计原创项目
+                    _docker = self.forked_repo_objs if repo["fork"] else self.repo_objs
+                    _docker[repo["full_name"]] = {
+                        "stars": repo["stargazers_count"],
+                        "forks": repo["forks_count"],
+                        # "watches": repo["watchers_count"], # 失效
+                        "pushed_at": repo["pushed_at"],
+                    }
+                    # 获取仓库超链接映射
+                    self.repo2hyperlink[repo["full_name"]] = repo["html_url"]
+                    # 補充用戶統計信息
+                    if patch_statistics and not repo["fork"]:
+                        self.total_stars_earned += repo["stargazers_count"]
+            except Exception as e:
+                print(f'error :{e}')
+                continue
     def get_contributed_repos(self):
         skip_repo = []
         content = []
