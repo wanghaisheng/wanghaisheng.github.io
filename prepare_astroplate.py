@@ -4,8 +4,8 @@ import re
 import ruamel.yaml
 import sys
 from ruamel.yaml.comments import CommentedMap
-from ruamel.yaml.scalarstring import PreservedScalarString
 from datetime import datetime
+import shutil
 
 def load_json(file_path):
     try:
@@ -125,7 +125,21 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
                         combined_file.write(full_md_content)
                     
                     print(f"Combined blog file created: {combined_md_path}")
+def add_lang_folder(directory,theme_name,output_directory):
+    langpath=os.path.join(directory, theme_name, 'config/language.json')
 
+    langlist=prepare_lang(langpath)    
+    for lang in langlist:
+
+        for dir in os.listdir(output_directory):
+            new_destination_folder=os.path.join(dir,lang) 
+            destination_folder=os.path.join(dir,'english') 
+
+            if not os.path.exists(new_destination_folder):
+                # Rename the existing destination folder
+                shutil.move(destination_folder, new_destination_folder)
+                print(f"cp english  folder  to {new_destination_folder}")
+                
 def json_to_yaml(json_path):
     # Create a YAML object
     yaml = ruamel.yaml.YAML()

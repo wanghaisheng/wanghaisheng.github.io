@@ -100,7 +100,7 @@ def copy_images(source_folder, destination_folder):
 
 
 
-def copy_json_files(source_folder, destination_folder):
+def copy_json_files_rename(source_folder, destination_folder):
     # Create destination folder if it doesn't exist
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
@@ -138,6 +138,29 @@ def copy_json_files(source_folder, destination_folder):
             shutil.copyfile(source_path, destination_path)
             print(f"Copied {file} to {destination_folder}")
 
+def copy_json_files(source_folder, destination_folder):
+    # Create destination folder if it doesn't exist
+    if os.path.exists(destination_folder):
+        # If the destination folder exists, remove it
+        shutil.rmtree(destination_folder)
+        print(f"Existing destination folder {destination_folder} removed")
+
+    # Create the new destination folder
+    os.makedirs(destination_folder)
+    
+    # List all files in the source folder
+    files = os.listdir(source_folder)
+    
+    for file in files:
+        # Check if the file is a JSON file
+        if file.lower().endswith('.json'):
+            # Construct paths
+            source_path = os.path.join(source_folder, file)
+            destination_path = os.path.join(destination_folder, file)
+            
+            # Copy the file
+            shutil.copyfile(source_path, destination_path)
+            print(f"Copied {file} to {destination_folder}")
 # Example usage:
 # copy_json_files('/path/to/source', '/path/to/destination')
 def move_image(source_file, destination_folder):
@@ -174,6 +197,7 @@ if __name__ == "__main__":
 
     theme_name='astroplate'
     directory_path = 'content'  # Replace with your parent directory path
+    add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
     set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog')
     homejson_path = os.path.join(directory_path, theme_name, 'homepage.json')
     homemd_path=os.path.join('astroplate/astroplate-main/src/content/homepage/english', '-index.md')
