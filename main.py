@@ -74,6 +74,7 @@ def copy_images(source_folder, destination_folder):
             # Copy the file
             shutil.copyfile(source_path, destination_path)
             print(f"Copied {file} to {destination_folder}")
+
 def move_image(source_file, destination_folder):
     # Create destination folder if it doesn't exist
     os.makedirs(destination_folder, exist_ok=True)
@@ -81,14 +82,23 @@ def move_image(source_file, destination_folder):
     # Construct destination path
     destination_path = os.path.join(destination_folder, os.path.basename(source_file))
     
+    if os.path.exists(destination_path):
+        # Handle the case where the destination file already exists
+        try:
+            os.remove(destination_path)  # Delete existing file
+            print(f"Deleted existing file: {destination_path}")
+        except OSError as e:
+            print(f"Error deleting file: {destination_path}")
+            print(e)
+    
     try:
-        # Attempt to move the file, overwriting if it already exists
+        # Attempt to move the file
         shutil.move(source_file, destination_path)
-        print(f"Moved {source_file} to {destination_folder}")
-    except FileExistsError:
-        # If a FileExistsError occurs, use os.replace to overwrite the existing file
-        os.replace(source_file, destination_path)
-        print(f"Overwrote {destination_path} with {source_file}")
+        print(f"Moved {source_file} to {destination_path}")
+    except FileNotFoundError:
+        print(f"Source file not found: {source_file}")
+    except Exception as e:
+        print(f"Error moving file: {e}")
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
