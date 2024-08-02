@@ -34,7 +34,7 @@ def combine_yaml_md(yaml_data, md_path, combined_path=None):
     yaml = ruamel.yaml.YAML()
     yaml.default_flow_style = False  # Ensure block style YAML
 
-    yaml_str = yaml.dump(yaml_data)
+    yaml_str = yaml.dump(yaml_data,None)
 
     # Remove the final '...' added by ruamel.yaml (if present)
     if yaml_str.endswith('...\n'):
