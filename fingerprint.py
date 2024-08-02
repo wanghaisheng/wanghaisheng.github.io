@@ -136,7 +136,8 @@ class GitUserStatus:
             # Strategy: Mission compete. IP address has been flagged.
             elif "limited" in message:
                 break
-
+            if not isinstance(data,dict):
+                break
             # Get statistics on contributed repository objects.
             repo2stars[repo_name] = data["stargazers_count"]
             updated_at = event["updated_at"]
