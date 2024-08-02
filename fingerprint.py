@@ -79,7 +79,7 @@ class GitUserStatus:
             url = f"{REPO_URLS}?page={page}&&per_page={self.per_page}"
             try:
                 repos = requests.get(url).json()
-                print(f"page {index} data:{repos}")
+                # print(f"page {index} data:{repos}")
                 for repo in repos:
                     # 仅统计原创项目
                     _docker = self.forked_repo_objs if repo["fork"] else self.repo_objs
