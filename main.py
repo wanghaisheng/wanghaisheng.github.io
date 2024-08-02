@@ -30,7 +30,10 @@ def set_blog(directory,theme_name):
     set_astroplate_blogs(directory+'/blogs',theme_name)
 
 def set_fingerprint(directory,theme_name,output_directory):
+    print('start to gen finfer print md')
     arrange_summary()
+    print('start to combine finfer print md')
+
     md_path=f"{directory}/changelog.md"
     json_path=f"{directory}/{theme_name}/changelog.json"
     if os.path.exists(json_path):
@@ -45,7 +48,8 @@ def set_fingerprint(directory,theme_name,output_directory):
         return
 
     full_md_content = combine_yaml_md(md_path, json_path)
-    
+    print('start to save final finfer print md')
+
     # Write combined content to a new file
     combined_md_path = os.path.join(output_directory, f"changelog.mdx")
     with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
@@ -97,12 +101,14 @@ if __name__ == "__main__":
     
     set_json_to_md_page(ctajson_path,ctamd_path)
     
-    set_json_to_md_page(homejson_path,homemd_path)
     testimonialjson_path = os.path.join(directory_path, theme_name, 'testimonial.json')
     testimonial_md_path=os.path.join('astroplate/astroplate-main/src/content/sections/english', 'testimonial.md')
     
     set_json_to_md_page(testimonialjson_path,testimonial_md_path)
+    print('process fingerprint')
+
     set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')
+    print('process logo')
     logopath=os.path.join(directory_path,'images', 'logo.png')
     
     logo_output_path=os.path.join('astroplate/astroplate-main/public/images', 'logo.png')
