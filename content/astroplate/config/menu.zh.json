@@ -13,8 +13,7 @@
       "url": "",
       "hasChildren": true,
       "children": [
-
-        { "name": "Tags", "url": "/tags" },
+        { "name": "作者", "url": "/authors" },
         { "name": "404 Page", "url": "/404" },
         { "name": "Elements", "url": "/elements" },
         { "name": "目录", "url": "/categories" }
