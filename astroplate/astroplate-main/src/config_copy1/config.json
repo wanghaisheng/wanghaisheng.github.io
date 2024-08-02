@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Journey to endless——wanghaisheng",
+    "title": "Astroplate",
     "base_url": "https://astroplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "150",
     "logo_height": "30",
-    "logo_text": "Heisen"
+    "logo_text": "Astroplate"
   },
 
   "settings": {
@@ -27,7 +27,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [wanghaisheng](https://zeon.studio)"
+    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
   },
 
   "navigation_button": {
