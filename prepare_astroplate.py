@@ -129,18 +129,22 @@ def add_lang_folder(directory,theme_name,output_directory):
     langpath=os.path.join(directory, theme_name, 'config/language.json')
 
     langlist=prepare_lang(langpath)    
-    for lang_code in langlist:
+    for language_code in langlist:
         for dir in os.listdir(output_directory):
-            # Check if 'dir' is a directory and not a file
-            if os.path.isdir(os.path.join(output_directory, dir)):
-                new_destination_folder = os.path.join(output_directory, dir, lang_code)
-                destination_folder = os.path.join(output_directory, dir, 'english')
+            dir_path = os.path.join(output_directory, dir)
+            if os.path.isdir(dir_path):  # Check if it's a directory
+                english_folder = os.path.join(dir_path, 'english')
+                new_destination_folder = os.path.join(dir_path, language_code)
                 
                 # Check if the 'english' folder exists and the new destination folder does not
-                if os.path.exists(destination_folder) and not os.path.exists(new_destination_folder):
-                    # Rename the existing 'english' folder to the new language code folder
-                    shutil.move(destination_folder, new_destination_folder)
-                    print(f"Renamed 'english' folder to '{lang_code}' in {dir}")
+                if os.path.exists(english_folder) and not os.path.exists(new_destination_folder):
+                    # Copy the 'english' folder to the new language code folder
+                    if os.path.isdir(english_folder):
+                        shutil.copytree(english_folder, new_destination_folder)
+                    else:
+                        shutil.copy2(english_folder, new_destination_folder)
+                    print(f"Copied 'english' folder to '{language_code}' in {dir}")
+
 def json_to_yaml(json_path):
     # Create a YAML object
     yaml = ruamel.yaml.YAML()
