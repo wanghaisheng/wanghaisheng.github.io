@@ -58,6 +58,6 @@ if __name__ == "__main__":
 
     theme_name='astroplate'
     directory_path = 'content'  # Replace with your parent directory path
-    set_astroplate_blogs(directory_path+'/blogs',theme_name,'astroplate/astroplate-main/src/content/blog/english')
+    set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog/english')
     set_homepage(directory_path,theme_name,'astroplate/astroplate-main/src/content/homepage/english')
     set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')

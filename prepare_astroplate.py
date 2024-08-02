@@ -77,12 +77,12 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
     if not os.path.exists(directory):
         print(f"Directory '{directory}' does not exist.")
         return
-    
+    blogdirectory=directory+'/blogs'
     # Iterate through all .md files in the directory
-    for md_file in os.listdir(directory):
+    for md_file in os.listdir(blogdirectory):
         if md_file.endswith('.md'):
             print(f'find a md under /blog:{md_file}')
-            md_path = os.path.join(directory, md_file)
+            md_path = os.path.join(blogdirectory, md_file)
             
             # Construct corresponding JSON file path in subdirectory 'x'
             json_file = re.sub(r'\.md$', '.json', md_file)
