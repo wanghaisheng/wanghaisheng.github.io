@@ -59,5 +59,18 @@ if __name__ == "__main__":
     theme_name='astroplate'
     directory_path = 'content'  # Replace with your parent directory path
     set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog/english')
-    set_homepage(directory_path,theme_name,'astroplate/astroplate-main/src/content/homepage/english')
+    homejson_path = os.path.join(directory_path, theme_name, 'homepage.json')
+    homemd_path=os.path.join('astroplate/astroplate-main/src/content/homepage/english', '-index.md')
+    
+    set_json_to_md_page(homejson_path,homemd_path)
+    ctajson_path = os.path.join(directory_path, theme_name, 'cta.json')
+    ctamd_path=os.path.join('astroplate/astroplate-main/src/content/sections/english', 'call-to-action.md')
+    
+    set_json_to_md_page(ctajson_path,ctamd_path)
+    
+    set_json_to_md_page(homejson_path,homemd_path)
+    testimonialjson_path = os.path.join(directory_path, theme_name, 'testimonial.json')
+    testimonial_md_path=os.path.join('astroplate/astroplate-main/src/content/sections/english', 'testimonial.md')
+    
+    set_json_to_md_page(testimonialjson_path,testimonial_md_path)
     set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')

@@ -111,11 +111,10 @@ def json_to_yaml(json_path):
     # Dump JSON data to YAML format
     return yaml.dump(json_data,sys.stdout)
 
-def set_homepage(directory,theme_name,output_directory):
+def set_json_to_md_page(json_path,combined_path):
     # Create a YAML object
     yaml = ruamel.yaml.YAML()
     json_file='homepage.json'
-    json_path = os.path.join(directory, theme_name, json_file)
 
     yaml.default_flow_style = False  # Ensure block style YAML
     yaml_data=load_json_to_yaml(json_path)
