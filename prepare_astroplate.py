@@ -116,16 +116,32 @@ def set_homepage(directory,theme_name,output_directory):
     yaml = ruamel.yaml.YAML()
     json_file='homepage.json'
     json_path = os.path.join(directory, theme_name, json_file)
-    json_data = load_json(json_path)
 
-    # Construct the output YAML file path
-    combined_md_path = os.path.join(output_directory, '-index.md')
+    yaml.default_flow_style = False  # Ensure block style YAML
+    yaml_data=load_json_to_yaml(json_path)
+    # Create an in-memory stream (StringIO) to dump YAML content
+    yaml_stream = ruamel.yaml.compat.StringIO()
 
-    # Dump JSON data to YAML format
-    with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
-        yaml.dump(json_data, combined_file)
+    # Dump YAML data to the in-memory stream
+    yaml.dump(yaml_data, yaml_stream)
 
-    print(f"YAML file created: {combined_md_path}")
+    # Get YAML string from the in-memory stream
+    yaml_str = yaml_stream.getvalue()
+    # Remove the final '...' added by ruamel.yaml (if present)
+    if yaml_str.endswith('...\n'):
+        yaml_str = yaml_str[:-4]
+
+    # Combine YAML string and existing Markdown content
+    combined_content = f"---\n{yaml_str.strip()}\n---"
+    combined_path = os.path.join(output_directory, '-index.md')
+
+    # Write combined content to a new file if combined_path is provided
+    if combined_path:
+        with open(combined_path, 'w', encoding='utf-8') as combined_file:
+            combined_file.write(combined_content)
+        print(f"Combined YAML and Markdown file created: {combined_path}")
+
+
 # Example usage:
 # if __name__ == "__main__":
 #     theme_name='astroplate'
