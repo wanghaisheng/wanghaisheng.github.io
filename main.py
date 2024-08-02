@@ -81,9 +81,14 @@ def move_image(source_file, destination_folder):
     # Construct destination path
     destination_path = os.path.join(destination_folder, os.path.basename(source_file))
     
-    # Move the file, overwriting if it already exists
-    shutil.move(source_file, destination_path)
-    print(f"Moved {source_file} to {destination_folder}")
+    try:
+        # Attempt to move the file, overwriting if it already exists
+        shutil.move(source_file, destination_path)
+        print(f"Moved {source_file} to {destination_folder}")
+    except FileExistsError:
+        # If a FileExistsError occurs, use os.replace to overwrite the existing file
+        os.replace(source_file, destination_path)
+        print(f"Overwrote {destination_path} with {source_file}")
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
