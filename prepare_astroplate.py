@@ -25,7 +25,6 @@ def load_json_to_yaml(json_path):
     yaml_data = CommentedMap(json_data)  # Convert JSON to a CommentedMap
 
     return yaml_data
-
 def combine_yaml_md(yaml_data, md_path, combined_path=None):
     # Load existing Markdown content
     with open(md_path, 'r', encoding='utf-8') as md_file:
@@ -36,17 +35,22 @@ def combine_yaml_md(yaml_data, md_path, combined_path=None):
     yaml.default_flow_style = False  # Ensure block style YAML
 
     yaml_str = yaml.dump(yaml_data)
-    yaml_str = yaml_str.replace('\n...', '')  # Remove the final '...' added by ruamel.yaml
+
+    # Remove the final '...' added by ruamel.yaml (if present)
+    if yaml_str.endswith('...\n'):
+        yaml_str = yaml_str[:-4]
 
     # Combine YAML string and existing Markdown content
-    combined_content = f"{yaml_str}\n---\n\n{md_content}"
-    # # Write combined content to a new file
+    combined_content = f"{yaml_str.strip()}\n---\n\n{md_content.strip()}\n"
+
+    # Write combined content to a new file if combined_path is provided
     if combined_path:
         with open(combined_path, 'w', encoding='utf-8') as combined_file:
             combined_file.write(combined_content)
-    print(f"Combined YAML and Markdown file created: {combined_path}")
+        print(f"Combined YAML and Markdown file created: {combined_path}")
 
     return combined_content
+
 
 def construct_full_md(md_path, json_path):
     # Read original markdown content
