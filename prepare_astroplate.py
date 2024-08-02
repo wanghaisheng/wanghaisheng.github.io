@@ -47,7 +47,7 @@ def combine_yaml_md( md_path,json_path, combined_path=None):
         yaml_str = yaml_str[:-4]
 
     # Combine YAML string and existing Markdown content
-    combined_content = f"{yaml_str.strip()}\n---\n\n{md_content.strip()}\n"
+    combined_content = f"---\n{yaml_str.strip()}\n---\n\n{md_content.strip()}\n"
 
     # Write combined content to a new file if combined_path is provided
     if combined_path:
