@@ -5,6 +5,8 @@ import ruamel.yaml
 import sys
 from ruamel.yaml.comments import CommentedMap
 from ruamel.yaml.scalarstring import PreservedScalarString
+from datetime import datetime
+
 def load_json(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -20,7 +22,11 @@ def load_json_to_yaml(json_path):
     # Load JSON data from file
     with open(json_path, 'r', encoding='utf-8') as json_file:
         json_data = json.load(json_file)
-    
+
+    # Convert JSON date string to datetime object
+    if json_data.get('date'):
+        json_data['date'] = datetime.strptime(json_data['date'], '%Y-%m-%dT%H:%M:%SZ')
+
     # Convert JSON to YAML format
     yaml_data = CommentedMap(json_data)  # Convert JSON to a CommentedMap
 
@@ -89,9 +95,9 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
             json_path = os.path.join(directory, theme_name, json_file)
             
             # Load JSON data
-            json_data = load_json(json_path)
+            # json_data = load_json(json_path)
             print('load yml frontmatter')
-            if json_data:
+            if os.path.exists(json_path):
                 # Construct full markdown content
                 full_md_content = combine_yaml_md(md_path, json_path)
                 
