@@ -175,10 +175,15 @@ def set_json_to_md_page(json_path,combined_path):
 
     # Write combined content to a new file if combined_path is provided
     if combined_path:
-        with open(combined_path, 'w', encoding='utf-8') as combined_file:
-            combined_file.write(combined_content)
-        print(f"Combined YAML and Markdown file created: {combined_path}")
-
+        try:
+            # Open the file for writing. This will create the file if it does not exist,
+            # or truncate it (overwrite) if it does exist.
+            with open(combined_path, 'w', encoding='utf-8') as combined_file:
+                combined_file.write(combined_content)
+            print(f"File written/overwritten successfully at: {combined_path}")
+        except IOError as e:
+            # Handle exceptions that might occur during file operations
+            print(f"An error occurred while writing to the file: {e}")
 
 # Example usage:
 # if __name__ == "__main__":
