@@ -166,6 +166,7 @@ def move_image(source_file, destination_folder):
         print(f"Source file not found: {source_file}")
     except Exception as e:
         print(f"Error moving file: {e}")
+
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
@@ -173,7 +174,7 @@ if __name__ == "__main__":
 
     theme_name='astroplate'
     directory_path = 'content'  # Replace with your parent directory path
-    set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog/english')
+    set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog')
     homejson_path = os.path.join(directory_path, theme_name, 'homepage.json')
     homemd_path=os.path.join('astroplate/astroplate-main/src/content/homepage/english', '-index.md')
     

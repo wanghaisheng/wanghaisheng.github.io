@@ -77,13 +77,25 @@ def construct_full_md(md_path, json_path):
     full_content = f"{front_matter}\n{md_content}"
 
     return full_content
+def prepare_lang(path):
+    # Then iterate over the items as shown above
 
+    data=load_json(path)
+    llist=[]
+    for lang_option in data:
+        d=lang_option['contentDir']
+        print(f"Content Directory: {d}")
+        llist.append(d)
+    return llist
 def set_astroplate_blogs(directory,theme_name,output_directory):
     # Ensure directory exists
     if not os.path.exists(directory):
         print(f"Directory '{directory}' does not exist.")
         return
     blogdirectory=directory+'/blogs'
+    langpath=os.path.join(directory, theme_name, 'config/language.json')
+
+    langlist=prepare_lang(langpath)
     # Iterate through all .md files in the directory
     for md_file in os.listdir(blogdirectory):
         if md_file.endswith('.md'):
@@ -102,11 +114,17 @@ def set_astroplate_blogs(directory,theme_name,output_directory):
                 full_md_content = combine_yaml_md(md_path, json_path)
                 
                 # Write combined content to a new file
-                combined_md_path = os.path.join(output_directory, f"{md_file}")
-                with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
-                    combined_file.write(full_md_content)
-                
-                print(f"Combined blog file created: {combined_md_path}")
+                for lang in langlist:
+                    lang_output_directory=os.path.join(output_directory,lang)
+                    if not os.path.exists(lang_output_directory):
+
+                        os.makedirs(lang_output_directory)
+                    combined_md_path = os.path.join(output_directory,lang, f"{md_file}")
+  
+                    with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
+                        combined_file.write(full_md_content)
+                    
+                    print(f"Combined blog file created: {combined_md_path}")
 
 def json_to_yaml(json_path):
     # Create a YAML object
