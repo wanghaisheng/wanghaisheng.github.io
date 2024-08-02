@@ -2,7 +2,7 @@ import os
 import json
 import re
 import ruamel.yaml
-
+import sys
 def load_json(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -62,7 +62,7 @@ def json_to_yaml(json_path):
 
 
     # Dump JSON data to YAML format
-    return yaml.dump(json_data)
+    return yaml.dump(json_data,sys.stdout)
 
 def set_homepage(directory,theme_name,output_directory):
     # Create a YAML object
