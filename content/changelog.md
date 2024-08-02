@@ -1,6 +1,6 @@
 ## UpdateDate
 
-> Automated update @ 2024-08-02 18:00:39 Asia/Shanghai
+> Automated update @ 2024-08-02 18:12:59 Asia/Shanghai
 ### User
 
 - **Total_stars_earned**: 3512
@@ -13,7 +13,7 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-08-02T10:00:02Z|
+|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-08-02T10:11:15Z|
 |[wanghaisheng/domain-rank-history-chrome-extension](https://github.com/wanghaisheng/domain-rank-history-chrome-extension)|1|0|2024-08-02T09:16:38Z|
 |[wanghaisheng/arxiv-paper-daily-page-template](https://github.com/wanghaisheng/arxiv-paper-daily-page-template)|3|2|2024-08-02T03:50:38Z|
 |[wanghaisheng/ui-understanding-ai](https://github.com/wanghaisheng/ui-understanding-ai)|1|0|2024-08-02T03:38:03Z|
@@ -595,6 +595,7 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
+|[wanghaisheng/astro-website-template-deprecated](https://github.com/wanghaisheng/astro-website-template-deprecated)|0|0|2024-08-02T10:07:04Z|
 |[wanghaisheng/concept-ecomm](https://github.com/wanghaisheng/concept-ecomm)|0|0|2024-08-02T06:35:06Z|
 |[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-08-02T00:11:59Z|
 |[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|0|0|2024-08-02T00:08:57Z|
@@ -602,7 +603,6 @@
 |[wanghaisheng/domain-digger](https://github.com/wanghaisheng/domain-digger)|0|0|2024-08-01T19:15:30Z|
 |[wanghaisheng/yt-dlp-wrap-ffmpeg-wasm](https://github.com/wanghaisheng/yt-dlp-wrap-ffmpeg-wasm)|2|0|2024-08-01T18:48:50Z|
 |[wanghaisheng/tranco-python-package](https://github.com/wanghaisheng/tranco-python-package)|1|0|2024-08-01T18:11:55Z|
-|[wanghaisheng/astro-website-template-deprecated](https://github.com/wanghaisheng/astro-website-template-deprecated)|0|0|2024-08-01T15:22:24Z|
 |[wanghaisheng/serp-crawler](https://github.com/wanghaisheng/serp-crawler)|0|0|2024-08-01T10:10:13Z|
 |[wanghaisheng/genshin-builds](https://github.com/wanghaisheng/genshin-builds)|0|0|2024-07-31T07:16:40Z|
 |[wanghaisheng/agent-zero-account-register-tesst](https://github.com/wanghaisheng/agent-zero-account-register-tesst)|0|0|2024-07-30T22:54:24Z|
