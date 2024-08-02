@@ -77,7 +77,9 @@ def copy_images(source_folder, destination_folder):
 
 def move_image(source_file, destination_folder):
     # Create destination folder if it doesn't exist
-    os.makedirs(destination_folder, exist_ok=True)
+    if not os.path.exists(destination_folder):
+
+        os.makedirs(destination_folder)
     
     # Construct destination path
     destination_path = os.path.join(destination_folder, os.path.basename(source_file))
