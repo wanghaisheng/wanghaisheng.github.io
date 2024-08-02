@@ -5,6 +5,8 @@ import os
 import json
 from fingerprint import arrange_summary,cache_summary
 from prepare_astroplate import *
+import shutil
+
 # URL of the ZIP file
 astroplateurl = "https://github.com/zeon-studio/astroplate/archive/refs/heads/main.zip"
 
@@ -51,6 +53,33 @@ def set_fingerprint(directory,theme_name,output_directory):
     
     print(f"Combined file created: {combined_md_path}")
 # Manually manage the event loop in Jupyter Notebook or other environments
+def copy_images(source_folder, destination_folder):
+    # Create destination folder if it doesn't exist
+    os.makedirs(destination_folder, exist_ok=True)
+    
+    # List all files in the source folder
+    files = os.listdir(source_folder)
+    
+    for file in files:
+        # Check if the file is an image (you can adjust the condition as needed)
+        if file.endswith('.png') or file.endswith('.jpg') or file.endswith('.jpeg'):
+            # Construct paths
+            source_path = os.path.join(source_folder, file)
+            destination_path = os.path.join(destination_folder, file)
+            
+            # Copy the file
+            shutil.copyfile(source_path, destination_path)
+            print(f"Copied {file} to {destination_folder}")
+def move_image(source_file, destination_folder):
+    # Create destination folder if it doesn't exist
+    os.makedirs(destination_folder, exist_ok=True)
+    
+    # Construct destination path
+    destination_path = os.path.join(destination_folder, os.path.basename(source_file))
+    
+    # Move the file, overwriting if it already exists
+    shutil.move(source_file, destination_path)
+    print(f"Moved {source_file} to {destination_folder}")
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
@@ -74,3 +103,8 @@ if __name__ == "__main__":
     
     set_json_to_md_page(testimonialjson_path,testimonial_md_path)
     set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')
+    logopath=os.path.join(directory_path,'images', 'logo.png')
+    
+    logo_output_path=os.path.join('astroplate/astroplate-main/public/images', 'logo.png')
+    
+    move_image(logopath,logo_output_path)

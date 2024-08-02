@@ -132,7 +132,7 @@ def set_json_to_md_page(json_path,combined_path):
 
     # Combine YAML string and existing Markdown content
     combined_content = f"---\n{yaml_str.strip()}\n---"
-    combined_path = os.path.join(output_directory, '-index.md')
+    # combined_path = os.path.join(output_directory, '-index.md')
 
     # Write combined content to a new file if combined_path is provided
     if combined_path:
