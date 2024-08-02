@@ -188,8 +188,10 @@ if __name__ == "__main__":
     
     set_json_to_md_page(testimonialjson_path,testimonial_md_path)
     print('process fingerprint')
-
-    set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')
+    try:
+        set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')
+    except:
+        pass
     print('process logo')
     logopath=os.path.join(directory_path,'images', 'logo.png')
     
