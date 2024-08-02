@@ -286,7 +286,7 @@ def arrange_summary():
     mt.to_table(title=title, sequence=sequence)
     # return mt.get_summary()
     # Output
-    cache_summary(mt.get_summary())
+    cache_summary(mt.get_summary(),PATH_SUMMARY_OUTPUT)
 
 
 if __name__ == "__main__":
