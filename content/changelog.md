@@ -1,9 +1,9 @@
 ## UpdateDate
 
-> Automated update @ 2024-08-04 08:00:37 Asia/Shanghai
+> Automated update @ 2024-08-05 08:01:02 Asia/Shanghai
 ### User
 
-- **Total_stars_earned**: 3515
+- **Total_stars_earned**: 3516
 
 - **Projects**: 2997
 
@@ -13,7 +13,8 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-08-03T00:00:29Z|
+|[wanghaisheng/check-domain-registration-date](https://github.com/wanghaisheng/check-domain-registration-date)|1|0|2024-08-04T18:46:58Z|
+|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-08-04T00:00:38Z|
 |[wanghaisheng/domain-rank-history-chrome-extension](https://github.com/wanghaisheng/domain-rank-history-chrome-extension)|1|0|2024-08-02T21:30:40Z|
 |[wanghaisheng/arxiv-paper-daily-page-template](https://github.com/wanghaisheng/arxiv-paper-daily-page-template)|3|2|2024-08-02T03:50:38Z|
 |[wanghaisheng/ui-understanding-ai](https://github.com/wanghaisheng/ui-understanding-ai)|1|0|2024-08-02T03:38:03Z|
@@ -36,7 +37,7 @@
 |[wanghaisheng/how-agent-understand-page](https://github.com/wanghaisheng/how-agent-understand-page)|0|0|2024-07-29T07:32:39Z|
 |[wanghaisheng/dog-love-toy](https://github.com/wanghaisheng/dog-love-toy)|0|0|2024-07-29T03:09:32Z|
 |[wanghaisheng/detect-amazon-seller-brands](https://github.com/wanghaisheng/detect-amazon-seller-brands)|0|0|2024-07-29T02:40:17Z|
-|[wanghaisheng/tiktoka-studio-uploader](https://github.com/wanghaisheng/tiktoka-studio-uploader)|266|54|2024-07-28T18:35:39Z|
+|[wanghaisheng/tiktoka-studio-uploader](https://github.com/wanghaisheng/tiktoka-studio-uploader)|267|54|2024-07-28T18:35:39Z|
 |[wanghaisheng/offloadogboner-backend](https://github.com/wanghaisheng/offloadogboner-backend)|0|0|2024-07-26T16:06:33Z|
 |[wanghaisheng/CareShare-Next-saas](https://github.com/wanghaisheng/CareShare-Next-saas)|0|0|2024-07-26T16:01:50Z|
 |[wanghaisheng/amazon-seller-data](https://github.com/wanghaisheng/amazon-seller-data)|0|0|2024-07-26T15:03:03Z|
@@ -59,7 +60,6 @@
 |[wanghaisheng/supplements-tell](https://github.com/wanghaisheng/supplements-tell)|1|0|2024-07-24T11:46:11Z|
 |[wanghaisheng/wanghaisheng](https://github.com/wanghaisheng/wanghaisheng)|1|0|2024-07-24T10:23:10Z|
 |[wanghaisheng/amazon-store-to-asin](https://github.com/wanghaisheng/amazon-store-to-asin)|0|0|2024-07-21T13:41:45Z|
-|[wanghaisheng/check-domain-registration-date](https://github.com/wanghaisheng/check-domain-registration-date)|1|0|2024-07-20T13:30:57Z|
 |[wanghaisheng/github-action-google-search](https://github.com/wanghaisheng/github-action-google-search)|0|0|2024-07-20T13:27:52Z|
 |[wanghaisheng/sci-behind-chinese-culture](https://github.com/wanghaisheng/sci-behind-chinese-culture)|0|0|2024-07-19T16:00:09Z|
 |[wanghaisheng/brand-trust-lp2](https://github.com/wanghaisheng/brand-trust-lp2)|0|0|2024-07-19T14:48:30Z|
@@ -595,10 +595,11 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|0|0|2024-08-03T18:03:33Z|
-|[wanghaisheng/astro-website-template-deprecated](https://github.com/wanghaisheng/astro-website-template-deprecated)|0|0|2024-08-03T10:06:45Z|
+|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|0|0|2024-08-04T18:03:40Z|
+|[wanghaisheng/astro-website-template-deprecated](https://github.com/wanghaisheng/astro-website-template-deprecated)|0|0|2024-08-04T10:06:53Z|
+|[wanghaisheng/type-test-app](https://github.com/wanghaisheng/type-test-app)|0|0|2024-08-04T00:19:11Z|
+|[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-08-04T00:13:37Z|
 |[wanghaisheng/can-i-use-npm-in-cocos-creator](https://github.com/wanghaisheng/can-i-use-npm-in-cocos-creator)|0|0|2024-08-03T08:30:04Z|
-|[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-08-03T00:12:10Z|
 |[wanghaisheng/concept-ecomm](https://github.com/wanghaisheng/concept-ecomm)|0|0|2024-08-02T06:35:06Z|
 |[wanghaisheng/screenshot-to-code](https://github.com/wanghaisheng/screenshot-to-code)|1|0|2024-08-01T20:48:41Z|
 |[wanghaisheng/domain-digger](https://github.com/wanghaisheng/domain-digger)|0|0|2024-08-01T19:15:30Z|
@@ -615,7 +616,6 @@
 |[wanghaisheng/TestCanvas](https://github.com/wanghaisheng/TestCanvas)|0|0|2024-07-28T22:56:35Z|
 |[wanghaisheng/Image-Text-Extractor](https://github.com/wanghaisheng/Image-Text-Extractor)|0|0|2024-07-28T14:17:27Z|
 |[wanghaisheng/MKFramework-demo](https://github.com/wanghaisheng/MKFramework-demo)|0|0|2024-07-28T14:13:35Z|
-|[wanghaisheng/type-test-app](https://github.com/wanghaisheng/type-test-app)|0|0|2024-07-28T00:19:46Z|
 |[wanghaisheng/apple-store](https://github.com/wanghaisheng/apple-store)|1|0|2024-07-27T17:57:02Z|
 |[wanghaisheng/tarsier](https://github.com/wanghaisheng/tarsier)|0|0|2024-07-27T00:08:13Z|
 |[wanghaisheng/DailyHotApi](https://github.com/wanghaisheng/DailyHotApi)|0|0|2024-07-26T10:30:24Z|
@@ -3023,8 +3023,8 @@
 | **name** | **stars** | **updated_at** | **stick** |
 | :---- | :---- | :---- | :---- |
 |[beamandrew/medical-data](https://github.com/beamandrew/medical-data/pull/1)|5776|2016-10-18T16:04:05Z|[pull/1](https://github.com/beamandrew/medical-data/pull/1)|
-|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1293|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
-|[YuanxunLu/LiveSpeechPortraits](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|1177|2022-03-04T06:14:39Z|[pull/47](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|
+|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1294|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
+|[YuanxunLu/LiveSpeechPortraits](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|1178|2022-03-04T06:14:39Z|[pull/47](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|
 |[MLNLP-World/AI-Paper-Collector](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|1112|2022-04-26T00:07:16Z|[pull/8](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|
 |[sumory/lor](https://github.com/sumory/lor/pull/6)|1015|2016-03-13T07:43:46Z|[pull/6](https://github.com/sumory/lor/pull/6)|
 |[Yelp/service-principles](https://github.com/Yelp/service-principles/pull/1)|425|2015-04-13T21:09:55Z|[pull/1](https://github.com/Yelp/service-principles/pull/1)|
