@@ -197,10 +197,7 @@ if __name__ == "__main__":
 
     theme_name='astroplate'
     directory_path = 'content'  # Replace with your parent directory path
-    print('process lang folder')
 
-    add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
-    print('process blog')
 
     set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog')
     print('process homepage')
@@ -238,3 +235,7 @@ if __name__ == "__main__":
     source_folder=os.path.join(directory_path, theme_name, 'i18n')
     destination_folder='astroplate/astroplate-main/src/i18n'
     copy_json_files(source_folder,destination_folder)
+    print('process lang folder')
+
+    add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
+    print('process blog')
