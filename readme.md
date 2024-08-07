@@ -1,5 +1,7 @@
 use different theme when deploy
 
+https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/main
+
 
 3. landingpage:
 
@@ -26,3 +28,5 @@ use different theme when deploy
 * https://github.com/shipshapecode/starpod
 8. research paper lp
 * https://github.com/RomanHauksson/academic-project-astro-template
+9 . b2b
+*   https://github.com/Dillonpw/small-bis
