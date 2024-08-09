@@ -4,6 +4,8 @@ https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/ma
 
 
 3. landingpage:
+
+* https://github.com/javayhu/haitang 5star
 * https://github.com/mearashadowfax/OpenStove 5star
 *  https://github.com/wanghaisheng/astro-launchpad-landingpage  5star
 * https://github.com/ixartz/SaaS-Boilerplate 5star
