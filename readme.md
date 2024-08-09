@@ -22,6 +22,8 @@ https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/ma
 4. store
 * https://github.com/mearashadowfax/ScrewFast 5star
 * https://github.com/MichalRsa/freelance-sample-page  4star
+* https://github.com/pjborowiecki/MARIUSZ-E-Commerce-Jewelery-Store 5starr
+* 
 5. app
 * https://github.com/mrcss-dev/app-showcase 3star
 
