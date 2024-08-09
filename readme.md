@@ -5,6 +5,9 @@ https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/ma
 
 3. landingpage:
 
+* https://github.com/pjborowiecki/SAASY-LAND-Next-14-Starters-With-Authentication-And-Database-Implemented
+
+* https://github.com/auto-deploy-landingpage-inspirations/Payload.3.0.Starter
 * https://github.com/javayhu/haitang 5star
 * https://github.com/mearashadowfax/OpenStove 5star
 *  https://github.com/wanghaisheng/astro-launchpad-landingpage  5star
