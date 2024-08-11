@@ -1,4 +1,4 @@
-name: cron update readme md
+name: cron update my github fingerprint md
 
 on:
   push:
