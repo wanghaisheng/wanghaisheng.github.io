@@ -293,6 +293,7 @@ def arrange_summary():
 
     # return mt.get_summary()
     # Output
+    print('save changelog md')
     cache_summary(mt.get_summary(),PATH_SUMMARY_OUTPUT)
 
 
