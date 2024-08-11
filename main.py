@@ -52,7 +52,11 @@ def set_fingerprint(directory,theme_name,output_directory):
 
     # Write combined content to a new file
     combined_md_path = os.path.join(output_directory, f"changelog.mdx
+    
+    # 检查文件是否存在
     if os.path.exists(combined_md_path):
+        print(f"The file {combined_md_path} already exists and will be overwritten.")
+        # 如果需要，可以在这里添加询问用户是否覆盖的逻辑
     
     with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
         combined_file.write(full_md_content)
