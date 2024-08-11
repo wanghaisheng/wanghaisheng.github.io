@@ -34,7 +34,11 @@ jobs:
         run: |
           sudo timedatectl set-timezone "Asia/Shanghai"
           python fingerprint.py
-          echo "$(cat README.md)" >> $GITHUB_STEP_SUMMARY     
+      -
+        name: prepare blogs markdown
+        run: |
+          pip install requests && python main.py
+          echo "$(cat README.md)" >> $GITHUB_STEP_SUMMARY          
       -
         name: Push
         run: |
