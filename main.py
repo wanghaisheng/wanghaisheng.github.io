@@ -51,7 +51,9 @@ def set_fingerprint(directory,theme_name,output_directory):
     print('start to save final finfer print md')
 
     # Write combined content to a new file
-    combined_md_path = os.path.join(output_directory, f"changelog.mdx")
+    combined_md_path = os.path.join(output_directory, f"changelog.mdx
+    if os.path.exists(combined_md_path):
+    
     with open(combined_md_path, 'w', encoding='utf-8') as combined_file:
         combined_file.write(full_md_content)
     
@@ -223,7 +225,7 @@ if __name__ == "__main__":
     print('process logo')
     logopath=os.path.join(directory_path,'images', 'logo.png')
     
-    logo_output_path=os.path.join('astroplate/astroplate-main/public/images', 'logo.png')
+    logo_output_path=os.path.join('astroplate/astroplate-main/public/', 'images')
     
     move_image(logopath,logo_output_path)
 
