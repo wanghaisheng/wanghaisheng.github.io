@@ -1,7 +1,11 @@
 use different theme when deploy
+# build website from json
+
+json can manually prepared or just openai generated result 
 
 https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/main
 
+* https://github.com/mearashadowfax/ScrewFast 5star
 
 3. landingpage:
 
