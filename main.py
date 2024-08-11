@@ -51,7 +51,7 @@ def set_fingerprint(directory,theme_name,output_directory):
     print('start to save final finfer print md')
 
     # Write combined content to a new file
-    combined_md_path = os.path.join(output_directory, f"changelog.mdx
+    combined_md_path = os.path.join(output_directory, f"changelog.mdx")
     
     # 检查文件是否存在
     if os.path.exists(combined_md_path):
@@ -199,6 +199,16 @@ def move_image(source_file, destination_folder):
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
+    folder_path = 'astroplate/astroplate-main'
+
+    try:
+        if os.path.exists(folder_path):
+            shutil.rmtree(folder_path)
+            print(f"The folder {folder_path} has been removed.")
+        else:
+            print(f"The folder {folder_path} does not exist.")
+    except OSError as e:
+        print(f"Error: {e.strerror}. The folder {folder_path} could not be removed.")        
     get_theme(astroplateurl)
 
     theme_name='astroplate'
