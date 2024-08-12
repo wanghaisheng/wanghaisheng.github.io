@@ -236,66 +236,68 @@ def register_user_data():
 
 
 def arrange_summary():
-    gus = register_user_data()
-    mt = MarkdownTemplater()
-
-
-    # == Statistics ==
-    mt.to_title("UpdateDate", level=2)
-    mt.to_content(f"> Automated update @ {str(datetime.now()).split('.')[0]} Asia/Shanghai")
-
-    # === User Statistics ===
-    mt.to_title("User", level=3)
-    # -- Arrange content --
-    _user_statistics = {"Total_stars_earned": gus.total_stars_earned, "Projects": gus.public_repos}
-    # -- Write content --
-    mt.to_unordered_list(_user_statistics)
-
-    # === Repositories Statistics ===
-    mt.to_title("Working on", level=3)
-    # -- Arrange content --
-    repo_obj = sorted(
-        gus.repo_objs.items(), key=lambda kv: (kv[-1]["pushed_at"], kv[0]), reverse=True
-    )
-    title = ["name"] + list(repo_obj[0][-1].keys())
-    sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
-    # -- Write content --
-    mt.to_unordered_list({"count": len(sequence)})
-    mt.to_table(title=title, sequence=sequence)
-
-    # === Forked ===
-    mt.to_title("Forks", level=3)
-    # -- Arrange content --
-    repo_obj = sorted(
-        gus.forked_repo_objs.items(), key=lambda kv: (kv[-1]["pushed_at"], kv[0]), reverse=True
-    )
-    title = ["name"] + list(repo_obj[0][-1].keys())
-    sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
-    # -- Write content --
-    mt.to_unordered_list({"count": len(sequence)})
-    mt.to_table(title=title, sequence=sequence)
-
-    # === Contributed ===
-    mt.to_title("Contributed", level=3)
-    # -- Arrange content --
-    repo_obj = sorted(
-        gus.contributed_repo_objs.items(), key=lambda kv: (kv[-1]["stars"], kv[0]), reverse=True
-    )
-    title = ["name"] + list(repo_obj[0][-1].keys())
-    sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
-    # -- Write content --
-    mt.to_unordered_list({"count": len(sequence)})
-    mt.to_table(title=title, sequence=sequence)
-
-    # SayHi
-    mt.sayhi()
-    mt.to_html_img(alt=GITHUB_ACTOR, src=gus.avatar_url)
-
-    # return mt.get_summary()
-    # Output
-    print('save changelog md')
-    cache_summary(mt.get_summary(),PATH_SUMMARY_OUTPUT)
-
+    try:
+        gus = register_user_data()
+        mt = MarkdownTemplater()
+    
+    
+        # == Statistics ==
+        mt.to_title("UpdateDate", level=2)
+        mt.to_content(f"> Automated update @ {str(datetime.now()).split('.')[0]} Asia/Shanghai")
+    
+        # === User Statistics ===
+        mt.to_title("User", level=3)
+        # -- Arrange content --
+        _user_statistics = {"Total_stars_earned": gus.total_stars_earned, "Projects": gus.public_repos}
+        # -- Write content --
+        mt.to_unordered_list(_user_statistics)
+    
+        # === Repositories Statistics ===
+        mt.to_title("Working on", level=3)
+        # -- Arrange content --
+        repo_obj = sorted(
+            gus.repo_objs.items(), key=lambda kv: (kv[-1]["pushed_at"], kv[0]), reverse=True
+        )
+        title = ["name"] + list(repo_obj[0][-1].keys())
+        sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
+        # -- Write content --
+        mt.to_unordered_list({"count": len(sequence)})
+        mt.to_table(title=title, sequence=sequence)
+    
+        # === Forked ===
+        mt.to_title("Forks", level=3)
+        # -- Arrange content --
+        repo_obj = sorted(
+            gus.forked_repo_objs.items(), key=lambda kv: (kv[-1]["pushed_at"], kv[0]), reverse=True
+        )
+        title = ["name"] + list(repo_obj[0][-1].keys())
+        sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
+        # -- Write content --
+        mt.to_unordered_list({"count": len(sequence)})
+        mt.to_table(title=title, sequence=sequence)
+    
+        # === Contributed ===
+        mt.to_title("Contributed", level=3)
+        # -- Arrange content --
+        repo_obj = sorted(
+            gus.contributed_repo_objs.items(), key=lambda kv: (kv[-1]["stars"], kv[0]), reverse=True
+        )
+        title = ["name"] + list(repo_obj[0][-1].keys())
+        sequence = [[f"[{k}]({gus.repo2hyperlink[k]})"] + list(v.values()) for k, v in repo_obj]
+        # -- Write content --
+        mt.to_unordered_list({"count": len(sequence)})
+        mt.to_table(title=title, sequence=sequence)
+    
+        # SayHi
+        mt.sayhi()
+        mt.to_html_img(alt=GITHUB_ACTOR, src=gus.avatar_url)
+    
+        # return mt.get_summary()
+        # Output
+        print('save changelog md')
+        cache_summary(mt.get_summary(),PATH_SUMMARY_OUTPUT)
+    except Exception as e:
+        print(f'error occured when gen fingerprint.md:{e}')
 
 if __name__ == "__main__":
     arrange_summary()
