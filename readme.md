@@ -2,6 +2,10 @@ use different theme when deploy
 
 https://github.com/wanghaisheng/astro-cloudflare-pages
 
+https://github.com/Cyb3r-Jak3/actions-cloudflare-pages
+
+https://github.com/wanghaisheng/nextjs-stripe-cloudflare
+
 
 # build website from json
 
