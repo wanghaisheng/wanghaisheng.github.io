@@ -1,4 +1,8 @@
 use different theme when deploy
+
+https://github.com/wanghaisheng/astro-cloudflare-pages
+
+
 # build website from json
 
 json can manually prepared or just openai generated result 
