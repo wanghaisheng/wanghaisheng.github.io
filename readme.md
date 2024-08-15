@@ -1,5 +1,11 @@
 use different theme when deploy
 
+https://github.com/Frikadellios/astro-tw-4-bun/fork
+
+https://github.com/wanghaisheng/swish
+
+https://github.com/wanghaisheng/fullstack-astro-cloudflare
+
 https://github.com/wanghaisheng/astro-cloudflare-pages
 
 https://github.com/Cyb3r-Jak3/actions-cloudflare-pages
@@ -11,6 +17,16 @@ https://github.com/wanghaisheng/trpc-astro-cloudflare
 https://github.com/wanghaisheng/hono-rpc-openapi-cloudflare-drizzle-turbo
 
 https://github.com/wanghaisheng/nextjs-cloudflare-pages
+
+https://github.com/johnolos/norwaybears
+
+https://github.com/edmundhung/remix-cloudflare-template
+
+
+https://github.com/wanghaisheng/landing-page
+
+https://github.com/wanghaisheng/n4-pages
+
 
 # build website from json
 
