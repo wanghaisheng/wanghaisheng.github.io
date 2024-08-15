@@ -6,6 +6,11 @@ https://github.com/Cyb3r-Jak3/actions-cloudflare-pages
 
 https://github.com/wanghaisheng/nextjs-stripe-cloudflare
 
+https://github.com/wanghaisheng/trpc-astro-cloudflare
+
+https://github.com/wanghaisheng/hono-rpc-openapi-cloudflare-drizzle-turbo
+
+https://github.com/wanghaisheng/nextjs-cloudflare-pages
 
 # build website from json
 
