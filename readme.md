@@ -1,5 +1,11 @@
 use different theme when deploy
 
+# deploy to cloudflare page
+
+https://github.com/gmdotdev/cloudflare-quickstart/fork
+
+
+
 https://github.com/Frikadellios/astro-tw-4-bun/fork
 
 https://github.com/wanghaisheng/swish
