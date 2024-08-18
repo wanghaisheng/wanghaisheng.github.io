@@ -49,6 +49,9 @@ https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/ma
 
 3. landingpage:
 
+* https://github.com/auto-deploy-landingpage-inspirations/saas-nuxt-5s/tree/main 5star json
+* 
+
 * https://github.com/pjborowiecki/SAASY-LAND-Next-14-Starters-With-Authentication-And-Database-Implemented
 
 * https://github.com/auto-deploy-landingpage-inspirations/Payload.3.0.Starter
