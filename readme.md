@@ -49,6 +49,8 @@ https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/ma
 
 3. landingpage:
 
+*  https://github.com/unfolding-io/nebulix  5star
+*  
 * https://github.com/auto-deploy-landingpage-inspirations/saas-nuxt-5s/tree/main 5star json
 * 
 
