@@ -1,5 +1,9 @@
 use different theme when deploy
 
+comment
+
+https://github.com/trevortylerlee/astro-micro/blob/109189bcdd3644f6e87fccc123b3cd2afaa577b7/src/components/Giscus.astro#L2https://github.com/trevortylerlee/astro-micro/blob/109189bcdd3644f6e87fccc123b3cd2afaa577b7/src/components/Giscus.astro#L2
+
 # deploy to cloudflare page
 
 https://github.com/gmdotdev/cloudflare-quickstart/fork
