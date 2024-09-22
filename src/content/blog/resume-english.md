@@ -10,6 +10,8 @@ tags: ["resume"]
 draft: false
 ---
 
+# Wanghaisheng
+
 ## Personal Profile
 I am an AI domain expert with 12 years of experience in product management, specializing in technological applications and innovations within the healthcare industry. My expertise lies in leveraging AI technologies for product design and development, optimizing user experiences, and conducting in-depth product data analysis.
 
@@ -18,6 +20,12 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - **Email:** edwin_uestc@163.com
 - **GitHub:** [wanghaisheng](https://github.com/wanghaisheng)
 
+## Education
+
+- **University:** University of Electronic Science and Technology of China
+- **Degree:** Master's in Biomedical Engineering
+- **Years:** 2005-2012
+  
 ## Professional Skills
 - **AI Technologies:** NLP, OCR, Computer Vision (Object Detection, Pose Recognition), Time Series Data Analysis, Machine Learning
 - **Healthcare Domain:** Electronic Health Records, Medical Imaging, Medical Devices, Health Management, Healthcare Standards (HL7, FHIR, etc.)
@@ -94,8 +102,8 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - Participated in evaluation of electronic medical records and health record interconnection standards compliance by National Health Commission.
 
 **Achievements:**
-- Developed a set of microservices architecture regional medical data platform based on dubbo+FHIR.
-- Completed data standard writing, evaluation scheme, and tool development, promoting standard implementation.
+- Developed a set of FHIR based microservices architecture regional medical data platform based on dubbo+FHIR.
+- Completed HL7 V3CDA based data standard writing, evaluation scheme, and tool development, promoting standard implementation.
 
 ## Project Experience
 
@@ -156,15 +164,28 @@ I am an AI domain expert with 12 years of experience in product management, spec
 - Achieved intelligent recognition and structured extraction of medical records in various formats such as PDF, images, and mobile phone photos.
 - Designed and delivered prototype of commercial insurance fast claims intelligent terminal based on face recognition, replacing traditional manual windows.
 
-## Education
 
-- **University:** University of Electronic Science and Technology of China
-- **Degree:** Master's in Biomedical Engineering
-- **Years:** 2005-2012
+## Papers
+- Ke Li, Jin Xu, Jiang-Xiong Li, Guo-Sheng Huang, Ming Zhou, Cong-Cong Qiao, Hai-Sheng Wang. A Data Model of EHR Storage Based on HL7 RIM[J]. Journal of Electronic Science and Technology, 2012, 10(4): 334-341. DOI: 10.3969/j.issn.1674-862X.2012.04.009
+- 乔聪聪,黄国胜,李建雄,等.基于HL7CDA的异构医疗信息系统集成技术研究[J].中国数字医学, 2012, 7(2):3.DOI:10.3969/j.issn.1673-7571.2012.02.002.
 
+## Patents
+- Long Han, Li Aicheng, Wang Haisheng. A method for information processing. Application No.: 201711460305.0, Publication No.: CN108021711A, Main Classification No.: G06F17/30, Application Date: 2017.12.28, Publication Date: 2018.05.11.
+
+- Zhu Guangqiang, Long Han, Wang Haisheng. A method for information processing. Application No.: 201711463021.7, Publication No.: CN108228553A, Main Classification No.: G06F17/25, Application Date: 2017.12.28, Publication Date: 2018.06.29.
+
+- Qiu Heng, Long Han, Wang Haisheng. A method for information processing. Application No.: 201711463023.6, Publication No.: CN108197216A, Main Classification No.: G06F17/30, Application Date: 2017.12.28, Publication Date: 2018.06.22.
+
+- Zhu Guangqiang, Long Han, Wang Haisheng. A method for information processing. Application No.: 201711465258.9, Publication No.: CN108170651A, Main Classification No.: G06F17/22, Application Date: 2017.12.28, Publication Date: 2018.06.15.
+
+## press
+
+- [蜜蜂会2018年新年论坛](https://www.hit180.com/29823.html)
+- [我用青春换明天](https://mp.weixin.qq.com/s?__biz=MzA4NDAyNTU2NQ==&mid=2650272583&idx=1&sn=1baa44c1bfacbfc79e4909938abfb221&chksm=87eedaf5b09953e34692ccb5cf48ff286992e464d6cf078f48ec915f511561c2ed36beb09596&scene=21#wechat_redirect)
+- [OMAHA的2016 向着开放稳健前行](https://www.cn-healthcare.com/article/20170116/content-488874.html)
 ## Honors and Awards
-
-- Outstanding Contribution Award from Open Healthcare and Health Alliance
-- Initiator of the Chinese version of the FHIR standard
-- Certified expert in international HL7 V2.7, V3RIM, V3CDA standards
-- Maintains multiple open-source projects on GitHub, covering OCR microservices, automation, and new media monitoring operations.
+- MIFORUM 2018 New Year Forum Outstanding Performer.
+- Outstanding Contribution Award for Open Healthcare by OMAHA
+- Founder of the Chinese version of the FHIR standard
+- Certified expert in international HL7 V2.7, V3 RIM, V3 CDA standards
+- Maintains multiple open-source projects on GitHub, 3.5k stars,covering CDSS,OCR,microservices, automation, and new media monitoring operations.
