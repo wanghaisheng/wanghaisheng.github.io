@@ -1,6 +1,6 @@
 ## UpdateDate
 
-> Automated update @ 2024-12-03 08:00:54 Asia/Shanghai
+> Automated update @ 2024-12-04 08:02:19 Asia/Shanghai
 ### User
 
 - **Total_stars_earned**: 3641
@@ -13,6 +13,9 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
+|[wanghaisheng/make-it-happen-tools](https://github.com/wanghaisheng/make-it-happen-tools)|0|0|2024-12-03T02:25:00Z|
+|[wanghaisheng/wanghaisheng](https://github.com/wanghaisheng/wanghaisheng)|1|0|2024-12-03T00:33:46Z|
+|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-12-03T00:01:09Z|
 |[wanghaisheng/sihoo-chair-review](https://github.com/wanghaisheng/sihoo-chair-review)|0|0|2024-12-02T23:27:04Z|
 |[wanghaisheng/sleeping-pad](https://github.com/wanghaisheng/sleeping-pad)|0|0|2024-12-02T22:57:55Z|
 |[wanghaisheng/sleeping-mask](https://github.com/wanghaisheng/sleeping-mask)|0|0|2024-12-02T20:43:23Z|
@@ -20,8 +23,6 @@
 |[wanghaisheng/bolt.old](https://github.com/wanghaisheng/bolt.old)|0|0|2024-12-02T09:37:03Z|
 |[wanghaisheng/where-to-find-dataset](https://github.com/wanghaisheng/where-to-find-dataset)|0|0|2024-12-02T03:40:46Z|
 |[wanghaisheng/smart-ring-brand-website](https://github.com/wanghaisheng/smart-ring-brand-website)|0|0|2024-12-02T01:25:50Z|
-|[wanghaisheng/wanghaisheng](https://github.com/wanghaisheng/wanghaisheng)|1|0|2024-12-02T00:34:02Z|
-|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-12-02T00:00:36Z|
 |[wanghaisheng/game-app-starter](https://github.com/wanghaisheng/game-app-starter)|0|0|2024-12-01T11:19:52Z|
 |[wanghaisheng/lanrenjingling-auto](https://github.com/wanghaisheng/lanrenjingling-auto)|0|0|2024-11-30T23:25:18Z|
 |[wanghaisheng/qipet](https://github.com/wanghaisheng/qipet)|1|0|2024-11-30T13:16:59Z|
@@ -31,7 +32,6 @@
 |[wanghaisheng/harmony-ring-sleep-report-ui](https://github.com/wanghaisheng/harmony-ring-sleep-report-ui)|0|0|2024-11-25T14:03:44Z|
 |[wanghaisheng/qi-tracker](https://github.com/wanghaisheng/qi-tracker)|1|0|2024-11-25T13:47:16Z|
 |[wanghaisheng/aiby-clone](https://github.com/wanghaisheng/aiby-clone)|0|0|2024-11-25T00:20:57Z|
-|[wanghaisheng/make-it-happen-tools](https://github.com/wanghaisheng/make-it-happen-tools)|0|0|2024-11-24T05:27:41Z|
 |[wanghaisheng/make-dji-clone-with-ai](https://github.com/wanghaisheng/make-dji-clone-with-ai)|0|0|2024-11-23T13:50:28Z|
 |[wanghaisheng/harmony-ring](https://github.com/wanghaisheng/harmony-ring)|0|0|2024-11-23T01:34:59Z|
 |[wanghaisheng/play-astro](https://github.com/wanghaisheng/play-astro)|0|0|2024-11-23T01:10:10Z|
@@ -797,12 +797,13 @@
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|1|0|2024-12-02T18:05:06Z|
+|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|1|0|2024-12-03T18:05:03Z|
+|[wanghaisheng/vue-idle-game-mod](https://github.com/wanghaisheng/vue-idle-game-mod)|0|0|2024-12-03T12:23:23Z|
+|[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-12-03T00:16:14Z|
 |[wanghaisheng/take-down-copycat](https://github.com/wanghaisheng/take-down-copycat)|0|0|2024-12-02T10:12:53Z|
 |[wanghaisheng/3dvision-paper-code-daily](https://github.com/wanghaisheng/3dvision-paper-code-daily)|2|1|2024-12-02T03:44:46Z|
 |[wanghaisheng/cf-flux-remix](https://github.com/wanghaisheng/cf-flux-remix)|0|0|2024-12-02T01:40:30Z|
 |[wanghaisheng/edgetunnel](https://github.com/wanghaisheng/edgetunnel)|0|0|2024-12-02T00:57:35Z|
-|[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-12-02T00:15:12Z|
 |[wanghaisheng/duckduckgo-ai-chat-service](https://github.com/wanghaisheng/duckduckgo-ai-chat-service)|0|0|2024-12-02T00:12:32Z|
 |[wanghaisheng/ichingshifa](https://github.com/wanghaisheng/ichingshifa)|0|0|2024-12-02T00:01:31Z|
 |[wanghaisheng/aitools](https://github.com/wanghaisheng/aitools)|0|0|2024-12-01T23:41:00Z|
@@ -3406,7 +3407,6 @@
 |[wanghaisheng/frasier_episode_scripts](https://github.com/wanghaisheng/frasier_episode_scripts)|0|0|2021-02-15T07:59:54Z|
 |[wanghaisheng/DanbooRegion](https://github.com/wanghaisheng/DanbooRegion)|0|0|2021-02-11T08:08:40Z|
 |[wanghaisheng/Analysis-of-Genshin-Impact-Reviews](https://github.com/wanghaisheng/Analysis-of-Genshin-Impact-Reviews)|0|0|2021-02-08T13:51:58Z|
-|[wanghaisheng/vue-idle-game-mod](https://github.com/wanghaisheng/vue-idle-game-mod)|0|0|2021-02-05T20:38:35Z|
 |[wanghaisheng/Hack-the-North-2020---Chamath-Palihapitiya-Vinod-Khosla-Keynote](https://github.com/wanghaisheng/Hack-the-North-2020---Chamath-Palihapitiya-Vinod-Khosla-Keynote)|0|0|2021-01-26T06:26:34Z|
 |[wanghaisheng/coupons-tk](https://github.com/wanghaisheng/coupons-tk)|0|0|2021-01-22T12:39:46Z|
 |[wanghaisheng/earlyPredictionOfDisorder](https://github.com/wanghaisheng/earlyPredictionOfDisorder)|0|0|2021-01-21T07:42:31Z|
@@ -3858,8 +3858,8 @@
 
 | **name** | **stars** | **updated_at** | **stick** |
 | :---- | :---- | :---- | :---- |
-|[beamandrew/medical-data](https://github.com/beamandrew/medical-data/pull/1)|5840|2016-10-18T16:04:05Z|[pull/1](https://github.com/beamandrew/medical-data/pull/1)|
-|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1368|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
+|[beamandrew/medical-data](https://github.com/beamandrew/medical-data/pull/1)|5841|2016-10-18T16:04:05Z|[pull/1](https://github.com/beamandrew/medical-data/pull/1)|
+|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1369|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
 |[YuanxunLu/LiveSpeechPortraits](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|1216|2022-03-04T06:14:39Z|[pull/47](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|
 |[MLNLP-World/AI-Paper-Collector](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|1127|2022-04-26T00:07:16Z|[pull/8](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|
 |[sumory/lor](https://github.com/sumory/lor/pull/6)|1015|2016-03-13T07:43:46Z|[pull/6](https://github.com/sumory/lor/pull/6)|
