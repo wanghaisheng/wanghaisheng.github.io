@@ -255,7 +255,7 @@ if __name__ == "__main__":
     
     logo_output_path=os.path.join('astroplate/astroplate-main/public/', 'images')
     
-    copy_images(logopath,logo_output_path)
+    move_image(logopath,logo_output_path)
 
     print('process astro config')
     source_folder=os.path.join(directory_path, theme_name, 'config')
