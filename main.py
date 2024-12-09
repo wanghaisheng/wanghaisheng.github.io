@@ -177,7 +177,9 @@ def move_image(source_file, destination_folder):
     
     # Construct destination path
     destination_path = os.path.join(destination_folder, os.path.basename(source_file))
-    
+    print('move image source path',source_file)
+
+    print('move image target path',destination_path)
     if os.path.exists(destination_path):
         # Handle the case where the destination file already exists
         try:
@@ -252,7 +254,10 @@ if __name__ == "__main__":
         pass
     print('process logo')
     logopath=os.path.join(directory_path,'images', 'logo.png')
-    
+    print(f'logo path:{logopath}')
+    if os.path.exists(logopath):
+        print('logo is waiting to copy')
+        
     logo_output_path=os.path.join('astroplate/astroplate-main/public/', 'images')
     
     move_image(logopath,logo_output_path)
