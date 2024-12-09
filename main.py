@@ -12,7 +12,7 @@ astroplateurl = "https://github.com/zeon-studio/astroplate/archive/refs/heads/ma
 astroplateurl="https://github.com/zeon-studio/astroplate/archive/refs/heads/multilingual.zip"
 
 # Directory where you want to extract the contents
-extract_to_directory = "astroplate"
+extract_to_directory = "astroplate-multilingual"
 
 # Ensure the directory exists or create it if it doesn't
 os.makedirs(extract_to_directory, exist_ok=True)
@@ -216,7 +216,7 @@ def updatNode(file_name,content):
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
-    folder_path = 'astroplate/astroplate-main'
+    folder_path = 'astroplate/'+extract_to_directory
 
     try:
         if os.path.exists(folder_path):
@@ -232,25 +232,25 @@ if __name__ == "__main__":
     directory_path = 'content'  # Replace with your parent directory path
 
 
-    set_astroplate_blogs(directory_path,theme_name,'astroplate/astroplate-main/src/content/blog')
+    set_astroplate_blogs(directory_path,theme_name,folder_path+'/src/content/blog')
     print('process homepage')
 
     homejson_path = os.path.join(directory_path, theme_name, 'homepage.json')
-    homemd_path=os.path.join('astroplate/astroplate-main/src/content/homepage/english', '-index.md')
+    homemd_path=os.path.join(folder_path+'/src/content/homepage/english', '-index.md')
     
     set_json_to_md_page(homejson_path,homemd_path)
     ctajson_path = os.path.join(directory_path, theme_name, 'cta.json')
-    ctamd_path=os.path.join('astroplate/astroplate-main/src/content/sections/english', 'call-to-action.md')
+    ctamd_path=os.path.join(folder_path+'/src/content/sections/english', 'call-to-action.md')
     
     set_json_to_md_page(ctajson_path,ctamd_path)
     
     testimonialjson_path = os.path.join(directory_path, theme_name, 'testimonial.json')
-    testimonial_md_path=os.path.join('astroplate/astroplate-main/src/content/sections/english', 'testimonial.md')
+    testimonial_md_path=os.path.join(folder_path+'/src/content/sections/english', 'testimonial.md')
     
     set_json_to_md_page(testimonialjson_path,testimonial_md_path)
     print('process fingerprint')
     try:
-        set_fingerprint(directory_path,theme_name,'astroplate/astroplate-main/src/content/pages/english')
+        set_fingerprint(directory_path,theme_name,folder_path+'/src/content/pages/english')
     except:
         pass
     print('process logo')
@@ -259,23 +259,23 @@ if __name__ == "__main__":
     if os.path.exists(logopath):
         print('logo is waiting to copy')
         
-    logo_output_path=os.path.join('astroplate/astroplate-main/public/', 'images')
+    logo_output_path=os.path.join(folder_path+'/public/', 'images')
     
     move_image(logopath,logo_output_path)
 
     print('process astro config')
     source_folder=os.path.join(directory_path, theme_name, 'config')
-    destination_folder='astroplate/astroplate-main/src/config'
+    destination_folder=folder_path+'/src/config'
     copy_json_files(source_folder,destination_folder)
     print('process i18n config')
     source_folder=os.path.join(directory_path, theme_name, 'i18n')
-    destination_folder='astroplate/astroplate-main/src/i18n'
+    destination_folder=folder_path+'/src/i18n'
     copy_json_files(source_folder,destination_folder)
     print('process lang folder')
 
-    add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
+    add_lang_folder(directory_path,theme_name,folder_path+'/src/content')
     print('process blog')
-    node_output_path=os.path.join('astroplate/astroplate-main/', '.nvmrc')
+    node_output_path=os.path.join(folder_path+'/', '.nvmrc')
     updatNode(node_output_path,'v20')
     
     
