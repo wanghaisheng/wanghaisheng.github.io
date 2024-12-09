@@ -195,6 +195,20 @@ def move_image(source_file, destination_folder):
         print(f"Source file not found: {source_file}")
     except Exception as e:
         print(f"Error moving file: {e}")
+import os
+def updatNode(file_name,content):
+# Define the file name and content
+    file_name = '.nvmrc'
+    content = 'v20'
+
+# Check if the file exists
+    if not os.path.exists(file_name):
+        # Write the content to the file
+        with open(file_name, 'w') as file:
+            file.write(content)
+        print(f"{file_name} created with content: {content}")
+    else:
+        print(f"{file_name} already exists. No changes made.")
 
 if __name__ == "__main__":
     theme='astroplate'
@@ -255,3 +269,7 @@ if __name__ == "__main__":
 
     add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
     print('process blog')
+    node_output_path=os.path.join('astroplate/astroplate-main/', '.nvmrc')
+    updatNode(node_output_path)
+    
+    
