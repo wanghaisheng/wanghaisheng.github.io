@@ -198,8 +198,8 @@ def move_image(source_file, destination_folder):
 import os
 def updatNode(file_name,content):
 # Define the file name and content
-    file_name = '.nvmrc'
-    content = 'v20'
+    # file_name = '.nvmrc'
+    # content = 'v20'
 
 # Check if the file exists
     if not os.path.exists(file_name):
@@ -270,6 +270,6 @@ if __name__ == "__main__":
     add_lang_folder(directory_path,theme_name,'astroplate/astroplate-main/src/content')
     print('process blog')
     node_output_path=os.path.join('astroplate/astroplate-main/', '.nvmrc')
-    updatNode(node_output_path)
+    updatNode(node_output_path,'v20')
     
     
