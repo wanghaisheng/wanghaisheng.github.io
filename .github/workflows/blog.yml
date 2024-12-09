@@ -2,9 +2,7 @@ name: update blog when changes
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'blog/**'    
+    branches: [theme]
   workflow_dispatch:
 #   schedule:
 # #     - cron: "25 */4 * * *"
