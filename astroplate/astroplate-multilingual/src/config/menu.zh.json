@@ -1,0 +1,28 @@
+{
+  "main": [
+    { "name": "首页", "url": "/" },
+    { "name": "关于", "url": "/about" },
+    { "name": "时间线", "url": "/changelog" },
+    { "name": "博客", "url": "/blog" },
+
+    { "name": "标签", "url": "/tags" },
+    { "name": "联系我", "url": "/contact" },
+
+    {
+      "name": "资源",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        { "name": "作者", "url": "/authors" },
+        { "name": "404 Page", "url": "/404" },
+        { "name": "分类", "url": "/categories" },
+        { "name": "Elements", "url": "/elements" }
+
+      ]
+    }
+  ],
+  "footer": [
+    { "name": "Elements", "url": "/elements" },
+    { "name": "Privacy Policy", "url": "/privacy-policy" }
+  ]
+}
