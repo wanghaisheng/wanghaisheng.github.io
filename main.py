@@ -9,6 +9,7 @@ import shutil
 
 # URL of the ZIP file
 astroplateurl = "https://github.com/zeon-studio/astroplate/archive/refs/heads/main.zip"
+astroplateurl="https://github.com/zeon-studio/astroplate/archive/refs/heads/multilingual.zip"
 
 # Directory where you want to extract the contents
 extract_to_directory = "astroplate"
