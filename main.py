@@ -189,7 +189,7 @@ def move_image(source_file, destination_folder):
     
     try:
         # Attempt to move the file
-        shutil.move(source_file, destination_path)
+        shutil.copyfile(source_file, destination_path)
         print(f"Moved {source_file} to {destination_path}")
     except FileNotFoundError:
         print(f"Source file not found: {source_file}")
@@ -255,7 +255,7 @@ if __name__ == "__main__":
     
     logo_output_path=os.path.join('astroplate/astroplate-main/public/', 'images')
     
-    move_image(logopath,logo_output_path)
+    copy_images(logopath,logo_output_path)
 
     print('process astro config')
     source_folder=os.path.join(directory_path, theme_name, 'config')
