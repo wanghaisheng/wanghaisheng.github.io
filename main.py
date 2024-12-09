@@ -214,9 +214,9 @@ def updatNode(file_name,content):
         print(f"{file_name} already exists. No changes made.")
 
 if __name__ == "__main__":
-    theme='astroplate-multilingual'
+    theme='astroplate'
     prefix=None
-    folder_path = theme
+    folder_path = extract_to_directory
 
     try:
         if os.path.exists(folder_path):
