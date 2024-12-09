@@ -216,7 +216,7 @@ def updatNode(file_name,content):
 if __name__ == "__main__":
     theme='astroplate'
     prefix=None
-    folder_path = 'astroplate/'+extract_to_directory
+    folder_path = theme+'/'+extract_to_directory
 
     try:
         if os.path.exists(folder_path):
