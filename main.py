@@ -12,7 +12,7 @@ astroplateurl = "https://github.com/zeon-studio/astroplate/archive/refs/heads/ma
 astroplateurl="https://github.com/zeon-studio/astroplate/archive/refs/heads/multilingual.zip"
 
 # Directory where you want to extract the contents
-extract_to_directory = "astroplate-multilingual"
+extract_to_directory = "astroplate"
 
 # Ensure the directory exists or create it if it doesn't
 os.makedirs(extract_to_directory, exist_ok=True)
