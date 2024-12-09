@@ -214,7 +214,6 @@ def updatNode(file_name,content):
         print(f"{file_name} already exists. No changes made.")
 
 if __name__ == "__main__":
-    theme='astroplate'
     prefix=None
     folder_path = extract_to_directory
 
@@ -228,7 +227,7 @@ if __name__ == "__main__":
         print(f"Error: {e.strerror}. The folder {folder_path} could not be removed.")        
     get_theme(astroplateurl)
 
-    theme_name='astroplate'
+    theme_name=folder_path
     directory_path = 'content'  # Replace with your parent directory path
 
 
