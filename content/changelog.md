@@ -1,19 +1,26 @@
 ## UpdateDate
 
-> Automated update @ 2024-12-09 20:54:43 Asia/Shanghai
+> Automated update @ 2024-12-10 08:01:08 Asia/Shanghai
 ### User
 
 - **Total_stars_earned**: 3645
 
-- **Projects**: 3880
+- **Projects**: 3883
 
 ### Working on
 
-- **count**: 794
+- **count**: 796
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-12-09T12:53:37Z|
+|[wanghaisheng/emotion-charts](https://github.com/wanghaisheng/emotion-charts)|0|0|2024-12-09T23:05:41Z|
+|[wanghaisheng/sihoo-chair-review](https://github.com/wanghaisheng/sihoo-chair-review)|0|0|2024-12-09T22:42:25Z|
+|[wanghaisheng/sleeping-pad](https://github.com/wanghaisheng/sleeping-pad)|0|0|2024-12-09T21:16:39Z|
+|[wanghaisheng/sleeping-mask](https://github.com/wanghaisheng/sleeping-mask)|0|0|2024-12-09T20:44:28Z|
+|[wanghaisheng/play-online-sprunki](https://github.com/wanghaisheng/play-online-sprunki)|0|0|2024-12-09T20:23:36Z|
+|[wanghaisheng/sleeping-bag](https://github.com/wanghaisheng/sleeping-bag)|0|0|2024-12-09T17:34:26Z|
+|[wanghaisheng/next-emotion-charts](https://github.com/wanghaisheng/next-emotion-charts)|0|0|2024-12-09T16:17:46Z|
+|[wanghaisheng/wanghaisheng.github.io](https://github.com/wanghaisheng/wanghaisheng.github.io)|17|3|2024-12-09T12:54:43Z|
 |[wanghaisheng/where-to-find-dataset](https://github.com/wanghaisheng/where-to-find-dataset)|0|0|2024-12-09T03:41:10Z|
 |[wanghaisheng/smart-ring-brand-website](https://github.com/wanghaisheng/smart-ring-brand-website)|0|0|2024-12-09T01:20:02Z|
 |[wanghaisheng/wanghaisheng](https://github.com/wanghaisheng/wanghaisheng)|1|0|2024-12-09T00:34:27Z|
@@ -39,17 +46,12 @@
 |[wanghaisheng/search-and-details](https://github.com/wanghaisheng/search-and-details)|0|0|2024-12-05T03:58:35Z|
 |[wanghaisheng/apply-stock-analysis-to-keyword-metric](https://github.com/wanghaisheng/apply-stock-analysis-to-keyword-metric)|0|0|2024-12-04T18:44:06Z|
 |[wanghaisheng/stop-self-sabotaging-game](https://github.com/wanghaisheng/stop-self-sabotaging-game)|0|0|2024-12-04T14:56:18Z|
-|[wanghaisheng/sihoo-chair-review](https://github.com/wanghaisheng/sihoo-chair-review)|0|0|2024-12-02T23:27:04Z|
-|[wanghaisheng/sleeping-pad](https://github.com/wanghaisheng/sleeping-pad)|0|0|2024-12-02T22:57:55Z|
-|[wanghaisheng/sleeping-mask](https://github.com/wanghaisheng/sleeping-mask)|0|0|2024-12-02T20:43:23Z|
-|[wanghaisheng/sleeping-bag](https://github.com/wanghaisheng/sleeping-bag)|0|0|2024-12-02T18:28:57Z|
 |[wanghaisheng/bolt.old](https://github.com/wanghaisheng/bolt.old)|0|0|2024-12-02T09:37:03Z|
 |[wanghaisheng/game-app-starter](https://github.com/wanghaisheng/game-app-starter)|0|0|2024-12-01T11:19:52Z|
 |[wanghaisheng/lanrenjingling-auto](https://github.com/wanghaisheng/lanrenjingling-auto)|0|0|2024-11-30T23:25:18Z|
 |[wanghaisheng/qipet](https://github.com/wanghaisheng/qipet)|1|0|2024-11-30T13:16:59Z|
 |[wanghaisheng/free-background-removal](https://github.com/wanghaisheng/free-background-removal)|2|0|2024-11-26T05:01:49Z|
 |[wanghaisheng/maixue-simulator](https://github.com/wanghaisheng/maixue-simulator)|0|0|2024-11-26T00:52:14Z|
-|[wanghaisheng/play-online-sprunki](https://github.com/wanghaisheng/play-online-sprunki)|0|0|2024-11-25T20:49:11Z|
 |[wanghaisheng/harmony-ring-sleep-report-ui](https://github.com/wanghaisheng/harmony-ring-sleep-report-ui)|0|0|2024-11-25T14:03:44Z|
 |[wanghaisheng/qi-tracker](https://github.com/wanghaisheng/qi-tracker)|1|0|2024-11-25T13:47:16Z|
 |[wanghaisheng/aiby-clone](https://github.com/wanghaisheng/aiby-clone)|0|0|2024-11-25T00:20:57Z|
@@ -809,11 +811,11 @@
 |[wanghaisheng/FHIR.js](https://github.com/wanghaisheng/FHIR.js)|0|0|2012-09-20T02:31:10Z|
 ### Forks
 
-- **count**: 3086
+- **count**: 3087
 
 | **name** | **stars** | **forks** | **pushed_at** |
 | :---- | :---- | :---- | :---- |
-|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|1|0|2024-12-09T12:04:24Z|
+|[wanghaisheng/whs](https://github.com/wanghaisheng/whs)|1|0|2024-12-09T18:05:11Z|
 |[wanghaisheng/3dvision-paper-code-daily](https://github.com/wanghaisheng/3dvision-paper-code-daily)|2|1|2024-12-09T03:45:16Z|
 |[wanghaisheng/my-github-fingerprint](https://github.com/wanghaisheng/my-github-fingerprint)|0|0|2024-12-09T00:15:39Z|
 |[wanghaisheng/chat-game](https://github.com/wanghaisheng/chat-game)|0|0|2024-12-08T01:28:21Z|
@@ -1278,6 +1280,7 @@
 |[wanghaisheng/appforge](https://github.com/wanghaisheng/appforge)|0|0|2024-08-20T08:10:59Z|
 |[wanghaisheng/melodisco](https://github.com/wanghaisheng/melodisco)|0|0|2024-08-20T04:16:08Z|
 |[wanghaisheng/cf-redirect-worker](https://github.com/wanghaisheng/cf-redirect-worker)|0|0|2024-08-20T02:27:08Z|
+|[wanghaisheng/v0dev-template](https://github.com/wanghaisheng/v0dev-template)|0|0|2024-08-19T17:46:11Z|
 |[wanghaisheng/website](https://github.com/wanghaisheng/website)|0|0|2024-08-19T07:06:25Z|
 |[wanghaisheng/astr-ttk-app](https://github.com/wanghaisheng/astr-ttk-app)|0|0|2024-08-18T19:08:45Z|
 |[wanghaisheng/google-one-tap-cf](https://github.com/wanghaisheng/google-one-tap-cf)|0|0|2024-08-18T13:46:58Z|
@@ -3906,7 +3909,7 @@
 | **name** | **stars** | **updated_at** | **stick** |
 | :---- | :---- | :---- | :---- |
 |[beamandrew/medical-data](https://github.com/beamandrew/medical-data/pull/1)|5843|2016-10-18T16:04:05Z|[pull/1](https://github.com/beamandrew/medical-data/pull/1)|
-|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1371|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
+|[marcelotduarte/cx_Freeze](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|1373|2023-12-18T07:24:32Z|[pull/2169](https://github.com/marcelotduarte/cx_Freeze/pull/2169)|
 |[YuanxunLu/LiveSpeechPortraits](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|1218|2022-03-04T06:14:39Z|[pull/47](https://github.com/YuanxunLu/LiveSpeechPortraits/pull/47)|
 |[MLNLP-World/AI-Paper-Collector](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|1127|2022-04-26T00:07:16Z|[pull/8](https://github.com/MLNLP-World/AI-Paper-Collector/pull/8)|
 |[sumory/lor](https://github.com/sumory/lor/pull/6)|1015|2016-03-13T07:43:46Z|[pull/6](https://github.com/sumory/lor/pull/6)|
