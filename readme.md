@@ -1,3 +1,19 @@
+# it is all about me-Wang HaiSheng
+
+
+from chat message
+
+
+from github repo 
+
+
+from issue within github repo
+
+
+
+
+
+
 use different theme when deploy
 
 comment
