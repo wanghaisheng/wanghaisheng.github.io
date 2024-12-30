@@ -1,0 +1,37 @@
+name: Process and Merge Sitemaps
+
+on:
+  workflow_dispatch:
+    inputs:
+      sitemap_urls:
+        description: "Comma-separated list of sitemap URLs to process"
+        required: true
+
+jobs:
+  process-sitemaps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install Dependencies
+        run: npm install axios xml2js
+
+      - name: Process and Merge Sitemaps
+        env:
+          SITEMAP_URLS: ${{ inputs.sitemap_urls }}
+        run: node scripts/processSitemaps.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.name "GitHub Actions Bot"
+          git config --local user.email "actions@github.com"
+          git add target_sitemap.xml
+          git commit -m "Updated sitemap with new URLs" || echo "No changes to commit"
+          git push
