@@ -1,0 +1,36 @@
+name: Process and Merge subdomain Sitemaps
+
+on:
+  workflow_dispatch:
+    inputs:
+      sitemap_urls:
+        description: "Comma-separated list of sitemap URLs to process"
+        required: true
+
+jobs:
+  process-sitemaps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install Dependencies
+        run: pip install requests xml.etree.ElementTree
+
+      - name: Process and Merge Sitemaps
+        run: |
+          echo "${{ inputs.sitemap_urls }}" > sitemaps_input.txt
+          python scripts/process_sitemaps.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.name "GitHub Actions Bot"
+          git config --local user.email "actions@github.com"
+          git add target_sitemap.xml
+          git commit -m "Updated sitemap with new URLs" || echo "No changes to commit"
+          git push
