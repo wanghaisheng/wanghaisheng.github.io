@@ -44,6 +44,36 @@ click retry to redeploy after set key
 
 
 
+setup email 设置朋友们的邮箱可以访问，其他人免谈 
+
+
+![image](https://github.com/user-attachments/assets/e605dd14-2297-4b62-9471-59aacee26578)
+
+
+![image](https://github.com/user-attachments/assets/2c708d6e-8aca-4b9a-b816-aac8174b9f48)
+
+
+![image](https://github.com/user-attachments/assets/be386d96-1e29-4d28-b366-b06ebabab030)
+
+
+
+![image](https://github.com/user-attachments/assets/e87133a3-5fd7-4b93-a6e2-8b15d8d88cab)
+
+
+![image](https://github.com/user-attachments/assets/02c41da3-e5e0-4610-ad60-e76db5eb59c1)
+
+
+![image](https://github.com/user-attachments/assets/f899a43c-c5a1-4420-ad55-47dc7fe96c19)
+
+
+最终效果如下所示
+![image](https://github.com/user-attachments/assets/9e14cd4b-9040-4649-9e21-62839433c637)
+
+
+
+
+
+
 this is original one ,a little more steps
 
 
