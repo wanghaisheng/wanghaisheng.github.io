@@ -82,28 +82,25 @@ They are all completely **FREE**!
     
 9.  Click on the `.tool-version` filename to open it and delete the file.  
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/4/4c195432966e57172273c3fad920cd92877dcfb6_2_690x294.png)
-    
-    
-    
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/4/4c195432966e57172273c3fad920cd92877dcfb6_2_690x294.png)  
       
     **Notes:** this file causes issues with the deployment.
     
 10.  Commit the Changes back to your Fork:  
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/3/331561d1cc0618b3263041f2354a9f62a25abe8c_2_676x500.png)
+ ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/3/331561d1cc0618b3263041f2354a9f62a25abe8c_2_676x500.png)
     
     
     
 11.  Do the same for the `wrangler.toml`  
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/2/23243eeb0717d0ad638875e8a96f47042d2a2e49_2_690x298.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/2/23243eeb0717d0ad638875e8a96f47042d2a2e49_2_690x298.png)
     
     
     
       
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f550b300f544620175483a00512d20024d1992c9_2_477x500.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f550b300f544620175483a00512d20024d1992c9_2_477x500.png)
     
     
     
