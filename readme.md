@@ -1,115 +1,108 @@
-<h1 align=center>Astro + Tailwind CSS + TypeScript Starter and Boilerplate</h1>
+# it is all about me-Wang HaiSheng
 
-<p align=center>Astroplate is a free starter template built with Astro, TailwindCSS & TypeScript, providing everything you need to jumpstart your Astro project and save valuable time.</p>
 
-<p align=center>Made with ♥ by <a href="https://zeon.studio/">Zeon Studio</a></p>
+from chat message
 
-<p align=center> If you find this project useful, please give it a ⭐ to show your support. </p>
 
-<h2 align="center"> <a target="_blank" href="https://astroplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-astroplate-netlify-app/yzx3foum3w?form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+from github repo 
 
-<p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%402.0.11" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=2.0&color=000&logo=astro" />
-  </a>
 
-  <a href="https://github.com/zeon-studio/astroplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/astroplate" alt="license"></a>
+from issue within github repo
 
-  <img src="https://img.shields.io/github/languages/code-size/zeon-studio/astroplate" alt="code size">
 
-  <a href="https://github.com/zeon-studio/astroplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/astroplate" alt="contributors"></a>
-</p>
 
-## 📌 Key Features
 
-- 👥 Multi-Authors
-- 🎯 Similar Posts Suggestion
-- 🔍 Search Functionality
-- 🌑 Dark Mode
-- 🏷️ Tags & Categories
-- 🔗 Netlify setting pre-configured
-- 📞 Support contact form
-- 📱 Fully responsive
-- 📝 Write and update content in Markdown / MDX
-- 💬 Disqus Comment
-- 🔳 Syntax Highlighting
 
-### 📄 15+ Pre-designed Pages
 
-- 🏠 Homepage
-- 👤 About
-- 📞 Contact
-- 👥 Authors
-- 👤 Author Single
-- 📝 Blog
-- 📝 Blog Single
-- 🚫 Custom 404
-- 💡 Elements
-- 📄 Privacy Policy
-- 🏷️ Tags
-- 🏷️ Tag Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 🔍 Search
+use different theme when deploy
 
-## 🔗 Integrations
+comment
 
-- astro/react
-- astro/sitemap
-- astro/tailwind
+https://github.com/trevortylerlee/astro-micro/blob/109189bcdd3644f6e87fccc123b3cd2afaa577b7/src/components/Giscus.astro#L2https://github.com/trevortylerlee/astro-micro/blob/109189bcdd3644f6e87fccc123b3cd2afaa577b7/src/components/Giscus.astro#L2
 
-## 🚀 Getting Started
+# deploy to cloudflare page
 
-### 📦 Dependencies
+https://github.com/gmdotdev/cloudflare-quickstart/fork
 
-- astro 2.3+
-- node v18+
-- npm v9.5+
-- tailwind v3.3+
 
-### 👉 Install Dependencies
 
-```bash
-npm install
-```
+https://github.com/Frikadellios/astro-tw-4-bun/fork
 
-### 👉 Development Command
+https://github.com/wanghaisheng/swish
 
-```bash
-npm run dev
-```
+https://github.com/wanghaisheng/fullstack-astro-cloudflare
 
-### 👉 Build Command
+https://github.com/wanghaisheng/astro-cloudflare-pages
 
-```bash
-npm run build
-```
+https://github.com/Cyb3r-Jak3/actions-cloudflare-pages
 
-### 👉 Build and Run With Docker
+https://github.com/wanghaisheng/nextjs-stripe-cloudflare
 
-```bash
-docker build -t astroplate .
-docker run -p 3000:3000 astroplate
-```
+https://github.com/wanghaisheng/trpc-astro-cloudflare
 
-<!-- reporting issue -->
-## 🐞 Reporting Issues
+https://github.com/wanghaisheng/hono-rpc-openapi-cloudflare-drizzle-turbo
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/astroplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/astroplate/issues).
+https://github.com/wanghaisheng/nextjs-cloudflare-pages
 
-<!-- licence -->
-## 📝 License
+https://github.com/johnolos/norwaybears
 
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
+https://github.com/edmundhung/remix-cloudflare-template
 
-**Code License:** Released under the [MIT](https://github.comzeon-studio/astroplate/blob/main/LICENSE) license.
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+https://github.com/wanghaisheng/landing-page
 
-## 💻 Need Custom Development Services?
+https://github.com/wanghaisheng/n4-pages
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/).
+
+
+# html5 template
+
+https://html5up.net/
+
+# build website from json
+
+json can manually prepared or just openai generated result 
+
+https://github.com/auto-deploy-landingpage-inspirations/foxi-astro-theme/tree/main
+
+* https://github.com/mearashadowfax/ScrewFast 5star
+
+3. landingpage:
+
+*  https://github.com/unfolding-io/nebulix  5star
+*  
+* https://github.com/auto-deploy-landingpage-inspirations/saas-nuxt-5s/tree/main 5star json
+* 
+
+* https://github.com/pjborowiecki/SAASY-LAND-Next-14-Starters-With-Authentication-And-Database-Implemented
+
+* https://github.com/auto-deploy-landingpage-inspirations/Payload.3.0.Starter
+* https://github.com/javayhu/haitang 5star
+* https://github.com/mearashadowfax/OpenStove 5star
+*  https://github.com/wanghaisheng/astro-launchpad-landingpage  5star
+* https://github.com/ixartz/SaaS-Boilerplate 5star
+* https://github.com/onwidget/astrowind 5star
+* https://github.com/mearashadowfax/OpenStove  5star
+* https://github.com/themefisher/pinwheel-astro/?ref=astrobuild    5star
+* https://github.com/JimmyCamus/luna-landing  3star
+* https://github.com/manulthanura/Positivus 4star
+* https://github.com/codexcodethemes/cybernetic-free 5star
+* https://github.com/oxygenna-themes/foxi-astro-theme 5star
+4. store
+* https://github.com/mearashadowfax/ScrewFast 5star
+* https://github.com/MichalRsa/freelance-sample-page  4star
+* https://github.com/pjborowiecki/MARIUSZ-E-Commerce-Jewelery-Store 5starr
+* 
+5. app
+* https://github.com/mrcss-dev/app-showcase 3star
+
+6. resume
+* https://github.com/markhorn-dev/astro-sphere
+* https://github.com/SofiDevO/portfolio-sofidev-garrux
+* 
+7. podcast
+* https://github.com/shipshapecode/starpod
+8. research paper lp
+* https://github.com/RomanHauksson/academic-project-astro-template
+9 . b2b
+*   https://github.com/Dillonpw/small-bis
