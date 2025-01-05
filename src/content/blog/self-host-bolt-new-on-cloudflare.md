@@ -36,6 +36,10 @@ config like this  , remix  pnpm run build
 ![image](https://github.com/user-attachments/assets/a12f8a53-549d-489a-ad82-0d579e2fa697)
 
 
+click retry to redeploy after set key
+
+
+![image](https://github.com/user-attachments/assets/d98d1bef-fa32-4713-8981-3b4ca542e3ad)
 
 
 
