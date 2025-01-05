@@ -55,19 +55,15 @@ They are all completely **FREE**!
     
 3.  Click Fork
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/e/e0c3652624a7ab31afa4b93407350d6c84279fbf_2_690x181.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/e/e0c3652624a7ab31afa4b93407350d6c84279fbf_2_690x181.png)
     
-    image1912×504 66.4 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/e/e0c3652624a7ab31afa4b93407350d6c84279fbf.png "image")
     
 5.  In the “Create a new fork” dialog, click the “Create fork” button  
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/a/a13a487337428af3b4366641b01e4c3dcf168bd0_2_487x375.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/a/a13a487337428af3b4366641b01e4c3dcf168bd0_2_487x375.png)
     
-    image678×521 37.4 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/a/a13a487337428af3b4366641b01e4c3dcf168bd0.png "image")
     
       
     **Note:** Do not check "Copy the `main` branch only, so we have the ability to switch them later (update). And while you could just sync the `stable` branch, it’s probably best to pull all of them for the flexibility (for example if you need, or want, to change branches later).
@@ -77,49 +73,39 @@ They are all completely **FREE**!
     
 7.  Click “Code” and browse to “.tool-verions”  
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f9777251fb8d42efe759b298d1afda67a7dfa1e1_2_690x39.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f9777251fb8d42efe759b298d1afda67a7dfa1e1_2_690x39.png)
     
-    image1145×65 8.84 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/f/f9777251fb8d42efe759b298d1afda67a7dfa1e1.png "image")
     
 8.  Switch to the `stable` branch from the drop-down.  
     **Note:** in version 0.0.3 Bolt.diy was changed to have a `stable` branch because `main` is what PR’s are committed and resolve to.
     
 9.  Click on the `.tool-version` filename to open it and delete the file.  
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/4/4c195432966e57172273c3fad920cd92877dcfb6_2_690x294.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/4/4c195432966e57172273c3fad920cd92877dcfb6_2_690x294.png)
     
-    image1452×619 44 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/4/4c195432966e57172273c3fad920cd92877dcfb6.png "image")
     
       
     **Notes:** this file causes issues with the deployment.
     
 10.  Commit the Changes back to your Fork:  
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/3/331561d1cc0618b3263041f2354a9f62a25abe8c_2_676x500.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/3/331561d1cc0618b3263041f2354a9f62a25abe8c_2_676x500.png)
     
-    image1279×946 73.5 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/3/331561d1cc0618b3263041f2354a9f62a25abe8c.png "image")
     
 11.  Do the same for the `wrangler.toml`  
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/2/23243eeb0717d0ad638875e8a96f47042d2a2e49_2_690x298.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/2/23243eeb0717d0ad638875e8a96f47042d2a2e49_2_690x298.png)
     
-    image1391×602 53.7 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/2/23243eeb0717d0ad638875e8a96f47042d2a2e49.png "image")
     
       
     
-    [![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f550b300f544620175483a00512d20024d1992c9_2_477x500.png)
+    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/f/f550b300f544620175483a00512d20024d1992c9_2_477x500.png)
     
-    image735×770 34.6 KB
     
-    ](https://thinktank.ottomator.ai/uploads/db4962/original/2X/f/f550b300f544620175483a00512d20024d1992c9.png "image")
     
       
     **Note:** Because otherwise Cloudflare will detect it, use it to deploy, and then overwrite the environment variables when we move onto the Cloudflare setup. If you want to deploy without keys, that’s perfectly fine, just note that Bolt.diy does a periodic check whether or not they are set and without them it may not work (not sure if this was changed in the most recent merge). Alternatively, if you used git to clone the repo locally, you could just rename them (but that means more steps).
@@ -134,14 +120,14 @@ They are all completely **FREE**!
     
 3.  Click “Create”  
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/8/816438ce3fb27da2fe69211a5327d4360350df20_2_690x145.png)
+  ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/8/816438ce3fb27da2fe69211a5327d4360350df20_2_690x145.png)
     
     
     
 5.  Click on “Pages” tab and then “Connect to Git”  
     
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/0/0173cf5f6064f4aa01fbd3b84efb4dadcf6746f9_2_690x422.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/0/0173cf5f6064f4aa01fbd3b84efb4dadcf6746f9_2_690x422.png)
     
     
     
@@ -165,7 +151,7 @@ They are all completely **FREE**!
 9.  Click the “Setup and Deploy” button  
     
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/cd65053542da0659a978a212c067f333d66a19bf_2_310x500.jpeg)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/cd65053542da0659a978a212c067f333d66a19bf_2_310x500.jpeg)
     
     
     
@@ -175,7 +161,7 @@ They are all completely **FREE**!
 11.  Build failed (calm down, it’s fine! It’s fine!³)  
     
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/d/d844d86fc4501f5506a99ef094e9b9ed2ced6acb_2_390x500.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/d/d844d86fc4501f5506a99ef094e9b9ed2ced6acb_2_390x500.png)
     
     
     
@@ -185,11 +171,11 @@ They are all completely **FREE**!
     
 11.  Click “Continue to project” and agree to the Warning Prompt:
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/2/27bd4d394b2eceaa89b878e6aa2a41d23558ce07.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/2/27bd4d394b2eceaa89b878e6aa2a41d23558ce07.png)
     
 13.  Click Settings and scroll down to Runtime
     
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/c4ed7ce2381fe3d5c67a499245d964954b286c9e_2_690x369.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/c4ed7ce2381fe3d5c67a499245d964954b286c9e_2_690x369.png)
     
     
     
@@ -206,7 +192,7 @@ They are all completely **FREE**!
     
     
 11.  On “Branch control”, click the edit icon (pen) and change branch to `stable`  
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/4/400ba5134ab85ac0d08156a5dfd8e13b7dd38cd6.png)  
+![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/4/400ba5134ab85ac0d08156a5dfd8e13b7dd38cd6.png)  
     **Note:** When the article was first written, there was no stable branch, but now this is the recommended branch to use.
     
 12.  Click on the “Deployments” tab, then “View Details”:  
