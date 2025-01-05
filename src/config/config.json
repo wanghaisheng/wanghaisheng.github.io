@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "海生打怪中",
-    "base_url": "https://astroplate.netlify.app",
+    "base_url": "https://borninsea.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
