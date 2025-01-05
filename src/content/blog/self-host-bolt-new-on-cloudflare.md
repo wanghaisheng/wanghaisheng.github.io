@@ -175,16 +175,16 @@ They are all completely **FREE**!
 ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/c4ed7ce2381fe3d5c67a499245d964954b286c9e_2_690x369.png)
     
     
+a. For “Compatibility date”, click edit, select `2024-09-02`, and click “Save”  
+![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/6/6ee4b162eb6942b97bf499e77d6051f143e2bef5.png)  
+
+b. For “Compatability flags”, click edit, set to `nodejs_compat`, and click “Save”  
+**Note:** the option will not be in the drop-down list, you will need to type it in and select the “tag” for it.  
+![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/1/110331884727a91ad2aa0bcc231ee95a89903c55.png)  
+
+c. When you are done, it should look like this:  
     
-      
-    a. For “Compatibility date”, click edit, select `2024-09-02`, and click “Save”  
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/6/6ee4b162eb6942b97bf499e77d6051f143e2bef5.png)  
-    b. For “Compatability flags”, click edit, set to `nodejs_compat`, and click “Save”  
-    **Note:** the option will not be in the drop-down list, you will need to type it in and select the “tag” for it.  
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/original/2X/1/110331884727a91ad2aa0bcc231ee95a89903c55.png)  
-    c. When you are done, it should look like this:  
-    
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/cf4f7df0b757ff2c1f7d030feff2fbdc17846d73_2_345x123.png)
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/c/cf4f7df0b757ff2c1f7d030feff2fbdc17846d73_2_345x123.png)
     
     
     
@@ -193,13 +193,13 @@ They are all completely **FREE**!
     **Note:** When the article was first written, there was no stable branch, but now this is the recommended branch to use.
     
 12.  Click on the “Deployments” tab, then “View Details”:  
-    
-    ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/a/a865a97b646a62e2d5a161865ebef431236e3544_2_690x272.png)
-    
+![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/a/a865a97b646a62e2d5a161865ebef431236e3544_2_690x272.png)
     
     
-13.  Click “Retry deployment”  
     
+13.  Click “Retry deployment”
+
+
     ![image](https://thinktank.ottomator.ai/uploads/db4962/optimized/2X/7/785a3cad763a258a741c17a55fa737c734f8a04b_2_690x176.png)
     
     
