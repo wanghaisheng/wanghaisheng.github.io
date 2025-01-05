@@ -2,7 +2,15 @@
 title: "How to have a self bolt.new programming tool -all free tool,use cloudlfare,huggingface,github "
 meta_title: ""
 description: "learn how to setup cloudflare host self bot.new to utilize germini flash model"
+date: 2025-01-05T22:18:12Z
+image: "/images/image-placeholder.png"
+categories: ["工作"]
+author: "haisheng"
+tags: ["bolt.new","cursor",'winsurf',"germini flash"]
+draft: false
 ---
+
+
 
 
 currently i use google studio, but it need a lot copy and paste work to see code if working
