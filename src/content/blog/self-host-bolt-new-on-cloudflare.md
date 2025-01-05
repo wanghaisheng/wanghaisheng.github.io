@@ -20,16 +20,32 @@ https://aistudio.google.com/prompts/1SPaafTGDjLUn_zDuDuOviig9MaUcfr94
 
 
 
+delete this 
+
+![image](https://github.com/user-attachments/assets/28652b4c-f88e-4dc3-96c0-f94b9aa74258)
+
+
+config like this  , remix  pnpm run build
 
 ![image](https://github.com/user-attachments/assets/f71b5e86-2ded-42a0-9cca-5cd311ded5f3)
 
 
+ config variable for ai key
+ 
+
+![image](https://github.com/user-attachments/assets/a12f8a53-549d-489a-ad82-0d579e2fa697)
 
 
 
 
 
-> Last Updated: 4:44 PM 01/03/2025
+
+this is original one ,a little more steps
+
+
+https://thinktank.ottomator.ai/t/deploying-bolt-diy-with-cloudflare-pages-the-easy-way/2403
+
+
 
 **Let’s dive right in!**
 
